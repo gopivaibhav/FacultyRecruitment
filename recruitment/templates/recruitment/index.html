@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+{% load static %}
 <!--
 	Stellar by HTML5 UP
 	html5up.net | @ajlkn
@@ -8,9 +9,9 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" author="AgilePlaya" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="assets/css/main.css">
-		<link rel="icon" href="./images/Final Logo Web Extended thumb.png" >
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+		<link rel="icon" href="{% static 'images/final_logo.png'%}" >
+		<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css'%}"></noscript>
 		<title>Faculty Recruitment | IIIT Lucknow</title>
 	</head>
 	<body class="is-preload">
@@ -19,7 +20,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<span class="logo"><img src="./images/Final Logo Web Extended LQ.png" alt="" /></span>
+						<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
 						<h1>Indian Institute of Information Technology</h1>
 						<p>IIIT Lucknow, Chak Ganjaria, C. G. City, Lucknow – 226002<br />
 						Contact: <a href="mailto:contact@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">contact@iitl.ac.in</a> for more information.</p>
@@ -53,10 +54,10 @@
 											Roster as per Govenment of India is given in the pdf below:
 										</p>
 										<ul class="actions">
-											<li><a href="./assets/downloads/rollingadvertisementver2.pdf" target="##" class="button">Download Full PDF</a></li>
+											<li><a href="{%'assets/downloads/rollingadvertisementver2.pdf'%}" target="##" class="button">Download Full PDF</a></li>
 										</ul>
 									</div>
-									<a href="./images/blessedadvice.jpg" target="#"><span class="image"><img src="./images/blessedadvice.jpg" alt="" /></span></a>
+									<a href="./images/blessedadvice.jpg" target="#"><span class="image"><img src="{%static 'images/blessedadvice.jpg'%}" alt="" /></span></a>
 								</div>
 							</section>
 
@@ -293,13 +294,13 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrolly.min.js'%}"></script>
+			<script src="{% static 'assets/js/browser.min.js'%}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js'%}"></script>
+			<script src="{% static 'assets/js/util.js'%}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
 
 	</body>
 </html>
