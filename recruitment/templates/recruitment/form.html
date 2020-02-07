@@ -46,7 +46,7 @@
 							
 						<!--	Start of current form	-->
 						
-						<form method="POST" action="#">
+						<form method="POST" action="{% url 'submission_form' %}">
 
 							<h2></h2>
 
@@ -113,7 +113,6 @@
 								</div>
 								<div class="col-4 col-12-xsmall">
 									<select name="gender" id="gender" placeholder="Gender" required>
-										<option value="none" selected disabled>Gender</option>
 										<option value="male"> Male </option>
 										<option value="female"> Female </option>
 										<option value="others"> Others </option>
@@ -121,27 +120,27 @@
 								</div>
 								<div class="col-4 col-12-xsmall">
 									<select name="category" id="category" placeholder="Category" required>
-										<option value="general" selected> General </option>
-										<option value="sc"> SC </option>
-										<option value="st"> ST </option>
-										<option value="obccr"> OBC - Creamy Layer </option>
-										<option value="obc"> OBC - Non Creamy Layer </option>
-										<option value="genpwd"> General (Person with disabilities)</option>
-										<option value="scpwd"> SC (Person with disabilities)</option>
-										<option value="stpwd"> ST (Person with disabilities)</option>
-										<option value="obccrpwd"> OBC - Creamy Layer (Person with disabilities)</option>
-										<option value="obcpwd"> OBC - Non Creamy Layer (Person with disabilities)</option>
+										<option value="GEN" selected> General </option>
+										<option value="SC"> SC </option>
+										<option value="ST"> ST </option>
+										<option value="OBC-CL"> OBC - Creamy Layer </option>
+										<option value="OBC-NCL"> OBC - Non Creamy Layer </option>
+										<option value="GEN-PWD"> General (Person with disabilities)</option>
+										<option value="SC-PWD"> SC (Person with disabilities)</option>
+										<option value="ST-PWD"> ST (Person with disabilities)</option>
+										<option value="OBC-CL-PWD"> OBC - Creamy Layer (Person with disabilities)</option>
+										<option value="OBC-NCL-PWD"> OBC - Non Creamy Layer (Person with disabilities)</option>
 									</select>
 								</div>
 								<div class="col-4 col-12-xsmall">
 									<select name="reservecat" id="reservecat" placeholder="Reservation Category" required>
-										<option value="none" selected> None </option>
-										<option value="sc"> SC </option>
-										<option value="st"> ST </option>
-										<option value="obc"> OBC - Non Creamy Layer </option>
-										<option value="pwd"> Person with disabilities </option>
-										<option value="service"> Ex-servicemen </option>
-										<option value="econ"> Economically weaker section </option>
+										<option value="None" selected> None </option>
+										<option value="SC"> SC </option>
+										<option value="ST"> ST </option>
+										<option value="OBC"> OBC - Non Creamy Layer </option>
+										<option value="PWD"> Person with disabilities </option>
+										<option value="SERVICE"> Ex-servicemen </option>
+										<option value="GEN-ECO"> Economically weaker section </option>
 									</select>
 								</div>
 								<div class="col-6 col-12-small">
