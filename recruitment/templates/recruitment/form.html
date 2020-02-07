@@ -4,14 +4,15 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+{% load static %}
 <html>
 	<head>
 		<title>Faculty Recruitment Form | IIIT Lucknow</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" author="AgilePlaya" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" href="./images/Final Logo Web Extended thumb.png" >
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link rel="icon" href="{% static 'images/logo_final.png' %}" >
+		<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
 	</head>
 	<body class="is-preload">
 
@@ -20,7 +21,7 @@
 
 				<!-- Header -->
 				<header id="header">
-					<span class="logo"><img src="./images/Final Logo Web Extended LQ.png" alt="" /></span>
+					<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
 					<h1>Faculty Recruitment Form</h1>
 					<p>
 						Fill out the form here to apply for the faculty recruitment at <a href="https://iiitl.ac.in" target="###">IIIT Lucknow</a>.<br />
@@ -45,7 +46,8 @@
 
 						<!--	Start of Form	-->
 
-						<form method="POST" action="#">
+						<form method="POST" action="{% url 'submission_form' %}">
+							{% csrf_token %}
 
 							<!--	Personal Details	-->
 
@@ -270,13 +272,13 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="{% static 'assets/js/jquery.min.js'%}"></script>
+			<script src="{% static 'assets/js/jquery.scrollex.min.js'%}"></script>
+			<script src="{% static 'assets/js/jquery.scrolly.min.js'%}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
 
 	</body>
 </html>

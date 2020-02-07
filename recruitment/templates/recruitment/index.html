@@ -54,10 +54,10 @@
 											Roster as per Govenment of India is given in the pdf below:
 										</p>
 										<ul class="actions">
-											<li><a href="{%'assets/downloads/rollingadvertisementver2.pdf'%}" target="##" class="button">Download Full PDF</a></li>
+											<li><a href="{% static 'assets/downloads/rollingadvertisementver2.pdf'%}" target="##" class="button">Download Full PDF</a></li>
 										</ul>
 									</div>
-									<a href="./images/blessedadvice.jpg" target="#"><span class="image"><img src="{%static 'images/blessedadvice.jpg'%}" alt="" /></span></a>
+									<a href="{% static 'images/blessedadvice.jpg'%}" target="#"><span class="image"><img src="{%static 'images/blessedadvice.jpg'%}" alt="" /></span></a>
 								</div>
 							</section>
 
@@ -253,7 +253,7 @@
 								</header>
 								<footer class="major">
 									<ul class="actions special">
-										<li><a href="./form.html" class="button small primary">Register</a></li>
+										<li><a href="{% url 'submission_form' %}" class="button small primary">Register</a></li>
 									</ul>
 								</footer>
 							</section>
