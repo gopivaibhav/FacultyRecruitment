@@ -4,6 +4,78 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+$(document).ready(function(){
+    var next = 1;
+    $(".add-more").click(function(e){
+        e.preventDefault();
+        var addto = "#field" + next;
+        var addRemove = "#field" + (next);
+        next = next + 1;
+		/*var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="field' + next + '" type="text">';*/
+		var newIn = '<tr class="row gtr-0" id="field'+next+'"><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;">	<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="active"><button id="b'+next+'" class="btn add-more" style="padding: 0%;">+</button></td></tr>'
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></td><tr id="field'+(next-1)+'">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(next);
+		$('.remove-me').click(function(e){
+			e.preventDefault();
+			var fieldNum = this.id.charAt(this.id.length-1);
+			var fieldID = "#field" + fieldNum;
+			$(this).remove();
+			$(fieldID).remove();
+		});
+	});
+	var nextProfession = 1
+    $(".add-more2").click(function(e){
+        e.preventDefault();
+        var addto = "#profession" + nextProfession;
+        var addRemove = "#profession" + (nextProfession);
+        nextProfession = nextProfession + 1;
+		/*var newIn = '<input autocomplete="off" class="input form-control" id="field' + nextProfession + '" name="field' + nextProfession + '" type="text">';*/
+		var newIn = '<tr class="row gtr-0" id="profession'+nextProfession+'"><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;">	<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="active"><button id="bu'+nextProfession+'" class="btn add-more2" style="padding: 0%;">+</button></td></tr>'
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (nextProfession - 1) + '" class="btn btn-danger remove-me" >-</button></td><tr id="profession'+(nextProfession-1)+'">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#profession" + nextProfession).attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(nextProfession);
+		$('.remove-me').click(function(e){
+			e.preventDefault();
+			var fieldNum = this.id.charAt(this.id.length-1);
+			var fieldID = "#profession" + fieldNum;
+			$(this).remove();
+			$(fieldID).remove();
+		});
+    });
+	var nextTeach = 1
+    $(".add-more3").click(function(e){
+        e.preventDefault();
+        var addto = "#teach" + nextTeach;
+        var addRemove = "#teach" + (nextTeach);
+        nextTeach = nextTeach + 1;
+		/*var newIn = '<input autocomplete="off" class="input form-control" id="field' + nextTeach + '" name="field' + nextTeach + '" type="text">';*/
+		var newIn = '<tr class="row gtr-0" id="teach'+nextTeach+'"><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;">	<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required></td><td class="active"><button id="bu'+nextTeach+'" class="btn add-more2" style="padding: 0%;">+</button></td></tr>'
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (nextTeach - 1) + '" class="btn btn-danger remove-me" >-</button></td><tr id="teach'+(nextTeach-1)+'">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#teach" + nextTeach).attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(nextTeach);
+		$('.remove-me').click(function(e){
+			e.preventDefault();
+			var fieldNum = this.id.charAt(this.id.length-1);
+			var fieldID = "#teach" + fieldNum;
+			$(this).remove();
+			$(fieldID).remove();
+		});
+    });
+});
+
 (function($) {
 
 	var	$window = $(window),
