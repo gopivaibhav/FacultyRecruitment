@@ -53,11 +53,22 @@ class Academic_detail(models.Model):
     area_of_qualification = models.CharField(max_length=200),
     #category of university
     name_of_institute = models.CharField(max_length=200),
-    #status
+    status = models.CharField(max_length=200, 
+                            choices=[
+                                    ('Passed', 'Passed'),
+                                    ('Pursuing', 'Pursuing'),
+                                ],
+            )
     year_of_passing = models.IntegerField()
-    division = models.CharField(max_length=10)
+    division = models.CharField(max_length=10,
+                                choices=[
+                                       ('I','I'),
+                                       ('II', 'II'),
+                                       ('III', 'III'),
+                                    ],
+            )
     percentage = models.IntegerField()
-    #cgpa
+    cgpa = models.FloatField()
 
 class Profession_detail(models.Model):
     applicant = models.ForeignKey(Applicant, 
@@ -69,7 +80,33 @@ class Profession_detail(models.Model):
     from_year = models.IntegerField()
     to_year = models.IntegerField()
     role = models.CharField(max_length=250)
-    #pay_scale = models.IntegerField()
+    pay_scale = models.IntegerField()
     #Emoluments
-class Teaching_and_research(models.Model):
-    pass
+class Teaching_and_research_detail(models.Model):
+    applicant = models.ForeignKey(Applicant, 
+                                on_delete=models.CASCADE,
+                                related_name='teaching_and_research_detail',
+                )
+    course_title = models.CharField(max_length=200)
+    level = models.CharField(max_length=2,
+                            choices=[
+                                ('UG', 'Undergraduate'),
+                                ('PG', 'Postgraduate'),
+                                ],
+            )
+    sole_instructor = models.CharField(max_length=1,
+                                        choices=[
+                                            ('Y','Yes'),
+                                            ('N','No'),
+                                            ],
+            )
+    developer_of_course = models.CharField(max_length=1,
+                                            choices=[
+                                                ('Y','Yes'),
+                                                ('N','No'),
+                                                ],
+            )
+    role = models.CharField(max_length=200)
+    pay_scale = models.IntegerField()
+    #emoluments = models.
+   

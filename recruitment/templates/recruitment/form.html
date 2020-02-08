@@ -49,6 +49,7 @@
 						<form method="POST" action="{% url 'submission_form' %}">
 
 							<h2></h2>
+							{% csrf_token %}
 
 							<!--	Initial Data	-->
 							<div class="row gtr-uniform">	<!--	Advertisement Number	-->
