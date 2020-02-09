@@ -47,9 +47,8 @@
 						<!--	Start of current form	-->
 						
 						<form method="POST" action="{% url 'submission_form' %}">
-
-							<h2></h2>
 							{% csrf_token %}
+							<h2></h2>
 
 							<!--	Initial Data	-->
 							<div class="row gtr-uniform">	<!--	Advertisement Number	-->
@@ -104,7 +103,8 @@
 									<input type="text" name="lname" id="lname" value="" placeholder="Last Name" required>
 								</div>
 								<div class="col-4 col-12-xxsmall">
-									<input type="number" name="phnum" id="phnum" value="" placeholder="Phone Number" required>
+									<!--<input type="number" name="phnum" id="phnum" value="" placeholder="Phone Number" required>-->
+									<input type="text" name="phnum" pattern="[6-9]{1}[0-9]{9}" placeholder="Phone Number" required title="Phone number with 6-9 and remaing 9 digit with 0-9" required>
 								</div>
 								<div class="col-4 col-12-xxsmall">
 									<input type="email" name="email" id="email" value="" placeholder="Email Address" required>
@@ -114,6 +114,7 @@
 								</div>
 								<div class="col-4 col-12-xsmall">
 									<select name="gender" id="gender" placeholder="Gender" required>
+										<option value="none" selected disabled>Gender</option>
 										<option value="male"> Male </option>
 										<option value="female"> Female </option>
 										<option value="others"> Others </option>
@@ -192,6 +193,57 @@
 							-->
 
 							<h2>2. Academic Details</h2>
+
+							<!--	Test Versionn
+							<table class="alt">
+								<tbody>
+									<tr class="row gtr-0">
+										<th class="col-2 col-12-xsmall" style="text-align: center;">Exam Name / Degree</th>
+										<th class="col-1 col-12-xsmall" style="text-align: center;">Area of<br>Qualification</th>
+										<th class="col-1 col-12-xsmall" style="text-align: center;">Category of <br>University</th>
+										<th class="col-2 col-12-xsmall" style="text-align: center;">Name of University / <br>Institute</th>
+										<th class="col-1 col-12-xsmall" style="text-align: center;">Status</th>
+										<th class="col-1 col-12-xsmall" style="text-align: center;">Year of<br>Passing</th>
+										<th class="col-1 col-12-xsmall" style="text-align: center;">Division</th>
+										<th class="col-1 col-12-xsmall" style="text-align: center;">Percentage<br>of Marks</th>
+										<th class="col-1 col-12-xsmall" style="text-align: center;">CGPA</th>
+										<th class="col-1 col-12-xsmall" style="text-align: center;"></th>
+									</tr>
+								</tbody>
+							</table>
+							<div class="row gtr-0">
+								<div class="col-2 col-12-small">
+									<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+								</div>
+								<div class="col-1 col-12-small">
+									<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+									
+								</div>
+								<div class="col-1 col-12-small">
+									<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+								</div>
+								
+								<div class="col-2 col-12-small">
+									<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+								</div>
+								
+								<div class="col-1 col-12-small">
+									<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+								</div>
+								<div class="col-1 col-12-small">
+									<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+								</div>
+								<div class="col-1 col-12-small">
+									<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+								</div>
+								<div class="col-1 col-12-small">
+									<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+								</div>
+								<div class="col-1 col-12-small">
+									<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+								</div>
+							</div>		-->
+
 							<table class="alt">
 								<!--<thead>
 									<tr class="row gtr-100">
@@ -209,45 +261,42 @@
 								<tbody>
 									<tr class="row gtr-0">
 										<th class="col-2 col-12-xsmall" style="text-align: center;">Exam Name / Degree</th>
-										<th class="col-1 col-12-xsmall" style="text-align: center;">Area of<br>Qualification</th>
+										<th class="col-2 col-12-xsmall" style="text-align: center;">Area of<br>Qualification</th>
 										<th class="col-1 col-12-xsmall" style="text-align: center;">Category of <br>University</th>
 										<th class="col-2 col-12-xsmall" style="text-align: center;">Name of University / <br>Institute</th>
-										<th class="col-1 col-12-xsmall" style="text-align: center;">Status</th>
+										<th class="col-2 col-12-xsmall" style="text-align: center;">Status</th>
 										<th class="col-1 col-12-xsmall" style="text-align: center;">Year of<br>Passing</th>
-										<th class="col-1 col-12-xsmall" style="text-align: center;">Division</th>
 										<th class="col-1 col-12-xsmall" style="text-align: center;">Percentage<br>of Marks</th>
-										<th class="col-1 col-12-xsmall" style="text-align: center;">CGPA</th>
 										<th class="col-1 col-12-xsmall" style="text-align: center;"></th>
 									</tr>
 									<tr class="row gtr-0" id="field1">
 										<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+											<input type="text" name="degree" id="degree1" value="" style="margin: 0;" placeholder="" required>
 										</td>
 										<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+											<input type="text" name="qual" id="qual1" value="" style="margin: 0;" placeholder="" required>
 										</td>
 										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+											<input type="text" name="cat_univ" id="cat_univ1" value="" style="margin: 0;" placeholder="" required>
+										</td>
+										<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+											<input type="text" name="institute" id="institute1" value="" style="margin: 0;" placeholder="" required>
+										</td>
+										<td class="col-2 col-12-small" style="text-align: center; padding: 0; font-size: xx-small;">
+											<select name="status" id="status1">
+												<option value="Completed">Completed</option>
+												<option value="ResultAwaited">Results Awaited</option>
+												<option value="FinalAwaited">Finals Awaited</option>
+												<option value="Ongoing">Ongoing</option>
+											</select>
 										</td>
 										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+											<input type="text" name="pass" id="pass1" value="" style="margin: 0;" placeholder="" required>
 										</td>
 										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+											<input type="text" name="marks" id="marks1" value="" style="margin: 0;" placeholder="" required>
 										</td>
 										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="active">
 											<button id="b1" class="btn add-more" style="padding: 0%;">+</button>
 										</td>
 									</tr>
@@ -303,9 +352,6 @@
 											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
 										</td>
 										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="active">
 											<button id="bu1" class="btn add-more2" style="padding: 0%;">+</button>
 										</td>
 									</tr>
@@ -329,41 +375,35 @@
 								</thead>-->
 								<tbody>
 									<tr class="row gtr-0">
-										<th class="col-2 col-12-xsmall" style="text-align: center;">Course Title</th>
-										<th class="col-2 col-12-xsmall" style="text-align: center;">Level(UG/PG)</th>
-										<th class="col-1 col-12-xsmall" style="text-align: center;">Sole Instructor or with others</th>
-										<th class="col-1 col-12-xsmall" style="text-align: center;">Developer of course<br>(Yes/No)</th>
-										<th class="col-2 col-12-xsmall" style="text-align: center;">Roles and <br> responsibilities</th>
-										<th class="col-1 col-12-xsmall" style="text-align: center;">Pay Scale</th>
-										<th class="col-2 col-12-xsmall" style="text-align: center;">Emoluments</th>
+										<th class="col-3 col-12-xsmall" style="text-align: center;">Course Title</th>
+										<th class="col-3 col-12-xsmall" style="text-align: center;">Level (UG/PG)</th>
+										<th class="col-3 col-12-xsmall" style="text-align: center;">Sole Instructor or with others</th>
+										<th class="col-2 col-12-xsmall" style="text-align: center;">Developer of course<br>(Yes/No)</th>
 										<th class="col-1 col-12-xsmall" style="text-align: center"></th>
 									</tr>
 									<tr class="row gtr-0" id="teach1">
-										<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+										<td class="col-3 col-12-small" style="text-align: center; padding: 0;">
+											<input type="text" name="coursetaught" id="coursetaught1" value="" style="margin: 0;" placeholder="" required>
+										</td>
+										<td class="col-3 col-12-small" style="text-align: center; padding: 0;">
+											<select name="level" id="level1">
+												<option value="undergrad">Under-Graduate</option>
+												<option value="postgrad">Post-Graduate</option>
+											</select>
+										</td>
+										<td class="col-3 col-12-small" style="text-align: center; padding: 0;">
+											<select name="instruct" id="instruct1">
+												<option value="sole">Sole-Instructor</option>
+												<option value="withother">With-Other</option>
+											</select>
 										</td>
 										<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+											<select name="devcourse" id="devcourse1">
+												<option value="yes">Yes</option>
+												<option value="no">No</option>
+											</select>
 										</td>
 										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-											<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-										</td>
-										<td class="active">
 											<button id="but1" class="btn add-more3" style="padding: 0%;">+</button>
 										</td>
 									</tr>
@@ -373,7 +413,7 @@
 							<p></p>
 
 							<h2>Upload File</h2>
-							<p>Upload file including the list of names of all the research papers you hae published.<br>
+							<p>Upload file including the list of names of all the research papers you have published.<br>
 							<input type="file"></p>
 							
 							<ul class="actions">
@@ -381,7 +421,6 @@
 								<li><input type="reset" value="Reset" /></li>
 							</ul>
 						</form>
-						
 					</section>
 				</div>
 
