@@ -2,8 +2,12 @@ from django.db import models
 from django.conf import settings 
 from django.utils import timezone
 
+
+
 class Applicant(models.Model):
     ''' Model for applicants personal data '''
+    application_no = models.CharField(primary_key=True)
+    date_of_application = models.DateField(default=timezone.now())
     name = models.CharField(max_length=200)
     phone_number = models.CharField(max_length=10)
     email_address = models.EmailField(max_length=255)
@@ -44,14 +48,16 @@ class Applicant(models.Model):
     current_address = models.TextField()
     permanent_address = models.TextField()
 
+
 class Academic_detail(models.Model):
+    ''' Model for academic details of applicant.'''
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='academic_detail',
                 )
     degree = models.CharField(max_length=200),
     area_of_qualification = models.CharField(max_length=200),
-    #category of university
+    category of university = models.CharField(max_length=200)
     name_of_institute = models.CharField(max_length=200),
     status = models.CharField(max_length=200, 
                             choices=[
@@ -70,7 +76,9 @@ class Academic_detail(models.Model):
     percentage = models.IntegerField()
     cgpa = models.FloatField()
 
+
 class Profession_detail(models.Model):
+    '''Model for professional details of applicant'''
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='professional_detail',
@@ -81,8 +89,11 @@ class Profession_detail(models.Model):
     to_year = models.IntegerField()
     role = models.CharField(max_length=250)
     pay_scale = models.IntegerField()
-    #Emoluments
+    emoluments = models.IntegerField()
+
+
 class Teaching_and_research_detail(models.Model):
+    '''Teaching details of applicants.'''
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='teaching_and_research_detail',
@@ -108,5 +119,5 @@ class Teaching_and_research_detail(models.Model):
             )
     role = models.CharField(max_length=200)
     pay_scale = models.IntegerField()
-    #emoluments = models.
+    emoluments = models.IntegerField()
    
