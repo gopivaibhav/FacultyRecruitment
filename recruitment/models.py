@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Applicant(models.Model):
     ''' Model for applicants personal data '''
-    application_no = models.CharField(primary_key=True)
+    application_no = models.CharField(primary_key=True, max_length=20)
     date_of_application = models.DateField(default=timezone.now())
     name = models.CharField(max_length=200)
     phone_number = models.CharField(max_length=10)
@@ -57,7 +57,7 @@ class Academic_detail(models.Model):
                 )
     degree = models.CharField(max_length=200),
     area_of_qualification = models.CharField(max_length=200),
-    category of university = models.CharField(max_length=200)
+    category_of_university = models.CharField(max_length=200)
     name_of_institute = models.CharField(max_length=200),
     status = models.CharField(max_length=200, 
                             choices=[
