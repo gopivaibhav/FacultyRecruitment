@@ -1,4 +1,5 @@
-# projectgSIRIS
+# projectSIRIS
+
 Faculty Recruitment Portal <br>
 Setting up the project for development:
 ```bash
