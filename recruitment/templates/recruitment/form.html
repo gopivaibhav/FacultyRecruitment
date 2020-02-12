@@ -42,7 +42,15 @@
 
 				<!-- Content -->
 				<section id="content" class="main">
-						
+
+					<!--	Congratulatory Message	-->
+					<div class="spotlight">
+						<div class="content main special">
+							<!--	Change the content in the h3 tag to set the congratulatory message	-->
+							<h3></h3>
+						</div>
+					</div>
+					
 					<!--	Start of form	-->
 					<form method="POST" action="{% url 'submission_form' %}">
 						{% csrf_token %}
@@ -61,11 +69,8 @@
 											<h3>Advertisement Number:</h3>
 										</div>
 										<div class="col-5 col-12-medium">
-											<select name="AdvertNumber" id="AdvertNumber" required>
-												<option value="" selected disabled>Number</option>
-												<option value="advert1">Advert 1</option>
-												<option value="advert2">Advert 2</option>
-												<option value="advert3">Advert 3</option>
+											<select name="AdvertNumber" id="AdvertNumber" style="background-color: rgba(215, 215, 215, 0.85);" title="Cannot be changed for this form" disabled>
+												<option value="Number" selected disabled>Number</option>
 											</select>
 										</div>
 										<!--<div class="col-3 col-12-medium" style="height: 300%;">
@@ -118,14 +123,14 @@
 										<div class="col-4 col-12-xxsmall">
 											<input type="text" name="lname" id="lname" value="" placeholder="Last Name" required>
 										</div>
-										<div class="col-4 col-12-xxsmall">
+										<div class="col-4 col-12-xxsmall">		<!--	For future reference, pattern has been used, which may cause problems later	-->
 											<!--<input type="number" name="phnum" id="phnum" value="" placeholder="Phone Number" required>-->
 											<input type="text" name="phnum" pattern="[6-9]{1}[0-9]{9}" placeholder="Phone Number" required title="Phone number" required>
 										</div>
 										<div class="col-4 col-12-xxsmall">
 											<input type="email" name="email" id="email" value="" placeholder="Email Address" title="E-mail Address" required>
 										</div>
-										<div class="col-4 col-12-xxsmall">
+										<div class="col-4 col-12-xxsmall">		<!--	For future reference, pattern has been used, which may cause problems later	-->
 											<input type="text" name="dob" id="dob" value="" placeholder="Date-Of-Birth: DD-MM-YYYY" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-[0-9]{4}" title="Date of Birth in format: DD-MM-YYYY" required>
 										</div>
 										<div class="col-4 col-12-xsmall">
@@ -174,6 +179,7 @@
 							</div>
 						</section>
 
+						<!--	Academic Details	-->
 						<section id="academic" class="main">
 							<div class="spotlight">
 								<div class="content">
@@ -232,6 +238,7 @@
 							</div>
 						</section>
 
+						<!--	Professional Details	-->
 						<section id="professional" class="main">
 							<div class="spotlight">
 								<div class="content">
@@ -254,25 +261,25 @@
 												</tr>
 												<tr class="row gtr-0" id="profession1">
 													<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-														<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+														<input type="text" name="org1" id="org1" value="" style="margin: 0;" placeholder="" required>
 													</td>
 													<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-														<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+														<input type="text" name="desig1" id="desig1" value="" style="margin: 0;" placeholder="" required>
 													</td>
-													<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-														<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+													<td class="col-1 col-12-small" style="text-align: center; padding: 0;">		<!--	For future reference, pattern has been used, which may cause problems later	-->
+														<input type="text" name="proffrom1" id="proffrom1" value="" title="Enter the year" pattern="(19[0-9]{2}|20[0-9]{2})" style="margin: 0;" placeholder="" required>
 													</td>
-													<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-														<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-													</td>
-													<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-														<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
-													</td>
-													<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-														<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+													<td class="col-1 col-12-small" style="text-align: center; padding: 0;">		<!--	For future reference, pattern has been used, which may cause problems later	-->
+														<input type="text" name="profto1" id="profto1" value="" title="Enter the year" pattern="(19[0-9]{2}|20[0-9]{2})" style="margin: 0;" placeholder="" required>
 													</td>
 													<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-														<input type="text" name="sschool" id="sschool" value="" style="margin: 0;" placeholder="" required>
+														<input type="text" name="roles1" id="roles1" value="" style="margin: 0;" placeholder="" required>
+													</td>
+													<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
+														<input type="text" name="pay1" id="pay1" value="" style="margin: 0;" placeholder="" required>
+													</td>
+													<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+														<input type="text" name="emol1" id="emol1" value="" style="margin: 0;" placeholder="" required>
 													</td>
 													<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
 														<button id="bu1" class="but add-more2" style="padding: 0%;">+</button>
@@ -285,6 +292,7 @@
 							</div>
 						</section>
 
+						<!--	Teaching and Research	-->
 						<section id="research" class="main">
 							<div class="spotlight">
 								<div class="content">
@@ -352,7 +360,7 @@
 												</tr>
 												<tr class="row gtr-0" id="teach1">
 													<td class="col-3 col-12-small" style="text-align: center; padding: 0;">
-														<input type="text" name="coursetaught1" id="coursetaught1" value="" style="margin: 0;" placeholder="" required>
+														<input type="text" name="thesisstu1" id="thesisstu1" value="" style="margin: 0;" placeholder="" required>
 													</td>
 													<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
 														<input type="text" name="coursetaught1" id="coursetaught1" value="" style="margin: 0;" placeholder="" required>
@@ -486,6 +494,7 @@
 							</div>
 						</section>
 
+						<!--	Other Important detail	-->
 						<section id="other" class="main">
 							<div class="spotlight">
 								<div class="content">
@@ -530,6 +539,7 @@
 							</div>
 						</section>
 
+						<!--	Upload files	-->
 						<section id="upload" class="main">
 							<div class="spotlight">
 								<div class="content">
