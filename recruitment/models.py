@@ -7,10 +7,12 @@ from django.utils import timezone
 class Applicant(models.Model):
     ''' Model for applicants personal data '''
     application_no = models.CharField(primary_key=True, max_length=20)
-    date_of_application = models.DateField(default=timezone.now())
+    date = models.DateField(default=timezone.now())
+    post = models.CharField(max_length=100)
     name = models.CharField(max_length=200)
-    phone_number = models.CharField(max_length=10)
-    email_address = models.EmailField(max_length=255)
+    phone = models.CharField(max_length=10)
+    email = models.EmailField(max_length=255)
+    department = models.CharField(max_length=20)
     gender = models.CharField(max_length=1,
                                 choices=[
                                             ('M','Male'),
@@ -47,7 +49,9 @@ class Applicant(models.Model):
             )
     current_address = models.TextField()
     permanent_address = models.TextField()
-
+    
+    def __str__(self):
+        return str(self.name)
 
 class Academic_detail(models.Model):
     ''' Model for academic details of applicant.'''
@@ -58,23 +62,20 @@ class Academic_detail(models.Model):
     degree = models.CharField(max_length=200),
     area_of_qualification = models.CharField(max_length=200),
     category_of_university = models.CharField(max_length=200)
-    name_of_institute = models.CharField(max_length=200),
+    institute = models.CharField(max_length=200),
     status = models.CharField(max_length=200, 
                             choices=[
-                                    ('Passed', 'Passed'),
-                                    ('Pursuing', 'Pursuing'),
+                                    ('Completed', 'Completed'),
+                                    ('ResultAwaited', 'ResultAwaited'),
+                                    ('FinalAwaited', 'FinalAwaited'),
+                                    ('Ongoing', 'Ongoing'),
                                 ],
             )
     year_of_passing = models.IntegerField()
-    division = models.CharField(max_length=10,
-                                choices=[
-                                       ('I','I'),
-                                       ('II', 'II'),
-                                       ('III', 'III'),
-                                    ],
-            )
     percentage = models.IntegerField()
-    cgpa = models.FloatField()
+    
+    def __str__(self):
+        return str(self.applicant.name)
 
 
 class Profession_detail(models.Model):
@@ -90,6 +91,9 @@ class Profession_detail(models.Model):
     role = models.CharField(max_length=250)
     pay_scale = models.IntegerField()
     emoluments = models.IntegerField()
+
+    def __str__(self):
+        return str(self.applicant.name)
 
 
 class Teaching_and_research_detail(models.Model):
@@ -121,3 +125,5 @@ class Teaching_and_research_detail(models.Model):
     pay_scale = models.IntegerField()
     emoluments = models.IntegerField()
    
+    def __str__(self):
+        return str(self.applicant.name)

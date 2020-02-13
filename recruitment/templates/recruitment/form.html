@@ -47,7 +47,9 @@
 					<div class="spotlight">
 						<div class="content main special">
 							<!--	Change the content in the h3 tag to set the congratulatory message	-->
-							<h3></h3>
+							{% if message %}
+							<h3>{{message}}</h3>
+							{% endif %}
 						</div>
 					</div>
 					
@@ -144,28 +146,28 @@
 										<div class="col-4 col-12-xsmall">
 											<select name="category" id="category" placeholder="Category" title="Category" required>
 												<option value="" selected disabled>Category</option>
-												<option value="general"> General </option>
-												<option value="sc"> SC </option>
-												<option value="st"> ST </option>
-												<option value="obccr"> OBC - Creamy Layer </option>
-												<option value="obc"> OBC - Non Creamy Layer </option>
-												<option value="genpwd"> General (PwD)</option>
-												<option value="scpwd"> SC (PwD)</option>
-												<option value="stpwd"> ST (PwD)</option>
-												<option value="obccrpwd"> OBC - Creamy Layer (PwD)</option>
-												<option value="obcpwd"> OBC - Non Creamy Layer (PwD)</option>
+												<option value="GEN"> General </option>
+												<option value="SC"> SC </option>
+												<option value="ST"> ST </option>
+												<option value="OBC-CL"> OBC - Creamy Layer </option>
+												<option value="OBC-NCL"> OBC - Non Creamy Layer </option>
+												<option value="GEN-PWD"> General (PwD)</option>
+												<option value="SC-PWD"> SC (PwD)</option>
+												<option value="ST-PWD"> ST (PwD)</option>
+												<option value="OBC-CL-PWD"> OBC - Creamy Layer (PwD)</option>
+												<option value="OBC-NCL-PWD"> OBC - Non Creamy Layer (PwD)</option>
 											</select>
 										</div>
 										<div class="col-4 col-12-xsmall">
 											<select name="reservecat" id="reservecat" placeholder="Reservation Category" title="Reservation Category" required>
 												<option value="" selected disabled>Reservation Category</option>
-												<option value="none"> None </option>
-												<option value="sc"> SC </option>
-												<option value="st"> ST </option>
-												<option value="obc"> OBC - Non Creamy Layer </option>
-												<option value="pwd"> Person with disabilities </option>
-												<option value="service"> Ex-servicemen </option>
-												<option value="econ"> Economically weaker section </option>
+												<option value="None"> None </option>
+												<option value="SC"> SC </option>
+												<option value="ST"> ST </option>
+												<option value="OBC"> OBC - Non Creamy Layer </option>
+												<option value="PWD"> Person with disabilities </option>
+												<option value="SERVICE"> Ex-servicemen </option>
+												<option value="GEN-ECO"> Economically weaker section </option>
 											</select>
 										</div>
 										<div class="col-6 col-12-small">
