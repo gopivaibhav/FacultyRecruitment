@@ -59,10 +59,10 @@ class Academic_detail(models.Model):
                                 on_delete=models.CASCADE,
                                 related_name='academic_detail',
                 )
-    degree = models.CharField(max_length=200),
-    area_of_qualification = models.CharField(max_length=200),
+    degree = models.CharField(max_length=200)
+    area_of_qualification = models.CharField(max_length=200)
     category_of_university = models.CharField(max_length=200)
-    institute = models.CharField(max_length=200),
+    institute = models.CharField(max_length=200)
     status = models.CharField(max_length=200, 
                             choices=[
                                     ('Completed', 'Completed'),
