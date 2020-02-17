@@ -39,5 +39,18 @@ def submission_form(request):
             pprint.pprint(academic_details)
             Academic_detail.objects.create(**academic_details)
 
+        num_of_professional_records = len(list(filter(lambda s: 'org' in s, list(data.keys()))))
+        for i in range(1,num_of_professional_records+1):
+            professional_details = {}
+            professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
+            professional_details['organisation'] = data['org' + str(i)]
+            professional_details['designation']  = data['desig' + str(i)]
+            professional_details['from_year'] = data['proffrom' + str(i)]
+            professional_details['to_year'] = data['profto' + str(i)]
+            professional_details['role'] = data['roles' + str(i)]
+            professional_details['emoluments'] = data['pay' + str(i)]
+            professional_details['pay_scale'] = data['emol' + str(i)]
+        Professional_detail.objects.create(**professional_details)
+
         return render(request, 'recruitment/form.html',{'message':'Success!'})
     return render(request, 'recruitment/form.html', {})

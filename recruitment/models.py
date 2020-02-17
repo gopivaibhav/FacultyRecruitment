@@ -121,9 +121,34 @@ class Teaching_and_research_detail(models.Model):
                                                 ('N','No'),
                                                 ],
             )
-    role = models.CharField(max_length=200)
-    pay_scale = models.IntegerField()
-    emoluments = models.IntegerField()
-   
+    name_of_student = models.CharField(max_length=200)
+    year_of_completion = models.IntegerField()
+    name_of_institute = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
+    guide = models.CharField(max_length=200)
+    period = models.CharField(max_length=200)
+    organisation = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
+    amount = models.IntegerField()
+    co_investigators = models.CharField(max_length=200)
+    period = models.CharField(max_length=100)
+    name_of_body = models.CharField(max_length=150)
+    status_of_membership = models.CharField(max_length=150)
+
     def __str__(self):
         return str(self.applicant.name)
+
+class Other_important_details(models.Model):
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='other_details')
+    awards_and_recognition = models.TextField()
+    any_other_relevant_information = models.TextField()
+    reference = models.TextField()
+    statement_of_objective = models.TextField()
+
+
+class File(models.Model):
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='files')
+    publications = models.FileField(upload_to='uploads/', null=True, blank=True)
+    image = models.ImageField(upload_to='uploads/', null=True, blank=True)
+    caste_certificate = models.FileField(upload_to='uploads/', null=True, blank=True)
+
