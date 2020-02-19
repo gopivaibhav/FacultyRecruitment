@@ -1,1 +1,1 @@
-web: gunicorn projectSIRIS.wsgi
+web:gunicorn projectSIRIS.wsgi
