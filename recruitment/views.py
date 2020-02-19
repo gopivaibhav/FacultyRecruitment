@@ -33,16 +33,16 @@ def submission_form(request):
         academic_data = []
         for i in range(1,num_of_academic_records+1):
             academic_details = {}
-            academic_details['degree'] = data['degree'+str(i)]
-            academic_details['area_of_qualification'] = data['qual' + str(i)]
-            academic_details['category_of_university'] = data['cat_univ' + str(i)]
-            academic_details['institute'] = data['institute' + str(i)]
-            academic_details['status'] = data['status' + str(i)]
-            academic_details['year_of_passing'] = data['pass' + str(i)]
-            if re.search(r'[12]\d{3}',data['pass'+str(i)]) is None:
+            academic_details['degree'] = data.get('degree'+str(i),False)
+            academic_details['area_of_qualification'] = data.get('qual' + str(i),False)
+            academic_details['category_of_university'] = data.get('cat_univ' + str(i),False)
+            academic_details['institute'] = data.get('institute' + str(i),False)
+            academic_details['status'] = data.get('status' + str(i),False)
+            academic_details['year_of_passing'] = data.get('pass' + str(i),False)
+            if re.search(r'[12]\d{3}',data.get('pass'+str(i),False)) is None:
                 return render(request, 'recruitment/form.html',{'message':'Enter the year in Academic details in yyyy format.'})
-            if 0 <= float(data['marks' + str(i)]) <= 100:
-                academic_details['percentage']  = data['marks' + str(i)]
+            if 0 <= float(data.get('marks' + str(i),False)) <= 100:
+                academic_details['percentage']  = data.get('marks' + str(i),False)
             else:
                 return render(request, 'recruitment/form.html',{'message':'Enter your percentage in Academic details a value between 0 to 100.'})
             academic_data.append(academic_details)
@@ -51,21 +51,21 @@ def submission_form(request):
         professional_data =  []
         for i in range(1,num_of_professional_records+1):
             professional_details = {}
-            professional_details['organisation'] = data['org' + str(i)]
-            professional_details['designation']  = data['desig' + str(i)]
-            professional_details['from_year'] = data['proffrom' + str(i)]
-            professional_details['to_year'] = data['profto' + str(i)]
-            if re.search(r'[12]\d{3}',data['proffrom'+str(i)]) is None:
+            professional_details['organisation'] = data.get('org' + str(i),False)
+            professional_details['designation']  = data.get('desig' + str(i),False)
+            professional_details['from_year'] = data.get('proffrom' + str(i),False)
+            professional_details['to_year'] = data.get('profto' + str(i),False)
+            if re.search(r'[12]\d{3}',data.get('proffrom'+str(i),False)) is None:
                 return render(request, 'recruitment/form.html',{'message':'Enter the year in professional details in yyyy format.'})
-            if re.search(r'[12]\d{3}',data['profto'+str(i)]) is None:
+            if re.search(r'[12]\d{3}',data.get('profto'+str(i),False)) is None:
                 return render(request, 'recruitment/form.html',{'message':'Enter the year in professional details in yyyy format.'})
-            if int(data['profrom' + str(i)] > int(data['profto' + str(i)])):
+            if int(data['proffrom' + str(i)]) > int(data['profto' + str(i)]):
                 return render(request, 'recruitment/form.html',{'message':'From Year can not be after To year in Professional details.'})
-            professional_details['role'] = data['roles' + str(i)]
-            professional_details['emoluments'] = data['pay' + str(i)]
+            professional_details['role'] = data.get('roles' + str(i),False)
+            professional_details['emoluments'] = data.get('pay' + str(i),False)
             if re.search(r'\d+', data['pay'+str(i)]) is None or re.search(r'\d+', data['pay'+str(i)]) is  None:
                 return render(request, 'recruitment/form.html',{'message':'Enter the pay scale and emoluments in professional details as integers without commas.'})
-            professional_details['pay_scale'] = data['emol' + str(i)]
+            professional_details['pay_scale'] = data.get('emol' + str(i),False)
             professional_data.append(professional_details)
         other_details = {}
         other_details['awards_and_recognition'] = data['awards']
