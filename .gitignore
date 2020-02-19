@@ -3,3 +3,8 @@ __pycache__
 *.pyc
 db*
 *.swp
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
