@@ -54,7 +54,7 @@
 					</div>
 					
 					<!--	Start of form	-->
-					<form method="POST" action="{% url 'submission_form' %}">
+					<form method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data">
 						{% csrf_token %}
 
 						<!--	Initial Data	-->
@@ -509,21 +509,21 @@
 											<h4>Awards and recognition:</h4>
 										</div>
 										<div class="col-8 col-12-medium">
-											<textarea name="permadd" id="permadd" placeholder="Awards" rows="2"></textarea>
+											<textarea name="awards" id="permadd" placeholder="Awards" rows="2"></textarea>
 										</div>
 										<div class="col-4 col-12-medium">
 											<h4>Any other relevant information:</h4>
 										</div>
 										<div class="col-8 col-12-medium">
-											<textarea name="permadd" id="permadd" placeholder="Other Info" rows="2"></textarea>
+											<textarea name="other_relevant_info" id="permadd" placeholder="Other Info" rows="2"></textarea>
 										</div>
 										<div class="col-4 col-12-medium">
 											<h4>Details of three References:</h4>
 										</div>
 										<div class="col-8 col-12-medium gtr-uniform">
-											<input type="text" name="refer1" id="refer1" value="" placeholder="Reference 1" required><br>
-											<input type="text" name="refer2" id="refer2" value="" placeholder="Reference 2" required><br>
-											<input type="text" name="refer3" id="refer3" value="" placeholder="Reference 3" required>
+											<input type="text" name="ref1" id="refer1" value="" placeholder="Reference 1" required><br>
+											<input type="text" name="ref2" id="refer2" value="" placeholder="Reference 2" required><br>
+											<input type="text" name="ref3" id="refer3" value="" placeholder="Reference 3" required>
 										</div>
 										
 										<div class="col-4 col-12-medium">
@@ -534,7 +534,7 @@
 											</p>
 										</div>
 										<div class="col-8 col-12-medium">
-											<textarea name="permadd" id="permadd" placeholder="Objective" rows="5"></textarea>
+											<textarea name="objective" id="permadd" placeholder="Objective" rows="5"></textarea>
 										</div>
 									</div>
 								</div>

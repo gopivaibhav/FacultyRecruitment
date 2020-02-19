@@ -1,7 +1,13 @@
 from django.shortcuts import render
 import datetime
-import pprint
+import pprint, re
 from recruitment.models import *
+
+def handle_uploaded_file(f, application_number, name):
+    with open(f'uploads/{application_number}/{name}', 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+
 def home(request):
     return render(request, 'recruitment/index.html',{})
 
@@ -23,9 +29,9 @@ def submission_form(request):
         applicant_data['current_address'] = data['curadd']
         applicant_data['permanent_address'] = data['permadd']
         applicant_data['department'] = data['Dept']
-        #print(applicant_data)
         Applicant.objects.create(**applicant_data)
         num_of_academic_records = len(list(filter(lambda s: 'mark' in s,list(data.keys()))))
+        academic_data = []
         for i in range(1,num_of_academic_records+1):
             academic_details = {}
             academic_details['applicant'] = Applicant.objects.get(application_no=application_number)
@@ -35,11 +41,15 @@ def submission_form(request):
             academic_details['institute'] = data['institute' + str(i)]
             academic_details['status'] = data['status' + str(i)]
             academic_details['year_of_passing'] = data['pass' + str(i)]
+            if re.search(r'[12]\d{3}',data['pass'+str(i)]) is None:
+                return render(request, 'recruitment/form.html',{'message':'Enter the year in Academic details in yyyy format.'})
             academic_details['percentage']  = data['marks' + str(i)]
-            pprint.pprint(academic_details)
-            Academic_detail.objects.create(**academic_details)
+            academic_data.append(academic_details)
+        for academic_details in academic_data:
+             Academic_detail.objects.create(**academic_details)
 
         num_of_professional_records = len(list(filter(lambda s: 'org' in s, list(data.keys()))))
+        professional_data =  []
         for i in range(1,num_of_professional_records+1):
             professional_details = {}
             professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
@@ -47,10 +57,30 @@ def submission_form(request):
             professional_details['designation']  = data['desig' + str(i)]
             professional_details['from_year'] = data['proffrom' + str(i)]
             professional_details['to_year'] = data['profto' + str(i)]
+            if re.search(r'[12]\d{3}',data['proffrom'+str(i)]) is None:
+                return render(request, 'recruitment/form.html',{'message':'Enter the year in professional details in yyyy format.'})
+            if re.search(r'[12]\d{3}',data['profto'+str(i)]) is None:
+                return render(request, 'recruitment/form.html',{'message':'Enter the year in professional details in yyyy format.'})
+            if int(data['profrom' + str(i)] > int(data['profto' + str(i)])):
+                return render(request, 'recruitment/form.html',{'message':'From Year can not be after To year in Professional details.'})
             professional_details['role'] = data['roles' + str(i)]
             professional_details['emoluments'] = data['pay' + str(i)]
             professional_details['pay_scale'] = data['emol' + str(i)]
-        Professional_detail.objects.create(**professional_details)
-
-        return render(request, 'recruitment/form.html',{'message':'Success!'})
+            professional_data.append(professional_details)
+        for professional_details in professional_data:
+            Professional_detail.objects.create(**professional_details)
+        other_details = {}
+        other_details['applicant'] = Applicant.objects.get(application_no=application_number)
+        other_details['awards_and_recognition'] = data['awards']
+        other_details['reference'] = '\n'.join([data['ref1'],data['ref2'], data['ref3'],])
+        other_details['statement_of_objective'] = data['objective']
+        other_details['any_other_relevant_information'] = data['other_relevant_info']
+        Other_important_details.objects.create(**other_details)
+        #publication = request.FILES['publications']
+        #pic = request.FILES['propic']
+        #cert = request.FILES['cert']
+        #handle_uploaded_file(publication, application_number, 'publications')
+        #handle_uploaded_file(pic, application_number, 'pic')
+        #handle_uploaded_file(cert, application_number, 'certificate')
+        return render(request, 'recruitment/form.html',{'message':'Congrats! Your application number is '+ application_number})
     return render(request, 'recruitment/form.html', {})

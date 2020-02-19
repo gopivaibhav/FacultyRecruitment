@@ -78,11 +78,11 @@ class Academic_detail(models.Model):
         return str(self.applicant.name)
 
 
-class Profession_detail(models.Model):
+class Professional_detail(models.Model):
     '''Model for professional details of applicant'''
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
-                                related_name='professional_detail',
+                                related_name='professional_details',
                 )
     organisation = models.CharField(max_length=200)
     designation = models.CharField(max_length=200)
@@ -100,7 +100,7 @@ class Teaching_and_research_detail(models.Model):
     '''Teaching details of applicants.'''
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
-                                related_name='teaching_and_research_detail',
+                                related_name='teaching_and_research_details',
                 )
     course_title = models.CharField(max_length=200)
     level = models.CharField(max_length=2,
