@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import datetime
-import pprint, re
+import  re
 from recruitment.models import *
 
 def handle_uploaded_file(f, application_number, name):
@@ -14,7 +14,6 @@ def home(request):
 def submission_form(request):
     if request.method == 'POST':
         data = request.POST.copy()
-        pprint.pprint(data)
         applicant_data = {}
         number = len(Applicant.objects.filter(date=datetime.datetime.now().date()))
         application_number = str(datetime.datetime.now().date())+str(number+1).zfill(3) 
