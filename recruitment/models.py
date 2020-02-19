@@ -72,7 +72,7 @@ class Academic_detail(models.Model):
                                 ],
             )
     year_of_passing = models.IntegerField()
-    percentage = models.IntegerField()
+    percentage = models.FloatField()
     
     def __str__(self):
         return str(self.applicant.name)
