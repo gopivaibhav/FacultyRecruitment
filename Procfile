@@ -1,1 +1,1 @@
-web: gunicorn projectSIRIS.wsgi --log-file - 
+web: gunicorn projectSIRIS.wsgi
