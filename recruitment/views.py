@@ -11,6 +11,9 @@ def handle_uploaded_file(f, application_number, name):
 def home(request):
     return render(request, 'recruitment/index.html',{})
 
+def admin(request):
+    return render(request, 'recruitment/admin.html',{})
+
 def submission_form(request):
     if request.method == 'POST':
         data = request.POST.copy()
