@@ -65,23 +65,24 @@
 									<header class="major special">
 										<h2>Application Form</h2>
 									</header>
-									<div class="row gtr-uniform">
+									<div class="row gtr-uniform" style="justify-content: space-evenly;">
+
+										<div class="col-9 col-12-medium">
 										<!--	Advertisement Number	-->
-										<div class="col-4 col-12-medium">
+										<div class="row gtr-uniform" >
+										<div class="col-5 col-12-medium">
 											<h3>Advertisement Number:</h3>
 										</div>
-										<div class="col-5 col-12-medium">
+										<div class="col-6 col-12-medium">
 											<select name="AdvertNumber" id="AdvertNumber" style="background-color: rgba(215, 215, 215, 0.85);" title="Cannot be changed for this form" disabled>
 												<option value="Number" selected disabled>Number</option>
 											</select>
 										</div>
-										<!--<div class="col-3 col-12-medium" style="height: 300%;">
-											<input type="" class="propic" id="propic">
-										</div>-->	<!--	Application Post	-->
-										<div class="col-4 col-12-medium">
+										<!--	Application Post	-->
+										<div class="col-5 col-12-medium">
 											<h3>Post Applied for:</h3>
 										</div>
-										<div class="col-5 col-12-medium">
+										<div class="col-6 col-12-medium">
 											<select name="AppPost" id="AppPost" required>
 												<option value="" selected disabled> - None - </option>
 												<option value="prof">Professor</option>
@@ -90,17 +91,26 @@
 												<option value="assistantprofg2level11">Assistant Professor Grade 2 Level 11</option>
 												<option value="assistantprofg1level12">Assistant Professor Grade 1 Level 12</option>
 											</select>
-										</div>	<!--	Department	-->
-										<div class="col-4 col-12-medium">
+										</div>
+
+										<!--	Department	-->
+										<div class="col-5 col-12-medium">
 											<h3>Department/School:</h3>
 										</div>
-										<div class="col-5 col-12-medium">
+										<div class="col-6 col-12-medium" style="margin-bottom: 4%;">
 											<select name="Dept" id="Dept" required>
 												<option value="" selected disabled> - None - </option>
 												<option value="CSE-IT">CSE / IT</option>
 												<option value="ECE">Electronics Technology</option>
 												<option value="HUM">Management / Humanities</option>
 											</select>
+										</div>
+									  </div> </div>
+
+										<!--  Profile Picture   -->
+										<div id="profile-container" class="col-3 col-6-medium " style="max-block-size: 35vh; max-width: max-content;">
+                                            <image id="profileImage" class="img-fluid mx-auto" src="https://www.netclipart.com/pp/m/363-3639007_default-profile-picture-jpg.png" style="max-width: 100%; max-height: 100%; border-radius: 5vh;" />
+                                            <div><input id="imageUpload" type="file" style="font-size: small;" name="profile_photo" placeholder="Photo" required="" capture></div>
 										</div>
 									</div>
 								</div>
