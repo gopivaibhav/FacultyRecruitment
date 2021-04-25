@@ -3371,6 +3371,14 @@ input, select, textarea {
 		border-radius: 0.25em;
 	}
 
+	#profile-container{
+		transform: translateY(-10%);
+	}
+
+	#profileImage {
+		padding: 5%;
+	}
+
 	#main input, #main select, #main textarea {
 		color: #636363;
 	}
@@ -3728,7 +3736,7 @@ input, select, textarea {
 		flex-wrap: wrap;
 		padding: 5em 5em 3em 5em ;
 		width: calc(100% + 2em);
-		margin: 0 0 3em -2em;
+		margin: 0 0 0em -2em;
 	}
 
 	#footer > * {
@@ -3738,7 +3746,7 @@ input, select, textarea {
 
 	#footer .copyright {
 		width: 100%;
-		margin: 2.5em 0 2em 0;
+		margin: 2.5em 0 0em 0;
 		font-size: 0.8em;
 		text-align: center;
 	}
@@ -3756,18 +3764,18 @@ input, select, textarea {
 		#footer {
 			padding: 4em 3em 2em 3em ;
 			display: block;
-			margin: 0 0 3em 0;
+			margin: 0 0 0em 0;
 			width: 100%;
 		}
 
 		#footer > * {
 			width: 100%;
 			margin-left: 0;
-			margin-bottom: 3em;
+			margin-bottom: 0em;
 		}
 
 		#footer .copyright {
-			text-align: left;
+			text-align: center;
 		}
 
 	}
