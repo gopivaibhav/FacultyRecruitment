@@ -9,46 +9,8 @@ class Applicant(models.Model):
     application_no = models.CharField(primary_key=True, max_length=20)
     date = models.DateField(default=timezone.now())
     post = models.CharField(max_length=100)
-    name = models.CharField(max_length=200)
-    phone = models.CharField(max_length=10)
-    email = models.EmailField(max_length=255)
     department = models.CharField(max_length=20)
-    gender = models.CharField(max_length=1,
-                                choices=[
-                                            ('M','Male'),
-                                            ('F','Female'),
-                                            ('O','Other'),
-                                        ]
-                            )
-    category = models.CharField(max_length=25,
-                                choices = [
-                                        ('GEN', 'General'),
-                                        ('SC','SC'),
-                                        ('ST','ST'),
-                                        ('OBC-CL', 'OBC Creamy Layer'),
-                                        ('OBC-NCL', 'OBC Non Creamy Layer'),
-                                        ('GEN-PWD','General Person with disabilties'),
-                                        ('OBC-CL-PWD','OBC Creamy Layer Person with disabilites'),
-                                        ('OBC-NCL-PWD','OBC Non Creamy Layer Person with disabilites'),
-                                        ('SC-PWD','SC person with disabilites'),
-                                        ('ST-PWD', 'ST person with disabilites'),
-                                    ],
-            )
-    reservation = models.CharField(max_length=25,
-                                choices = [
-                                        ('GEN', 'General'),
-                                        ('SC','SC'),
-                                        ('ST','ST'),
-                                        ('OBC-NCL', 'OBC Non Creamy Layer'),
-                                        ('PWD','General Person with disabilties'),
-                                        ('SERVICE','Ex-Service Man'),
-                                        ('GEN-ECO', 'General Category Economically Weaker Sections'),
-                                        ],
-                                null=True,
-                                blank=True,
-            )
-    current_address = models.TextField()
-    permanent_address = models.TextField()
+    Research_Domain=models.TextField(default=None)
     
     def __str__(self):
         return str(self.name)
