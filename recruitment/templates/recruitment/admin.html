@@ -50,7 +50,67 @@
 								<h2>Filter Applications:</h2>
 							</header>
 							<!-- Add dropdowns here -->
-						</div>
+							<div class="container">
+							  <div class="row gtr-uniform">
+
+								<div class="col-3 col-5-medium">
+									Advertisemnt Number
+								</div>
+								<div class="col-3 col-6-medium">
+									<select name="adv num" id="adv id">
+										<option value="1">Dropdown</option>
+										<option value="1">1</option>
+										<option value="1">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+								</div>
+								<div class="col-1 col-0-medium"></div>
+								<div class="col-2 col-5-medium">
+									Applied For:
+								</div>
+								<div class="col-3 col-6-medium">
+									<select name="App for" id="App for">
+										<option value="1">Dropdown</option>
+										<option value="1">1</option>
+										<option value="1">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+								</div>
+									<div class="col-3 col-5-medium">
+										Applicant Date After:
+									</div>
+									<div class="col-3 col-6-medium">
+										<input type="date" name="datechk" class="datechk">
+									</div>
+									<div class="col-1"></div>
+
+									<div class="col-2 col-5-medium">
+										Before:
+									</div>
+									<div class="col-3 col-6-medium">
+										<input type="date" name="datechk" class="datechk">
+									</div>
+
+										<div class="col-3 col-5-medium">
+											Subject Selected
+										</div>
+										<div class="col-3 col-6-medium">
+											<select name="sub selected" id="sub selected">
+												<option value="1">Dropdown</option>
+												<option value="1">1</option>
+												<option value="1">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+											</select>
+										</div>
+
+							  </div>
+
+							</div>
+								<center><input type="button" value="Submit" style="background-color:rgb(130, 196, 240); margin-top: 6vh;"></center>
+					   </div>
 					</div>
 				</section>
 
@@ -62,19 +122,17 @@
 								<h2>Applications Received:</h2>
 							</header>
 							<!-- Add tables here -->
-							<table class="table-striped table-bordered"
+							<table class="rounded" 
 								style="text-align-last: center;">
 								<thead
-									style="background-color: #eaeaea;">
-									<tr>
-										<th scope="col">Application Number</th>
-										<th scope="col">Applicant Name</th>
-										<th scope="col">Applied for Position</th>
-										<th scope="col">Application Date</th>
-										<th scope="col">Subject Proficiency</th>
-									</tr>
+									id="app-thead">
+										<td style="padding-top: 0.75rem; border-top-left-radius: 1rem;" scope="col">Application Number</td>
+										<td scope="col">Applicant Name</td>
+										<td scope="col">Applied for Position</td>
+										<td scope="col">Application Date</td>
+										<td style="border-top-right-radius: 1rem; " scope="col">Subject Proficiency</td>
 								</thead>
-								<tbody>
+								<tbody class="application-row">
 									<tr></tr>
 									<tr>
 										<th scope="row">1</th>
@@ -215,5 +273,10 @@
 
 	</body>
 </body>
+
+
+<style>
+	
+</style>
 
 </html>
