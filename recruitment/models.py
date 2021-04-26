@@ -13,7 +13,77 @@ class Applicant(models.Model):
     Research_Domain=models.TextField(default=None)
     
     def __str__(self):
-        return str(self.name)
+        return str(self.application_no)
+
+class Research_Exp(models.Model):
+    '''Model for the research experience of the applicant''' 
+    From = models.CharField(max_length=20)
+    to = models.CharField(max_length=20)
+    applicant = models.ForeignKey(Applicant, 
+                                on_delete=models.CASCADE,
+                                related_name='research_exp',
+                )
+    duration = models.CharField(max_length=20)
+    def __str__(self):
+        return str(self.applicant)
+
+class Seminar_Articles(models.Model):
+    '''Model for the details of seminars taken by the applicant'''
+    article_title = models.TextField()
+    seminar_subject = models.TextField()
+    location = models.CharField(max_length=100)
+    duration = models.CharField(max_length=20)
+    published = models.TextField()
+    applicant = models.ForeignKey(Applicant, 
+                                on_delete=models.CASCADE,
+                                related_name='seminar_articles',
+                )
+    duration = models.CharField(max_length=20)
+    def __str__(self):
+        return str(self.applicant)
+
+class Newspaper_Article(models.Model):
+    article_title = models.TextField()
+    journal_name = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)
+    date_published = models.CharField(max_length=20)
+    referred = models.TextField()
+    level=models.CharField(max_length=20)
+    naas = models.TextField()
+    isbn_issn = models.TextField()
+    applicant = models.ForeignKey(Applicant, 
+                                on_delete=models.CASCADE,
+                                related_name='newspaper_article',
+                )
+    def __str__(self):
+        return str(self.applicant)
+
+class Books(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    publisher = models.CharField(max_length=100)
+    date_publish = models.CharField(max_length=20)
+    isbn= models.TextField()
+    applicant = models.ForeignKey(Applicant, 
+                                on_delete=models.CASCADE,
+                                related_name='books',
+                )
+    def __str__(self):
+        return str(self.applicant)
+
+class Chapters(models.Model):
+    book_title = models.CharField(max_length=100)
+    chapter = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    publisher = models.CharField(max_length=100)
+    date_of_publisher = models.CharField(max_length=100)
+    isbn_issn = models.TextField()
+    applicant = models.ForeignKey(Applicant, 
+                                on_delete=models.CASCADE,
+                                related_name='applicant',
+                )
+    def __str__(self):
+        return str(self.applicant)
 
 class Academic_detail(models.Model):
     ''' Model for academic details of applicant.'''
