@@ -186,9 +186,8 @@ class Other_important_details(models.Model):
     statement_of_objective = models.TextField()
 
 
-class File(models.Model):
-    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='files')
-    publications = models.FileField(upload_to='uploads/', null=True, blank=True)
-    image = models.ImageField(upload_to='uploads/', null=True, blank=True)
-    caste_certificate = models.FileField(upload_to='uploads/', null=True, blank=True)
-
+# class File(models.Model):
+#     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='files')
+#     publications = models.FileField(upload_to='uploads/', null=True, blank=True)
+#     image = models.ImageField(upload_to='uploads/', null=True, blank=True)
+    # caste_certificate = models.FileField(upload_to='uploads/', null=True, blank=True)
