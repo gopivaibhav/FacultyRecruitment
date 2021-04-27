@@ -12,6 +12,23 @@
 		<link rel="stylesheet" href="{% static 'assets/css/noscript.css'%}">
 	</noscript>
 	<title>Admin | Faculty Recruitment</title>
+	<style>
+		@media screen and (max-width: 800px) {
+            #received.main.alt .table-wrapper {
+               font-size: 80%;
+            }
+        }
+		@media screen and (max-width: 620px) {
+            #received.main.alt .table-wrapper {
+               font-size: 65%;
+            }
+        }
+		@media screen and (max-width: 520px) {
+            #received.main.alt .table-wrapper {
+               font-size: 45%;
+            }
+        }
+	</style>
 </head>
 
 <body>
@@ -122,16 +139,15 @@
 								<h2>Applications Received:</h2>
 							</header>
 							<!-- Add tables here -->
-							<div class="table-wrapper" style="padding: 2px;">
-								<table class="rounded" 
-								style="text-align-last: center;">
+							<div class="table-wrapper" style="padding: 2px;overflow-wrap: anywhere;">
+								<table class="rounded" style="text-align-last: center;border:2px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;">
 								<thead
 									id="app-thead">
-										<td style="padding-top: 0.75rem; border-top-left-radius: 1rem;" scope="col">Application Number</td>
-										<td scope="col">Applicant Name</td>
-										<td scope="col">Applied for Position</td>
-										<td scope="col">Application Date</td>
-										<td style="border-top-right-radius: 1rem; " scope="col">Subject Proficiency</td>
+										<td style="border-top-left-radius: 1rem; border-bottom: 1px solid #a6a6a6;" scope="col">Application Number</td>
+										<td scope="col" style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">Applicant Name</td>
+										<td scope="col" style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">Applied for Position</td>
+										<td scope="col" style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">Application Date</td>
+										<td style="border-top-right-radius: 1rem;border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6 " scope="col">Subject Proficiency</td>
 								</thead>
 								<tbody class="application-row">
 									<tr></tr>
@@ -139,14 +155,14 @@
 										<th scope="row">1</th>
 										<td>Mark</td>
 										<td>Otto</td>
-										<td>@mdo</td>
-										<td>@mdo</td>
+										<td>22-27-1998</td>
+										<td>Engineering</td>
 									</tr>
 									<tr>
 										<th scope="row">2</th>
-										<td>Jacob</td>
+										<td>Abhisheak Ranajan Gupta</td>
 										<td>Thornton</td>
-										<td>@fat</td>
+										<td>22-67-7070</td>
 										<td>@fat</td>
 									</tr>
 									<tr>
