@@ -115,6 +115,13 @@
 													<option value="HUM">Management / Humanities</option>
 												</select>
 											</div>
+
+											<div class="col-5 col-12-medium" style="align-self:center;">
+												<h3>Research Domain:</h3>
+											</div>
+											<div class="col-6 col-12-medium">
+												<textarea name="researchdomain" id="researchdomain" placeholder="Specific Subject Area's Description" rows="3"></textarea>
+											</div>
 										</div>
 									</div>
 
@@ -128,17 +135,11 @@
 												name="profile_photo" placeholder="Photo" required="">
 												<label for="imageUpload" style="text-align:center">(Upload Profile Picture)</label>
 											</div>
-												
 									</div>
 									<!---   Research Domain  -->
 									<div class="col-9 col-12-medium">
-										<div class="row gtr-uniform" style="margin-top: 1%;">
-										<div class="col-4 col-12-medium" style="align-self:center;">
-											<h3>Research Domain:</h3>
-										</div>
-										<div class="col-7 col-12-medium">
-											<textarea name="researchdomain" id="researchdomain" placeholder="Specific Subject Area's Description" rows="3"></textarea>
-										</div>
+										<div class="row gtr-uniform">
+										
 									</div>
 									</div>
 								</div>
@@ -150,9 +151,10 @@
 					<section id="personal" class="main">
 						<div class="spotlight">
 							<div class="content">
-								<p></p>
+								<br/>
+								<h1 style="text-align: center;"><strong> Section - A </strong></h1>
 								<header class="major">
-									<h2 class="alt">Section - A: General</h2>
+									<h2 class="alt">General</h2>
 								</header>
 								<div class="row gtr-uniform">
 									<div class="col-4 col-12-small" style="align-self:left;">
@@ -170,7 +172,7 @@
 										<h3>Date of Birth:</h3>
 								    </div>
 									<div class="col-5 col-12-small">
-										<input type="date" name="dateofbirth" class="dateofbirth">
+										<input type="date" name="dateofbirth" id="dateofbirth" class="dateofbirth">
 									</div>
 
 									<div class="col-4 col-12-small" style="align-self:left;">
@@ -194,7 +196,6 @@
 									<h2 class="alt">Address:</h2>
 								</header>
 								<div class="row gtr-uniform">
-
 									<div class="col-6 col-12-medium">   <!---  Address for Mailing   -->
 										<div class="row gtr-uniform">
 											<div class="col-12" style="text-align: center;">
@@ -218,7 +219,7 @@
 											<div class="col-7 col-12-small">
 										        <input type="number" name="mailingtelephone" id="mailingtelephone" value="" placeholder="Telephone No.">
 									        </div>
-											<div class="col-12" style="text-align: center;padding-top: 10 %;">
+											<div class="col-12" style="text-align: center;padding-top: 10%;">
 												<input type="checkbox" class="custom-control-input" id="sameaddress">
 												<label class="custom-control-label" for="sameaddress">If your permanent address is same as correspondence address, then please click here.</label>
 											</div>
