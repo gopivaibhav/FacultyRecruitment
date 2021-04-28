@@ -7,12 +7,12 @@ $(document).ready(function () {
 	var newAcademicsNo = 1 ;
 	$('.add-more').click(function (e) {
 		e.preventDefault();
-		var newIn ='<tr class="row gtr-0 appliRow'+newAcademicsNo+'" id="field1"> <td class="col-2 col-12-small" style="text-align: center; padding: 0;">'+
-		'<input type="text" name="othCourse' + newAcademicsNo +'" id="othCourse' + newAcademicsNo +'" style="margin: 0; background-color: transparent; border: none;" placeholder="Enter Course" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0;">'+
-		'<input type="text" name="othName' + newAcademicsNo +'" id="othName' + newAcademicsNo +'" style="margin: 0;" placeholder="Name of Board/College/University"  required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;">'+
-		'<input type="text" name="othPercent' + newAcademicsNo +'" id="othPercent' + newAcademicsNo +'" value="" style="margin: 0;" placeholder="% of Marks" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0;">'+
-		'<input type="text" name="othSubject' + newAcademicsNo +'" id="othSubject' + newAcademicsNo +'" value="" style="margin: 0;" placeholder="Subject(s)" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0; font-size: xx-small;">'+
-		'<select name="othyop' + newAcademicsNo +'" id="othyop' + newAcademicsNo +'"><option value="0">Select Year</option></select></td><td class="col-3 col-12-small" style="display:flex;place-content:space-between">'+
+		var newIn ='<tr class="row gtr-0 appliRow'+newAcademicsNo+'" id="field1"> <td class="col-2" style="text-align: center; padding: 0;">'+
+		'<input type="text" name="othCourse' + newAcademicsNo +'" id="othCourse' + newAcademicsNo +'" style="margin: 0; background-color: transparent; border: none;" placeholder="Enter Course" required></td><td class="col-2" style="text-align: center; padding: 0;">'+
+		'<input type="text" name="othName' + newAcademicsNo +'" id="othName' + newAcademicsNo +'" style="margin: 0;" placeholder="Name of Board/College/University"  required></td><td class="col-1" style="text-align: center; padding: 0;">'+
+		'<input type="text" name="othPercent' + newAcademicsNo +'" id="othPercent' + newAcademicsNo +'" value="" style="margin: 0;" placeholder="% of Marks" required></td><td class="col-2" style="text-align: center; padding: 0;">'+
+		'<input type="text" name="othSubject' + newAcademicsNo +'" id="othSubject' + newAcademicsNo +'" value="" style="margin: 0;" placeholder="Subject(s)" required></td><td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;">'+
+		'<select name="othyop' + newAcademicsNo +'" id="othyop' + newAcademicsNo +'"><option value="0">Select Year</option></select></td><td class="col-3" style="display:flex;place-content:space-between">'+
 		'<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="othFile' + newAcademicsNo +'" name="othFile' + newAcademicsNo +'"></span>'+
 		'<span style="display:inline"><button class="but" onclick=removeRow(event) style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>'+
 		'</td></tr>' ;
