@@ -158,7 +158,6 @@ class General(models.Model):
         return str(self.applicant.full_name)
 
 
-
 class PhD(models.Model):
     PhD_awarded = models.CharField(max_length = 3,choices = (
                                                         ("Yes", "Yes"),
@@ -177,6 +176,35 @@ class other_info(models.Model):
     unfit_for_position = models.TextField()
     references = models.TextField()
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='other_info')
+
+class sponsored_project(models.Model):
+    tot_number = models.CharField(max_length=10)
+    ongoing = models.TextField()
+    completed = models.TextField()
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='sponsored_project')
+    def __str__(self):
+        return str(self.applicant)    
+
+class Experiments(models.Model):
+    tot_number = models.CharField(max_length=10)
+    ongoing = models.TextField()
+    completed = models.TextField()
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='Experiments')
+    def __str__(self):
+        return str(self.applicant)
+class Thesis(models.Model):
+    ongoing_phd = models.TextField()
+    completed_phd = models.TextField()
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='Thesis')
+    def __str__(self):
+        return str(self.applicant)
+class administrative_details(models.Model):
+    details = models.TextField()
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='administrative_details')
+    def __str__(self):
+        return str(self.applicant)
+
+
 
 # class File(models.Model):
 #     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='files')
