@@ -1,6 +1,6 @@
 function removeRow(e){
 	e.preventDefault();
-	$(e.target).parent().parent().remove();
+	$(e.target).parent().parent().parent().remove();
 }
 
 $(document).ready(function () {
@@ -12,9 +12,9 @@ $(document).ready(function () {
 		'<input type="text" name="othName' + newAcademicsNo +'" id="othName' + newAcademicsNo +'" style="margin: 0;" placeholder="Name of Board/College/University"  required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;">'+
 		'<input type="text" name="othPercent' + newAcademicsNo +'" id="othPercent' + newAcademicsNo +'" value="" style="margin: 0;" placeholder="% of Marks" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0;">'+
 		'<input type="text" name="othSubject' + newAcademicsNo +'" id="othSubject' + newAcademicsNo +'" value="" style="margin: 0;" placeholder="Subject(s)" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0; font-size: xx-small;">'+
-		'<select name="othyop' + newAcademicsNo +'" id="othyop' + newAcademicsNo +'"><option value="0">Select Year</option></select></td><td class="col-3 col-12-small" style="text-align: center; padding: 0;">'+
-		'<div style="margin: 4%;"><input type="file" id="othFile' + newAcademicsNo +'" name="othFile' + newAcademicsNo +'"></div>'+
-		'<button class="but" onclick=removeRow(event) style="padding: 0%; height: auto;">-</button>'+
+		'<select name="othyop' + newAcademicsNo +'" id="othyop' + newAcademicsNo +'"><option value="0">Select Year</option></select></td><td class="col-3 col-12-small" style="display:flex;place-content:space-between">'+
+		'<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="othFile' + newAcademicsNo +'" name="othFile' + newAcademicsNo +'"></span>'+
+		'<span style="display:inline"><button class="but" onclick=removeRow(event) style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>'+
 		'</td></tr>' ;
 	$('.academic-tbody').append(newIn);
 	newAcademicsNo+=1;
