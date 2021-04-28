@@ -6,14 +6,16 @@
 
 $(document).ready(function(){
     var next = 1;
+	var year = 5;
     $(".add-more").click(function(e){
         e.preventDefault();
         var addto = "#field" + next;
         var addRemove = "#field" + (next);
         next = next + 1;
+		year = year + 1;
 		/*var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="field' + next + '" type="text">';*/
-		var newIn = '<tr class="row gtr-0" id="field'+next+'"><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="degree'+next+'" id="degree'+next+'" value="" style="margin: 0;" placeholder="" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="qual'+next+'" id="qual'+next+'" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="cat_univ'+next+'" id="cat_univ'+next+'" value="" style="margin: 0;" placeholder="" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="institute'+next+'" id="institute'+next+'" value="" style="margin: 0;" placeholder="" required><td><td class="col-2 col-12-small" style="text-align: center; padding: 0; font-size: xx-small;"><select name="status'+next+'" id="status'+next+'"><option value="Completed">Completed</option><option value="ResultAwaited">Results Awaited</option><option value="FinalAwaited">Finals Awaited</option><option value="Ongoing">Ongoing</option></select></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="pass'+next+'" id="pass1" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="marks'+next+'" id="marks'+next+'" value="" style="margin: 0;" placeholder="" required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><button id="b'+next+'" class="but add-more" style="padding: 0%; width: 8.333333%; height: auto;">+</button></td></tr>'
-        var newInput = $(newIn);
+		var newIn = '<tr class="row gtr-0" id="field1"><td class="col-2 col-12-small" style="text-align: center; padding: 0;">Others</td><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="othName' + next + '" id="othName' + next + '" style="margin: 0;" placeholder="Name of Board/College/University"  required></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="othPercent' + next + '" id="othPercent' + next + '" value="" style="margin: 0;" placeholder="% of Marks" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0;"><input type="text" name="othSubject' + next + '" id="othSubject' + next + '" value="" style="margin: 0;" placeholder="Subject(s)" required></td><td class="col-2 col-12-small" style="text-align: center; padding: 0; font-size: xx-small;"><select name="yearOfPassing' + year + '" id="yearOfPassing' + year + '"><option value="0">Select Year</option></select></td><td class="col-3 col-12-small" style="text-align: center; padding: 0;"><div style="margin: 4%;"><input type="file" id="othFile' + next + '" name="othFile' + next + '"></div></td><td class="col-1 col-12-small" style="text-align: center; padding: 0;"><button id="b' + next + '" class="but add-more" style="padding: 0%; width: 8.333333%; height: auto;">+</button></td></tr>'
+		var newInput = $(newIn);
         var removeBtn = '<button id="remove' + (next - 1) + '" class="but btn-danger remove-me" >-</button></td><tr id="field'+(next-1)+'">';
         var removeButton = $(removeBtn);
         $(addto).after(newInput);
