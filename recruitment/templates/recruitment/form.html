@@ -383,61 +383,188 @@
 								<div>
 									<table class="alt">
 										<tbody>
+											<!-- Table Headings -->
 											<tr class="row gtr-0">
-												<th class="col-2 col-12-xsmall" style="text-align: center;">Exam Name /
-													Degree</th>
-												<th class="col-2 col-12-xsmall" style="text-align: center;">Area
-													of<br>Qualification</th>
-												<th class="col-1 col-12-xsmall" style="text-align: center;">Category of
-													<br>University</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Examination / Degree</th>
 												<th class="col-2 col-12-xsmall" style="text-align: center;">Name of
-													University / <br>Institute</th>
-												<th class="col-2 col-12-xsmall" style="text-align: center;">Status</th>
-												<th class="col-1 col-12-xsmall" style="text-align: center;">Year
-													of<br>Passing</th>
-												<th class="col-1 col-12-xsmall" style="text-align: center;">
-													Percentage<br>of Marks</th>
+													<br>Board/College/University</th>
+												<th class="col-1 col-12-xsmall" style="text-align: center;">% of Marks</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Subject(s)</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Year of Passing</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Supporting Documents</th>
 												<th class="col-1 col-12-xsmall" style="text-align: center;"></th>
 											</tr>
+											<!-- Input Starts Here -->
 											<tr class="row gtr-0" id="field1">
 												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-													<input type="text" name="degree1" id="degree1" value=""
-														style="margin: 0;" placeholder="" required>
+													PhD
 												</td>
 												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-													<input type="text" name="qual1" id="qual1" value=""
-														style="margin: 0;" placeholder="" required>
+													<input type="text" name="phdName" id="phdName"
+														style="margin: 0;" placeholder="Name of Board/College/University"  required>
 												</td>
 												<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-													<input type="text" name="cat_univ1" id="cat_univ1" value=""
-														style="margin: 0;" placeholder="" required>
+													<input type="text" name="phdPercent" id="phdPercent" value=""
+														style="margin: 0;" placeholder="% of Marks" required>
 												</td>
 												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
-													<input type="text" name="institute1" id="institute1" value=""
-														style="margin: 0;" placeholder="" required>
+													<input type="text" name="phdSubject" id="phdSubject" value=""
+														style="margin: 0;" placeholder="Subject(s)" required>
 												</td>
 												<td class="col-2 col-12-small"
 													style="text-align: center; padding: 0; font-size: xx-small;">
-													<select name="status1" id="status1">
-														<option value="Completed">Completed</option>
-														<option value="ResultAwaited">Results Awaited</option>
-														<option value="FinalAwaited">Finals Awaited</option>
-														<option value="Ongoing">Ongoing</option>
-													</select>
+													<select name="yearOfPassing1" id="yearOfPassing1">
+														<option value="0">Select Year</option>
+													  </select>      
+												</td>
+												<td class="col-3 col-12-small" style="text-align: center; padding: 0;">
+													<div style="margin: 4%;"><input type="file" id="phdFile" name="phdFile"></div>
+												</td>
+												
+											</tr>
+
+											<tr class="row gtr-0" id="field1">
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													Post Graduation
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="pgName" id="pgName"
+														style="margin: 0;" placeholder="Name of Board/College/University"  required>
 												</td>
 												<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-													<input type="text" name="pass1" id="pass1" value=""
-														style="margin: 0;" placeholder="" required>
+													<input type="text" name="pgPercent" id="pgPercent" value=""
+														style="margin: 0;" placeholder="% of Marks" required>
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="pgSubject" id="pgSubject" value=""
+														style="margin: 0;" placeholder="Subject(s)" required>
+												</td>
+												<td class="col-2 col-12-small"
+													style="text-align: center; padding: 0; font-size: xx-small;">
+													<select name="yearOfPassing2" id="yearOfPassing2">
+														<option value="0">Select Year</option>
+													  </select>      
+												</td>
+												<td class="col-3 col-12-small" style="text-align: center; padding: 0;">
+													<div style="margin: 4%;"><input type="file" id="pgFile" name="pgFile"></div>
+												</td>
+											</tr>
+
+											<tr class="row gtr-0" id="field1">
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													Graduation
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="gradName" id="gradName"
+														style="margin: 0;" placeholder="Name of Board/College/University"  required>
 												</td>
 												<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-													<input type="text" name="marks1" id="marks1" value=""
-														style="margin: 0;" placeholder="" required>
+													<input type="text" name="gradPercent" id="gradPercent" value=""
+														style="margin: 0;" placeholder="% of Marks" required>
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="gradSubject" id="gradSubject" value=""
+														style="margin: 0;" placeholder="Subject(s)" required>
+												</td>
+												<td class="col-2 col-12-small"
+													style="text-align: center; padding: 0; font-size: xx-small;">
+													<select name="yearOfPassing3" id="yearOfPassing3">
+														<option value="0">Select Year</option>
+													  </select>      
+												</td>
+												<td class="col-3 col-12-small" style="text-align: center; padding: 0;">
+													<div style="margin: 4%;"><input type="file" id="gradFile" name="gradFile"></div>
+												</td>
+											</tr>
+
+											<tr class="row gtr-0" id="field1">
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													XII
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="12Name" id="12Name"
+														style="margin: 0;" placeholder="Name of Board/College/University"  required>
+												</td>
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="12Percent" id="12Percent" value=""
+														style="margin: 0;" placeholder="% of Marks" required>
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="12Subject" id="12Subject" value=""
+														style="margin: 0;" placeholder="Subject(s)" required>
+												</td>
+												<td class="col-2 col-12-small"
+													style="text-align: center; padding: 0; font-size: xx-small;">
+													<select name="yearOfPassing4" id="yearOfPassing4">
+														<option value="0">Select Year</option>
+													  </select>      
+												</td>
+												<td class="col-3 col-12-small" style="text-align: center; padding: 0;">
+													<div style="margin: 4%;"><input type="file" id="12File" name="12File"></div>
+												</td>
+											</tr>
+
+											<tr class="row gtr-0" id="field1">
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													X
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="10Name" id="10Name"
+														style="margin: 0;" placeholder="Name of Board/College/University"  required>
+												</td>
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="10Percent" id="10Percent" value=""
+														style="margin: 0;" placeholder="% of Marks" required>
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="10Subject" id="10Subject" value=""
+														style="margin: 0;" placeholder="Subject(s)" required>
+												</td>
+												<td class="col-2 col-12-small"
+													style="text-align: center; padding: 0; font-size: xx-small;">
+													<select name="yearOfPassing5" id="yearOfPassing5">
+														<option value="0">Select Year</option>
+													  </select>      
+												</td>
+												<td class="col-3 col-12-small" style="text-align: center; padding: 0;">
+													<div style="margin: 4%;"><input type="file" id="10File" name="10File"></div>
+												</td>
+											</tr>
+
+											<tr class="row gtr-0" id="field1">
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													Others
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="othName1" id="othName1"
+														style="margin: 0;" placeholder="Name of Board/College/University"  required>
+												</td>
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="othPercent1" id="othPercent1" value=""
+														style="margin: 0;" placeholder="% of Marks" required>
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
+													<input type="text" name="othSubject1" id="othSubject1" value=""
+														style="margin: 0;" placeholder="Subject(s)" required>
+												</td>
+												<td class="col-2 col-12-small"
+													style="text-align: center; padding: 0; font-size: xx-small;">
+													<select name="yearOfPassing5" id="yearOfPassing5">
+														<option value="0">Select Year</option>
+													  </select>      
+												</td>
+												<td class="col-3 col-12-small" style="text-align: center; padding: 0;">
+													<div style="margin: 4%;"><input type="file" id="othFile1" name="othFile1"></div>
 												</td>
 												<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
 													<button id="b1" class="but add-more"
 														style="padding: 0%; width: 8.333333%; height: auto;">+</button>
 												</td>
 											</tr>
+
+
+
+
 										</tbody>
 									</table>
 								</div>
@@ -896,6 +1023,16 @@
 	<script src="{% static 'assets/js/util.js' %}"></script>
 	<script src="{% static 'assets/js/main.js' %}"></script>
 
+
+	<script>
+		for(let j = 1; j<=7;j++)
+		{
+		  for(let i = 2021; i>=1950; i--)
+		  {
+			document.getElementById("yearOfPassing"+j).innerHTML += "<option value='"+i+"'>"+i+"</option>\n";
+		  }
+		}
+	</script>
 </body>
 
 </html>
