@@ -15,7 +15,7 @@ class Applicant(models.Model):
     def __str__(self):
         return str(self.application_no)
 
-class Research_Exp(models.Model):
+class ResearchExp(models.Model):
     '''Model for the research experience of the applicant''' 
     From = models.CharField(max_length=20)
     to = models.CharField(max_length=20)
@@ -27,7 +27,7 @@ class Research_Exp(models.Model):
     def __str__(self):
         return str(self.applicant)
 
-class Seminar_Articles(models.Model):
+class SeminarArticles(models.Model):
     '''Model for the details of seminars taken by the applicant'''
     article_title = models.TextField()
     seminar_subject = models.TextField()
@@ -42,7 +42,7 @@ class Seminar_Articles(models.Model):
     def __str__(self):
         return str(self.applicant)
 
-class Newspaper_Article(models.Model):
+class NewspaperArticle(models.Model):
     article_title = models.TextField()
     journal_name = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
@@ -85,7 +85,7 @@ class Chapters(models.Model):
     def __str__(self):
         return str(self.applicant)
 
-class Educational_qualifications(models.Model):
+class EducationalQualifications(models.Model):
     ''' Model for educational qualifications of applicant.'''
     degree = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
@@ -100,7 +100,7 @@ class Educational_qualifications(models.Model):
         return str(self.applicant.name)
 
 
-class Employment_exp(models.Model):
+class EmploymentExp(models.Model):
     '''Model for Employment experience of applicant'''
     name = models.CharField(max_length=200)
     post = models.CharField(max_length=250)
@@ -119,13 +119,15 @@ class Employment_exp(models.Model):
 
 class General(models.Model):
     full_name = models.CharField(max_length=200)
-    date = models.DateField(default=timezone.now())
+    DOB = models.CharField(max_length=20, default=None)
     father_name = models.CharField(max_length=200)
     address_perm = models.CharField(max_length=200)
     telephone_perm = models.CharField(max_length=20)
+    pin_perm = models.CharField(max_length=6,default=None)
     address_mail = models.CharField(max_length=200)
     telephone_mail = models.CharField(max_length=20)
-    mobile_number = models.CharField(max_length=10)
+    pin_mail = models.CharField(max_length=6,default=None)
+    mobile_number = models.CharField(max_length=15)
     email = models.EmailField(max_length=50)
     marital_status = models.CharField(max_length = 10,choices = (
                                                         ("Married", "Married"),
@@ -165,9 +167,10 @@ class PhD(models.Model):
                                                         ))
     title_of_thesis = models.CharField(max_length=100)
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='PhD')
+    def __str__(self):
+        return str(self.applicant)   
 
-
-class other_info(models.Model):
+class OtherInfo(models.Model):
     membership = models.TextField()
     responsibilities = models.TextField()
     academic_year_break = models.TextField()
@@ -176,19 +179,20 @@ class other_info(models.Model):
     unfit_for_position = models.TextField()
     references = models.TextField()
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='other_info')
-
-class sponsored_project(models.Model):
-    tot_number = models.CharField(max_length=10)
-    ongoing = models.TextField()
-    completed = models.TextField()
+    def __str__(self):
+        return str(self.applicant)   
+class SponsoredProject(models.Model):
+    spo_tot_number = models.CharField(max_length=10)
+    spo_ongoing = models.TextField()
+    spo_completed = models.TextField()
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='sponsored_project')
     def __str__(self):
         return str(self.applicant)    
 
 class Experiments(models.Model):
-    tot_number = models.CharField(max_length=10)
-    ongoing = models.TextField()
-    completed = models.TextField()
+    exp_tot_number = models.CharField(max_length=10)
+    exp_ongoing = models.TextField()
+    exp_completed = models.TextField()
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='Experiments')
     def __str__(self):
         return str(self.applicant)
@@ -198,11 +202,39 @@ class Thesis(models.Model):
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='Thesis')
     def __str__(self):
         return str(self.applicant)
-class administrative_details(models.Model):
-    details = models.TextField()
+class AdministrativeDetails(models.Model):
+    administrative_details = models.TextField()
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='administrative_details')
     def __str__(self):
         return str(self.applicant)
+
+class Summary(models.Model):
+    defence_date = models.DateField(default=timezone.now())
+    total_exp = models.CharField(max_length=10)
+    exp_post_phd = models.TextField()
+    total_phd_students = models.CharField(max_length=20)
+    ongoing_phd_supervision = models.TextField()
+    total_projects= models.CharField(max_length=10)
+    ongoing_projects=models.CharField(max_length=20)
+    computational_projects=models.TextField()
+    SCI_journal=models.TextField()
+    SCI_journal_post_phd = models.TextField()
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='summary')
+    def __str__(self):
+        return str(self.applicant)
+
+class Membership(models.Model):
+    member_details = models.TextField()
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='membership')
+    def __str__(self):
+        return str(self.applicant)
+
+class Patent(models.Model):
+    patent_details = models.TextField()
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='patent')
+    def __str__(self):
+        return str(self.applicant)
+
 
 
 
