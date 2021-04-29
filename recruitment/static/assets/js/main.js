@@ -135,3 +135,23 @@ function fasterPreview(uploader) {
 $('#imageUpload').change(function () {
   fasterPreview(this);
 });
+
+
+
+////   Upload Signatures   //////
+$('#signImage').click(function (e) {
+  $('#signUpload').click();
+});
+function fasterPreview2(uploader) {
+  if (uploader.files && uploader.files[0]) {
+    $('#signImage').attr(
+      'src',
+      window.URL.createObjectURL(uploader.files[0])
+    );
+  }
+}
+
+$('#signUpload').change(function () {
+  fasterPreview2(this);
+});
+
