@@ -23,14 +23,65 @@ def submission_form(request):
         applicant_data['application_no'] = application_number
         applicant_data['date'] = datetime.datetime.now().date()
         applicant_data['post'] = data['AppPost']
-        applicant_data['name'] = data['fname'].strip() + ' ' + data['mname'].strip() + ' '  + data['lname'].strip()
-        applicant_data['phone'] = data['phnum']
+        applicant_data['department'] = data['Dept']
+        applicant_data['research_domain'] = data['research_domain']
+        applicant_data['full_name'] = data['fname'].strip() + ' ' + data['mname'].strip() + ' '  + data['lname'].strip()
+        applicant_data['DOB'] = data['DOB']
+        applicant_data['father_name'] = data['fathername']
+        applicant_data['address_mail'] = data['mailadd']
+        applicant_data['pin_mail'] = data['mailadd_pin']
+        applicant_data['telephone_mail'] = data['mailadd_tele']
+        applicant_data['address_perm'] = data['permadd']
+        applicant_data['pin_perm'] = data['permadd_pin']
+        applicant_data['telephone_perm'] = data['permadd_tele']
+        applicant_data['mobile_number'] = data['phnum']
+        applicant_data['email'] = data['email']
         applicant_data['gender'] = data['gender']
+        applicant_data['marital_status'] = data['marital_stauts']
+        applicant_data['nationality'] = data['nationality']
+        applicant_data['state'] = data['state']
         applicant_data['category'] = data['category']
         applicant_data['reservation'] = data['reservecat']
-        applicant_data['current_address'] = data['curadd']
-        applicant_data['permanent_address'] = data['permadd']
-        applicant_data['department'] = data['Dept']
+        applicant_data['present_employer'] = data['present_employer']
+        # other misc changes portions
+        applicant_data['membership'] = data['membership']
+        applicant_data['present_employer'] = data['present_employer']
+        applicant_data['responsibilities'] = data['responsibilities']
+        applicant_data['academic_year_break'] = data['academic_year_break']
+        applicant_data['college_punishment'] = data['college_punishment']
+        applicant_data['judicial_punishment'] = data['judicial_punishment']
+        applicant_data['unfit_for_position'] = data['medical_unfit']
+        applicant_data['references'] = data['references']
+        #page4
+        #model:Thesis
+        applicant_data['ongoing_phd'] = data['ongoing_phd']
+        applicant_data['completed_phd'] = data['completed_phd']
+        #model:AdministrativeDetails
+        applicant_data['administrative_details'] = data['administrative_details']
+        #model:Patent
+        applicant_data['patent_details'] = data['patent_details']
+        #model:MembershipDetails
+        applicant_data['member_details'] = data['member_details']
+        #model:Summary
+        applicant_data['defence_date'] = data['phd_defence_date']
+        applicant_data['total_exp'] = data['total_exp']
+        applicant_data['exp_post_phd'] = data['exp_post_phd']
+        applicant_data['total_phd_students'] = data['total_phd_students']
+        applicant_data['ongoing_phd_supervision'] = data['ongoing_phd_supervision']
+        applicant_data['total_projects'] = data['total_projects']
+        applicant_data['ongoing_projects'] = data['ongoing_projects']
+        applicant_data['computational_projects'] = data['computational_projects']
+        applicant_data['SCI_journal'] = data['SCI_journal']
+        applicant_data['SCI_journal_post_phd'] = data['SCI_journal_post_phd']
+        #model:SponsoredProject
+        applicant_data['spo_tot_number'] = data['spo_tot_number']
+        applicant_data['spo_ongoing'] = data['spo_ongoing']
+        applicant_data['spo_completed'] = data['spo_completed']
+        #model:Experiments
+        applicant_data['exp_tot_number'] = data['exp_tot_number']
+        applicant_data['exp_ongoing'] = data['exp_ongoing']
+        applicant_data['exp_completed'] = data['exp_completed']
+
         num_of_academic_records = len(list(filter(lambda s: 'mark' in s,list(data.keys()))))
         academic_data = []
         for i in range(1,num_of_academic_records+1):
