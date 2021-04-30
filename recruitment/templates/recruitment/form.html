@@ -260,7 +260,7 @@
 
 
 					<!-- Contact Details   (Personal Details)	-->
-					<section id="personal" class="main">
+					<section id="personal" class="main" style="border-bottom: 1px solid black; padding-bottom: 1.5em;">
 						<div class="spotlight">
 							<div class="content">
 								<p></p>
@@ -374,24 +374,29 @@
 						<div class="spotlight">
 							<div class="content">
 								<p></p>
+								
+								<h1 style="text-align: center;"><strong> Section - B </strong></h1>
 								<header class="major">
-									<h2 class="alt">2. Academic Details</h2>
+									<h2 class="alt">Educational Qualifications</h2>
 								</header>
+								<!-- <header class="major">
+									<h2 class="alt">2. Academic Details</h2>
+								</header> -->
 									<div class="table-wrapper">
-										<table class="alt" style="max-width: 200% !important;" >
+										<table class="alt" style="margin-bottom: 0;" >
 											<tbody class="academic-tbody" style="text-align-last:center;">
 												<!-- Table Headings -->
-												<tr class="row gtr-0">
-													<th class="col-2" style="text-align: center;">Examination / Degree</th>
-													<th class="col-2" style="text-align: center;">Name of
-														<br>Board/College/University</th>
-													<th class="col-1" style="text-align: center;">% of Marks</th>
-													<th class="col-2" style="text-align: center;">Subject(s)</th>
-													<th class="col-2" style="text-align: center;">Year of Passing</th>
-													<th class="col-3" style="text-align: center;">Supporting Documents</th>
+												<tr style="align-items:center">
+													<th class="col-2" style="text-align: center;vertical-align: middle;">Examination / Degree</th>
+													<th class="col-2" style="text-align: center;vertical-align: middle;">Name of
+														<br>Board/College/<br>University</th>
+													<th class="col-1" style="text-align: center;vertical-align: middle;">Grade/ % of Marks</th>
+													<th class="col-2" style="text-align: center;vertical-align: middle;">Subject(s)</th>
+													<th class="col-2" style="text-align: center;vertical-align: middle;">Year of Passing</th>
+													<th class="col-3" style="text-align: center;vertical-align: middle;">Supporting Documents</th>
 												</tr>
 												<!-- Input Starts Here -->
-												<tr class="row gtr-0" id="field1">
+												<tr id="field1">
 													<td class="col-2" style="text-align: center; padding: 0;">
 														<input type="text" name="coursePhd" id="coursePhd"
 															style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" value="PhD" disabled  required>
@@ -411,20 +416,18 @@
 													<td class="col-2"
 														style="text-align: center; padding: 0; font-size: xx-small;">
 														<select name="yearOfPassing1" id="yearOfPassing1">
-															<option value="0">Select Year</option>
-														  </select>      
+															<option value="0" disabled>Select Year</option>
+														  </select>
 													</td>
 													<td class="col-3" style="text-align: center; padding: 0;">
-														<div style="margin: 4%;margin-left: 1.1em;text-align-last: left;"><input type="file" style="font-size:x-small" id="phdFile" name="phdFile"></div>
+														<div style="margin-left: 1.8em;text-align-last: left;"><input type="file" style="font-size:x-small" id="phdFile" name="phdFile"></div>
 													</td>
-													
+
 												</tr>
-	
-												<tr class="row gtr-0" id="field1">
+
+												<tr id="field1">
 													<td class="col-2" style="text-align: center; padding: 0;">
-														<input type="text" name="coursePg" id="coursePg"
-															style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" value="Post Graduation" disabled  required>
-													
+														<input type="text" name="coursePg" id="coursePg" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" value="Post Graduation" disabled  required>
 													</td>
 													<td class="col-2" style="text-align: center; padding: 0;">
 														<input type="text" name="pgName" id="pgName"
@@ -441,19 +444,17 @@
 													<td class="col-2"
 														style="text-align: center; padding: 0; font-size: xx-small;">
 														<select name="yearOfPassing2" id="yearOfPassing2">
-															<option value="0">Select Year</option>
+															<option value="0" disabled>Select Year</option>
 														  </select>      
 													</td>
 													<td class="col-3" style="text-align: center; padding: 0;">
-														<div style="margin: 4%;margin-left: 1.1em;text-align-last: left;"><input type="file" style="font-size:x-small" id="pgFile" name="pgFile"></div>
+														<div style="margin-left: 1.8em;text-align-last: left;"><input type="file" style="font-size:x-small" id="pgFile" name="pgFile"></div>
 													</td>
 												</tr>
-	
-												<tr class="row gtr-0" id="field1">
+
+												<tr id="field1">
 													<td class="col-2" style="text-align: center; padding: 0;">
-														<input type="text" name="courseGraduation" id="courseGraduation"
-															style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" value="Graduation" disabled  required>
-													
+														<input type="text" name="courseGraduation" id="courseGraduation" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" value="Graduation" disabled  required>
 													</td>
 													<td class="col-2" style="text-align: center; padding: 0;">
 														<input type="text" name="gradName" id="gradName"
@@ -470,15 +471,15 @@
 													<td class="col-2"
 														style="text-align: center; padding: 0; font-size: xx-small;">
 														<select name="yearOfPassing3" id="yearOfPassing3">
-															<option value="0">Select Year</option>
+															<option value="0" disabled>Select Year</option>
 														  </select>      
 													</td>
 													<td class="col-3" style="text-align: center; padding: 0;">
-														<div style="margin: 4%;margin-left: 1.1em;text-align-last: left;"><input type="file" style="font-size:x-small" id="gradFile" name="gradFile"></div>
+														<div style="margin-left: 1.8em;text-align-last: left;"><input type="file" style="font-size:x-small" id="gradFile" name="gradFile"></div>
 													</td>
 												</tr>
 	
-												<tr class="row gtr-0" id="field1">
+												<tr id="field1">
 													<td class="col-2" style="text-align: center; padding: 0;">
 														<input type="text" name="course12" id="course12"
 															style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" value="XII" disabled  required>
@@ -499,15 +500,15 @@
 													<td class="col-2"
 														style="text-align: center; padding: 0; font-size: xx-small;">
 														<select name="yearOfPassing4" id="yearOfPassing4">
-															<option value="0">Select Year</option>
+															<option value="0" disabled>Select Year</option>
 														  </select>      
 													</td>
 													<td class="col-3" style="text-align: center; padding: 0;">
-														<div style="margin: 4%;margin-left: 1.1em;text-align-last: left;"><input type="file" style="font-size:x-small" id="12File" name="12File"></div>
+														<div style="margin-left: 1.8em;text-align-last: left;"><input type="file" style="font-size:x-small" id="12File" name="12File"></div>
 													</td>
 												</tr>
 	
-												<tr class="row gtr-0" id="field1">
+												<tr id="field1">
 													<td class="col-2" style="text-align: center; padding: 0;">
 														<input type="text" name="course10" id="course10"
 															style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" value="X" disabled  required>
@@ -528,15 +529,107 @@
 													<td class="col-2"
 														style="text-align: center; padding: 0; font-size: xx-small;">
 														<select name="yearOfPassing5" id="yearOfPassing5">
-															<option value="0">Select Year</option>
-														  </select>      
+															<option value="0" disabled>Select Year</option>
+														  </select>
 													</td>
 													<td class="col-3" style="text-align: center; padding: 0;">
-														<div style="margin: 4%;margin-left: 1.1em;text-align-last: left;"><input type="file" style="font-size:x-small" id="10File" name="10File"></div>
+														<div style="margin-left: 1.8em;text-align-last: left;"><input type="file" style="font-size:x-small" id="10File" name="10File"></div>
 													</td>
 												</tr>
 											</tbody>
+										</table>
+										<div class="col-12" style="text-align:center"><button id="b1" class="but add-more" style="padding: 0;">Add More</button></div>
+									</div>
+									<br>
+									<div class="row gtr-uniform">
+										<div class="col-4 col-5-small">
+											Whether Ph.D awarded
+										</div>
+										<div class="col-5 col-7-small">
+											<input class="form-check-input" type="radio" name="inlineRadioOptions" id="phdYes" value="phdYes">
+											<label class="form-check-label" for="phdYes">Yes</label>
+											<input class="form-check-input" type="radio" name="inlineRadioOptions" id="phdNo" value="phdNo">
+											<label class="form-check-label" for="phdNo">No</label>
+										</div>
+										<div class="col-4 col-5-small" style="align-self: center;">
+											Title of  Ph.D thesis Awarded
+										</div>
+										<div class="col-6 col-7-small">
+											<textarea name="phdThesis" id="phdThesis" rows="3"></textarea>
+										</div>
+									</div>
+									<br><br>
+
+
+									<div class="table-wrapper">
+
+										<table  style="margin-top: 1.5em;">
 											<tbody>
+								
+												<tr class="row gtr-0" style="align-items:center">
+													<th class="col-12" style="text-align: center;">
+														<h3>Details of Emplyment Experience</h3>
+														<h4>(In chronological order starting with the most recent)</h4>
+													</th>
+												</tr>
+												
+								
+												<tr class="row gtr-0" style="align-items:center">
+													<td class="col-2" style="text-align: center;">name of emp</td>
+													<td class="col-2" style="text-align: center;">Post held / Designation
+													<td class="col-4" style="text-align: center;">
+														
+													<div class="row gtr-uniform">
+														<div class="col-12">Period Of Emplyment</div>
+															<div class="col-6" style="text-align: center;">
+															From
+														</div>
+														<div class="col-6" style="text-align: center; ">
+															To
+														</div>
+													</div>
+														
+													</td>
+													<td class="col-1" style="text-align: center;">Basic Salary</td>
+													<td class="col-1" style="text-align: center;">Nature of Duty</td>
+													<td class="col-2" style="text-align: center;">Supporting Documents</td>
+												</tr>
+								
+												<tr class="row gtr-0" style="align-items:center">
+								
+													<td class="col-2" style="text-align: center;">
+														<input type="text" name="" id="" style="border: 0; background: transparent;" placeholder="Name of Employer/Status of Institute/University (Govt. /Quasi Govt./Autonomous etc.) ">
+													</td>
+								
+													<td class="col-2" style="text-align: center;">
+														<input type="text" name="" id="" style="border: 0; background: transparent;" placeholder="Post held / Design"> 
+													</td>
+								
+													<td class="col-4" style="text-align: center;">
+														
+														<div class="row gtr-uniform">
+																<div class="col-6" style="text-align: right;">
+																	<input type="month" name="" id="" style="border: 0; width: 90%; background: transparent; padding: 0; align-self: center;" placeholder="From" >
+															</div>
+								
+															<div class="col-6" style="text-align: center;">
+																<input type="month" name="" id="" style="border: 0; width: 90%; background: transparent; padding: 0; align-self: center;" placeholder="From" >
+															</div>
+														</div>
+													</td>
+								
+													<td class="col-1" style="text-align: center;">
+														<input type="text" name="" id="" style="border: 0; background: transparent;" placeholder="Basic Salary">
+													</td>
+								
+													<td class="col-1" style="text-align: center;">
+														<input type="text" name="" id="" style="border: 0; background: transparent;" placeholder="Nature of Duty"> 
+													</td>
+								
+													<td class="col-2" style="text-align: center;">
+														<input type="file" name="" id="" style="border: 0; background: transparent; font-size: x-small;">
+													</td>
+												</tr>
 												<td class="col-1" style="text-align: center; padding: 0;">
 													<button id="b1" class="but add-more"
 														style="padding: 0%; width: 8.333333%; height: auto;">Add More</button>
@@ -546,209 +639,28 @@
 									</div>
 									<br>
 									<div class="table-wrapper">
-										<table>
-											<tbody>
-												<tr class="row gtr-0">
-													<tr class="col-12" style="text-align: center;">
-														<th class="col-6">
-															Whether Ph.D awarded
-														</th>
-														<td class="col-6">
-															<input type="radio" value="Yes" id="phdYes" name="phdYes"><label for="Yes">Yes</label> &emsp;&emsp; 
-															<input type="radio" value="phdNo" id="phdNo" name="phdNo"><label for="phdNo">No</label>
-														</td>
-													</tr>
-													<tr class="col-12 " style="height: 5em;">
-														<th class="col-5" >
-															Title of  Ph.D thesis Awarded
-														</th>
-														<td>
-															<textarea name="phdThesis" id="phdThesis" cols="30" rows="4"></textarea>
-														</td>
-													</tr>
-												</tr>
-											</tbody>
+								
+										<table class="alt" style="margin-top: 1.5em;" >
+								
+											<td class="row gtr-0" style="text-align: center;">
+												<div class="col-12">
+														<h2>Research Experience</h2> 
+												</div>
+											</td>
+											<tr class="row gtr-0" style="align-items:center;" >
+												<td class="col-3" style="text-align: center;"><input type="text" name="" id="" style="border: 0; background: transparent;" placeholder="From"></td>
+												<td class="col-3" style="text-align: center;"><input type="text" name="" id="" style="border: 0; background: transparent;" placeholder="To"></td>
+												<td class="col-3" style="text-align: center;"><input type="month" name="" id="" style="border: 0; background: transparent;"></td>
+												<td class="col-3" style="text-align: center;"><input type="file" name="" id="" style="border: 0; background: transparent; font-size: x-small;"></td>
+											</tr>
 										</table>
-										
-										<br>
-
-										<div class="container">
-												<div class="row">
-													<div class="col-12" style="text-align: center; padding: 0;">
-														<h2>
-															Details of Employer/Status of Institute/ University
-														</h2>
-													</div>
-												</div>
-
-												<div class="row" style="height: 14rem;">
-													<div class="col-2" style="font-size: 1rem">
-														Name of Employer/Status of Institute/ University [Govt./ Quasi Govt. Autonomous etc.]
-													</div>
-
-													<div class="col-2" >
-														Post held/ Designation
-													</div>
-
-													<div class="col-4" >
-														<div style="height: 70%;">
-															Period Of Employment
-														</div>
-														<div class="col-2" style="float: left; width: 50%;">
-															From
-														</div>
-														
-														<div class="col-2" style="float: right; width: 50%;">
-															To
-														</div>
-
-													</div>
-
-													<div class="col-1" style="font-size: 1rem">
-														Basic Salary drawn, pay scale and Grade Pay
-													</div>
-
-													<div class="col-1" style="font-size: 1rem">
-														Nature of duties
-													</div>
-
-													<div class="col-2" style="font-size: 1rem">
-														Supporting Documents
-													</div>
-	
-												</div>
-
-												<div class="row">
-
-													<div class="col-2">
-														<input type="text" name="" id="" placeholder="Name of Employer">
-													</div>
-
-													<div class="col-2">
-														<input type="text" name="" id="" placeholder="Post held/ Design">
-													</div>
-
-													<div class="col-2">
-														<select name="fromMonth" id="fromMonth" style="float: left; width: 50%;">
-															<option value="0">Month</option>
-															<option value="jan">Jan</option>
-															<option value="feb">Feb</option>
-															<option value="mar">Mar</option>
-															<option value="apr">Apr</option>
-															<option value="may">May</option>
-															<option value="june">June</option>
-															<option value="july">July</option>
-															<option value="aug">Aug</option>
-															<option value="sept">Sept</option>
-															<option value="oct">Oct</option>
-															<option value="nov">Nov</option>
-															<option value="dec">Dec</option>
-														  </select>
-
-														  <select name="yearOfPassing6" id="yearOfPassing6" style="float: left; width: 50%;">
-															<option value="0">Year</option>
-														  </select> 
-													</div>
-
-													<div class="col-2">
-														<select name="fromMonth" id="fromMonth" style="float: left; width: 50%;">
-															<option value="0">Month</option>
-															<option value="jan">Jan</option>
-															<option value="feb">Feb</option>
-															<option value="mar">Mar</option>
-															<option value="apr">Apr</option>
-															<option value="may">May</option>
-															<option value="june">June</option>
-															<option value="july">July</option>
-															<option value="aug">Aug</option>
-															<option value="sept">Sept</option>
-															<option value="oct">Oct</option>
-															<option value="nov">Nov</option>
-															<option value="dec">Dec</option>
-														  </select>
-
-														  <select name="yearOfPassing7" id="yearOfPassing7" style="float: left; width: 50%;">
-															<option value="0">Year</option>
-														  </select> 				
-														</div>
-
-													<div class="col-1">
-														<input type="text" name="" id="" placeholder="Salary">
-													</div>
-
-													<div class="col-1">
-														<input type="text" name="" id="" placeholder="Nature">
-													</div>
-
-													<div class="col-1">
-														<input type="file" name="" id="">
-													</div>
-
-												</div>
-												<div class="col-12" >
-													<button id="b1" class="but add-more"
-													style="padding: 0%; width: 8.333333%; height: auto;">Add More</button>
-												</div>
-										</div>
+								
 									</div>
-									<div class="row">
-										<div class="col-12" style="text-align: center; padding: 0;">
-											<h3>
-												Research Experience
-											</h3>
-										</div>
-										<div class="col-2">
-											Research Experience other than the period spent for obtaining M.Phil./Ph.D. Research Degree
-										</div>
-
-										<div class="col-2">
-											<input type="text" name="" id="" placeholder="From">
-										</div>
-
-										<div class="col-2">
-											<input type="text" name="" id="" placeholder="To">
-										</div>
-
-										<div class="col-2">
-											<select name="yearOfPassing8" id="yearOfPassing8" style="float: left;">
-												<option value="0">Year</option>
-											  </select> 
-										</div>
-
-										<div class="col-2">
-											<select name="fromMonth" id="fromMonth" style="float: left;">
-												<option value="0">Month</option>
-												<option value="jan">Jan</option>
-												<option value="feb">Feb</option>
-												<option value="mar">Mar</option>
-												<option value="apr">Apr</option>
-												<option value="may">May</option>
-												<option value="june">June</option>
-												<option value="july">July</option>
-												<option value="aug">Aug</option>
-												<option value="sept">Sept</option>
-												<option value="oct">Oct</option>
-												<option value="nov">Nov</option>
-												<option value="dec">Dec</option>
-											  </select>
-										</div>
-
-										<div class="col-2">
-											<input type="file" name="" id="" >
-										</div>
-
-										<div class="col-12" >
-											<button id="b1" class="but add-more"
-											style="padding: 0%; width: 8.333333%; height: auto;">Add More</button>
-										</div>
-
-									</div>
-							</div>
 						</div>
 					</section>
 
 					<!--	Professional Details	-->
-					<section id="professional" class="main">
+					<!-- <section id="professional" class="main">
 						<div class="spotlight">
 							<div class="content">
 								<p></p>
@@ -773,7 +685,7 @@
 												</th>
 												<th class="col-1 col-12-xsmall" style="text-align: center"></th>
 											</tr>
-											
+
 											<tr class="row gtr-0" id="profession1">
 												<td class="col-2 col-12-small" style="text-align: center; padding: 0;">
 													<input type="text" name="org1" id="org1" value="" style="margin: 0; background-color: transparent; border:none;"
@@ -784,14 +696,14 @@
 														style="margin: 0; background-color: transparent; border:none;" placeholder="" required>
 												</td>
 												<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-													<!--	For future reference, pattern has been used, which may cause problems later	-->
+														For future reference, pattern has been used, which may cause problems later	
 													<input type="text" name="proffrom1" id="proffrom1" value=""
 														title="Enter the year" pattern="(19[0-9]{2}|20[0-9]{2})"
 														style="margin: 0; background-color: transparent; border:none;" placeholder="" required>
 												</td>
 												<td class="col-1 col-12-small" style="text-align: center; padding: 0;">
-													<!--	For future reference, pattern has been used, which may cause problems later	-->
-													<input type="text" name="profto1" id="profto1" value=""
+														For future reference, pattern has been used, which may cause problems later	-->
+													<!-- <input type="text" name="profto1" id="profto1" value=""
 														title="Enter the year" pattern="(19[0-9]{2}|20[0-9]{2})"
 														style="margin: 0; background-color: transparent; border:none;" placeholder="" required>
 												</td>
@@ -817,21 +729,379 @@
 								</div>
 							</div>
 						</div>
+					</section> -->
+					<section id="academic" class="main">
+						<div class="spotlight">
+							<div class="content">
+								<p></p>
+								<header class="major">
+									<h2 class="alt">3. RESEARCH AND ACADEMIC CONTRIBUTIONS <br> RESEARCH PUBLICATIONS</h2>
+									
+
+								</header>
+								<div class="py-3">
+									<h3>1. Books- Self authored /co-authored/ edited</h3>
+								<div>
+									<div class="table-wrapper">
+									<table class="alt"  style="max-width: 200% !important;" >
+										<tbody>
+											<tr class="row gtr-0" style="padding: 0.5em;" id="table1row1">
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Title of the Book(s)</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Whether Sole Author or Co-author</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Name of Publisher (with city/country)</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Month & year of publication</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">ISBN/ISSN
+
+													No.</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Supporting Documents</th>
+												
+											</tr>
+											<tr class="row gtr-0 " id="table1row2" >
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="textfield1" id="textfield1" value=""
+														style="margin: 0;" placeholder="Title of the Book" required>
+												</td>
+											
+												<td class="col-2 col-12-small"
+													style="text-align: center; padding: 0; font-size: xx-small; align-self: center;">
+													<select name="textfield2" id="textfield2">
+														<option value="Sole author">Sole Author</option>
+														<option value="Co-author">Co-author</option>
+														
+													</select>
+												</td>
+											
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0.5rem; align-self: center;">
+													<textarea type="text" name="textfield3" id="textfield3" value=""
+														style="margin: 0; " rows="3" placeholder="" required> </textarea>
+												</td>
+											
+												</td>
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													
+												
+														
+														<select name="textfield4" id="textfield4">
+															<option value="January">January</option>
+															<option value="February">February</option>
+															<option value="March">March</option>
+															<option value="April">April</option>
+															<option value="May">May</option>
+															<option value="June">June</option>
+															<option value="July">July</option>
+															<option value="August">August</option>
+															<option value="September">September</option>
+															<option value="October">October</option>
+															<option value="November">November</option>
+															<option value="December">December</option>
+															
+														</select>
+												</td>
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													
+														<select name="textfield5" id="textfield5">
+															<option value="2020">2020</option>
+															<option value="2019">2019</option>
+															<option value="2018">2018</option>
+															<option value="2017">2017</option>
+															<option value="2016">2016</option>
+															<option value="2015">2015</option>
+															<option value="2014">2014</option>
+															<option value="2013">2013</option>
+															<option value="2012">2012</option>
+															<option value="2012">2012</option>
+															<option value="2011">2011</option>
+															<option value="2010">2010</option>
+															<option value="2009">2009</option>
+															<option value="2008">2008</option>
+															<option value="2007">2007</option>
+															<option value="2006">2006</option>
+															<option value="2005">2005</option>
+															<option value="2004">2004</option>
+															<option value="2003">2003</option>
+															<option value="2002">2002</option>
+															<option value="2001">2001</option>
+															<option value="2000">2000</option>
+															<option value="1999">1999</option>
+															<option value="1998">1998</option>
+
+															
+														</select>
+														
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="textfield6" id="textfield6" value=""
+														style="margin: 0;" placeholder="ISBN/ISSN No." required>
+												</td>
+												
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													
+													<input id="supporting_documents" type="file" style="font-size: small;" name="textfield7" >
+													<br><label for="supporting_documents"></label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+									<button type="button" class="btn btn-primary">Add More</button>
+								</div>
+								</div>
+								<br> <br>
+								<div >
+									<h3>2. Chapters contributed in edited books</h3>
+								<div>
+									<div class="table-wrapper">
+									<table class="alt" style="max-width: 200% !important;">
+										<tbody>
+											<tr class="row gtr-0" style="padding: 0.5em;" id="table2row1" >
+												<th class="col-1 col-12-xsmall" style="text-align: center;">Title of the Chapter(s)</th>
+												<th class="col-1 col-12-xsmall" style="text-align: center;">Title of the Book(s)</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Whether Sole Author or Co-author</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Name of Publisher (with city/country)</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Month & year of publication</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">ISBN/ISSN
+
+													No.</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Supporting Documents</th>
+												
+											</tr>
+											<tr class="row gtr-0" id="table2row2">
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="region1" id="region1" value=""
+														style="margin: 0;" placeholder="Title of the Chapter" required>
+												</td>
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="region2" id="region2" value=""
+														style="margin: 0; " placeholder="Title of the Book" required>
+												</td>
+												
+												<td class="col-2 col-12-small"
+													style="text-align: center; padding: 0; font-size: xx-small; align-self: center; ">
+													<select name="region3" id="region3">
+														<option value="Sole author">Sole Author</option>
+														<option value="Co-author">Co-author</option>
+														
+													</select>
+												</td>
+												
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0.5rem; align-self: center;  ">
+													<textarea type="text" name="region4" id="region4" value=""
+														style="margin: 0;  " rows="3"  placeholder="" required></textarea>
+												</td>
+												
+													
+												</td>
+												
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													
+														<select name="region5" id="region5" >
+															<option value="January">January</option>
+															<option value="February">February</option>
+															<option value="March">March</option>
+															<option value="April">April</option>
+															<option value="May">May</option>
+															<option value="June">June</option>
+															<option value="July">July</option>
+															<option value="August">August</option>
+															<option value="September">September</option>
+															<option value="October">October</option>
+															<option value="November">November</option>
+															<option value="December">December</option>
+															
+														</select>
+												</td>
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													
+														<select name="region6" id="region6" >
+															<option value="2020">2020</option>
+															<option value="2019">2019</option>
+															<option value="2018">2018</option>
+															<option value="2017">2017</option>
+															<option value="2016">2016</option>
+															
+														</select>
+														
+												</td>
+											
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="region7" id="region7" value=""
+														style="margin: 0;" placeholder="ISBN/ISSN No." required>
+												</td>
+												
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													
+													<input id="supporting_documents" type="file" style="font-size: small;" name="reservation_certificate" >
+													<br><label for="supporting_documents"></label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+									<button type="button" class="btn btn-primary">Add More</button>
+								</div>
+								</div>
+								<br> <br>
+								<div >
+									<h3>3. Research/Articles/Papers published in Journals/Periodicals/Conference proceedings/Newspapers</h3>
+								<div>
+									<div class="table-wrapper">
+									<table class="alt" style="max-width: 200% !important;">
+										<tbody>
+											<tr class="row gtr-0" style="padding: 0.5em;" id="table3row1">
+												<th class="col-1 col-12-xsmall" style="text-align: center;">Title of research article/ paper(s)</th>
+												<th class="col-1 col-12-xsmall" style="text-align: center;">Name of the  <br> Journal</th>
+												<th class="col-1 col-12-xsmall" style="text-align: center;">Whether Sole Author or Co-author</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Month & year of publication, volume, no. & page nos.</th>
+												<th class="col-1 col-12-xsmall" style="text-align: center;">Whether Referred/ non-referred</th>
+												<th class="col-1 col-12-xsmall" style="text-align: center;">ISBN/ISSN No.</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Level <br> (Int. /Nat. <br> /State /Local )</th>
+												<th class="col-1 col-12-xsmall" style="text-align: center;">NAAS Rating/ Impact Factor</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Supporting Documents</th>
+												
+											</tr>  
+											<tr class="row gtr-0" id="table3row2">
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="line1" id="line1" value=""
+														style="margin: 0;" placeholder="Title of research article/paper(s)" required>
+												</td>
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="line2" id="line2" value=""
+														style="margin: 0;" placeholder="Name of the Journal" required>
+												</td>
+												
+												<td class="col-1 col-12-small"
+													style="text-align: center; padding: 0; font-size: xx-small; align-self: center;">
+													<select name="line3" id="line3">
+														<option value="Sole author">Sole Author</option>
+														<option value="Co-author">Co-author</option>
+														
+													</select>
+												</td>
+												
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0.5rem; align-self: center;">
+													<textarea type="text" name="line4" id="line4" value=""
+														style="margin: 0;" placeholder="" required></textarea>
+												</td>
+												
+												
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													
+														<select name="line5" id="line5">
+															<option value="Sole author">Referred</option>
+															<option value="Co-author">Non-referred</option>
+															
+														</select>
+												</td>
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													
+														<input type="text" name="line6" id="line6" value=""
+														style="margin: 0;" placeholder="ISBN/ISSN No." required>
+														
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="line7" id="line7" value=""
+														style="margin: 0;" placeholder="Level(Int. /Nat. /State /Local )" required>
+													
+												</td>
+											
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="line8" id="line8" value=""
+														style="margin: 0;" placeholder="NAAS Rating/ Impact Factor" required>
+													
+												</td>
+												
+												
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													
+													<input id="supporting_documents" type="file" style="font-size: small;" name="line5
+													line9" itemid="line9" >
+													<br><label for="supporting_documents"></label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+									<button type="button" class="btn btn-primary">Add More</button>
+								</div>
+								</div>
+								<br> <br>
+								<div >
+									<h3>Papers presented in Regional/National and International
+										Seminars/Conferences/Workshop/Symposium. Indicate whether the Conference Proceedings
+										are published.</h3>
+								<div>
+									<div class="table-wrapper">
+									<table class="alt" style="max-width: 200% !important;">
+										<tbody>
+											<tr class="row gtr-0" style="padding: 0.5em;" id="lastheadrow">
+												<th class="col-1 col-12-xsmall" style="text-align: center;">Title/Subject of paper presented</th>
+												<th class="col-3 col-12-xsmall" style="text-align: center;">Subject of Conference /Seminar/Symposium/Workshop</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Organizing Institution/and Name of City/Country</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Duration From/ To</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Whether the proceedings published Yes/No</th>
+												<th class="col-2 col-12-xsmall" style="text-align: center;">Supporting Documents</th>
+												
+												
+											</tr>
+											<tr class="row gtr-0" id="lastrow">
+												<td class="col-1 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="local1" id="local1" value=""
+														style="margin: 0;" placeholder="Title of research article/paper(s)" required>
+												</td>
+												<td class="col-3 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="local2" id="local2" value=""
+														style="margin: 0;" placeholder="Name of the Journal" required>
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													<input type="text" name="local3" id="local3" value=""
+														style="margin: 0; align-self: center;" placeholder="" required>
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0.5rem; align-self: center;">
+													<input type="text" name="local4" id="local4" value=""
+														style="margin-bottom: 0.5rem; " placeholder="From" required>
+														<input type="text" name="local5" id="local5" value=""
+														style="margin: 0;" placeholder="To" required>
+												</td>
+												
+												</td>
+												
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+																									
+														<select name="local16" id="local16">
+															<option value="Yes">Yes</option>
+															<option value="No">No</option>
+															
+														</select>
+												</td>
+												<td class="col-2 col-12-small" style="text-align: center; padding: 0; align-self: center;">
+													
+													<input id="local7" type="file" style="font-size: small;" name="local7" >
+													<br><label for="supporting_documents"></label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+									<button type="button" class="btn btn-primary">Add More</button>
+								</div>
+								</div>
+							</div>
+						</div>
 					</section>
 
-					<!--	Teaching and Research	-->
+						<!-- Teaching and Research	
 					<section id="research" class="main">
 						<div class="spotlight">
 							<div class="content">
 								<p></p>
 
-								<!--	Part A of Teaching and Research	-->
-								<header class="major">
+								<	Part A of Teaching and Research	-->
+								<!-- <header class="major">
 									<h2 class="alt">4. Teaching and Research Details</h2>
 									<h3>a. Courses Taught</h3>
 								</header>
-								<div>
-									<table class="alt">
+								<div> -->
+									<!-- <table class="alt">
 										<tbody>
 											<tr class="row gtr-0">
 												<th class="col-3 col-12-xsmall" style="text-align: center;">Course Title
@@ -874,10 +1144,10 @@
 											</tr>
 										</tbody>
 									</table>
-								</div>
+								</div> -->
 
 								<!--	Part B of Teaching and Research	-->
-								<header class="major">
+								<!-- <header class="major">
 									<h3>b. Thesis Supervision</h3>
 								</header>
 								<div>
@@ -924,10 +1194,10 @@
 											</tr>
 										</tbody>
 									</table>
-								</div>
+								</div> -->
 
 								<!--	Part C of Teaching and Research	-->
-								<header class="major">
+								<!-- <header class="major">
 									<h3>c. Details of Administrative Experience</h3>
 								</header>
 								<div>
@@ -972,10 +1242,10 @@
 											</tr>
 										</tbody>
 									</table>
-								</div>
+								</div> -->
 
 								<!--	Part D of Teaching and Research	-->
-								<header class="major">
+								<!-- <header class="major">
 									<h3>d. Sponsored Projects</h3>
 								</header>
 								<div>
@@ -1021,10 +1291,10 @@
 											</tr>
 										</tbody>
 									</table>
-								</div>
+								</div> -->
 
 								<!--	Part E of Teaching and Research	-->
-								<header class="major">
+								<!-- <header class="major">
 									<h3>e. Membership of Professional Bodies</h3>
 								</header>
 								<div>
@@ -1061,7 +1331,7 @@
 								</div>
 							</div>
 						</div>
-					</section>
+					</section> --> 
 
 					<!--	Other Important detail	-->
 					<section id="other" class="main">
@@ -1125,9 +1395,10 @@
 											rows="3"></textarea>
 									</div>
 
-									<div class="col-12 col-12-medium" style="text-align: center;">
+									<div class="col-6 col-12-medium">
 										<h4>8. Name and Addresses of Two references</h4>
 									</div>
+									<div class="col-6 hidden-medium"></div>
 									<div class="col-6 col-12-medium">
 										<textarea name="objective" id="permadd" placeholder="Name and Addresses of First References"
 											rows="3"></textarea>
@@ -1139,7 +1410,7 @@
 
 									<div class="col-12 col-12-medium">
 										<h5>(*Recommendations from two Referees, not related to the applicants, who are scholars closely acquainted with the applicant’s academic training, accomplishment and capabilities, should preferably be obtained in sealed envelopes and attached with this application, or they be requested to send the recommendation(s) directly to the Assistant Director (PGDBAM), CCSNIAM, Advt. Number, Post Number and Post applied for by post (not by e-mail).</h5>
-										<br>
+										<br><br>
 										<h4>Please indicate how you fulfill the essential as well as desirable qualifications prescribed in the advertisement.</h4>
 									</div>
 									<div class="col-12 col-12-medium">
@@ -1147,8 +1418,44 @@
 											rows="3"></textarea>
 									</div>
 
+									<div class="col-12">
+										<h4><strong>Declaration to Be Signed by the Candidate:</strong></h4>
+									</div>
 
+									<div class="col-12">
+										<h5>I hereby declare that the information given by me in the Application is true, complete and correct to the best of my knowledge and belief and that nothing has been
+											concealed or distorted. If at any time, I am found to have concealed/distorted any information or given any false statement, my application/appointment shall liable
+											to be summarily rejected/terminated without notice or compensation.</h5>
+									</div>
 
+								    <div class="col-12"> <div class="row gtr-uniform" style="align-items:center">
+										<div class="col-1 col-4-medium">
+											<h3>Place:</h3>
+										</div>
+										<div class="col-4 col-6-medium">
+											<input style="text-transform: uppercase;" type="text" name="place" id="place" value="" placeholder="Place" required>
+										</div>
+										<div class="col-2 hidden-medium"></div>
+										<div class="col-1 col-4-medium">
+											<h3>Date:</h3>
+										</div>
+
+										<div class="col-4 col-6-medium">
+											<input type="date" name="signedDate" id="signedDate" required>
+										</div>
+								    </div> </div>
+
+									<div class="col-12" style="display: flex;align-items:center;text-align-last:center;justify-content: flex-end;">
+										<span><strong>Signature: </strong></span>
+
+										<span><image id="signImage"
+											src="" style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;"/>
+											<div>
+												<input id="signUpload" type="file" style="font-size: small;" name="signature_photo" placeholder="Signature" required>
+												<label for="signUpload" style="text-align:center">(Upload Signatures)</label>
+											</div>
+										</span>
+									</div>
 
 
 
@@ -1157,42 +1464,6 @@
 						</div>
 					</section>
 
-					<!--	Upload files	-->
-					<!-- <section id="upload" class="main">
-						<div class="spotlight">
-							<div class="content">
-								<p></p>
-								<header class="major">
-									<h2 class="alt">6. Upload Files</h2>
-								</header>
-								<p>
-									Upload file including complete list of publications (List SCI and Non-SCI journal
-									publications separately).<br>
-									(File Size Limit: 150kB)<br>
-									<input type="file" id="publications" name="publications"
-										accept="application/pdf, image/x-eps">
-								</p>
-								<p>
-									Upload image of yourself. <br>(File Size Limit: 50kB) <br>
-									<input type="file" id="propic" name="propic"
-										accept="image/jpg, image/jpeg, image/png, image/x-eps">
-								</p>
-								<p>
-									To avail reservation, upload certificate supporting your reservation category. <br>
-									(File Size Limit: 200kB)<br>
-									<input type="file" id="cert" name="cert" accept="application/pdf, image/x-eps">
-								</p>
-							</div>
-						</div>
-					</section>
-
-					<ul class="actions">
-						<li><input type="submit" value="Submit" class="primary" /></li>
-						<li><input type="reset" value="Reset" /></li>
-					</ul>
-				</form>
-
-			</section> -->
 		</div>
 
 		<!-- Footer -->
