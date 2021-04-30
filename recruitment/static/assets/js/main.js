@@ -7,7 +7,7 @@ $(document).ready(function () {
 	var newAcademicsNo = 1 ;
 	$('.add-more').click(function (e) {
 		e.preventDefault();
-		var newIn ='<tr class="row gtr-0 appliRow'+newAcademicsNo+'" id="field1"> <td class="col-2" style="text-align: center; padding: 0;">'+
+		var newIn ='<tr class="appliRow'+newAcademicsNo+'" id="field1"> <td class="col-2" style="text-align: center; padding: 0;">'+
 		'<input type="text" name="othCourse' + newAcademicsNo +'" id="othCourse' + newAcademicsNo +'" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" required></td><td class="col-2" style="text-align: center; padding: 0;">'+
 		'<input type="text" name="othName' + newAcademicsNo +'" id="othName' + newAcademicsNo +'" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-1" style="text-align: center; padding: 0;">'+
 		'<input type="text" name="othPercent' + newAcademicsNo +'" id="othPercent' + newAcademicsNo +'" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="% of Marks" required></td><td class="col-2" style="text-align: center; padding: 0;">'+
@@ -135,3 +135,23 @@ function fasterPreview(uploader) {
 $('#imageUpload').change(function () {
   fasterPreview(this);
 });
+
+
+
+////   Upload Signatures   //////
+$('#signImage').click(function (e) {
+  $('#signUpload').click();
+});
+function fasterPreview2(uploader) {
+  if (uploader.files && uploader.files[0]) {
+    $('#signImage').attr(
+      'src',
+      window.URL.createObjectURL(uploader.files[0])
+    );
+  }
+}
+
+$('#signUpload').change(function () {
+  fasterPreview2(this);
+});
+
