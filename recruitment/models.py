@@ -157,7 +157,7 @@ class General(models.Model):
                                 related_name='General',
                 )
     def __str__(self):
-        return str(self.applicant.full_name)
+        return str(self.applicant)
 
 
 class PhD(models.Model):
