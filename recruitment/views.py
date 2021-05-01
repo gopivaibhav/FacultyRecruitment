@@ -63,40 +63,56 @@ def submission_form(request):
         otherinformation_data['references'] = data['miscTa8']
         otherinformation_data['applicant'] = Applicant.objects.get(application_no=application_number) 
         OtherInfo.objects.create(**otherinformation_data)
-        # Educational Qualifictaions
-        num_of_academic_records = len(list(filter(lambda s: 'mark' in s,list(data.keys()))))
-        academic_data = []
-        for i in range(1,num_of_academic_records+1):
-        # #page4
-        # #model:Thesis
-        # applicant_data['ongoing_phd'] = data['ongoing_phd']
-        # applicant_data['completed_phd'] = data['completed_phd']
-        # #model:AdministrativeDetails
-        # applicant_data['administrative_details'] = data['administrative_details']
-        # #model:Patent
-        # applicant_data['patent_details'] = data['patent_details']
-        # #model:MembershipDetails
-        # applicant_data['member_details'] = data['member_details']
-        # #model:Summary
-        # applicant_data['defence_date'] = data['phd_defence_date']
-        # applicant_data['total_exp'] = data['total_exp']
-        # applicant_data['exp_post_phd'] = data['exp_post_phd']
-        # applicant_data['total_phd_students'] = data['total_phd_students']
-        # applicant_data['ongoing_phd_supervision'] = data['ongoing_phd_supervision']
-        # applicant_data['total_projects'] = data['total_projects']
-        # applicant_data['ongoing_projects'] = data['ongoing_projects']
-        # applicant_data['computational_projects'] = data['computational_projects']
-        # applicant_data['SCI_journal'] = data['SCI_journal']
-        # applicant_data['SCI_journal_post_phd'] = data['SCI_journal_post_phd']
-        # #model:SponsoredProject
-        # applicant_data['spo_tot_number'] = data['spo_tot_number']
-        # applicant_data['spo_ongoing'] = data['spo_ongoing']
-        # applicant_data['spo_completed'] = data['spo_completed']
-        # #model:Experiments
-        # applicant_data['exp_tot_number'] = data['exp_tot_number']
-        # applicant_data['exp_ongoing'] = data['exp_ongoing']
-        # applicant_data['exp_completed'] = data['exp_completed']
-
+        # Page 4
+        # Thesis
+        thesis_data = {}
+        thesis_data['ongoing_phd'] = data['ongoing_phd']
+        thesis_data['completed_phd'] = data['completed_phd']
+        thesis_data['applicant'] = Applicant.objects.get(application_no=application_number)
+        Thesis.objects.create(**thesis_data)
+        # Administrative Details
+        administrative_details_data = {}
+        administrative_details_data['administrative_details'] = data['administrative_details']
+        administrative_details_data['applicant'] = Applicant.objects.get(application_no=application_number)
+        AdministrativeDetails.objects.create(**administrative_details_data)
+        # Patent
+        patent_data = {}
+        patent_data['patent_details'] = data['patent_details']
+        patent_data['applicant'] = Applicant.objects.get(application_no=application_number)
+        Patent.objects.create(**patent_data)
+        # Membership Details
+        membership_data = {}
+        membership_data['member_details'] = data['member_details']
+        membership_data['applicant'] = Applicant.objects.get(application_no=application_number)
+        Membership.objects.create(**membership_data)
+        # Summary
+        summary_data = {}
+        summary_data['defence_date'] = data['phd_defence_date']
+        summary_data['total_exp'] = data['phd_defence_date']
+        summary_data['exp_post_phd'] = data['exp_post_phd']
+        summary_data['total_phd_students'] = data['total_phd_students']
+        summary_data['ongoing_phd_supervision'] = data['ongoing_phd_supervision']
+        summary_data['total_projects'] = data['total_projects']
+        summary_data['ongoing_projects'] = data['ongoing_projects']
+        summary_data['computational_projects'] = data['computational_projects']
+        summary_data['SCI_journal'] = data['SCI_journal']
+        summary_data['SCI_journal_post_phd'] = data['SCI_journal_post_phd']
+        summary_data['applicant'] = Applicant.objects.get(application_no=application_number)
+        Summary.objects.create(**summary_data)
+        # Sponsored Projects
+        sponsored_projects_data = {}
+        sponsored_projects_data['spo_tot_number'] = data['spo_tot_number']
+        sponsored_projects_data['spo_ongoing'] = data['spo_ongoing']
+        sponsored_projects_data['spo_completed'] = data['spo_tot_number']
+        sponsored_projects_data['applicant'] = Applicant.objects.get(application_no=application_number)
+        SponsoredProject.objects.create(**sponsored_projects_data)
+        # Experiments
+        experiments_data = {}
+        experiments_data['exp_tot_number'] = data['exp_tot_number']
+        experiments_data['exp_ongoing'] = data['exp_ongoing']
+        experiments_data['exp_completed'] = data['exp_completed']
+        experiments_data['applicant'] = Applicant.objects.get(application_no=application_number)
+        Experiments.objects.create(**experiments_data)
         # num_of_academic_records = len(list(filter(lambda s: 'mark' in s,list(data.keys()))))
         # academic_data = []
         # for i in range(1,num_of_academic_records+1):
