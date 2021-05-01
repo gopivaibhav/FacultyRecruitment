@@ -129,6 +129,7 @@ class General(models.Model):
     pin_mail = models.CharField(max_length=6,default=None)
     mobile_number = models.CharField(max_length=15)
     email = models.EmailField(max_length=50)
+    gender = models.CharField(max_length=20)
     marital_status = models.CharField(max_length = 10,choices = (
                                                         ("Married", "Married"),
                                                         ("Not Married", "Not Married"),
@@ -157,7 +158,7 @@ class General(models.Model):
                                 related_name='General',
                 )
     def __str__(self):
-        return str(self.applicant.full_name)
+        return str(self.applicant)
 
 
 class PhD(models.Model):
