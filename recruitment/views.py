@@ -29,10 +29,11 @@ def submission_form(request):
         applicant_data['post'] = data['AppPost']
         applicant_data['department'] = data['Dept']
         applicant_data['Research_Domain'] = data['research_domain']
+        applicant_data['profile_picture'] = data['profileImage']
         Applicant.objects.create(**applicant_data)
         # General
         general_data={}
-        general_data['full_name'] = data['name'].strip()
+        general_data['full_name'] = data['saluation'] + data['name'].strip()
         general_data['DOB'] = data['dateofbirth']
         general_data['father_name'] = data['fathername']
         general_data['address_perm'] = data['permanentaddress']
