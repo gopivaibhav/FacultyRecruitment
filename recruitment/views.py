@@ -29,7 +29,6 @@ def submission_form(request):
         applicant_data['post'] = data['AppPost']
         applicant_data['department'] = data['Dept']
         applicant_data['Research_Domain'] = data['research_domain']
-        applicant_data['profile_picture'] = data['profile_photo']
         applicant_data['profile_picture'] = data['profileImage']
         Applicant.objects.create(**applicant_data)
         # General
