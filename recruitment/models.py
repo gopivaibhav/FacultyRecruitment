@@ -173,6 +173,7 @@ class PhD(models.Model):
 class OtherInfo(models.Model):
     membership = models.TextField()
     responsibilities = models.TextField()
+    any_other_relevant_information = models.TextField()
     academic_year_break = models.TextField()
     college_punishment = models.TextField()
     judicial_punishment = models.TextField()
