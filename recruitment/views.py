@@ -74,7 +74,7 @@ def submission_form(request):
         Thesis.objects.create(**thesis_data)
         # Administrative Details
         administrative_details_data = {}
-        administrative_details_data['administrative_details'] = data['administrative_details']
+        administrative_details_data['# Administrative Details'] = data['administrative_details']
         administrative_details_data['applicant'] = Applicant.objects.get(application_no=application_number)
         AdministrativeDetails.objects.create(**administrative_details_data)
         # Patent
@@ -126,17 +126,17 @@ def submission_form(request):
         academic_data = []
         for i in range(1,num_of_academic_records+1):
             academic_details = {}
-            academic_details['degree'] = data.get('course'+str(i),False)
-            academic_details['name'] = data.get('course'+str(i)+'name',False)
-            academic_details['marks'] = data.get('course'+str(i)+'percentage',False)
-            academic_details['subjects'] = data.get('course'+str(i)+'subject',False)
-            academic_details['year_of_passing'] = data.get('yearOfPassing'+str(i),False)
-            academic_details['supporting_documents'] = data.get('course'+str(i)+'file',False)
+            academic_details['degree'] = data.get('course-'+str(i)+'-degree',False)
+            academic_details['name'] = data.get('course-'+str(i)+'-name',False)
+            academic_details['marks'] = data.get('course-'+str(i)+'-marks',False)
+            academic_details['subjects'] = data.get('course-'+str(i)+'-subject',False)
+            academic_details['year_of_passing'] = data.get('yearOfPassing-'+str(i),False)
+            academic_details['supporting_documents'] = data.get('course-'+str(i)+'-file',False)
             academic_details['applicant'] = Applicant.objects.get(application_no=application_number)
-            if re.search(r'[12]\d{3}',data.get('yearOfPassing'+str(i),False)) is None:
+            if re.search(r'[12]\d{3}',data.get('yearOfPassing-'+str(i),False)) is None:
                 return render(request, 'recruitment/form.html',{'message':'Enter the year in Academic details in yyyy format.'})
-            if 0 <= float(data.get('course'+str(i)+'percentage',False)) <= 100:
-                academic_details['percentage']  = data.get('marks' + str(i),False)
+            if 0 <= float(data.get('course-'+str(i)+'-marks',False)) <= 100:
+                academic_details['marks']  = data.get('course-'+str(i)+'-marks',False)
             else:
                 return render(request, 'recruitment/form.html',{'message':'Enter your percentage in Academic details a value between 0 to 100.'})
             EducationalQualifications.objects.create(**academic_details)    
@@ -145,12 +145,12 @@ def submission_form(request):
         professional_data =  []
         for i in range(1,num_of_professional_records+1):
             professional_details = {}
-            professional_details['name'] = data.get('org' + str(i) + 'name',False)
-            professional_details['post'] = data.get('org' + str(i) + 'post',False)
-            professional_details['from_year'] = data.get('org' + str(i) + 'from',False)
-            professional_details['to_year'] = data.get('org' + str(i) + 'to',False)
-            professional_details['salary'] = data.get('org' + str(i) + 'salary',False)
-            professional_details['nature'] = data.get('org' + str(i) + 'nature',False)
+            professional_details['name'] = data.get('org-' + str(i) + '-name',False)
+            professional_details['post'] = data.get('org-' + str(i) + '-post',False)
+            professional_details['from_year'] = data.get('org-' + str(i) + '-from',False)
+            professional_details['to_year'] = data.get('org-' + str(i) + '-to',False)
+            professional_details['salary'] = data.get('org-' + str(i) + '-salary',False)
+            professional_details['nature'] = data.get('org-' + str(i) + '-nature',False)
             professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
             EmploymentExp.objects.create(**professional_details)
 
@@ -159,11 +159,11 @@ def submission_form(request):
         books_data = []
         for i in range(1,num_of_books_records+1):
             books_details = {}
-            books_details['title'] = data.get('books' + str(i) + 'title',False)
-            books_details['author'] = data.get('books' + str(i) + 'author',False)     
-            books_details['publisher'] = data.get('books' + str(i) + 'publsher',False) 
-            books_details['date_of_publisher'] = data.get('books' + str(i) + 'date',False)
-            books_details['isbn_issn'] = data.get('books' + str(i) + 'number',False)  
+            books_details['title'] = data.get('books-' + str(i) + '-title',False)
+            books_details['author'] = data.get('books-' + str(i) + '-author',False)     
+            books_details['publisher'] = data.get('books-' + str(i) + '-publisher',False) 
+            books_details['date_of_publisher'] = data.get('books-' + str(i) + '-date',False)
+            books_details['isbn_issn'] = data.get('books-' + str(i) + '-number',False)  
             books_details['applicant'] = Applicant.objects.get(application_no=application_number)
             Books.objects.create(**books_details)
         # Chapters
@@ -171,37 +171,37 @@ def submission_form(request):
         chapters_data = []
         for i in range(1,num_of_chapters_records+1):
             chapter_details = {}
-            chapter_details['book_title'] = data.get('chapters' + str(i) + 'book_title',False)
-            chapter_details['chapter'] = data.get('chapters' + str(i) + 'chapter',False)    
-            chapter_details['author'] = data.get('chapters' + str(i) + 'author',False)
-            chapter_details['publisher'] = data.get('chapters' + str(i) + 'publisher',False)
-            chapter_details['date_of_publisher'] = data.get('chapters' + str(i) + 'date_of_publisher',False)
-            chapter_details['isbn_issn'] = data.get('chapters' + str(i) + 'number',False)
+            chapter_details['book_title'] = data.get('chapters-' + str(i) + '-book_title',False)
+            chapter_details['chapter'] = data.get('chapters-' + str(i) + '-chapter',False)    
+            chapter_details['author'] = data.get('chapters-' + str(i) + '-author',False)
+            chapter_details['publisher'] = data.get('chapters-' + str(i) + '-publisher',False)
+            chapter_details['date_of_publisher'] = data.get('chapters-' + str(i) + '-date_of_publisher',False)
+            chapter_details['isbn_issn'] = data.get('chapters-' + str(i) + '-number',False)
             chapter_details['applicant'] = Applicant.objects.get(application_no=application_number)
             Chapters.objects.create(**chapter_details)
         # Newspapers Articles
         num_of_news_articles_records = len(list(filter(lambda s: 'chapters' in s, list(data.keys()))))
         for i in range(1, num_of_news_articles_records+1):
             news_articles_details = {}
-            news_articles_details['article_title'] = data.get('news_articles' + str(i) + 'article_title',False)
-            news_articles_details['journal_name'] = data.get('news_articles' + str(i) + 'journal_name',False)
-            news_articles_details['author'] = data.get('news_articles' + str(i) + 'author',False)
-            news_articles_details['date_published'] = data.get('news_articles' + str(i) + 'date_published',False)
-            news_articles_details['referred'] = data.get('news_articles' + str(i) + 'referred',False)
-            news_articles_details['level'] = data.get('news_articles' + str(i) + 'level',False)
-            news_articles_details['naas'] = data.get('news_articles' + str(i) + 'naas',False)
-            news_articles_details['isbn_issn'] = data.get('news_articles' + str(i) + 'number',False)
-            news_articles_details['article_title'] = Applicant.objects.get(application_no=application_number)
+            news_articles_details['article_title'] = data.get('news_articles-' + str(i) + '-article_title',False)
+            news_articles_details['journal_name'] = data.get('news_articles-' + str(i) + '-journal_name',False)
+            news_articles_details['author'] = data.get('news_articles-' + str(i) + '-author',False)
+            news_articles_details['date_published'] = data.get('news_articles-' + str(i) + '-date_published',False)
+            news_articles_details['referred'] = data.get('news_articles-' + str(i) + '-referred',False)
+            news_articles_details['level'] = data.get('news_articles-' + str(i) + '-level',False)
+            news_articles_details['naas'] = data.get('news_articles-' + str(i) + '-naas',False)
+            news_articles_details['isbn_issn'] = data.get('news_articles-' + str(i) + '-number',False)
+            news_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
             NewspaperArticle.objects.create(**news_articles_details)
         # Seminar Articles
         num_of_seminar_articles =  len(list(filter(lambda s: 'chapters' in s, list(data.keys()))))
         for i in range(1,num_of_seminar_articles+1):
             seminar_articles_details = {}
-            seminar_articles_details['article_title'] = data.get('semi_articles' + str(i) + 'article_title',False)
-            seminar_articles_details['seminar_subject'] = data.get('semi_articles' + str(i) + 'seminar_subject',False)
-            seminar_articles_details['location'] = data.get('semi_articles' + str(i) + 'location',False)
-            seminar_articles_details['duration'] = data.get('semi_articles' + str(i) + 'duration',False)
-            seminar_articles_details['published'] = data.get('semi_articles' + str(i) + 'published',False)
+            seminar_articles_details['article_title'] = data.get('semi_articles-' + str(i) + '-article_title',False)
+            seminar_articles_details['seminar_subject'] = data.get('semi_articles-' + str(i) + '-seminar_subject',False)
+            seminar_articles_details['location'] = data.get('semi_articles-' + str(i) + '-location',False)
+            seminar_articles_details['duration'] = data.get('semi_articles-' + str(i) + '-duration',False)
+            seminar_articles_details['published'] = data.get('semi_articles-' + str(i) + '-published',False)
             seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
             SeminarArticles.objects.create(**seminar_articles_details)                   
         #     professional_details['organisation'] = data.get('org' + str(i),False)
