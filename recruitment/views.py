@@ -29,7 +29,11 @@ def submission_form(request):
         applicant_data['post'] = data['AppPost']
         applicant_data['department'] = data['Dept']
         applicant_data['Research_Domain'] = data['research_domain']
+<<<<<<< HEAD
+        applicant_data['profile_picture'] = data['profile_photo']
+=======
         applicant_data['profile_picture'] = data['profileImage']
+>>>>>>> dba21bdb140b5a31979ae9bd1266ec50d46bec37
         Applicant.objects.create(**applicant_data)
         # General
         general_data={}
@@ -57,6 +61,7 @@ def submission_form(request):
         otherinformation_data = {}
         otherinformation_data['membership'] = data['miscTa1']
         otherinformation_data['responsibilities'] = data['miscTa2']
+        otherinformation_data['other_relevant_info'] = data['miscTa3']
         otherinformation_data['academic_year_break'] = data['miscTa4']
         otherinformation_data['college_punishment'] = data['miscTa5']
         otherinformation_data['judicial_punishment'] = data['miscTa6']
@@ -114,28 +119,46 @@ def submission_form(request):
         experiments_data['exp_completed'] = data['exp_completed']
         experiments_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Experiments.objects.create(**experiments_data)
-        # num_of_academic_records = len(list(filter(lambda s: 'mark' in s,list(data.keys()))))
-        # academic_data = []
-        # for i in range(1,num_of_academic_records+1):
-        #     academic_details = {}
-        #     academic_details['degree'] = data.get('degree'+str(i),False)
-        #     academic_details['area_of_qualification'] = data.get('qual' + str(i),False)
-        #     academic_details['category_of_university'] = data.get('cat_univ' + str(i),False)
-        #     academic_details['institute'] = data.get('institute' + str(i),False)
-        #     academic_details['status'] = data.get('status' + str(i),False)
-        #     academic_details['year_of_passing'] = data.get('pass' + str(i),False)
-        #     if re.search(r'[12]\d{3}',data.get('pass'+str(i),False)) is None:
-        #         return render(request, 'recruitment/form.html',{'message':'Enter the year in Academic details in yyyy format.'})
-        #     if 0 <= float(data.get('marks' + str(i),False)) <= 100:
-        #         academic_details['percentage']  = data.get('marks' + str(i),False)
-        #     else:
-        #         return render(request, 'recruitment/form.html',{'message':'Enter your percentage in Academic details a value between 0 to 100.'})
-        #     academic_data.append(academic_details)
-       
-        # num_of_professional_records = len(list(filter(lambda s: 'org' in s, list(data.keys()))))
-        # professional_data =  []
-        # for i in range(1,num_of_professional_records+1):
-        #     professional_details = {}
+        # PHD
+        phd_data = {}
+        phd_data['PhD_awarded'] = data['awarded_phd']
+        phd_data['title_of_thesis'] = data['phdThesis']
+        phd_data['applicant'] = Applicant.objects.get(application_no=application_number)
+        PhD.objects.create(**phd_data)
+        # Academic Details
+        num_of_academic_records = len(list(filter(lambda s: 'mark' in s,list(data.keys()))))
+        academic_data = []
+        for i in range(1,num_of_academic_records+1):
+            academic_details = {}
+            academic_details['degree'] = data.get('course'+str(i),False)
+            academic_details['name'] = data.get('course'+str(i)+'name',False)
+            academic_details['marks'] = data.get('course'+str(i)+'percentage',False)
+            academic_details['subjects'] = data.get('course'+str(i)+'subject',False)
+            academic_details['year_of_passing'] = data.get('yearOfPassing'+str(i),False)
+            academic_details['supporting_documents'] = data.get('course'+str(i)+'file',False)
+            academic_details['applicant'] = Applicant.objects.get(application_no=application_number)
+            if re.search(r'[12]\d{3}',data.get('yearOfPassing'+str(i),False)) is None:
+                return render(request, 'recruitment/form.html',{'message':'Enter the year in Academic details in yyyy format.'})
+            if 0 <= float(data.get('course'+str(i)+'percentage',False)) <= 100:
+                academic_details['percentage']  = data.get('marks' + str(i),False)
+            else:
+                return render(request, 'recruitment/form.html',{'message':'Enter your percentage in Academic details a value between 0 to 100.'})
+            academic_data.append(academic_details)
+        EducationalQualifications.objects.create(**academic_data)
+        # Professional
+        num_of_professional_records = len(list(filter(lambda s: 'org' in s, list(data.keys()))))
+        professional_data =  []
+        for i in range(1,num_of_professional_records+1):
+            professional_details = {}
+            professional_details['name'] = data.get('org' + str(i) + 'name',False)
+            professional_details['post'] = data.get('org' + str(i) + 'post',False)
+            professional_details['from_year'] = data.get('org' + str(i) + 'from',False)
+            professional_details['to_year'] = data.get('org' + str(i) + 'to',False)
+            professional_details['salary'] = data.get('org' + str(i) + 'salary',False)
+            professional_details['nature'] = data.get('org' + str(i) + 'nature',False)
+            professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
+            academic_data.append(academic_details)
+        EmploymentExp.objects.create(**professional_data)
         #     professional_details['organisation'] = data.get('org' + str(i),False)
         #     professional_details['designation']  = data.get('desig' + str(i),False)
         #     professional_details['from_year'] = data.get('proffrom' + str(i),False)
