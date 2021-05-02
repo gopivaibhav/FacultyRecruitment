@@ -139,8 +139,7 @@ def submission_form(request):
                 academic_details['percentage']  = data.get('marks' + str(i),False)
             else:
                 return render(request, 'recruitment/form.html',{'message':'Enter your percentage in Academic details a value between 0 to 100.'})
-            academic_data.append(academic_details)
-        EducationalQualifications.objects.create(**academic_data)
+            EducationalQualifications.objects.create(**academic_details)    
         # Professional
         num_of_professional_records = len(list(filter(lambda s: 'org' in s, list(data.keys()))))
         professional_data =  []
@@ -153,8 +152,58 @@ def submission_form(request):
             professional_details['salary'] = data.get('org' + str(i) + 'salary',False)
             professional_details['nature'] = data.get('org' + str(i) + 'nature',False)
             professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
-            academic_data.append(academic_details)
-        EmploymentExp.objects.create(**professional_data)
+            EmploymentExp.objects.create(**professional_details)
+
+        # Books
+        num_of_books_records = len(list(filter(lambda s: 'books' in s, list(data.keys()))))
+        books_data = []
+        for i in range(1,num_of_books_records+1):
+            books_details = {}
+            books_details['title'] = data.get('books' + str(i) + 'title',False)
+            books_details['author'] = data.get('books' + str(i) + 'author',False)     
+            books_details['publisher'] = data.get('books' + str(i) + 'publsher',False) 
+            books_details['date_of_publisher'] = data.get('books' + str(i) + 'date',False)
+            books_details['isbn_issn'] = data.get('books' + str(i) + 'number',False)  
+            books_details['applicant'] = Applicant.objects.get(application_no=application_number)
+            Books.objects.create(**books_details)
+        # Chapters
+        num_of_chapters_records = len(list(filter(lambda s: 'chapters' in s, list(data.keys()))))    
+        chapters_data = []
+        for i in range(1,num_of_chapters_records+1):
+            chapter_details = {}
+            chapter_details['book_title'] = data.get('chapters' + str(i) + 'book_title',False)
+            chapter_details['chapter'] = data.get('chapters' + str(i) + 'chapter',False)    
+            chapter_details['author'] = data.get('chapters' + str(i) + 'author',False)
+            chapter_details['publisher'] = data.get('chapters' + str(i) + 'publisher',False)
+            chapter_details['date_of_publisher'] = data.get('chapters' + str(i) + 'date_of_publisher',False)
+            chapter_details['isbn_issn'] = data.get('chapters' + str(i) + 'number',False)
+            chapter_details['applicant'] = Applicant.objects.get(application_no=application_number)
+            Chapters.objects.create(**chapter_details)
+        # Newspapers Articles
+        num_of_news_articles_records = len(list(filter(lambda s: 'chapters' in s, list(data.keys()))))
+        for i in range(1, num_of_news_articles_records+1):
+            news_articles_details = {}
+            news_articles_details['article_title'] = data.get('news_articles' + str(i) + 'article_title',False)
+            news_articles_details['journal_name'] = data.get('news_articles' + str(i) + 'journal_name',False)
+            news_articles_details['author'] = data.get('news_articles' + str(i) + 'author',False)
+            news_articles_details['date_published'] = data.get('news_articles' + str(i) + 'date_published',False)
+            news_articles_details['referred'] = data.get('news_articles' + str(i) + 'referred',False)
+            news_articles_details['level'] = data.get('news_articles' + str(i) + 'level',False)
+            news_articles_details['naas'] = data.get('news_articles' + str(i) + 'naas',False)
+            news_articles_details['isbn_issn'] = data.get('news_articles' + str(i) + 'number',False)
+            news_articles_details['article_title'] = Applicant.objects.get(application_no=application_number)
+            NewspaperArticle.objects.create(**news_articles_details)
+        # Seminar Articles
+        num_of_seminar_articles =  len(list(filter(lambda s: 'chapters' in s, list(data.keys()))))
+        for i in range(1,num_of_seminar_articles+1):
+            seminar_articles_details = {}
+            seminar_articles_details['article_title'] = data.get('semi_articles' + str(i) + 'article_title',False)
+            seminar_articles_details['seminar_subject'] = data.get('semi_articles' + str(i) + 'seminar_subject',False)
+            seminar_articles_details['location'] = data.get('semi_articles' + str(i) + 'location',False)
+            seminar_articles_details['duration'] = data.get('semi_articles' + str(i) + 'duration',False)
+            seminar_articles_details['published'] = data.get('semi_articles' + str(i) + 'published',False)
+            seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
+            SeminarArticles.objects.create(**seminar_articles_details)                   
         #     professional_details['organisation'] = data.get('org' + str(i),False)
         #     professional_details['designation']  = data.get('desig' + str(i),False)
         #     professional_details['from_year'] = data.get('proffrom' + str(i),False)
