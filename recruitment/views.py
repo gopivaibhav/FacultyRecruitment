@@ -139,8 +139,7 @@ def submission_form(request):
                 academic_details['percentage']  = data.get('marks' + str(i),False)
             else:
                 return render(request, 'recruitment/form.html',{'message':'Enter your percentage in Academic details a value between 0 to 100.'})
-            academic_data.append(academic_details)
-        EducationalQualifications.objects.create(**academic_data)
+            EducationalQualifications.objects.create(**academic_details)    
         # Professional
         num_of_professional_records = len(list(filter(lambda s: 'org' in s, list(data.keys()))))
         professional_data =  []
@@ -153,8 +152,7 @@ def submission_form(request):
             professional_details['salary'] = data.get('org' + str(i) + 'salary',False)
             professional_details['nature'] = data.get('org' + str(i) + 'nature',False)
             professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
-            academic_data.append(academic_details)
-        EmploymentExp.objects.create(**professional_data)
+            EmploymentExp.objects.create(**professional_details)
 
         # Books
         num_of_books_records = len(list(filter(lambda s: 'books' in s, list(data.keys()))))
