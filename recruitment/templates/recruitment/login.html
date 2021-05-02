@@ -22,7 +22,7 @@
 
 			<!-- Header -->
 			<header id="header" class="alt">
-				<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
+				<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="IIITL_Logo" /></span>
 				<h1>Indian Institute of Information Technology, Lucknow</h1>
 				<p>IIIT Lucknow, Chak Ganjaria, C. G. City, Lucknow – 226002<br />
 					Contact: <a
@@ -33,16 +33,47 @@
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
-					<li><a href="#filter" class="active">Sign Up</a></li>
-					<li><a href="#received">Log In</a></li>
-                    <li><a href="/submit">Apply for Development</a></li>
+					<li><a href="#received">Log In / Sign Up</a></li>
+					<li><a href="/submit">Apply for Development</a></li>
 				</ul>
 			</nav>
 
 			<!-- Main -->
 			<div id="main">
-                <!-- Kaam Yahan Krna hai Sbko -->
-                <section></section>
+				<!-- Kaam Yahan Krna hai Sbko -->
+
+				<section>
+
+					<div class="flex-container row">
+						<a href="#" class="col-6 col-12-medium">
+							<div class="flex-item-left " style="display: flex; justify-content: space-between; ">
+								<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/google_logo2.png" width="15%" alt="Google_Logo">
+
+								<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center;">
+									Login with Google
+								</span>
+
+								
+							</div>
+						</a>
+
+						<a href="#" class="col-6 col-12-medium">
+							<div class="flex-item-right " style="display: flex; justify-content: space-between; ">
+								<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/google_logo2.png" width="15%" height=auto; alt="Google_Logo">
+
+								<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center; color: white;">
+									Sign Up with Google
+								</span>
+
+								
+							</div>
+						</a>
+
+
+
+					</div>
+
+				</section>
 			</div>
 
 			<!-- Footer -->
@@ -96,7 +127,61 @@
 
 
 <style>
+	.flex-container {
+		display: flex;
+		flex-direction: row;
+		font-size: 30px;
+		text-align: center;
+		border-radius: 5px;
+		padding: 3rem;
+		font-size: 2vw;
+		
+	}
 
+	.flex-item-left {
+		background-color: #f1f1f1;
+		padding: 0.5rem;
+		flex: 50%;
+		border-radius: 5px;
+		margin: 2%;
+		margin-bottom: 2%;
+		
+	
+
+	}
+
+	.flex-item-right {
+		background-color: rgb(112, 159, 240);
+		padding: 0.5rem;
+		flex: 50%;
+		border-radius: 5px;
+		margin: 2%;
+		margin-bottom: 2%;
+
+	}
+
+	.flex-item-left:hover{
+		background-color: #dbdbdb;
+	}
+
+	.flex-item-right:hover{
+		background-color: rgb(95, 136, 207);
+	}
+
+	/* Responsive layout - makes a one column-layout instead of two-column layout */
+	@media (max-width: 800px) {
+		.flex-container {
+			flex-direction: column;
+		}
+		a {
+			font-size: large;
+		}
+	}
+	a {
+		border: none;
+	}
+
+	
 </style>
 
 </html>
