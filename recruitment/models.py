@@ -11,6 +11,7 @@ class Applicant(models.Model):
     post = models.CharField(max_length=100)
     department = models.CharField(max_length=20)
     Research_Domain=models.TextField(default=None)
+    profile_picture = models.FileField(upload_to='uploads/', null=True, blank=True)
     
     def __str__(self):
         return str(self.application_no)
@@ -19,6 +20,7 @@ class ResearchExp(models.Model):
     '''Model for the research experience of the applicant''' 
     From = models.CharField(max_length=20)
     to = models.CharField(max_length=20)
+    supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='research_exp',
@@ -34,6 +36,7 @@ class SeminarArticles(models.Model):
     location = models.CharField(max_length=100)
     duration = models.CharField(max_length=20)
     published = models.TextField()
+    supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='seminar_articles',
@@ -51,6 +54,7 @@ class NewspaperArticle(models.Model):
     level=models.CharField(max_length=20)
     naas = models.TextField()
     isbn_issn = models.TextField()
+    supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='newspaper_article',
@@ -64,6 +68,7 @@ class Books(models.Model):
     publisher = models.CharField(max_length=100)
     date_publish = models.CharField(max_length=20)
     isbn= models.TextField()
+    supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='books',
@@ -78,6 +83,7 @@ class Chapters(models.Model):
     publisher = models.CharField(max_length=100)
     date_of_publisher = models.CharField(max_length=100)
     isbn_issn = models.TextField()
+    supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='applicant',
@@ -92,6 +98,7 @@ class EducationalQualifications(models.Model):
     marks = models.CharField(max_length=10)
     subjects = models.CharField(max_length=200)
     year_of_passing = models.IntegerField()
+    supporting_documents = models.FileField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='Educational_qualifications',
@@ -108,6 +115,7 @@ class EmploymentExp(models.Model):
     to_year = models.IntegerField()
     salary = models.IntegerField()
     nature = models.CharField(max_length=200)
+    supporting_documents = models.FileField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='Employment_exp',
@@ -152,6 +160,7 @@ class General(models.Model):
                                                         ("Yes", "Yes"),
                                                         ("No", "No"),
                                                         ))
+    reservation_certificate = models.ImageField(upload_to='uploads/', null=True, blank=True)
     present_employer = models.CharField(max_length=200)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
@@ -236,7 +245,10 @@ class Patent(models.Model):
     def __str__(self):
         return str(self.applicant)
 
-
+class Declaration(models.Model):
+    Place = models.TextField()
+    date = models.DateField(default=timezone.now())
+    signature = models.FileField(upload_to='uploads/', null=True, blank=True)
 
 
 # class File(models.Model):
