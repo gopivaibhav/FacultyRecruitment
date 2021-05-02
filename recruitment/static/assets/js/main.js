@@ -4,8 +4,9 @@ function removeRow(e){
 }
 
 
+////////////////   table 1  section B   /////////////
 $(document).ready(function () {
-	var newAcademicsNo = 6 ;
+	var newAcademicsNo = 6;
 	$('.add-more').on('click touchstart',  function (e) {
 		e.preventDefault();
 		var newIn ='<tr class="appliRow' + newAcademicsNo + '" id="field1"> <td class="col-2" style="text-align: center; padding: 0;">'+
@@ -16,11 +17,11 @@ $(document).ready(function () {
 		'<select name="yearOfPassing'+ newAcademicsNo +'" id="yearOfPassing'+ newAcademicsNo +'" ></select></td><td class="col-3" style="display:flex;place-content:space-between">'+
 		'<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>'+
 		'<span style="display:inline"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>'+
-		'</td></tr>' ;
+		'</td></tr>';
 	$('.academic-tbody').append(newIn);
 
   // console.log("hvgvcvdgcvdvcgdvc");
-  var yearId ='yearOfPassing'+ parseInt(newAcademicsNo);
+  var yearId ='yearOfPassing' + parseInt(newAcademicsNo);
   var ele = document.getElementById(yearId);
   console.log(ele);
   var presYear = new Date();
@@ -36,6 +37,123 @@ $(document).ready(function () {
   });
 
 });
+
+/////////////////////// table 2  section C ////////////
+
+$(document).ready(function () {
+  var newAcademicsNo = 2 ;
+	$('.add-more2').on('click touchstart',  function (e) {
+		e.preventDefault();
+
+		var newIn2 ='<tr id="field1"><td class="col-2" style="text-align: center; padding: 0;">'+
+    '<input type="text" name="empname" id="empname" style="margin: 0; background-color: transparent; border:none; " placeholder="Name of Employer/Status of Institute/University (Govt. /Quasi Govt./Autonomous etc.) "></td>'+
+    '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="post" id="post" style="margin: 0; background-color: transparent; border:none;" placeholder="Post held / Design"></td>'+
+   '<td class="col-1" style="text-align: center; padding: 0;">'+
+   '<div class="row gtr-uniform">'+
+      '<div class="col-6" style="text-align: right;"><input type="month" name="poefrom" id="poefrom" style="border: 0; width: 90%; background: transparent; padding: 0; align-self: center;" placeholder="From" ></div>'+
+      '<div class="col-6" style="text-align: center;"><input type="month" name="poeto" id="poeto" style="border: 0; width: 90%; background: transparent; padding: 0; align-self: center;" placeholder="From" ></div></div></td>'+
+   '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="salary" id="salary" style="border: 0; background: transparent;" placeholder="Basic Salary"> </td>'+
+   '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;"> <input type="text" name="duty" id="duty" style="border: 0; background: transparent;" placeholder="Nature of Duty"></td>'+
+   '<td class="col-3" style="display:flex;place-content:space-between;">'+'<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>'+
+	 '<span style="display:inline;align-self:center"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>'+
+		'</td></tr>';
+
+	  $('.academic-tbody2').append(newIn2);
+
+   });
+});
+
+/////////////  table 3  Section D  ///////////
+
+$(document).ready(function () {
+  var newAcademicsNo = 2;
+	$('.add-more3').on('click touchstart',  function (e) {
+		e.preventDefault();
+
+		var newIn3 ='<tr id="field1">'+
+    '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="textfield1" id="textfield1" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Title of the Book" ></td>'+
+		'<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><select name="textfield2" id="textfield2" style="inline-size: auto;"><option value="Sole author">Sole Author</option><option value="Co-author">Co-author</option></select></td>'+
+		'<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><textarea type="text" name="textfield3" id="textfield3" value="" style="margin: 0;" rows="2" placeholder="" > </textarea></td>'+
+		'<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="month" name="bookDate" id="bookDate" style="width: 75%;"></td>'+
+		'<td class="col-2" style="text-align: center; padding: 0; font-size:xx-small;vertical-align: middle;"><input type="text" name="textfield6" id="textfield6" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="ISBN/ISSN No."></td>'+
+    '<td class="col-3" style="display:flex;place-content:space-between;height:5em;">'+'<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>'+
+	  '<span style="display:inline;align-self:center"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>'+
+		'</td></tr>';
+
+	$('.academic-tbody4').append(newIn3);
+
+   });
+});
+
+
+//////////////////  table 4  section d    /////////////////////////////
+
+$(document).ready(function () {
+  var newAcademicsNo = 2 ;
+	$('.add-more4').on('click touchstart',  function (e) {
+		e.preventDefault();
+		var newIn4 ='<tr id="field1"><td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="" id="" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Title of the Chapter(s) "></td>'+
+  '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"> <input type="text" name="" id="" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Title of the Title(s) "></td>'+
+  '<td class="col-2" style="text-align: center;vertical-align: middle;padding:0;"> <select name="region3" id="region3" style="background-color: transparent; border:none;inline-size: auto;"> <option value="Sole author">Sole Author</option><option value="Co-author">Co-author</option></select></td>'+
+  '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><textarea name="" id="" cols="10" rows="2"></textarea></td><td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="month" style="width: 75%;" name="" id=""></td>'+
+  '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="text" name="" id="" style="border: 0; background: transparent;" placeholder="ISBN/ISSN No."></td>'+
+  '<td class="col-3" style="display:flex;place-content:space-between;height:5em">'+'<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>'+
+	'<span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>'+
+	'</td></tr>';
+
+	$('.academic-tbody5').append(newIn4);
+
+   });
+});
+
+
+////////////////////////     table 5  section d  ////////////
+
+$(document).ready(function () {
+  var newAcademicsNo = 2 ;
+	$('.add-more5').on('click touchstart',  function (e) {
+		e.preventDefault();
+		var newIn6 ='<tr id="field1"><td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="" id="" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Title of research"></td>'+
+  '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="" id="" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Name of journal"></td>'+
+  '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><select name="region3" id="region3" style="background-color: transparent; border:none;inline-size: auto;"> <option value="Sole author">Sole Author </option> <option value="Co-author">Co-author</option> </select></td>'+
+  '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><textarea name="" id="" cols="10" rows="2" style="text-align:center" placeholder="Month & year"></textarea></td>'+
+  '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"> <select name="region3" id="region3" style="background-color: transparent; border:none;"><option value="Sole author">Referred</option><option value="Co-author">Non-Referred</option> </select></td>'+
+  '<td class="col-1" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="text" name="" id="" style="border: 0; background: transparent;" placeholder="ISBN/ISSN No."> </td>'+
+  '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" style="border: 0; background: transparent;" name="" id=""></td>'+
+  '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"> <input type="text" style="border: 0; background: transparent;" name="" id=""> </td>'+
+  '<td class="col-3" style="display:flex;place-content:space-between;height:5em;">'+'<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>'+
+	'<span style="display:inline;align-self:center"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>'+
+	'</td></tr>' ;
+	$('.academic-tbody6').append(newIn6);
+
+   });
+});
+
+
+
+///////////////////////////    table 6  section d   //////////////////
+
+$(document).ready(function () {
+  var newAcademicsNo = 2 ;
+	$('.add-more6').on('click touchstart',  function (e) {
+		e.preventDefault();
+		var newIn7 ='<tr id="field1"><td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="local1" id="local1" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Title of research article/paper(s)"></td>'+
+  '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="local2" id="local2" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of the Journal" ></td>'+
+  '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="local3" id="local3" value=""style="margin: 0; background-color: transparent; border:none;" placeholder="" ></td>'+
+  '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="local4" id="local4" value="" style="margin-bottom: 0.5rem; " placeholder="From" ><input type="text" name="local5" id="local5" value="" style="margin: 0;" placeholder="To" ></td>'+
+  '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><select name="local16" id="local16"> <option value="Yes">Yes</option> <option value="No">No</option> </select></td>'+
+  '<td class="col-3" style="display:flex;place-content:space-between;height:6em">'+'<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>'+
+	 '<span style="display:inline;align-self:center"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>'+
+		'</td></tr>';
+
+	$('.academic-tbody7').append(newIn7);
+
+   });
+});
+
+
+
+
 
 (function ($) {
   var $window = $(window),
