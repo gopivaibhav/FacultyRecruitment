@@ -156,6 +156,30 @@ def submission_form(request):
             professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
             academic_data.append(academic_details)
         EmploymentExp.objects.create(**professional_data)
+
+        # Books
+        num_of_books_records = len(list(filter(lambda s: 'books' in s, list(data.keys()))))
+        books_data = []
+        for i in range(1,num_of_books_records+1):
+            books_details = {}
+            books_details['title'] = data.get('books' + str(i) + 'title',False)
+            books_details['author'] = data.get('books' + str(i) + 'author',False)     
+            books_details['publisher'] = data.get('books' + str(i) + 'publsher',False) 
+            books_details['date_of_publisher'] = data.get('books' + str(i) + 'date',False)
+            books_details['isbn_issn'] = data.get('books' + str(i) + 'number',False)  
+            books_details['applicant'] = Applicant.objects.get(application_no=application_number)
+            Books.objects.create(**books_details)
+        # Chapters
+        num_of_chapters_records = len(list(filter(lambda s: 'chapters' in s, list(data.keys()))))    
+        chapters_data = []
+        for i in range(1,num_of_chapters_records+1):
+            chapter_details = {}
+            chapter_details['book_title'] = data.get('chapters' + str(i) + 'book_title',False)
+            chapter_details['chapter'] = data.get('chapters' + str(i) + 'chapter',False)    
+            chapter_details['author'] = data.get('chapters' + str(i) + 'author',False)
+            chapter_details['publisher'] = data.get('chapters' + str(i) + 'publisher',False)
+            chapter_details['date_of_publisher'] = data.get('chapters' + str(i) + 'date_of_publisher',False)
+            chapter_details['isbn_issn'] = data.get('chapters' + str(i) + 'number',False)
         #     professional_details['organisation'] = data.get('org' + str(i),False)
         #     professional_details['designation']  = data.get('desig' + str(i),False)
         #     professional_details['from_year'] = data.get('proffrom' + str(i),False)
