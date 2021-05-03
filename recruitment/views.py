@@ -17,6 +17,9 @@ def home(request):
 def admin(request):
     return render(request, 'recruitment/admin.html',{})
 
+def viewMore(request):
+    return render(request, 'recruitment/view-more.html')
+
 def submission_form(request):
     if request.method == 'POST':
         data = request.POST.copy()
