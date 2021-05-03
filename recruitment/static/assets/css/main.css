@@ -3139,7 +3139,7 @@ span.selec.icon {
   margin: 5% !important;
 }
 
-@media screen and (max-width: 22100px) {
+@media screen and (max-width: 2100px) {
   .spotlight {
     -moz-flex-direction: column-reverse;
     -webkit-flex-direction: column-reverse;
@@ -3157,7 +3157,7 @@ span.selec.icon {
   }
 
   .spotlight .content header.major h2:after {
-    margin-left: auto;
+    /* margin-left: auto; */
     margin-right: auto;
   }
 
@@ -3942,4 +3942,16 @@ select:disabled {
   margin: 0;
   background-color: transparent !important;
   border: none;
+}
+
+@media screen and (min-width : 738px) {
+  .headLeft{
+    text-align: left;
+  }
+}
+@media screen and (max-width : 738px) {
+  .spotlight .content header.major h2:after {
+    margin-left: auto;
+    /* margin-right: auto; */
+  }
 }
