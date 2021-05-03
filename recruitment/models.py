@@ -25,7 +25,8 @@ class ResearchExp(models.Model):
                                 on_delete=models.CASCADE,
                                 related_name='research_exp',
                 )
-    duration = models.CharField(max_length=20)
+    year = models.CharField(max_length=20)
+    month = models.CharField(max_length=20)
     def __str__(self):
         return str(self.applicant)
 
@@ -188,7 +189,9 @@ class OtherInfo(models.Model):
     college_punishment = models.TextField()
     judicial_punishment = models.TextField()
     unfit_for_position = models.TextField()
-    references = models.TextField()
+    reference1 = models.TextField()
+    reference2 = models.TextField()
+    fulfillment = models.TextField()
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='other_info')
     def __str__(self):
         return str(self.applicant)   
@@ -196,6 +199,7 @@ class SponsoredProject(models.Model):
     spo_tot_number = models.CharField(max_length=10)
     spo_ongoing = models.TextField()
     spo_completed = models.TextField()
+    spo_file = models.FileField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='sponsored_project')
     def __str__(self):
         return str(self.applicant)    
@@ -204,6 +208,7 @@ class Experiments(models.Model):
     exp_tot_number = models.CharField(max_length=10)
     exp_ongoing = models.TextField()
     exp_completed = models.TextField()
+    exp_file = models.FileField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='Experiments')
     def __str__(self):
         return str(self.applicant)
@@ -234,12 +239,6 @@ class Summary(models.Model):
     def __str__(self):
         return str(self.applicant)
 
-class Membership(models.Model):
-    member_details = models.TextField()
-    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='membership')
-    def __str__(self):
-        return str(self.applicant)
-
 class Patent(models.Model):
     patent_details = models.TextField()
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='patent')
@@ -247,9 +246,12 @@ class Patent(models.Model):
         return str(self.applicant)
 
 class Declaration(models.Model):
-    Place = models.TextField()
-    date = models.DateField(default=timezone.now())
+    place = models.TextField()
+    date = models.CharField(max_length=20)
     signature = models.FileField(upload_to='uploads/', null=True, blank=True)
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='declaration')
+    def __str__(self):
+        return str(self.applicant)
 
 
 # class File(models.Model):
