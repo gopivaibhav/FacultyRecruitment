@@ -13,7 +13,7 @@ $(document).ready(function () {
 		'<input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-1" style="text-align: center; padding: 0;">'+
 		'<input type="text" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="% of Marks" required></td><td class="col-2" style="text-align: center; padding: 0;">'+
 		'<input type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;">'+
-		'<select name="yearOfPassing'+ newAcademicsNo +'" id="yearOfPassing'+ newAcademicsNo +'" ></select></td><td class="col-3" style="display:flex;place-content:space-between">'+
+		'<select style="inline-size: auto; " name="yearOfPassing'+ newAcademicsNo +'" id="yearOfPassing'+ newAcademicsNo +'" ></select></td><td class="col-3" style="display:flex;place-content:space-between">'+
 		'<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>'+
 		'<span style="display:inline"><button onclick="removeRow(event)" class="btn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;"></button></span>'+
 		'</td></tr>';
@@ -44,24 +44,21 @@ $(document).ready(function () {
 		'<input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-1" style="text-align: center; padding: 0;">'+
 		'<input type="text" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="% of Marks" required></td><td class="col-2" style="text-align: center; padding: 0;">'+
 		'<input type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;">'+
-		'<select name="yearOfPassing'+ newAcademicsNo +'" id="yearOfPassing'+ newAcademicsNo +'" ></select></td><td class="col-3" style="display:flex;place-content:space-between">'+
+		'<select style="inline-size: auto;" name="yearOfPassing'+ newAcademicsNo +'" id="yearOfPassing'+ newAcademicsNo +'" ></select></td><td class="col-3" style="display:flex;place-content:space-between">'+
 		'<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>'+
 		'<span style="display:inline"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>'+
 		'</td></tr>';
 	$('.academic-tbody').append(newIn);
 
-  // console.log("hvgvcvdgcvdvcgdvc");
   var yearId ='yearOfPassing' + parseInt(newAcademicsNo);
   var ele = document.getElementById(yearId);
   console.log(ele);
   var presYear = new Date();
   for (let i = presYear.getFullYear(); i >= 1950; i--) {
-    // console.log(i);
     var op= document.createElement('option');
     op.value = i;
     op.textContent = i;
     ele.appendChild(op);
-    // ele.innerHTML += '<option value=' + i + '>' + i + '</option>\n'
   }
 	newAcademicsNo+=1;
   });
