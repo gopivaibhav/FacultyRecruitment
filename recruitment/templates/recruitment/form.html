@@ -17,6 +17,9 @@
 
 	<!-- Wrapper -->
 	<div id="wrapper">
+		
+
+		<span class="menu_btn" onclick="openNav()">&#9776;</span>
 
 		<!-- 	Header	-->
 		<header id="header">
@@ -42,96 +45,8 @@
 			</ul>
 		</nav>
 
-		<!-- Div for Menu / Nav for Small Screen -->
-		<style>
-			html {
-				scroll-behavior: smooth;
-			}
-
-			.overlay {
-				height: 0%;
-				width: 100%;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color: rgba(151, 255, 246, 0.767);
-				overflow-y: hidden;
-				transition: 0.5s;
-
-			}
-
-			.overlay-content {
-				position: relative;
-				top: 13%;
-				width: 100%;
-				text-align: center;
-				margin-top: 30px;
-
-			}
-
-			.overlay a {
-				padding: 8px;
-				text-decoration: none;
-				font-size: x-large;
-				color: #818181;
-				display: block;
-				transition: 0.3s;
-			}
-
-			.overlay a:hover,
-			.overlay a:focus {
-				color: #f1f1f1;
-			}
-
-			.overlay .closebtn {
-				position: absolute;
-				top: 20px;
-				right: 45px;
-				font-size: 60px;
-			}
-
-			.menu_btn {
-				cursor: pointer;
-				color: rgb(129, 129, 129);
-				top: 0;
-				left: 5%;
-				padding-top: 3%;
-				position: sticky;
-				font-size: xx-large;
-			}
-
-			@media screen {
-				.overlay {
-					overflow-y: auto;
-				}
-
-				.menu_btn {
-					position: sticky;
-				}
-
-				.overlay a {
-					font-size: xx-large;
-					font-weight: 500;
-				}
-
-				.overlay .closebtn {
-					font-size: 3rem;
-					top: 15px;
-					right: 35px;
-				}
-			}
-
-			@media screen and (min-width: 737px) {
-				.menu_btn {
-					display: none;
-				}
-			}
-		</style>
-
-
-		<span class="menu_btn" onclick="openNav()">&#9776;</span>
-
+		
+		<!-- Mobile Nav Bar -->
 		<div id="myNav" class=" nav overlay col-0 col-12-medium">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<div class="overlay-content">
@@ -148,10 +63,13 @@
 		<script>
 			function openNav() {
 				document.getElementById("myNav").style.height = "100%";
+				document.querySelector(".menu_btn").style.pointerEvents = 'none';
+				console.log(document.querySelector(".menu_btn").style.pointerEvents)
 			}
 
 			function closeNav() {
 				document.getElementById("myNav").style.height = "0%";
+				document.querySelector(".menu_btn").style.pointerEvents = 'all';
 			}
 		</script>
 		<!-- Responsive Menu / Nav Ends here -->

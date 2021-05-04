@@ -3984,7 +3984,93 @@ select:disabled {
 .flex-item-right:hover{
   background-color: rgb(95, 136, 207);
 }
+html {
+  scroll-behavior: smooth;
+}
 
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #32c0ca;
+  opacity: 0.75;
+  overflow-y: hidden;
+  transition: 0.5s;
+  z-index: 5;
+}
+
+.overlay-content {
+  position: relative;
+  top: 2%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: x-large;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+.menu_btn {
+  display: inline;
+  cursor: pointer;
+  color: rgb(129, 129, 129);
+  top: 0;
+  left: 5%;
+  padding-top: 3%;
+  position: sticky;
+  font-size: xx-large;
+  z-index: 3;
+  pointer-events: all;
+}
+
+@media screen {
+  .overlay {
+    overflow-y: auto;
+  }
+
+  .menu_btn {
+    position: sticky;
+  }
+
+  .overlay a {
+    font-size: xx-large;
+    font-weight: 500;
+  }
+
+  .overlay .closebtn {
+    font-size: 3rem;
+    top: -15px;
+    right: 15px;
+  }
+}
+
+@media screen and (min-width: 737px) {
+  .menu_btn {
+    display: none;
+  }
+}
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 800px) {
   .flex-container {
