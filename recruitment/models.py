@@ -35,12 +35,13 @@ class SeminarArticles(models.Model):
     article_title = models.TextField()
     seminar_subject = models.TextField()
     location = models.CharField(max_length=100)
-    duration = models.CharField(max_length=20)
+    From = models.CharField(max_length=20)
+    to = models.CharField(max_length=20)
     published = models.TextField()
     supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
-                                related_name='seminar_articles',
+                                related_name='seminararticles',
                 )
     duration = models.CharField(max_length=20)
     def __str__(self):
@@ -105,15 +106,15 @@ class EducationalQualifications(models.Model):
                                 related_name='Educational_qualifications',
                 )
     def __str__(self):
-        return str(self.applicant.name)
+        return str(self.applicant)
 
 
 class EmploymentExp(models.Model):
     '''Model for Employment experience of applicant'''
     name = models.CharField(max_length=200)
     post = models.CharField(max_length=250)
-    from_year = models.IntegerField()
-    to_year = models.IntegerField()
+    from_year = models.CharField(max_length=20)
+    to_year = models.CharField(max_length=20)
     salary = models.IntegerField()
     nature = models.CharField(max_length=200)
     supporting_documents = models.FileField(upload_to='uploads/', null=True, blank=True)
