@@ -17,10 +17,8 @@
 
 	<!-- Wrapper -->
 	<div id="wrapper">
-		
-
+		<!-- hamburger- for mobile view -->
 		<span class="menu_btn" onclick="openNav()">&#9776;</span>
-
 		<!-- 	Header	-->
 		<header id="header">
 			<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
@@ -45,38 +43,22 @@
 			</ul>
 		</nav>
 
-		
 		<!-- Mobile Nav Bar -->
 		<div id="myNav" class=" nav overlay col-0 col-12-medium">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<div class="overlay-content">
-				<a href="#basic" onclick="closeNav()">Basic</a>
-				<a href="#personal" onclick="closeNav()">Personal</a>
-				<a href="#academic" onclick="closeNav()">Academic</a>
-				<a href="#professional" onclick="closeNav()">Professional</a>
-				<a href="#research" onclick="closeNav()">Research</a>
-				<a href="#other" onclick="closeNav()">Other</a>
-				<a href="#upload" onclick="closeNav()">Uploadables</a>
+				<div><a href="#basic" onclick="closeNav()">Basic</a></div>
+				<div><a href="#personal" onclick="closeNav()">Personal</a></div>
+				<div><a href="#academic" onclick="closeNav()">Academic</a></div>
+				<div><a href="#professional" onclick="closeNav()">Professional</a></div>
+				<div><a href="#research" onclick="closeNav()">Research</a></div>
+				<div><a href="#other" onclick="closeNav()">Other</a></div>
+				<div><a href="#upload" onclick="closeNav()">Uploadables</a></div>
 			</div>
 		</div>
+		<!-- Mobile Nav Ends here -->
 
-		<script>
-			function openNav() {
-				document.getElementById("myNav").style.height = "100%";
-				document.querySelector(".menu_btn").style.pointerEvents = 'none';
-				console.log(document.querySelector(".menu_btn").style.pointerEvents)
-			}
-
-			function closeNav() {
-				document.getElementById("myNav").style.height = "0%";
-				document.querySelector(".menu_btn").style.pointerEvents = 'all';
-			}
-		</script>
-		<!-- Responsive Menu / Nav Ends here -->
-
-
-
-		<!-- Main form part -->
+		<!-- Main part -->
 		<div id="main">
 
 			<!-- Content -->

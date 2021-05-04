@@ -4004,11 +4004,14 @@ html {
 
 .overlay-content {
   position: relative;
-  top: 2%;
+  top: 5%;
   width: 100%;
   text-align: center;
   margin-top: 30px;
 
+}
+.overlay-content div{
+  display: block;
 }
 
 .overlay a {
@@ -4016,7 +4019,7 @@ html {
   text-decoration: none;
   font-size: x-large;
   color: white;
-  display: block;
+  display: inline;
   transition: 0.3s;
 }
 
