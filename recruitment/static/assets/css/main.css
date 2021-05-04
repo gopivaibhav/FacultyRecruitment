@@ -4002,6 +4002,10 @@ html {
   z-index: 5;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .overlay-content {
   position: relative;
   top: 5%;
@@ -4072,6 +4076,9 @@ html {
 @media screen and (min-width: 737px) {
   .menu_btn {
     display: none;
+  }
+  html{
+    scroll-behavior: auto;
   }
 }
 /* Responsive layout - makes a one column-layout instead of two-column layout */
