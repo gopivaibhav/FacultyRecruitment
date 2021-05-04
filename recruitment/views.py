@@ -17,7 +17,7 @@ def home(request):
 def admin(request):
     return render(request, 'recruitment/admin.html',{})
 
-def viewMore(request):
+def viewMore(request, application_number):
     return render(request, 'recruitment/view-more.html')
 
 def submission_form(request):
