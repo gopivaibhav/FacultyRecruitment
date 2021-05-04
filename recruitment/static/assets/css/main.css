@@ -3139,7 +3139,7 @@ span.selec.icon {
   margin: 5% !important;
 }
 
-@media screen and (max-width: 2100px) {
+@media screen and (max-width: 8100px) {
   .spotlight {
     -moz-flex-direction: column-reverse;
     -webkit-flex-direction: column-reverse;
@@ -4008,4 +4008,9 @@ a {
     margin-left: auto;
     /* margin-right: auto; */
   }
+}
+.flexi-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
