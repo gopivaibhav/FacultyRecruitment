@@ -61,7 +61,7 @@ def submission_form(request):
         otherinformation_data = {}
         otherinformation_data['membership'] = data['miscTa1']
         otherinformation_data['responsibilities'] = data['miscTa2']
-        otherinformation_data['other_relevant_info'] = data['miscTa3']
+        otherinformation_data['Any_other_relevant_information'] = data['miscTa3']
         otherinformation_data['academic_year_break'] = data['miscTa4']
         otherinformation_data['college_punishment'] = data['miscTa5']
         otherinformation_data['judicial_punishment'] = data['miscTa6']
