@@ -128,8 +128,8 @@
 												<select name="Dept" id="Dept">
 													<option value="" selected disabled> - None - </option>
 													<option value="CSE-IT">CSE / IT</option>
-													<option value="ECE">Electronics Technology</option>
-													<option value="HUM">Management / Humanities</option>
+													<option value="ECE">Mathematics</option>
+													<option value="HUM">Management & Humanities</option>
 												</select>
 											</div>
 
@@ -602,29 +602,29 @@
 
 											</tr>
 											<tr style="align-items:center">
-												<th class="col-2" style="text-align: center;vertical-align: middle;">
+												<th class="col-4" style="text-align: center;vertical-align: middle;">
 													From</th>
-												<th class="col-2" style="text-align: center;vertical-align: middle;">To
+												<th class="col-4" style="text-align: center;vertical-align: middle;">To
 												</th>
-												<th class="col-1" style="text-align: center;vertical-align: middle;">
+												<!-- <th class="col-1" style="text-align: center;vertical-align: middle;">
 													Number of Years</th>
 												<th class="col-2" style="text-align: center;vertical-align: middle;">
-													Numbers of Months</th>
-												<th class="col-3" style="text-align: center;vertical-align: middle;">
+													Numbers of Months</th> -->
+												<th class="col-4" style="text-align: center;vertical-align: middle;">
 													Supporting Documents</th>
 											</tr>
 											<tr style="align-items:center;">
 												<td class="col-2" style="text-align: center;vertical-align: middle;">
-													<input type="month" name="frombox" id="frombox"
+													<input type="date" name="frombox" id="frombox"
 														style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
 														placeholder="From ">
 												</td>
 												<td class="col-2" style="text-align: center;vertical-align: middle;">
-													<input type="month" name="tobox" id="tobox"
+													<input type="date" name="tobox" id="tobox"
 														style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
 														placeholder="To">
 												</td>
-												<td class="col-2" style="text-align: center;vertical-align: middle;">
+												<!-- <td class="col-2" style="text-align: center;vertical-align: middle;">
 													<input type="text" name="tobox" id="numyr"
 														style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
 														placeholder="Number of Years">
@@ -632,8 +632,8 @@
 												<td class="col-3" style="text-align: center;vertical-align: middle;">
 													<input type="text" name="tobox" id="nummon"
 														style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
-														placeholder="Number of Months">
-												</td>
+														placeholder="Number of Months"> -->
+												<!-- </td> -->
 												<td class="col-3"
 													style="text-align: center;vertical-align: middle; padding: 0;">
 													<input type="file" style="font-size:x-small; width: 100%;"
@@ -643,6 +643,8 @@
 
 										</tbody>
 									</table>
+									<div class="col-12" style="text-align:center"><button id="b3" class="but add-more2"
+										type="button" style="padding: 0;">Add More</button></div>
 
 								</div>
 					</section>
@@ -673,7 +675,7 @@
 												<th class="col-2" style="text-align: center;vertical-align: middle;">
 													Title of the Book(s)</th>
 												<th class="col-2" style="text-align: center;vertical-align: middle;">
-													Whether Sole Author or Co-author</th>
+													Whether First Author or Co-author</th>
 												<th class="col-3"
 													style="padding: 0;vertical-align: middle;text-align: center;">Name
 													of Publisher (with city/country)</th>
@@ -696,7 +698,7 @@
 													style="text-align: center; padding: 0;vertical-align: middle;">
 													<select name="textfield2" id="textfield2"
 														style="inline-size: auto;">
-														<option value="Sole author">Sole Author</option>
+														<option value="First author">First Author</option>
 														<option value="Co-author">Co-author</option>
 													</select>
 												</td>
@@ -748,7 +750,7 @@
 													Title
 													of the Title(s)</th>
 												<th class="col-1" style="text-align: center;vertical-align: middle;">
-													Whether Sole Author or Co-Author</th>
+													Whether First Author or Co-Author</th>
 												<th class="col-3"
 													style="padding: 0;vertical-align: middle;text-align: center;">Name
 													of
@@ -779,7 +781,7 @@
 													style="text-align: center;vertical-align: middle;padding:0;">
 													<select name="region3" id="region3"
 														style="background-color: transparent; border:none;inline-size: auto;">
-														<option value="Sole author">Sole Author</option>
+														<option value="First author">First Author</option>
 														<option value="Co-author">Co-author</option>
 
 													</select>
@@ -825,19 +827,24 @@
 												<th class="col-1" style="text-align: center;vertical-align: middle;">
 													Name of journal</th>
 												<th class="col-1" style="text-align: center;vertical-align: middle;">
-													Whether Sole Author or Coauthor</th>
-												<th class="col-2"
-													style="padding: 0;vertical-align: middle;text-align: center;">
-													Month & year of publication, volume, no. &
-													page nos.</th>
+													Whether First Author or Coauthor</th>
+												<th class="col-1"
+													style="padding: 0;vertical-align: middle;text-align: center; width: 50%;">
+													Month & Year of Publication</th>
+												<!-- <th class="col-2"
+												style="padding: 0;vertical-align: middle;text-align: center;">
+												Volume no. &
+												Page nos.</th> -->
+												<th class="col-2" style="text-align: center;vertical-align: middle;">
+													Volume no. & Page nos.</th>
 												<th class="col-1" style="text-align: center;vertical-align: middle;">
 													Whether Referred/Non-referred</th>
 												<th class="col-1" style="text-align: center;vertical-align: middle;">
 													ISBN/ISSN No.</th>
-												<th class="col-1" style="text-align: center;vertical-align: middle;">
-													Level<br>(Int./Nat./ State/Local</th>
-												<th class="col-1" style="text-align: center;vertical-align: middle;">
-													NAAS Rating/Impact Factor</th>
+												<!-- <th class="col-1" style="text-align: center;vertical-align: middle;">
+													Level<br>(Int./Nat./ State/Local</th> -->
+												<th class="col-2" style="text-align: center;vertical-align: middle;">
+													Impact Factor</th>
 												<th class="col-2" style="text-align: center;vertical-align: middle;">
 													Supporting Documents</th>
 											</tr>
@@ -859,7 +866,7 @@
 													style="text-align: center; padding: 0;vertical-align: middle;">
 													<select name="region3" id="region3"
 														style="background-color: transparent; border:none;inline-size: auto;">
-														<option value="Sole author">Sole Author
+														<option value="First Author">First Author
 														</option>
 														<option value="Co-author">Co-author
 														</option>
@@ -867,17 +874,29 @@
 												</td>
 												<td class="col-1"
 													style="text-align: center; padding: 0;vertical-align: middle;">
-													<textarea name="" id="" cols="10" rows="2"
-														style="inline-size: auto;text-align: center;"
-														placeholder="Month & year"></textarea>
+													<input type="month" name="" id="" cols="10" rows="2"
+														style="inline-size: auto;text-align: center; width: 75%;"
+														placeholder="Month & year">
+												</td>
+												<!-- <td class="col-2"
+													style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+													<input type="text" name="" id=""
+														style="border: 0; background: transparent;"
+														placeholder="Volume no. &
+														Page nos.">
+												</td> -->
+												<td class="col-2"
+													style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+													<input type="text" name="" id=""
+														style="border: 0; background: transparent;"
+														placeholder="Volume no. & Page nos.">
 												</td>
 												<td class="col-1"
 													style="text-align: center; padding: 0;vertical-align: middle;">
 													<select name="region3" id="region3"
 														style="background-color: transparent; border:none;">
-														<option value="Sole author">Referred
-														</option>
-														<option value="Co-author">Non-Referred
+														<option value="Sole author">SCI/SSCI/SCI(E)/ABDC														</option>
+														<option value="Co-author">Non(SCI/SSCI/SCI(E)/ABDC)
 														</option>
 													</select>
 												</td>
@@ -887,17 +906,17 @@
 														style="border: 0; background: transparent;"
 														placeholder="ISBN/ISSN No.">
 												</td>
-												<td class="col-1"
+												<td class="col-2"
 													style="text-align: center; padding: 0;vertical-align: middle;">
 													<input type="text" style="border: 0; background: transparent;"
 														name="" id="">
 												</td>
-												<td class="col-1"
+												<!-- <td class="col-1"
 													style="text-align: center; padding: 0;vertical-align: middle;">
 													<input type="text" style="border: 0; background: transparent;"
 														name="" id="">
-												</td>
-												<td class="col-3"
+												</td> -->
+												<td class="col-2"
 													style="text-align-last: center; padding: 0;vertical-align: middle;">
 													<input type="file" name="" id=""
 														style="border: 0; background: transparent;font-size: x-small; ">
@@ -934,7 +953,7 @@
 													style="padding: 0;vertical-align: middle;text-align: center;">
 													Organizing Institution/and Name of City/Country</th>
 												<th class="col-2" style="text-align: center;vertical-align: middle;">
-													Duration From and To</th>
+													Duration (From and To)</th>
 												<th class="col-2" style="text-align: center;vertical-align: middle;">
 													Whether the proceedings published Yes/No</th>
 												<th class="col-2" style="text-align: center;vertical-align: middle;">
@@ -952,20 +971,23 @@
 													style="text-align: center; padding: 0;vertical-align: middle;">
 													<input type="text" name="local2" id="local2" value=""
 														style="margin: 0; background-color: transparent; border:none;"
-														placeholder="Name of the Journal">
+														placeholder="Subject of Conference /Seminar/Symposium/ Workshop">
 												</td>
 												<td class="col-1"
 													style="text-align: center; padding: 0;vertical-align: middle;">
 													<input type="text" name="local3" id="local3" value=""
 														style="margin: 0; background-color: transparent; border:none;"
-														placeholder="">
+														placeholder="Organizing Institution/and Name of City/Country">
 												</td>
 												<td class="col-2"
 													style="text-align: center; padding: 0;vertical-align: middle;">
-													<input type="text" name="local4" id="local4" value=""
-														style="margin-bottom: 0.5rem; " placeholder="From">
-													<input type="text" name="local5" id="local5" value=""
-														style="margin: 0;" placeholder="To">
+													From:
+													<input type="month" name="local4" id="local4" value=""
+														style="margin-bottom: 0.5rem; width: 50%;" placeholder="From">
+														<br> 
+														To:   
+													<input type="month" name="local5" id="local5" value=""
+														style="margin: 0; width: 50%;" placeholder="To">
 												</td>
 												<td class="col-2"
 													style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
@@ -1017,7 +1039,7 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5 style="text-align: start;">Number of Ongoing PhDs</h5>
+												<h5 style="text-align:end;">Number of Ongoing PhDs</h5>
 											</div>
 											<div class="col-8 col-12-medium">
 												<input type="text" name="" id="">
@@ -1028,7 +1050,7 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5  style="text-align: start;">Number of Completed PhDs</h5>
+												<h5  style="text-align: end;">Number of Completed PhDs</h5>
 											</div>
 
 											<div class="col-8 col-12-medium">
@@ -1045,7 +1067,7 @@
 									<div class="col-12 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5 style="text-align: start;">Enter the details of Administrative Positions held in the past 5
+												<h5 style="text-align: end;">Enter the details of Administrative Positions held in the past 5
 													years
 												</h5>
 											</div>
@@ -1067,7 +1089,7 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>Total number of sponsored projects</h5>
+												<h5 style="text-align: end;">Total number of sponsored projects</h5>
 											</div>
 
 											<div class="col-8 col-12-medium">
@@ -1080,7 +1102,7 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>Number of ongoing sponsored projects</h5>
+												<h5 style="text-align: end;">Number of ongoing sponsored projects</h5>
 											</div>
 											<div class="col-8 col-12-medium">
 												<input type="number" name="" id="">
@@ -1093,7 +1115,7 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>Number of completed sponsored projects</h5>
+												<h5 style="text-align: end;">Number of completed sponsored projects</h5>
 											</div>
 
 											<div class="col-8 col-12-medium">
@@ -1105,7 +1127,7 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>Upload a PDF / DOC file containing the list of sponsored projects
+												<h5 style="text-align: end;">Upload a PDF / DOC file containing the list of sponsored projects
 												</h5>
 											</div>
 											<div class="col-8 col-12-medium">
@@ -1127,7 +1149,7 @@
 									<div class="col-6 col-12-medium" style="margin-bottom: 2rem;" >
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>Total number of experiments/ computational projects</h5>
+												<h5 style="text-align: end;">Total number of experiments/ computational projects</h5>
 											</div>
 
 											<div class="col-8 col-12-medium">
@@ -1141,7 +1163,7 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>Number of ongoing experiments/ computational projects</h5>
+												<h5 style="text-align: end;">Number of ongoing experiments/ computational projects</h5>
 											</div>
 											<div class="col-8 col-12-medium">
 												<input type="number" name="" id="">
@@ -1154,7 +1176,7 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>Number of completed experiments/ computational projects</h5>
+												<h5 style="text-align: end;">Number of completed experiments/ computational projects</h5>
 											</div>
 											<div class="col-8 col-12-medium">
 												<input type="number" name="" id="">
@@ -1165,7 +1187,7 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>Upload a PDF / DOC file containing the list of experiments/
+												<h5 style="text-align: end;">Upload a PDF / DOC file containing the list of experiments/
 													computational projects</h5>
 											</div>
 
@@ -1185,7 +1207,7 @@
 									</div>
 
 									<div class="col-4 col-12-medium">
-										<h4>
+										<h4 style="text-align: end;">
 											Please enter patent details, if any:
 										</h4>
 									</div>
@@ -1207,7 +1229,7 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>1. Ph.D Defence Date</h5>
+												<h5 style="text-align: end;">1. Ph.D Defence Date</h5>
 											</div>
 											<div class="col-8 col-12-medium">
 												<input type="date" name="" id="">
@@ -1218,11 +1240,11 @@
 									<div class="col-6 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>2. Total Experience</h5>
+												<h5 style="text-align: end;">2. Total Experience</h5>
 											</div>
 
 											<div class="col-8 col-12-medium">
-												<input type="number" name="" id="" placeholder="Total Experience">
+												<input type="number" name="" id="" placeholder="Total Experience (eg: 3.5)">
 											</div>
 										</div>
 									</div>
@@ -1233,11 +1255,11 @@
 									<div class="col-12 col-12-medium">
 										<div class="row gtr-uniform">
 											<div class="col-4 col-12-medium">
-												<h5>3. Experience (Post PhD)</h5>
+												<h5 >3. Experience (Post PhD)</h5>
 											</div>
 											<div class="col-8 col-12-medium">
 												<input type="number" name="" id=""
-													placeholder="Experience (Post PhD) in Years">
+													placeholder="Experience (Post PhD) in Years (eg: 3.5)">
 											</div>
 										</div>
 									</div>
@@ -1411,34 +1433,23 @@
 									</div>
 
 									<div class="col-6 col-12-medium">
-										<h4>8. Name and Addresses of Two references</h4>
+										<h4>8. Name and Addresses of Three references</h4>
 									</div>
-									<div class="col-6 hidden-medium"></div>
-									<div class="col-6 col-12-medium">
+									<div class="col-4 hidden-medium"></div>
+									<div class="col-4 col-12-medium">
 										<textarea name="miscTa8" id="miscTa8"
 											placeholder="Name and Addresses of First References" rows="3"></textarea>
 									</div>
-									<div class="col-6 col-12-medium">
+									<div class="col-4 col-12-medium">
 										<textarea name="miscTa9" id="miscTa9"
 											placeholder="Name and Addresses of Second References" rows="3"></textarea>
 									</div>
+									<div class="col-4 col-12-medium">
+										<textarea name="miscTa8" id="miscTa8"
+											placeholder="Name and Addresses of First References" rows="3"></textarea>
+									</div>
 
-									<div class="col-12 col-12-medium">
-										<h5>(*Recommendations from two Referees, not related to the applicants, who are
-											scholars closely acquainted with the applicant’s academic training,
-											accomplishment and capabilities, should preferably be obtained in sealed
-											envelopes and attached with this application, or they be requested to send
-											the recommendation(s) directly to the Assistant Director (PGDBAM), CCSNIAM,
-											Advt. Number, Post Number and Post applied for by post (not by e-mail).</h5>
-										<br><br>
-										<h4>Please indicate how you fulfill the essential as well as desirable
-											qualifications prescribed in the advertisement.</h4>
-									</div>
-									<div class="col-12 col-12-medium">
-										<textarea name="miscTa10" id="miscTa10"
-											placeholder="Please indicate how you fulfill the essential as well as desirable qualifications prescribed in the advertisement."
-											rows="3"></textarea>
-									</div>
+									
 									<hr width="100%" >
 									<div id="upload" class="col-12">
 										<h4><strong>Declaration to Be Signed by the Candidate:</strong></h4>
