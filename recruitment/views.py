@@ -17,8 +17,8 @@ def home(request):
 def admin(request):
     return render(request, 'recruitment/admin.html',{})
 
-def viewMore(request):
-    return render(request, 'recruitment/view-more.html')
+def viewMore(request, application_number):
+    return render(request, 'recruitment/view-more.html', {'data':Applicant.objects.filter(application_no=application_number)})
 
 def submission_form(request):
     if request.method == 'POST':
