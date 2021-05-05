@@ -23,18 +23,12 @@
 		<header id="header">
 			<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
 			<h1>Faculty Recruitment Form</h1>
-			<p>
-				Fill out the form here to apply for the faculty recruitment at <a href="https://iiitl.ac.in"
-					target="###">IIIT Lucknow</a>.<br />
-			</p>
 		</header>
 
 		<!-- Main part -->
 		<div id="main">
-
 			<!-- Content -->
 			<section id="content" class="main" style="padding-top: 0;">
-
 				<!--	Congratulatory Message	-->
 				<div class="spotlight">
 					<div class="content main special">
@@ -49,8 +43,9 @@
 				<form method="GET" enctype="multipart/form-data">
 					{% csrf_token %}
 				</form>
-
+			</section>
 		</div>
+	</div>
 
 		<!-- Footer -->
 		<footer id="footer">
@@ -87,7 +82,6 @@
 			</section>
 			<p class="copyright">&copy; 2020 <a href="https://iiitl.ac.in" target="#2">IIIT Lucknow</a>.</p>
 		</footer>
-	</div>
 
 	<!-- Scripts -->
 	<script src="{% static 'assets/js/jquery.min.js'%}"></script>
