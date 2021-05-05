@@ -6,5 +6,5 @@ urlpatterns = [
                 path('login/', views.login , name='login'),
                 path('submit/', views.submission_form, name='submission_form'),
                 path('admin/',views.admin,name="Admin"),
-                path('admin/user/<str:application_number>',views.viewMore,name="View More")
+                path('admin/user',views.viewMore,name="View More")
             ]
