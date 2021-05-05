@@ -14,7 +14,9 @@
 </head>
 
 <body class="is-preload">
-
+	<div id="top"></div>
+	<span class="up_btn"><a href="#top"><img src="../../static/images/up.png" alt="Go_To_The_Top" width="5%"
+				height="auto"></a></span>
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- hamburger- for mobile view -->
@@ -22,6 +24,7 @@
 		<!-- 	Header	-->
 		<header id="header">
 			<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
+
 			<h1>Faculty Recruitment Form</h1>
 			<p>
 				Fill out the form here to apply for the faculty recruitment at <a href="https://iiitl.ac.in"
@@ -56,6 +59,32 @@
 				<div><a href="#upload" onclick="closeNav()">Uploadables</a></div>
 			</div>
 		</div>
+
+		<style>
+			.up_btn {
+				display: inline;
+				cursor: pointer;
+				color: rgb(129, 129, 129);
+				top: 92%;
+				left: 93%;
+				padding-bottom: 2%;
+				position: sticky;
+				z-index: 3;
+				pointer-events: all;
+			}
+
+			@media screen and (min-width: 737px) {
+				.up_btn {
+					display: none;
+				}
+			}
+
+			@media screen and (min-width: 800px) {
+				.up_btn {
+					display: none;
+				}
+			}
+		</style>
 		<!-- Mobile Nav Ends here -->
 
 		<!-- Main part -->
