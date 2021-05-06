@@ -29,6 +29,7 @@ def submission_form(request):
         application_number = str(datetime.datetime.now().date())+str(number+1).zfill(3) 
         applicant_data['application_no'] = application_number
         applicant_data['date'] = datetime.datetime.now().date()
+        applicant_data['advertisement_no'] = data['AdvertNumber']
         applicant_data['post'] = data['AppPost']
         applicant_data['department'] = data['Dept']
         applicant_data['Research_Domain'] = data['research_domain']
@@ -68,7 +69,7 @@ def submission_form(request):
         otherinformation_data['unfit_for_position'] = data['miscTa7']
         otherinformation_data['reference1'] = data['miscTa8']
         otherinformation_data['reference2'] = data['miscTa9']
-        otherinformation_data['fulfillment'] = data['miscTa10']
+        otherinformation_data['reference3'] = data['miscTa10']
         otherinformation_data['applicant'] = Applicant.objects.get(application_no=application_number) 
         OtherInfo.objects.create(**otherinformation_data)
         # Signature 
@@ -131,16 +132,6 @@ def submission_form(request):
         phd_data['title_of_thesis'] = data['phdThesis']
         phd_data['applicant'] = Applicant.objects.get(application_no=application_number)
         PhD.objects.create(**phd_data)
-        # Resarch Experience
-        research_exp_details = {}
-        research_exp_details['From'] = data['exp-from']
-        research_exp_details['to'] = data['exp-to']
-        research_exp_details['year'] = data['exp-years']
-        research_exp_details['month'] = data['exp-months']
-        research_exp_details['supporting_documents'] = request.FILES['exp-file']
-        research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
-        ResearchExp.objects.create(**research_exp_details)
-                                
         # Academic Details
         num_of_academic_records = list(filter(lambda s: 'course' in s,list(data.keys())))
         num_of_academic_records_length = len(num_of_academic_records)
@@ -151,7 +142,7 @@ def submission_form(request):
             academic_details = {}
             academic_details['degree'] = data.get('course'+str(i),False)
             academic_details['name'] = data.get('course'+str(i)+'-name',False)
-            academic_details['marks'] = data.get('course'+str(i)+'-marks',False)
+            academic_details['marks'] = data.get('course'+str(i)+'-percentage',False)
             academic_details['subjects'] = data.get('course'+str(i)+'-subject',False)
             academic_details['year_of_passing'] = data.get('yearOfPassing'+str(i),False)
             ans = 'course' + str(i) + '-file'
@@ -222,10 +213,9 @@ def submission_form(request):
             news_articles_details['journal_name'] = data.get('news_articles' + str(i) + '-journal_name',False)
             news_articles_details['author'] = data.get('news_articles' + str(i) + '-author',False)
             news_articles_details['date_published'] = data.get('news_articles' + str(i) + '-date_published',False)
+            news_articles_details['vol_no'] = data.get('news_articles' + str(i) + 'page')
             news_articles_details['referred'] = data.get('news_articles' + str(i) + '-referred',False)
-            news_articles_details['level'] = data.get('news_articles' + str(i) + '-level',False)
-            news_articles_details['naas'] = data.get('news_articles' + str(i) + '-naas',False)
-            news_articles_details['isbn_issn'] = data.get('news_articles' + str(i) + '-number',False)
+            news_articles_details['naas'] = data.get('news_articles' + str(i) + '-impact',False)
             news_articles_details['supporting_documents'] = request.FILES['news_articles'+str(i)+'-file']
             news_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
             NewspaperArticle.objects.create(**news_articles_details)
@@ -245,6 +235,20 @@ def submission_form(request):
             seminar_articles_details['supporting_documents'] = request.FILES[ans]
             seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
             SeminarArticles.objects.create(**seminar_articles_details)
+
+        # Research Experience
+        num_of_research_exp = list(filter(lambda s: 'exp' in s, list(data.keys())))
+        last_research_exp_record = num_of_research_exp[len(num_of_research_exp) - 1]
+        number_research_exp_record = last_research_exp_record[3]
+        for i in range(1,int(number_research_exp_record)):
+            research_exp_details = {}
+            research_exp_details['From'] = data.get('exp' + str(i) + '-from')
+            research_exp_details['to'] = data.get('exp' + str(i) + '-to')
+            research_exp_details['month'] = data.get('exp' + str(i) + '-month')
+            ans = 'exp' + str(i) + '-file'
+            research_exp_details['supporting_documents'] = request.FILES[ans]
+            research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
+            ResearchExp.objects.create(**research_exp_details)
                              
         #     professional_details['organisation'] = data.get('org' + str(i),False)
         #     professional_details['designation']  = data.get('desig' + str(i),False)

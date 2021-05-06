@@ -176,7 +176,7 @@ $(document).ready(function() {
             '<option value="SCI/SSCI/SCI(E)/ABDC">SCI/SSCI/SCI(E)/ABDC</option>' +
             '<option value="Non (SCI/SSCI/SCI(E)/ABDC)">Non (SCI/SSCI/SCI(E)/ABDC)</option>' +
             '</select></td>' +
-            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" style="border: 0; background: transparent;" "news_articles' + newAcademicsNo + '-impact" id="news_articles' + newAcademicsNo + '-impact" placeholder="Impact Factor"> </td>' +
+            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" style="border: 0; background: transparent;" name="news_articles' + newAcademicsNo + '-impact" id="news_articles' + newAcademicsNo + '-impact" placeholder="Impact Factor"> </td>' +
             '<td class="col-3" style="display:flex;place-content:space-between;padding:0.48em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" name="news_articles' + newAcademicsNo + '-file" id="news_articles' + newAcademicsNo + '-file"></span>' +
             '<span style="display:inline;align-self:center"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
