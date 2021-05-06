@@ -73,16 +73,19 @@ $(document).ready(function() {
     $('.add-more2').on('click touchstart', function(e) {
         e.preventDefault();
 
-        var newIn2 = '<tr id="field1"><td class="col-2" style="text-align: center; padding: 0;">' +
+        var newIn2 = '<tr id="field1"><td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">' +
             '<input type="text" name="org' + newAcademicsNo + '-name" id="org' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none; " placeholder="Name of Employer/Status of Institute/University (Govt. /Quasi Govt./Autonomous etc.) "></td>' +
-            '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="org' + newAcademicsNo + '-post" id="org' + newAcademicsNo + '-post" style="margin: 0; background-color: transparent; border:none;" placeholder="Post held / Design"></td>' +
-            '<td class="col-1" style="text-align: center; padding: 0;">' +
-            '<div class="row gtr-uniform">' +
-            '<div class="col-6" style="text-align: right;"><input type="month" name="org' + newAcademicsNo + '-from" id="org' + newAcademicsNo + '-from" style="border: 0; width: 90%; background: transparent; padding: 0; align-self: center;" placeholder="From" ></div>' +
-            '<div class="col-6" style="text-align: center;"><input type="month" name="org' + newAcademicsNo + '-to" id="org' + newAcademicsNo + '-to"style="border: 0; width: 90%; background: transparent; padding: 0; align-self: center;" placeholder="From" ></div></div></td>' +
-            '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="org' + newAcademicsNo + '-salary" id="org' + newAcademicsNo + '-salary" style="border: 0; background: transparent;" placeholder="Basic Salary"> </td>' +
-            '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;"> <input type="text" name="org' + newAcademicsNo + '-nature" id="org' + newAcademicsNo + '-nature" style="border: 0; background: transparent;" placeholder="Nature of Duty"></td>' +
-            '<td class="col-3" style="display:flex;place-content:space-between;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="org' + newAcademicsNo + '-file" name="org' + newAcademicsNo + '-file"></span>' +
+            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="org' + newAcademicsNo + '-post" id="org' + newAcademicsNo + '-post" style="margin: 0; background-color: transparent; border:none;" placeholder="Post held / Design"></td>' +
+            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">'+
+            '<div class="row gtr-uniform" style="padding: 0.3em;">'+
+                '<div class="col-2">From:</div>'+
+                '<div class="col-10"><input type="month" name="org' + newAcademicsNo + '-from" id="org' + newAcademicsNo + '-from" value="" style="margin-bottom: 0.5rem;width:90%;font-size: small;" placeholder="From"></div>'+
+                '<div class="col-2" style="padding-top: 0;">To:</div>'+
+                '<div class="col-10" style="padding-top: 0;"><input type="month" name="org' + newAcademicsNo + '-to" id="org' + newAcademicsNo + '-to" value="" style="margin: 0;width:90%;font-size: small;" placeholder="To"></div>'+
+            '</div></td>' +
+            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="org' + newAcademicsNo + '-salary" id="org' + newAcademicsNo + '-salary" style="border: 0; background: transparent;" placeholder="Basic Salary"> </td>' +
+            '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"> <input type="text" name="org' + newAcademicsNo + '-nature" id="org' + newAcademicsNo + '-nature" style="border: 0; background: transparent;" placeholder="Nature of Duty"></td>' +
+            '<td class="col-3" style="display:flex;place-content:space-between;height:4.7em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="org' + newAcademicsNo + '-file" name="org' + newAcademicsNo + '-file"></span>' +
             '<span style="display:inline;align-self:center"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
 
@@ -99,10 +102,10 @@ $(document).ready(function() {
     $('.add-more2B').on('click touchstart', function(e) {
         e.preventDefault();
 
-        var newIn2 = '<tr id="field1">'+
-            '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exp' + newAcademicsNo + '-from" id="exp' + newAcademicsNo + '-from" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="From "></td>'+
-            '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exp' + newAcademicsNo + '-to" id="exp' + newAcademicsNo + '-to" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="To"></td>'+
-            '<td class="col-3" style="text-align: center;vertical-align: middle;"> <input type="text" name="exp' + newAcademicsNo + '-months" id="exp' + newAcademicsNo + '-months" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Number of Months"></td>'+
+        var newIn2 = '<tr id="field1">' +
+            '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exp' + newAcademicsNo + '-from" id="exp' + newAcademicsNo + '-from" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="From "></td>' +
+            '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exp' + newAcademicsNo + '-to" id="exp' + newAcademicsNo + '-to" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="To"></td>' +
+            '<td class="col-3" style="text-align: center;vertical-align: middle;"> <input type="text" name="exp' + newAcademicsNo + '-months" id="exp' + newAcademicsNo + '-months" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Number of Months"></td>' +
             '<td class="col-3" style="display:flex;place-content:space-between;height:4.4em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="exp' + newAcademicsNo + '-file" name="exp' + newAcademicsNo + '-file"></span>' +
             '<span style="display:inline;align-self:center"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
@@ -124,7 +127,7 @@ $(document).ready(function() {
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="books' + newAcademicsNo + '-title" id="books' + newAcademicsNo + '-title" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Title of the Book" ></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><select name="books' + newAcademicsNo + '-author" id="books' + newAcademicsNo + '-author" style="inline-size: auto;"><option value="First author">First Author</option><option value="Co-author">Co-author</option></select></td>' +
             '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><textarea type="text" name="books' + newAcademicsNo + '-publisher" id="books' + newAcademicsNo + '-publisher" value="" style="margin: 0;" rows="2" placeholder="" > </textarea></td>' +
-            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="month" name="books' + newAcademicsNo + '-date" id="books' + newAcademicsNo + '-date" style="width: 75%;"></td>' +
+            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="month" name="books' + newAcademicsNo + '-date" id="books' + newAcademicsNo + '-date" style="width: 92%;"></td>' +
             '<td class="col-2" style="text-align: center; padding: 0; font-size:xx-small;vertical-align: middle;"><input type="text"name="books' + newAcademicsNo + '-number" id="books' + newAcademicsNo + '-number" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="ISBN/ISSN No."></td>' +
             '<td class="col-3" style="display:flex;place-content:space-between;height:5em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" name="books' + newAcademicsNo + '-file" id="books' + newAcademicsNo + '-file"></span>' +
             '<span style="display:inline;align-self:center"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
@@ -146,7 +149,7 @@ $(document).ready(function() {
             '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"> <input type="text" name="chapters' + newAcademicsNo + '-chapter" id="chapters' + newAcademicsNo + '-chapter" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Title of the Title(s) "></td>' +
             '<td class="col-2" style="text-align: center;vertical-align: middle;padding:0;"> <select name="chapters' + newAcademicsNo + '-author" id="chapters' + newAcademicsNo + '-author" style="background-color: transparent; border:none;inline-size: auto;"> <option value="First author">First Author</option><option value="Co-author">Co-author</option></select></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><textarea name="chapters' + newAcademicsNo + '-publisher" id="chapters' + newAcademicsNo + '-publisher" cols="10" rows="2"></textarea></td>' +
-            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="month" style="width: 75%;" name="chapters' + newAcademicsNo + '-date_of_publisher" id="chapters' + newAcademicsNo + '-date_of_publisher"></td>' +
+            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="month" style="width: 92%;" name="chapters' + newAcademicsNo + '-date_of_publisher" id="chapters' + newAcademicsNo + '-date_of_publisher"></td>' +
             '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="text" name="chapters' + newAcademicsNo + '-number" id="chapters' + newAcademicsNo + '-number" style="border: 0; background: transparent;" placeholder="ISBN/ISSN No."></td>' +
             '<td class="col-3" style="display:flex;place-content:space-between;height:5em">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" name="chapters' + newAcademicsNo + '-file" id="chapters' + newAcademicsNo + '-file"></span>' +
             '<span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
@@ -167,18 +170,13 @@ $(document).ready(function() {
         var newIn6 = '<tr id="field1"><td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="news_articles' + newAcademicsNo + '-article_title" id="news_articles' + newAcademicsNo + '-article_title" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Title of research"></td>' +
             '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="news_articles' + newAcademicsNo + '-journal_name" id="news_articles' + newAcademicsNo + '-journal_name" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Name of journal"></td>' +
             '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><select name="news_articles' + newAcademicsNo + '-author" id="news_articles' + newAcademicsNo + '-author" style="background-color: transparent; border:none;inline-size: auto;"> <option value="First author">First Author </option> <option value="Co-author">Co-author</option> </select></td>' +
-            '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input type="date" name="news_articles' + newAcademicsNo + '-date_published" id="news_articles' + newAcademicsNo + '-date_published" style="inline-size: auto;text-align: center;background-color: transparent;"></td>' +
-            '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="text" name="news_articles' + newAcademicsNo + '-page" id="news_articles' + newAcademicsNo + '-page" style="border: 0; background: transparent;" placeholder="Volume no. & Page nos."></td>'+
-            '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><select name="news_articles' + newAcademicsNo + '-referred" id="news_articles' + newAcademicsNo + '-referred"	style="background-color: transparent; border:none;">'+
-			    '<option value="SCI/SSCI/SCI(E)/ABDC">SCI/SSCI/SCI(E)/ABDC</option>'+
-				'<option value="Non (SCI/SSCI/SCI(E)/ABDC)">Non (SCI/SSCI/SCI(E)/ABDC)</option>'+
-            '</select></td>'+
-            '<td class="col-1" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="text" name="news_articles' + newAcademicsNo + '-number" id="news_articles' + newAcademicsNo + '-number" style="border: 0; background: transparent;" placeholder="ISBN/ISSN No."></td>'+
-            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" style="border: 0; background: transparent;" "news_articles' + newAcademicsNo + '-impact" id="news_articles' + newAcademicsNo + '-impact" placeholder="Impact Factor"> </td>'+
-
-
-
-
+            '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input type="date" name="news_articles' + newAcademicsNo + '-date_published" id="news_articles' + newAcademicsNo + '-date_published" style="inline-size: 9em;padding:0;text-align: center;background-color: transparent;"></td>' +
+            '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="text" name="news_articles' + newAcademicsNo + '-page" id="news_articles' + newAcademicsNo + '-page" style="border: 0; background: transparent;" placeholder="Volume no. & Page nos."></td>' +
+            '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><select name="news_articles' + newAcademicsNo + '-referred" id="news_articles' + newAcademicsNo + '-referred"	style="background-color: transparent; border:none;">' +
+            '<option value="SCI/SSCI/SCI(E)/ABDC">SCI/SSCI/SCI(E)/ABDC</option>' +
+            '<option value="Non (SCI/SSCI/SCI(E)/ABDC)">Non (SCI/SSCI/SCI(E)/ABDC)</option>' +
+            '</select></td>' +
+            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" style="border: 0; background: transparent;" "news_articles' + newAcademicsNo + '-impact" id="news_articles' + newAcademicsNo + '-impact" placeholder="Impact Factor"> </td>' +
             '<td class="col-3" style="display:flex;place-content:space-between;padding:0.48em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" name="news_articles' + newAcademicsNo + '-file" id="news_articles' + newAcademicsNo + '-file"></span>' +
             '<span style="display:inline;align-self:center"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
@@ -198,12 +196,12 @@ $(document).ready(function() {
         var newIn7 = '<tr id="field1"><td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="semi_articles' + newAcademicsNo + '-article_title" id="semi_articles' + newAcademicsNo + '-article_title" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Title of research article/paper(s)"></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="semi_articles' + newAcademicsNo + '-seminar_subject" id="semi_articles' + newAcademicsNo + '-seminar_subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of the Journal" ></td>' +
             '<td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="semi_articles' + newAcademicsNo + '-location" id="semi_articles' + newAcademicsNo + '-location" value=""style="margin: 0; background-color: transparent; border:none;" placeholder="Organizing Institution" ></td>' +
-            '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;">'+
-            '<div class="row gtr-uniform" style="padding: 0.3em;">'+
-                '<div class="col-2">From:</div>'+
-                '<div class="col-10"><input type="month" name="semi_articles' + newAcademicsNo + '-from" id="semi_articles' + newAcademicsNo + '-from" value="" style="margin-bottom: 0.5rem;width:90%;font-size: small;"></div>'+
-                '<div class="col-2" style="padding-top: 0;">To:</div>'+
-                '<div class="col-10" style="padding-top: 0;"><input type="month" name="semi_articles' + newAcademicsNo + '-to" id="semi_articles' + newAcademicsNo + '-to" value="" style="margin: 0;width:90%;font-size: small;"></div>'+
+            '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;">' +
+            '<div class="row gtr-uniform" style="padding: 0.3em;">' +
+            '<div class="col-2">From:</div>' +
+            '<div class="col-10"><input type="month" name="semi_articles' + newAcademicsNo + '-from" id="semi_articles' + newAcademicsNo + '-from" value="" style="margin-bottom: 0.5rem;width:90%;font-size: small;"></div>' +
+            '<div class="col-2" style="padding-top: 0;">To:</div>' +
+            '<div class="col-10" style="padding-top: 0;"><input type="month" name="semi_articles' + newAcademicsNo + '-to" id="semi_articles' + newAcademicsNo + '-to" value="" style="margin: 0;width:90%;font-size: small;"></div>' +
             '</div></td>' +
             '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><select name="semi_articles' + newAcademicsNo + '-published" id="semi_articles' + newAcademicsNo + '-published"> <option value="Yes">Yes</option> <option value="No">No</option> </select></td>' +
             '<td class="col-3" style="display:flex;place-content:space-between;height:4.7em;padding:0;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" name="semi_articles' + newAcademicsNo + '-file" id="semi_articles' + newAcademicsNo + '-file"></span>' +
