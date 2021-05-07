@@ -10,6 +10,12 @@ function changeReservation2(e){
     document.getElementById("reservation_certificate").disabled = true;
 }
 
+$('form input').keydown(function (e) {
+    if (e.keyCode === 13) {
+        e.preventDefault();
+        return false;
+    }
+});
 
 
 ////////////////   table 1  section B   ///////////////
@@ -25,6 +31,13 @@ $(document).ready(function() {
         '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>' +
         '</td></tr>';
     $('.academic-tbody').append(newIn);
+
+    $("form input").keydown(function (e) {
+        if (e.keyCode === 13) {
+          e.preventDefault();
+          return false;
+        }
+      });
 
     // console.log("hvgvcvdgcvdvcgdvc");
     var yearId = 'yearOfPassing' + parseInt(newAcademicsNo);
@@ -42,12 +55,6 @@ $(document).ready(function() {
     newAcademicsNo += 1;
 });
 
-$('form input').keydown(function (e) {
-    if (e.keyCode === 13) {
-        e.preventDefault();
-        return false;
-    }
-});
 
 $(document).ready(function() {
     var newAcademicsNo = 2;
