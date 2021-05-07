@@ -239,15 +239,15 @@ def submission_form(request):
             SeminarArticles.objects.create(**seminar_articles_details)
 
         # Research Experience
-        num_of_research_exp = list(filter(lambda s: 'exp' in s, list(data.keys())))
+        num_of_research_exp = list(filter(lambda s: 'exper' in s, list(data.keys())))
         last_research_exp_record = num_of_research_exp[len(num_of_research_exp) - 1]
-        number_research_exp_record = last_research_exp_record[3]
+        number_research_exp_record = last_research_exp_record[5]
         for i in range(1,int(number_research_exp_record)):
             research_exp_details = {}
-            research_exp_details['From'] = data.get('exp' + str(i) + '-from')
-            research_exp_details['to'] = data.get('exp' + str(i) + '-to')
-            research_exp_details['month'] = data.get('exp' + str(i) + '-month')
-            ans = 'exp' + str(i) + '-file'
+            research_exp_details['From'] = data.get('exper' + str(i) + '-from')
+            research_exp_details['to'] = data.get('exper' + str(i) + '-to')
+            research_exp_details['month'] = data.get('exper' + str(i) + '-month')
+            ans = 'exper' + str(i) + '-file'
             research_exp_details['supporting_documents'] = request.FILES[ans]
             research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
             ResearchExp.objects.create(**research_exp_details)
