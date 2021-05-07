@@ -233,7 +233,7 @@ def submission_form(request):
             seminar_articles_details['From'] = data.get('semi_articles' + str(i) + '-from',False)
             seminar_articles_details['to'] = data.get('semi_articles' + str(i) + 'to',False)
             seminar_articles_details['published'] = data.get('semi_articles' + str(i) + '-published',False)
-            ans = 'semi_article'+str(i)+'-file'
+            ans = 'semi_articles'+str(i)+'-file'
             seminar_articles_details['supporting_documents'] = request.FILES[ans]
             seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
             SeminarArticles.objects.create(**seminar_articles_details)
