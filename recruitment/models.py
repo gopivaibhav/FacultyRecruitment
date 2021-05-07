@@ -191,7 +191,7 @@ class OtherInfo(models.Model):
     unfit_for_position = models.TextField()
     reference1 = models.TextField()
     reference2 = models.TextField()
-    fulfillment = models.TextField()
+    reference3 = models.TextField()
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='other_info')
     def __str__(self):
         return str(self.applicant)   
