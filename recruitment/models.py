@@ -114,7 +114,7 @@ class EmploymentExp(models.Model):
     post = models.CharField(max_length=250)
     from_year = models.CharField()
     to_year = models.CharField()
-    salary = models.IntegerField()
+    salary = models.TextField()
     nature = models.CharField(max_length=200)
     supporting_documents = models.FileField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
