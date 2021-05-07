@@ -29,7 +29,7 @@ def submission_form(request):
         application_number = str(datetime.datetime.now().date())+str(number+1).zfill(3) 
         applicant_data['application_no'] = application_number
         applicant_data['date'] = datetime.datetime.now().date()
-        applicant_data['advertisement_no'] = data['AdvertNumber']
+        applicant_data['advertisement_no'] = 'Rolling Advertisement No.1'
         applicant_data['post'] = data['AppPost']
         applicant_data['department'] = data['Dept']
         applicant_data['Research_Domain'] = data['research_domain']
