@@ -10,12 +10,41 @@ function changeReservation2(e){
     document.getElementById("reservation_certificate").disabled = true;
 }
 
+function sameAddress(e){
+    // document.getElementById("permanentaddress").nodeValue = document.getElementById("mailingaddress").nodeValue;
+    //console.log("dsfsdas");
+
+    if(document.getElementById("sameaddress").checked==true){
+    $('#permanentaddress').val($('#mailingaddress').val());
+    $('#permanentpincode').val($('#mailingpincode').val());
+    $('#permanenttelephone').val($('#mailingtelephone').val());
+
+    document.getElementById("permanentaddress").readOnly = true;
+    document.getElementById("permanentpincode").readOnly = true;
+    document.getElementById("permanenttelephone").readOnly = true;
+    document.getElementById("mailingaddress").readOnly = true;
+    document.getElementById("mailingpincode").readOnly = true;
+    document.getElementById("mailingtelephone").readOnly = true;
+    }
+
+    else{
+    document.getElementById("permanentaddress").readOnly = false;
+    document.getElementById("permanentpincode").readOnly = false;
+    document.getElementById("permanenttelephone").readOnly = false;
+    document.getElementById("mailingaddress").readOnly = false;
+    document.getElementById("mailingpincode").readOnly = false;
+    document.getElementById("mailingtelephone").readOnly = false;
+    }
+
+}
+
 $('form input').keydown(function (e) {
     if (e.keyCode === 13) {
         e.preventDefault();
         return false;
     }
 });
+
 
 
 ////////////////   table 1  section B   ///////////////
