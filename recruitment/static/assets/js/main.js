@@ -131,11 +131,11 @@ $(document).ready(function() {
         e.preventDefault();
 
         var newIn2 = '<tr id="field1">' +
-            '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exp' + newAcademicsNo + '-from" id="exp' + newAcademicsNo + '-from" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="From "></td>' +
-            '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exp' + newAcademicsNo + '-to" id="exp' + newAcademicsNo + '-to" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="To"></td>' +
-            '<td class="col-3" style="text-align: center;vertical-align: middle;"> <input type="text" name="exp' + newAcademicsNo + '-months" id="exp' + newAcademicsNo + '-months" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Number of Months"></td>' +
-            '<td class="col-3" style="display:flex;place-content:space-between;height:4.4em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="exp' + newAcademicsNo + '-file" name="exp' + newAcademicsNo + '-file"></span>' +
-            '<span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
+            '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exper' + newAcademicsNo + '-from" id="exp' + newAcademicsNo + '-from" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="From "></td>' +
+            '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exper' + newAcademicsNo + '-to" id="exp' + newAcademicsNo + '-to" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="To"></td>' +
+            '<td class="col-3" style="text-align: center;vertical-align: middle;"> <input type="text" name="exper' + newAcademicsNo + '-months" id="exp' + newAcademicsNo + '-months" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Number of Months"></td>' +
+            '<td class="col-3" style="display:flex;place-content:space-between;height:4.4em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="exp' + newAcademicsNo + '-file" name="exper' + newAcademicsNo + '-file"></span>' +
+            '<span style="display:inline;align-self:center"><button onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
 
         $('.academic-tbody3').append(newIn2);

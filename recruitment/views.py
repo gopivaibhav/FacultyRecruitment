@@ -139,6 +139,8 @@ def submission_form(request):
         number_academic_record = last_academic_record[6]
         academic_data = []
         for i in range(1,int(number_academic_record)+1):
+            if not 'course' + str(i):
+                continue
             academic_details = {}
             academic_details['degree'] = data.get('course'+str(i),False)
             academic_details['name'] = data.get('course'+str(i)+'-name',False)
@@ -213,7 +215,7 @@ def submission_form(request):
             news_articles_details['journal_name'] = data.get('news_articles' + str(i) + '-journal_name',False)
             news_articles_details['author'] = data.get('news_articles' + str(i) + '-author',False)
             news_articles_details['date_published'] = data.get('news_articles' + str(i) + '-date_published',False)
-            news_articles_details['vol_no'] = data.get('news_articles' + str(i) + 'page')
+            news_articles_details['vol_no'] = data.get('news_articles' + str(i) + '-page')
             news_articles_details['referred'] = data.get('news_articles' + str(i) + '-referred',False)
             news_articles_details['naas'] = data.get('news_articles' + str(i) + '-impact',False)
             news_articles_details['supporting_documents'] = request.FILES['news_articles'+str(i)+'-file']
@@ -231,21 +233,21 @@ def submission_form(request):
             seminar_articles_details['From'] = data.get('semi_articles' + str(i) + '-from',False)
             seminar_articles_details['to'] = data.get('semi_articles' + str(i) + 'to',False)
             seminar_articles_details['published'] = data.get('semi_articles' + str(i) + '-published',False)
-            ans = 'semi_article'+str(i)+'-file'
+            ans = 'semi_articles'+str(i)+'-file'
             seminar_articles_details['supporting_documents'] = request.FILES[ans]
             seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
             SeminarArticles.objects.create(**seminar_articles_details)
 
         # Research Experience
-        num_of_research_exp = list(filter(lambda s: 'exp' in s, list(data.keys())))
+        num_of_research_exp = list(filter(lambda s: 'exper' in s, list(data.keys())))
         last_research_exp_record = num_of_research_exp[len(num_of_research_exp) - 1]
-        number_research_exp_record = last_research_exp_record[3]
+        number_research_exp_record = last_research_exp_record[5]
         for i in range(1,int(number_research_exp_record)):
             research_exp_details = {}
-            research_exp_details['From'] = data.get('exp' + str(i) + '-from')
-            research_exp_details['to'] = data.get('exp' + str(i) + '-to')
-            research_exp_details['month'] = data.get('exp' + str(i) + '-month')
-            ans = 'exp' + str(i) + '-file'
+            research_exp_details['From'] = data.get('exper' + str(i) + '-from')
+            research_exp_details['to'] = data.get('exper' + str(i) + '-to')
+            research_exp_details['month'] = data.get('exper' + str(i) + '-month')
+            ans = 'exper' + str(i) + '-file'
             research_exp_details['supporting_documents'] = request.FILES[ans]
             research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
             ResearchExp.objects.create(**research_exp_details)
