@@ -246,7 +246,7 @@ def submission_form(request):
             research_exp_details = {}
             research_exp_details['From'] = data.get('exper' + str(i) + '-from')
             research_exp_details['to'] = data.get('exper' + str(i) + '-to')
-            research_exp_details['month'] = data.get('exper' + str(i) + '-month')
+            research_exp_details['number_of_months'] = data.get('exper' + str(i) + '-month')
             ans = 'exper' + str(i) + '-file'
             research_exp_details['supporting_documents'] = request.FILES[ans]
             research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
