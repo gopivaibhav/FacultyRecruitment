@@ -242,7 +242,7 @@ def submission_form(request):
         num_of_research_exp = list(filter(lambda s: 'exper' in s, list(data.keys())))
         last_research_exp_record = num_of_research_exp[len(num_of_research_exp) - 1]
         number_research_exp_record = last_research_exp_record[5]
-        for i in range(1,int(number_research_exp_record)):
+        for i in range(1,int(number_research_exp_record)+1):
             research_exp_details = {}
             research_exp_details['From'] = data.get('exper' + str(i) + '-from')
             research_exp_details['to'] = data.get('exper' + str(i) + '-to')
