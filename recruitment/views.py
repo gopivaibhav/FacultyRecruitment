@@ -139,18 +139,20 @@ def submission_form(request):
         number_academic_record = last_academic_record[6]
         academic_data = []
         for i in range(1,int(number_academic_record)+1):
-            if not 'course' + str(i):
+            if (data.get('course'+str(i),False) == False):
+                print('Hello')
                 continue
-            academic_details = {}
-            academic_details['degree'] = data.get('course'+str(i),False)
-            academic_details['name'] = data.get('course'+str(i)+'-name',False)
-            academic_details['marks'] = data.get('course'+str(i)+'-percentage',False)
-            academic_details['subjects'] = data.get('course'+str(i)+'-subject',False)
-            academic_details['year_of_passing'] = data.get('yearOfPassing'+str(i),False)
-            ans = 'course' + str(i) + '-file'
-            academic_details['supporting_documents'] = request.FILES[ans]
-            academic_details['applicant'] = Applicant.objects.get(application_no=application_number)
-            EducationalQualifications.objects.create(**academic_details)
+            else:
+                academic_details = {}
+                academic_details['degree'] = data.get('course'+str(i),False)
+                academic_details['name'] = data.get('course'+str(i)+'-name',False)
+                academic_details['marks'] = data.get('course'+str(i)+'-percentage',False)
+                academic_details['subjects'] = data.get('course'+str(i)+'-subject',False)
+                academic_details['year_of_passing'] = data.get('yearOfPassing'+str(i),False)
+                ans = 'course' + str(i) + '-file'
+                academic_details['supporting_documents'] = request.FILES[ans]
+                academic_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                EducationalQualifications.objects.create(**academic_details)
             # if re.search(r'[12]\d{3}',data.get('yearOfPassing-'+str(i),False)) is None:
             #     return render(request, 'recruitment/form.html',{'message':'Enter the year in Academic details in yyyy format.'})
             # if 0 <= float(data.get('course-'+str(i)+'-marks',False)) <= 100:
