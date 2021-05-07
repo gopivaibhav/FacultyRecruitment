@@ -51,7 +51,7 @@ class NewspaperArticle(models.Model):
     article_title = models.TextField()
     journal_name = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
-    date_published = models.DateField()
+    date_published = models.CharField()
     vol_no = models.TextField()
     referred = models.TextField()
     naas = models.TextField()
@@ -67,7 +67,7 @@ class Books(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     publisher = models.CharField(max_length=100)
-    date_publish = models.DateField()
+    date_publish = models.CharField()
     isbn= models.TextField()
     supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
@@ -82,7 +82,7 @@ class Chapters(models.Model):
     chapter = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     publisher = models.CharField(max_length=100)
-    date_of_publisher = models.DateField()
+    date_of_publisher = models.CharField()
     isbn_issn = models.TextField()
     supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
@@ -112,8 +112,8 @@ class EmploymentExp(models.Model):
     '''Model for Employment experience of applicant'''
     name = models.CharField(max_length=200)
     post = models.CharField(max_length=250)
-    from_year = models.DateField()
-    to_year = models.DateField()
+    from_year = models.CharField()
+    to_year = models.CharField()
     salary = models.IntegerField()
     nature = models.CharField(max_length=200)
     supporting_documents = models.FileField(upload_to='uploads/', null=True, blank=True)
