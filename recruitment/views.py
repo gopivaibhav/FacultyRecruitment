@@ -140,7 +140,6 @@ def submission_form(request):
         academic_data = []
         for i in range(1,int(number_academic_record)+1):
             if (data.get('course'+str(i),False) == False):
-                print('Hello')
                 continue
             else:
                 academic_details = {}
@@ -164,17 +163,20 @@ def submission_form(request):
         last_professional_record = num_of_professional_records[len(num_of_professional_records)-1]
         number_professional_record = last_professional_record[3]
         for i in range(1,int(number_professional_record)+1):
-            professional_details = {}
-            professional_details['name'] = data.get('org' + str(i) + '-name',False)
-            professional_details['post'] = data.get('org' + str(i) + '-post',False)
-            professional_details['from_year'] = data.get('org' + str(i) + '-from',False)
-            professional_details['to_year'] = data.get('org' + str(i) + '-to',False)
-            professional_details['salary'] = data.get('org' + str(i) + '-salary',False)
-            professional_details['nature'] = data.get('org' + str(i) + '-nature',False)
-            ans = 'org' + str(i) + '-file'
-            professional_details['supporting_documents'] = request.FILES[ans]
-            professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
-            EmploymentExp.objects.create(**professional_details)
+            if (data.get('org' + str(i) + '-name',False) == False):
+                continue
+            else:
+                professional_details = {}
+                professional_details['name'] = data.get('org' + str(i) + '-name',False)
+                professional_details['post'] = data.get('org' + str(i) + '-post',False)
+                professional_details['from_year'] = data.get('org' + str(i) + '-from',False)
+                professional_details['to_year'] = data.get('org' + str(i) + '-to',False)
+                professional_details['salary'] = data.get('org' + str(i) + '-salary',False)
+                professional_details['nature'] = data.get('org' + str(i) + '-nature',False)
+                ans = 'org' + str(i) + '-file'
+                professional_details['supporting_documents'] = request.FILES[ans]
+                professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                EmploymentExp.objects.create(**professional_details)
 
         # Books
         num_of_books_records = list(filter(lambda s: 'books' in s, list(data.keys())))
@@ -182,125 +184,90 @@ def submission_form(request):
         number_books_record = last_book_record[5]
         books_data = []
         for i in range(1,int(number_books_record)+1):
-            books_details = {}
-            books_details['title'] = data.get('books' + str(i) + '-title',False)
-            books_details['author'] = data.get('books' + str(i) + '-author',False)     
-            books_details['publisher'] = data.get('books' + str(i) + '-publisher',False) 
-            books_details['date_publish'] = data.get('books' + str(i) + '-date',False)
-            books_details['isbn'] = data.get('books' + str(i) + '-number',False)
-            ans = 'books' + str(i) + '-file'
-            books_details['supporting_documents'] = request.FILES[ans]
-            books_details['applicant'] = Applicant.objects.get(application_no=application_number)
-            Books.objects.create(**books_details)
+            if(data.get('books' + str(i) + '-title',False) == False):
+                continue
+            else:
+                books_details = {}
+                books_details['title'] = data.get('books' + str(i) + '-title',False)
+                books_details['author'] = data.get('books' + str(i) + '-author',False)     
+                books_details['publisher'] = data.get('books' + str(i) + '-publisher',False) 
+                books_details['date_publish'] = data.get('books' + str(i) + '-date',False)
+                books_details['isbn'] = data.get('books' + str(i) + '-number',False)
+                ans = 'books' + str(i) + '-file'
+                books_details['supporting_documents'] = request.FILES[ans]
+                books_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                Books.objects.create(**books_details)
         # Chapters
         num_of_chapters_records = list(filter(lambda s: 'chapters' in s, list(data.keys())))
         last_chapter_record = num_of_chapters_records[len(num_of_chapters_records)-1]
         number_chapter_record = last_chapter_record[8]   
         for i in range(1,int(number_chapter_record)+1):
-            chapter_details = {}
-            chapter_details['book_title'] = data.get('chapters' + str(i) + '-book_title',False)
-            chapter_details['chapter'] = data.get('chapters' + str(i) + '-chapter',False)    
-            chapter_details['author'] = data.get('chapters' + str(i) + '-author',False)
-            chapter_details['publisher'] = data.get('chapters' + str(i) + '-publisher',False)
-            chapter_details['date_of_publisher'] = data.get('chapters' + str(i) + '-date_of_publisher',False)
-            chapter_details['isbn_issn'] = data.get('chapters' + str(i) + '-number',False)
-            chapter_details['supporting_documents'] = request.FILES['chapters'+str(i)+'-file']
-            chapter_details['applicant'] = Applicant.objects.get(application_no=application_number)
-            Chapters.objects.create(**chapter_details)
+            if(data.get('chapters' + str(i) + '-book_title',False) == False):
+                continue
+            else:
+                chapter_details = {}
+                chapter_details['book_title'] = data.get('chapters' + str(i) + '-book_title',False)
+                chapter_details['chapter'] = data.get('chapters' + str(i) + '-chapter',False)    
+                chapter_details['author'] = data.get('chapters' + str(i) + '-author',False)
+                chapter_details['publisher'] = data.get('chapters' + str(i) + '-publisher',False)
+                chapter_details['date_of_publisher'] = data.get('chapters' + str(i) + '-date_of_publisher',False)
+                chapter_details['isbn_issn'] = data.get('chapters' + str(i) + '-number',False)
+                chapter_details['supporting_documents'] = request.FILES['chapters'+str(i)+'-file']
+                chapter_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                Chapters.objects.create(**chapter_details)
         # Newspapers Articles
         num_of_news_articles_records = list(filter(lambda s: 'news_articles' in s, list(data.keys())))
         last_news_articles_record = num_of_news_articles_records[len(num_of_news_articles_records)-1]
         number_news_articles_record = last_news_articles_record[13]
         for i in range(1, int(number_news_articles_record)+1):
-            news_articles_details = {}
-            news_articles_details['article_title'] = data.get('news_articles' + str(i) + '-article_title',False)
-            news_articles_details['journal_name'] = data.get('news_articles' + str(i) + '-journal_name',False)
-            news_articles_details['author'] = data.get('news_articles' + str(i) + '-author',False)
-            news_articles_details['date_published'] = data.get('news_articles' + str(i) + '-date_published',False)
-            news_articles_details['vol_no'] = data.get('news_articles' + str(i) + '-page')
-            news_articles_details['referred'] = data.get('news_articles' + str(i) + '-referred',False)
-            news_articles_details['naas'] = data.get('news_articles' + str(i) + '-impact',False)
-            news_articles_details['supporting_documents'] = request.FILES['news_articles'+str(i)+'-file']
-            news_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
-            NewspaperArticle.objects.create(**news_articles_details)
+            if(data.get('news_articles' + str(i) + '-article_title',False) == False):
+                continue
+            else:
+                news_articles_details = {}
+                news_articles_details['article_title'] = data.get('news_articles' + str(i) + '-article_title',False)
+                news_articles_details['journal_name'] = data.get('news_articles' + str(i) + '-journal_name',False)
+                news_articles_details['author'] = data.get('news_articles' + str(i) + '-author',False)
+                news_articles_details['date_published'] = data.get('news_articles' + str(i) + '-date_published',False)
+                news_articles_details['vol_no'] = data.get('news_articles' + str(i) + '-page')
+                news_articles_details['referred'] = data.get('news_articles' + str(i) + '-referred',False)
+                news_articles_details['naas'] = data.get('news_articles' + str(i) + '-impact',False)
+                news_articles_details['supporting_documents'] = request.FILES['news_articles'+str(i)+'-file']
+                news_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                NewspaperArticle.objects.create(**news_articles_details)
         # Seminar Articles
         num_of_seminar_articles =  list(filter(lambda s: 'semi_articles' in s, list(data.keys())))
         last_semi_articles_record = num_of_seminar_articles[len(num_of_seminar_articles)-1]
         number_semi_articles_record = last_semi_articles_record[13]
         for i in range(1,int(number_semi_articles_record)+1):
-            seminar_articles_details = {}
-            seminar_articles_details['article_title'] = data.get('semi_articles' + str(i) + '-article_title',False)
-            seminar_articles_details['seminar_subject'] = data.get('semi_articles' + str(i) + '-seminar_subject',False)
-            seminar_articles_details['location'] = data.get('semi_articles' + str(i) + '-location',False)
-            seminar_articles_details['From'] = data.get('semi_articles' + str(i) + '-from',False)
-            seminar_articles_details['to'] = data.get('semi_articles' + str(i) + 'to',False)
-            seminar_articles_details['published'] = data.get('semi_articles' + str(i) + '-published',False)
-            ans = 'semi_articles'+str(i)+'-file'
-            seminar_articles_details['supporting_documents'] = request.FILES[ans]
-            seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
-            SeminarArticles.objects.create(**seminar_articles_details)
-
+            if(data.get('semi_articles' + str(i) + '-article_title',False) == False):
+                continue
+            else:
+                seminar_articles_details = {}
+                seminar_articles_details['article_title'] = data.get('semi_articles' + str(i) + '-article_title',False)
+                seminar_articles_details['seminar_subject'] = data.get('semi_articles' + str(i) + '-seminar_subject',False)
+                seminar_articles_details['location'] = data.get('semi_articles' + str(i) + '-location',False)
+                seminar_articles_details['From'] = data.get('semi_articles' + str(i) + '-from',False)
+                seminar_articles_details['to'] = data.get('semi_articles' + str(i) + 'to',False)
+                seminar_articles_details['published'] = data.get('semi_articles' + str(i) + '-published',False)
+                ans = 'semi_articles'+str(i)+'-file'
+                seminar_articles_details['supporting_documents'] = request.FILES[ans]
+                seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                SeminarArticles.objects.create(**seminar_articles_details)
         # Research Experience
         num_of_research_exp = list(filter(lambda s: 'exper' in s, list(data.keys())))
         last_research_exp_record = num_of_research_exp[len(num_of_research_exp) - 1]
         number_research_exp_record = last_research_exp_record[5]
         for i in range(1,int(number_research_exp_record)+1):
-            research_exp_details = {}
-            research_exp_details['From'] = data.get('exper' + str(i) + '-from')
-            research_exp_details['to'] = data.get('exper' + str(i) + '-to')
-            research_exp_details['number_of_months'] = data.get('exper' + str(i) + '-months')
-            ans = 'exper' + str(i) + '-file'
-            research_exp_details['supporting_documents'] = request.FILES[ans]
-            research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
-            ResearchExp.objects.create(**research_exp_details)
-                             
-        #     professional_details['organisation'] = data.get('org' + str(i),False)
-        #     professional_details['designation']  = data.get('desig' + str(i),False)
-        #     professional_details['from_year'] = data.get('proffrom' + str(i),False)
-        #     professional_details['to_year'] = data.get('profto' + str(i),False)
-        #     if re.search(r'[12]\d{3}',data.get('proffrom'+str(i),False)) is None:
-        #         return render(request, 'recruitment/form.html',{'message':'Enter the year in professional details in yyyy format.'})
-        #     if re.search(r'[12]\d{3}',data.get('profto'+str(i),False)) is None:
-        #         return render(request, 'recruitment/form.html',{'message':'Enter the year in professional details in yyyy format.'})
-        #     if int(data['proffrom' + str(i)]) > int(data['profto' + str(i)]):
-        #         return render(request, 'recruitment/form.html',{'message':'From Year can not be after To year in Professional details.'})
-        #     professional_details['role'] = data.get('roles' + str(i),False)
-        #     professional_details['emoluments'] = data.get('pay' + str(i),False)
-        #     if re.search(r'\d+', data['pay'+str(i)]) is None or re.search(r'\d+', data['pay'+str(i)]) is  None:
-        #         return render(request, 'recruitment/form.html',{'message':'Enter the pay scale and emoluments in professional details as integers without commas.'})
-        #     professional_details['pay_scale'] = data.get('emol' + str(i),False)
-        #     professional_data.append(professional_details)
-        # other_details = {}
-        # other_details['awards_and_recognition'] = data['awards']
-        # other_details['reference'] = '\n'.join([data['ref1'],data['ref2'], data['ref3'],])
-        # other_details['statement_of_objective'] = data['objective']
-        # other_details['any_other_relevant_information'] = data['other_relevant_info']
-        # #publication = request.FILES['publications']
-        # #pic = request.FILES['propic']
-        # #cert = request.FILES['cert']
-        # #handle_uploaded_file(publication, application_number, 'publications')
-        # #handle_uploaded_file(pic, application_number, 'pic')
-        # #handle_uploaded_file(cert, application_number, 'certificate')
-        # #Storing data
-        # Applicant.objects.create(**applicant_data)
-        # academic_detail['applicant'] = Applicant.objects.get(application_no=application_number)
-        # for academic_detail in academic_data:
-        #     EducationalQualifications.objects.create(**academic_detail)
-        
-        # professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
-        # for professional_details in professional_data:
-        #     EmploymentExp.objects.create(**professional_details) 
-        # books_details['applicant'] = Applicant.objects.get(application_no=application_number)
-        # for books_details in books_data:
-        #     Books.objects.create(**books_details)
-        # chapter_details['applicant'] = Applicant.objects.get(application_no=application_number)
-        # for chapter_details in chapters_data:
-        #     Chapters.objects.create(**chapter_details)
-        # news_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
-        # for news_articles_details in news_articles_data:
-        #     NewspaperArticle.objects.create(**news_articles_details)
-        # seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
-        # for seminar_articles_details in seminar_articles_data:
-        #     SeminarArticles.objects.create(**seminar_articles_details)    
+            if(data.get('exper' + str(i) + '-from',False) == False):
+                continue
+            else:
+                research_exp_details = {}
+                research_exp_details['From'] = data.get('exper' + str(i) + '-from',False)
+                research_exp_details['to'] = data.get('exper' + str(i) + '-to',False)
+                research_exp_details['number_of_months'] = data.get('exper' + str(i) + '-months',False)
+                ans = 'exper' + str(i) + '-file'
+                research_exp_details['supporting_documents'] = request.FILES[ans]
+                research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                ResearchExp.objects.create(**research_exp_details)                      
         return render(request, 'recruitment/form.html',{'message':'Congrats! Your application number is '+ application_number})
     return render(request, 'recruitment/form.html', {})
