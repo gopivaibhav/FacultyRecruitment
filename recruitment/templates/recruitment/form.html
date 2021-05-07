@@ -144,8 +144,7 @@
                                     <div id="profile-container" class="col-3 col-12-medium " style="max-block-size: 35vh; max-width: max-content;">
                                         <image id="profileImage" class="img-fluid mx-auto" src="{% static 'images/profilepic.png' %}" style="max-width: 100%; max-height: 100%; border-radius: 5vh;" />
                                         <div><input id="imageUpload" type="file" style="font-size: small;" name="profile_photo" placeholder="Photo"="">
-                                            <label for="imageUpload" style="text-align:center">(Upload Profile
-												Picture)</label>
+                                            <label for="imageUpload" style="text-align:center">(Upload Profile Picture)</label>
                                         </div>
                                     </div>
 
@@ -232,12 +231,12 @@
                                             <div class="col-7 col-12-small">
                                                 <input type="number" name="mailingtelephone" id="mailingtelephone" value="" placeholder="Telephone No.">
                                             </div>
-                                            <div class="col-12" style="text-align: center;padding-top: 10%;">
+                                            <!-- <div class="col-12" style="text-align: center;padding-top: 10%;">
                                                 <input type="checkbox" class="custom-control-input" id="sameaddress">
                                                 <label class="custom-control-label" for="sameaddress">If your permanent
 													address is same as correspondence address, then please click
 													here.</label>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
 
@@ -365,13 +364,13 @@
                                         <h3>Reservation Claimed:</h3>
                                     </div>
                                     <div class="col-1 col-2-small" style="align-self: center;font-size: small;">
-                                        <input class="form-check-input" type="radio" name="reservation" id="Radio1" value="male">
+                                        <input class="form-check-input" type="radio" onclick="changeReservation(event)" name="reservation" id="Radio1" value="Yes">
                                         <label style="align-self: center;margin-bottom: 0;" class="form-check-label" for="Radio1">Yes</label>
-                                        <input class="form-check-input" type="radio" name="reservation" id="Radio2" value="female">
-                                        <label style="align-self: center;margin-top: 0.5em;" class="form-check-label" for="Radio2"> No</label>
+                                        <input class="form-check-input" type="radio" onclick="changeReservation2(event)" name="reservation" id="Radio2" value="No">
+                                        <label style="align-self: center;margin-top: 0.5em;"  class="form-check-label" for="Radio2"> No</label>
                                     </div>
                                     <div class="col-3 col-6-small" style="align-self: center;text-align: center;font-size: small;overflow: hidden;padding-left: 1.8em;">
-                                        <input id="reservation_certificate" type="file" style="font-size: small;" name="reservation_certificate">
+                                        <input id="reservation_certificate" type="file" style="font-size: small;" name="reservation_certificate" disabled>
                                         <label for="reservation_certificate">( If Yes, Upload Certificate )</label>
                                     </div>
 
@@ -493,9 +492,9 @@
                                                 <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <div class="row gtr-uniform" style="inline-size: 14.2em;padding: 0.3em;">
                                                         <div class="col-2">From:</div>
-                                                        <div class="col-10"><input type="month" name="org1-from" id="org1-from" value="" style="margin-bottom: 0.5rem;width:90%;font-size: small;" placeholder="From"></div>
+                                                        <div class="col-10"><input type="date" name="org1-from" id="org1-from" value="" style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="From"></div>
                                                         <div class="col-2" style="padding-top: 0;">To:</div>
-                                                        <div class="col-10" style="padding-top: 0;"><input type="month" name="org1-to" id="org1-to" value="" style="margin: 0;width:90%;font-size: small;" placeholder="To"></div>
+                                                        <div class="col-10" style="padding-top: 0;"><input type="date" name="org1-to" id="org1-to" value="" style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="To"></div>
                                                     </div>
                                                 </td>
                                                 <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
@@ -608,7 +607,7 @@
                                                     <textarea type="text" name="books1-publisher" id="books1-publisher" value="" style="margin: 0;" rows="2" placeholder=""></textarea>
                                                 </td>
                                                 <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="month" name="books1-date" id="books1-date" style="width: 92%;">
+                                                    <input type="date" name="books1-date" id="books1-date" style="width:95%;background-color: transparent;margin-left: 0.3rem;">
                                                 </td>
                                                 <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <input type="text" name="books1-number" id="books1-number" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="ISBN/ISSN No.">
@@ -662,7 +661,7 @@
                                                     <textarea name="chapters1-publisher" id="chapters1-publisher" cols="10" rows="2"></textarea>
                                                 </td>
                                                 <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="month" style="width: 92%;" name="chapters1-date_of_publisher" id="chapters1-date_of_publisher">
+                                                    <input type="date" style="width:95%;background-color: transparent;margin-left: 0.3rem;" name="chapters1-date_of_publisher" id="chapters1-date_of_publisher">
                                                 </td>
                                                 <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <input type="text" name="chapters1-number" id="chapters1-number" style="border: 0; background: transparent;" placeholder="ISBN/ISSN No.">
@@ -798,9 +797,9 @@
                                                 <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <div class="row gtr-uniform" style="inline-size: 14.2em;padding: 0.3em;">
                                                         <div class="col-2">From:</div>
-                                                        <div class="col-10"><input type="month" name="semi_articles1-from" id="semi_articles1-from" value="" style="margin-bottom: 0.5rem;width:90%;font-size: small;" placeholder="From"></div>
+                                                        <div class="col-10"><input type="date" name="semi_articles1-from" id="semi_articles1-from" value="" style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="From"></div>
                                                         <div class="col-2" style="padding-top: 0;">To:</div>
-                                                        <div class="col-10" style="padding-top: 0;"><input type="month" name="semi_articles1-to" id="semi_articles1-to" value="" style="margin: 0;width:90%;font-size: small;" placeholder="To"></div>
+                                                        <div class="col-10" style="padding-top: 0;"><input type="date" name="semi_articles1-to" id="semi_articles1-to" value="" style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="To"></div>
                                                     </div>
                                                 </td>
                                                 <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
