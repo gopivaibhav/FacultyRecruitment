@@ -139,6 +139,8 @@ def submission_form(request):
         number_academic_record = last_academic_record[6]
         academic_data = []
         for i in range(1,int(number_academic_record)+1):
+            if not 'course' + str(i):
+                continue
             academic_details = {}
             academic_details['degree'] = data.get('course'+str(i),False)
             academic_details['name'] = data.get('course'+str(i)+'-name',False)
@@ -213,7 +215,7 @@ def submission_form(request):
             news_articles_details['journal_name'] = data.get('news_articles' + str(i) + '-journal_name',False)
             news_articles_details['author'] = data.get('news_articles' + str(i) + '-author',False)
             news_articles_details['date_published'] = data.get('news_articles' + str(i) + '-date_published',False)
-            news_articles_details['vol_no'] = data.get('news_articles' + str(i) + 'page')
+            news_articles_details['vol_no'] = data.get('news_articles' + str(i) + '-page')
             news_articles_details['referred'] = data.get('news_articles' + str(i) + '-referred',False)
             news_articles_details['naas'] = data.get('news_articles' + str(i) + '-impact',False)
             news_articles_details['supporting_documents'] = request.FILES['news_articles'+str(i)+'-file']
