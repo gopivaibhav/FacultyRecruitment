@@ -18,7 +18,83 @@ def admin(request):
     return render(request, 'recruitment/admin.html',{})
 
 def viewMore(request, application_number):
-    return render(request, 'recruitment/view-more.html', {'data':Applicant.objects.filter(application_no=application_number)})
+    return render(request, 'recruitment/view-more.html', {
+        'applicant_data': {
+            'application_number': application_number,
+            'date' : Applicant.objects.filter(application_no=application_number)[0].date,
+            'post': Applicant.objects.filter(application_no=application_number)[0].post,
+            'department': Applicant.objects.filter(application_no=application_number)[0].department,
+            'reserach_domain': Applicant.objects.filter(application_no=application_number)[0].Research_Domain,
+            'profile_photo': Applicant.objects.filter(application_no=application_number)[0].profile_picture
+        },
+        'general_data': {
+            'full_name': General.objects.filter(applicant=application_number)[0].full_name,
+            'DOB': General.objects.filter(applicant=application_number)[0].DOB,
+            'father_name': General.objects.filter(applicant=application_number)[0].father_name,
+            'address_perm': General.objects.filter(applicant=application_number)[0].address_perm,
+            'telephone_perm': General.objects.filter(applicant=application_number)[0].telephone_perm,
+            'pin_perm': General.objects.filter(applicant=application_number)[0].pin_perm,
+            'address_mail': General.objects.filter(applicant=application_number)[0].address_mail,
+            'telephone_mail': General.objects.filter(applicant=application_number)[0].telephone_mail,
+            'pin_mail': General.objects.filter(applicant=application_number)[0].pin_mail,
+            'mobile_number': General.objects.filter(applicant=application_number)[0].mobile_number,
+            'email': General.objects.filter(applicant=application_number)[0].email,
+            'gender': General.objects.filter(applicant=application_number)[0].gender,
+            'marital_status': General.objects.filter(applicant=application_number)[0].marital_status,
+            'nationality': General.objects.filter(applicant=application_number)[0].nationality,
+            'state': General.objects.filter(applicant=application_number)[0].state,
+            'category': General.objects.filter(applicant=application_number)[0].category,
+            'reservation': General.objects.filter(applicant=application_number)[0].reservation,
+            'certificate': General.objects.filter(applicant=application_number)[0].reservation_certificate,
+            'employer': General.objects.filter(applicant=application_number)[0].present_employer
+        },
+        'otherinformation_data': {
+            'membership': OtherInfo.objects.filter(applicant=application_number)[0].membership,
+            'responsibilities': OtherInfo.objects.filter(applicant=application_number)[0].responsibilities,
+            'Any_other_relevant_information': OtherInfo.objects.filter(applicant=application_number)[0].Any_other_relevant_information,
+            'academic_year_break': OtherInfo.objects.filter(applicant=application_number)[0].academic_year_break,
+            'college_punishment': OtherInfo.objects.filter(applicant=application_number)[0].college_punishment,
+            'judicial_punishment': OtherInfo.objects.filter(applicant=application_number)[0].judicial_punishment,
+            'unfit_for_position': OtherInfo.objects.filter(applicant=application_number)[0].unfit_for_position,
+            'reference1': OtherInfo.objects.filter(applicant=application_number)[0].reference1,
+            'reference2': OtherInfo.objects.filter(applicant=application_number)[0].reference2,
+            'reference3': OtherInfo.objects.filter(applicant=application_number)[0].reference3,
+        },
+        'signed_data': {
+            'place': Declaration.objects.filter(applicant=application_number)[0].place,
+            'date': Declaration.objects.filter(applicant=application_number)[0].date,
+            'signature': Declaration.objects.filter(applicant=application_number)[0].signature,
+        },
+        'thesis_data': {
+            'ongoing_phd': Thesis.objects.filter(applicant=application_number)[0].ongoing_phd,
+            'completed_phd': Thesis.objects.filter(applicant=application_number)[0].completed_phd
+        },
+        'administrative_details_data': {
+            'administrative_details': AdministrativeDetails.objects.filter(applicant=application_number)[0].administrative_details
+        },
+        'Summary': {
+            'defence_date': Summary.objects.filter(applicant=application_number)[0].defence_date,
+            'total_exp': Summary.objects.filter(applicant=application_number)[0].total_exp,
+            'exp_post_phd': Summary.objects.filter(applicant=application_number)[0].exp_post_phd,
+            'total_phd_students': Summary.objects.filter(applicant=application_number)[0].total_phd_students,
+            'ongoing_phd_supervision': Summary.objects.filter(applicant=application_number)[0].ongoing_phd_supervision,
+            'total_projects': Summary.objects.filter(applicant=application_number)[0].total_projects,
+            'ongoing_projects': Summary.objects.filter(applicant=application_number)[0].ongoing_projects,
+            'computational_projects': Summary.objects.filter(applicant=application_number)[0].computational_projects,
+            'SCI_journal': Summary.objects.filter(applicant=application_number)[0].SCI_journal,
+            'SCI_journal_post_phd': Summary.objects.filter(applicant=application_number)[0].SCI_journal_post_phd
+        },
+        'Patent': {
+            'patent_details': Patent.objects.filter(applicant=application_number)[0].patent_details,
+        },
+        'SponsoredProjects': {
+            'spo_tot_number': SponsoredProject.objects.filter(applicant=application_number)[0].spo_tot_number,
+            'spo_ongoing': SponsoredProject.objects.filter(applicant=application_number)[0].spo_ongoing,
+            'spo_completed': SponsoredProject.objects.filter(applicant=application_number)[0].spo_completed,
+            'spo_file': SponsoredProject.objects.filter(applicant=application_number)[0].spo_file,
+        },
+        'Experiments': {},
+    })
 
 def submission_form(request):
     if request.method == 'POST':
