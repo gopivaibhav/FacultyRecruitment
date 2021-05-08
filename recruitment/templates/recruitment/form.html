@@ -301,6 +301,8 @@
                                     <div class="col-4 col-12-small" style="font-size:small;">
                                     {% if user.is_authenticated%}
                                         <input type="email" name="email" id="email" value={{user.email}} placeholder={{user.email}} disabled>
+                                    {% else %}
+                                        <input type="email" name="email" id="email" value="" placeholder="Email Address">
                                     {% endif %}
                                     </div>
                                     <div class="col-2 col-4-small" style="text-align:center;">
@@ -1283,7 +1285,16 @@
                         </div>
                     </section>
                     <div class="flexi-center">
+                    {% if user.is_authenticated%}
                         <button class="button small primary" type="submit">Submit</button>
+                    {% else%}
+                        <p> OOPS! You won't be able to submit the form since you have not registered yourself with us.</p><br />
+                        <footer class="major">
+                            <ul class="actions special">
+                                <li><a href="/accounts/login" class="button small primary">Register</a></li>
+                            </ul>
+                        </footer>
+                    {% endif%}
                     </div>
                 </form>
             </section>
