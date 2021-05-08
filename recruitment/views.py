@@ -101,9 +101,15 @@ def viewMore(request, application_number):
         },
         'PhD': {
             'PhD_awarded': PhD.objects.filter(applicant=application_number)[0].PhD_awarded,
-            'title_of_thesis': PhD.objects.filter(applicant=application_number)[0].title_of_thesis
+            'title_of_thesis': PhD.objects.filter(applicant=application_number)[0].title_of_thesis,
         },
-        'AcademicDetails': {},
+        'AcademicDetails': list(EducationalQualifications.objects.filter(applicant=application_number)),
+        'ProfessionalDetails': list(EmploymentExp.objects.filter(applicant=application_number)),
+        'BooksDetails': list(Books.objects.filter(applicant=application_number)),
+        'ChaptersDetails': list(Chapters.objects.filter(applicant=application_number)),
+        'NewspapersArticlesDetails': list(NewspaperArticle.objects.filter(applicant=application_number)),
+        'SeminarArticles': list(SeminarArticles.objects.filter(applicant=application_number)),
+        'ResearchExperienceDetails': list(ResearchExp.objects.filter(applicant=application_number))
     })
 
 def submission_form(request):
