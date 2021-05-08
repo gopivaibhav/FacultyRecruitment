@@ -11,6 +11,9 @@ def handle_uploaded_file(f, application_number, name):
 def login(request):
     return render(request, 'recruitment/login.html',{})
 
+def profile(request):
+    return render(request,'recruitment/profile.html',{})
+
 def home(request):
     return render(request, 'recruitment/index.html',{})
 
