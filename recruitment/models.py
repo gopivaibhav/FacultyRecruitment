@@ -19,8 +19,8 @@ class Applicant(models.Model):
 
 class ResearchExp(models.Model):
     '''Model for the research experience of the applicant''' 
-    From = models.CharField(max_length=20)
-    to = models.CharField(max_length=20)
+    From = models.DateField()
+    to = models.DateField(max_length=20)
     number_of_months = models.TextField()
     supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
@@ -35,8 +35,8 @@ class SeminarArticles(models.Model):
     article_title = models.TextField()
     seminar_subject = models.TextField()
     location = models.CharField(max_length=100)
-    From = models.CharField(max_length=20)
-    to = models.CharField(max_length=20)
+    From = models.DateField()
+    to = models.DateField()
     published = models.TextField()
     supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
@@ -51,7 +51,7 @@ class NewspaperArticle(models.Model):
     article_title = models.TextField()
     journal_name = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
-    date_published = models.CharField(max_length=20)
+    date_published = models.DateField()
     vol_no = models.TextField()
     referred = models.TextField()
     naas = models.TextField()
@@ -67,7 +67,7 @@ class Books(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     publisher = models.CharField(max_length=100)
-    date_publish = models.CharField(max_length=20)
+    date_publish = models.DateField()
     isbn= models.TextField()
     supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
@@ -82,7 +82,7 @@ class Chapters(models.Model):
     chapter = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     publisher = models.CharField(max_length=100)
-    date_of_publisher = models.CharField(max_length=20)
+    date_of_publisher = models.DateField()
     isbn_issn = models.TextField()
     supporting_documents = models.ImageField(upload_to='uploads/', null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
@@ -112,8 +112,8 @@ class EmploymentExp(models.Model):
     '''Model for Employment experience of applicant'''
     name = models.CharField(max_length=200)
     post = models.CharField(max_length=250)
-    from_year = models.CharField(max_length=20)
-    to_year = models.CharField(max_length=20)
+    from_year = models.DateField()
+    to_year = models.DateField()
     salary = models.TextField()
     nature = models.CharField(max_length=200)
     supporting_documents = models.FileField(upload_to='uploads/', null=True, blank=True)
@@ -128,7 +128,7 @@ class EmploymentExp(models.Model):
 
 class General(models.Model):
     full_name = models.CharField(max_length=200)
-    DOB = models.CharField(max_length=20, default=None)
+    DOB = models.DateField()
     father_name = models.CharField(max_length=200)
     address_perm = models.CharField(max_length=200)
     telephone_perm = models.CharField(max_length=20)
@@ -225,7 +225,7 @@ class AdministrativeDetails(models.Model):
         return str(self.applicant)
 
 class Summary(models.Model):
-    defence_date = models.DateField(default=timezone.now())
+    defence_date = models.DateField()
     total_exp = models.CharField(max_length=10)
     exp_post_phd = models.TextField()
     total_phd_students = models.CharField(max_length=20)
