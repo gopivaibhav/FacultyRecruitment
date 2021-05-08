@@ -42,8 +42,8 @@
 				<!--	Start of form	-->
 				<form method="GET" enctype="multipart/form-data">
 					{% csrf_token %}
-					{% for resp in AcademicDetails%}
-						{{resp.degree}}<br />
+					{% for resp in ProfessionalDetails%}
+						{{resp.name}}<br />
 					{% endfor%}
 				</form>
 			</section>

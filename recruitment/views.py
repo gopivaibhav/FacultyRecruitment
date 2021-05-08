@@ -146,7 +146,8 @@ def submission_form(request):
         general_data['state'] = data['domicile_state']
         general_data['category'] = data['category']
         general_data['reservation'] = data['reservation']
-        general_data['reservation_certificate'] = request.FILES['reservation_certificate']
+        if(data.get('reservation') == 'YES'):
+            general_data['reservation_certificate'] = request.FILES['reservation_certificate']
         general_data['present_employer'] = data['present_employer']
         general_data['applicant'] = Applicant.objects.get(application_no=application_number) 
         General.objects.create(**general_data)
@@ -207,7 +208,8 @@ def submission_form(request):
         sponsored_projects_data['spo_tot_number'] = data['spo_tot_number']
         sponsored_projects_data['spo_ongoing'] = data['spo_ongoing']
         sponsored_projects_data['spo_completed'] = data['spo_completed']
-        sponsored_projects_data['spo_file'] = request.FILES['spofile']
+        if(data.get('spo_tot_number') != ""):
+            sponsored_projects_data['spo_file'] = request.FILES['spofile']
         sponsored_projects_data['applicant'] = Applicant.objects.get(application_no=application_number)
         SponsoredProject.objects.create(**sponsored_projects_data)
         # Experiments
@@ -215,7 +217,8 @@ def submission_form(request):
         experiments_data['exp_tot_number'] = data['exp_tot_number']
         experiments_data['exp_ongoing'] = data['exp_ongoing']
         experiments_data['exp_completed'] = data['exp_completed']
-        experiments_data['exp_file'] = request.FILES['expfile']
+        if(data.get('exp_tot_number') != ""):
+            experiments_data['exp_file'] = request.FILES['expfile']
         experiments_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Experiments.objects.create(**experiments_data)
         # PHD
@@ -255,7 +258,7 @@ def submission_form(request):
         last_professional_record = num_of_professional_records[len(num_of_professional_records)-1]
         number_professional_record = last_professional_record[3]
         for i in range(1,int(number_professional_record)+1):
-            if (data.get('org' + str(i) + '-name',False) == False):
+            if (data.get('org' + str(i) + '-name') == ""):
                 continue
             else:
                 professional_details = {}
@@ -276,7 +279,7 @@ def submission_form(request):
         number_books_record = last_book_record[5]
         books_data = []
         for i in range(1,int(number_books_record)+1):
-            if(data.get('books' + str(i) + '-title',False) == False):
+            if(data.get('books' + str(i) + '-title') == ""):
                 continue
             else:
                 books_details = {}
@@ -294,7 +297,7 @@ def submission_form(request):
         last_chapter_record = num_of_chapters_records[len(num_of_chapters_records)-1]
         number_chapter_record = last_chapter_record[8]   
         for i in range(1,int(number_chapter_record)+1):
-            if(data.get('chapters' + str(i) + '-book_title',False) == False):
+            if(data.get('chapters' + str(i) + '-book_title') == ""):
                 continue
             else:
                 chapter_details = {}
@@ -312,7 +315,7 @@ def submission_form(request):
         last_news_articles_record = num_of_news_articles_records[len(num_of_news_articles_records)-1]
         number_news_articles_record = last_news_articles_record[13]
         for i in range(1, int(number_news_articles_record)+1):
-            if(data.get('news_articles' + str(i) + '-article_title',False) == False):
+            if(data.get('news_articles' + str(i) + '-article_title') == ""):
                 continue
             else:
                 news_articles_details = {}
@@ -331,7 +334,7 @@ def submission_form(request):
         last_semi_articles_record = num_of_seminar_articles[len(num_of_seminar_articles)-1]
         number_semi_articles_record = last_semi_articles_record[13]
         for i in range(1,int(number_semi_articles_record)+1):
-            if(data.get('semi_articles' + str(i) + '-article_title',False) == False):
+            if(data.get('semi_articles' + str(i) + '-article_title') == ""):
                 continue
             else:
                 seminar_articles_details = {}
@@ -350,7 +353,7 @@ def submission_form(request):
         last_research_exp_record = num_of_research_exp[len(num_of_research_exp) - 1]
         number_research_exp_record = last_research_exp_record[5]
         for i in range(1,int(number_research_exp_record)+1):
-            if(data.get('exper' + str(i) + '-from',False) == False):
+            if(data.get('exper' + str(i) + '-from') == ""):
                 continue
             else:
                 research_exp_details = {}
