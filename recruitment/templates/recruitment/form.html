@@ -299,7 +299,9 @@
                                         <h3>Email ID:</h3>
                                     </div>
                                     <div class="col-4 col-12-small" style="font-size:small;">
-                                        <input type="email" name="email" id="email" value="" placeholder="Email Address">
+                                    {% if user.is_authenticated%}
+                                        <input type="email" name="email" id="email" value={{user.email}} placeholder={{user.email}} disabled>
+                                    {% endif %}
                                     </div>
                                     <div class="col-2 col-4-small" style="text-align:center;">
                                         <h3>Gender:</h3>
