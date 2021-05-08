@@ -93,7 +93,17 @@ def viewMore(request, application_number):
             'spo_completed': SponsoredProject.objects.filter(applicant=application_number)[0].spo_completed,
             'spo_file': SponsoredProject.objects.filter(applicant=application_number)[0].spo_file,
         },
-        'Experiments': {},
+        'Experiments': {
+            'exp_tot_number': Experiments.objects.filter(applicant=application_number)[0].exp_tot_number,
+            'exp_ongoing': Experiments.objects.filter(applicant=application_number)[0].exp_ongoing,
+            'exp_completed': Experiments.objects.filter(applicant=application_number)[0].exp_completed,
+            'exp_file': Experiments.objects.filter(applicant=application_number)[0].exp_file
+        },
+        'PhD': {
+            'PhD_awarded': PhD.objects.filter(applicant=application_number)[0].PhD_awarded,
+            'title_of_thesis': PhD.objects.filter(applicant=application_number)[0].title_of_thesis
+        },
+        'AcademicDetails': {},
     })
 
 def submission_form(request):
