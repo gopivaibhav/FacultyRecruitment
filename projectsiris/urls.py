@@ -17,4 +17,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include("recruitment.urls")),
+    path('accounts/' , include("allauth.urls"))
 ]
