@@ -345,11 +345,11 @@ def submission_form(request):
                 seminar_articles_details['seminar_subject'] = data.get('semi_articles' + str(i) + '-seminar_subject',False)
                 seminar_articles_details['location'] = data.get('semi_articles' + str(i) + '-location',False)
                 seminar_articles_details['From'] = data.get('semi_articles' + str(i) + '-from',False)
-                seminar_articles_details['to'] = data.get('semi_articles' + str(i) + 'to',False)
+                seminar_articles_details['to'] = data.get('semi_articles' + str(i) + '-to',False)
                 seminar_articles_details['published'] = data.get('semi_articles' + str(i) + '-published',False)
-                ans = 'semi_articles'+str(i)+'-file'
-                seminar_articles_details['supporting_documents'] = request.FILES[ans]
+                seminar_articles_details['supporting_documents'] = request.FILES['semi_articles'+str(i)+'-file']
                 seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                print(seminar_articles_details)
                 SeminarArticles.objects.create(**seminar_articles_details)
         # Research Experience
         num_of_research_exp = list(filter(lambda s: 'exper' in s, list(data.keys())))
