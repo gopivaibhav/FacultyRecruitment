@@ -136,99 +136,16 @@
 								
 								<tbody class="application-row">
 									<tr></tr>
-									<tr>
-										<th scope="row">1</th>
-										<td>Mark</td>
-										<td>Otto</td>
-										<td>22-27-1998</td>
-										<td>Engineering</td>
-										<td></td>
-									</tr>
-									<tr>
-										<th scope="row"></th>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-									<!-- <tr>
-										<th scope="row">2</th>
-										<td>Abhisheak Ranajan Gupta</td>
-										<td>Thornton</td>
-										<td>22-67-7070</td>
-										<td>@fat</td>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td>Larry the Bird</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<th scope="row">4</th>
-										<td>Larry the Bird</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<th scope="row">5</th>
-										<td>Larry the Bird</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<th scope="row">6</th>
-										<td>Larry the Bird</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<th scope="row">7</th>
-										<td>Larry the Bird</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<th scope="row">8</th>
-										<td>Larry the Bird</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<th scope="row">9</th>
-										<td>Larry the Bird</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<th scope="row">10</th>
-										<td>Larry the Bird</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<th scope="row">11</th>
-										<td>Larry the Bird</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<th scope="row">12</th>
-										<td>Larry the Bird</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-										<td>@twitter</td>
-									</tr> -->
+									{% for item in data.allData %}
+										<tr>
+											<td>{{item.application_no}}</td>
+											<td>{{item.applicant_name}}</td>
+											<td>{{item.applied_post}}</td>
+											<td>{{item.applied_date}}</td>
+											<td>{{item.applied_department}}</td>
+											<td> <a href='/admin/user/{{item.application_no}}'>Go-> </a> </td>
+										</tr>
+									{% endfor %}
 								</tbody>
 							</table>
 							</div>

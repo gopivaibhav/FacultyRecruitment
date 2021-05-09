@@ -18,9 +18,19 @@ def home(request):
     return render(request, 'recruitment/index.html',{})
 
 def admin(request):
-    return render(request, 'recruitment/admin.html', {
-        "applicant_data": list(Applicant.objects.all()),
-    })
+    admin_data = {}
+    appli_data = []
+    for i in list(Applicant.objects.all()):
+        presAppli = {}
+        presAppli['application_no'] = (i.application_no)
+        presAppli['applicant_name'] = (General.objects.filter(applicant=(i.application_no))[0].full_name)
+        presAppli['applied_post'] = Applicant.objects.filter(application_no=i.application_no)[0].post
+        presAppli['applied_department'] = Applicant.objects.filter(application_no=i.application_no)[0].department
+        presAppli['applied_date'] = Applicant.objects.filter(application_no=i.application_no)[0].date
+        appli_data.append(presAppli)
+    admin_data['allData'] = appli_data
+    print(admin_data)
+    return render(request, 'recruitment/admin.html', {'data' :admin_data})
 
 def viewMore(request, application_number):
     return render(request, 'recruitment/view-more.html', {
