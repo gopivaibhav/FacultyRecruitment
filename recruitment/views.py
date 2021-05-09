@@ -18,7 +18,9 @@ def home(request):
     return render(request, 'recruitment/index.html',{})
 
 def admin(request):
-    return render(request, 'recruitment/admin.html',{})
+    return render(request, 'recruitment/admin.html', {
+        "applicant_data": list(Applicant.objects.all()),
+    })
 
 def viewMore(request, application_number):
     return render(request, 'recruitment/view-more.html', {
