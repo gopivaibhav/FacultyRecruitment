@@ -20,13 +20,13 @@ def home(request):
 def admin(request):
     admin_data = {}
     appli_data = []
-    for i in list(Applicant.objects.all()):
+    for i in list(General.objects.all()):
         presAppli = {}
-        presAppli['application_no'] = (i.application_no)
-        # presAppli['applicant_name'] = (General.objects.filter(applicant=(i.application_no))[0].full_name)
-        presAppli['applied_post'] = Applicant.objects.filter(application_no=i.application_no)[0].post
-        presAppli['applied_department'] = Applicant.objects.filter(application_no=i.application_no)[0].department
-        presAppli['applied_date'] = Applicant.objects.filter(application_no=i.application_no)[0].date
+        presAppli['application_no'] = (i.applicant)
+        presAppli['applicant_name'] = (i.full_name)
+        presAppli['applied_post'] = Applicant.objects.filter(application_no=i.applicant)[0].post
+        presAppli['applied_department'] = Applicant.objects.filter(application_no=i.applicant)[0].department
+        presAppli['applied_date'] = Applicant.objects.filter(application_no=i.applicant)[0].date
         appli_data.append(presAppli)
     admin_data['allData'] = appli_data
     print(admin_data)
