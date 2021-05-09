@@ -8,5 +8,5 @@ urlpatterns = [
                 path('admin/', views.admin, name="admin"),
                 path('accounts/profile/', views.profile, name="profile"),
                 path('submit/', views.submission_form, name='submission_form'),
-                # path('admin/user/<str:application_number>',views.viewMore,name="View More")
+                path('admin/user/<str:application_number>',views.viewMore,name="View More")
             ]
