@@ -27,7 +27,7 @@
                 Fill out the form here to apply for the faculty recruitment at <a href="https://iiitl.ac.in" target="###">IIIT Lucknow</a>.<br />
             </p>
         </header>
-
+        {% if user.is_authenticated%}
         <!--	Navbar	-->
         <nav id="nav">
             <ul>
@@ -73,7 +73,6 @@
                         {% endif %}
                     </div>
                 </div>
-
                 <!--	Start of form	-->
                 <form method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -1285,19 +1284,23 @@
                         </div>
                     </section>
                     <div class="flexi-center">
-                    {% if user.is_authenticated%}
                         <button class="button small primary" type="submit">Submit</button>
-                    {% else%}
-                        <p> OOPS! You won't be able to submit the form since you have not registered yourself with us.</p><br />
-                        <footer class="major">
-                            <ul class="actions special">
-                                <li><a href="/accounts/login" class="button small primary">Register</a></li>
-                            </ul>
-                        </footer>
-                    {% endif%}
                     </div>
                 </form>
+            {% else %}
+            <section id="apply" class="main special">
+                <header class="major">
+                    <h2>Apply for Faculty Recruitment</h2>
+                    <p><strong>Only online applications through the given link will be accepted.</strong></p>
+                </header>
+                <footer class="major">
+                    <ul class="actions special">
+                        <li><a href="/accounts/login" class="button small primary">Apply Online</a></li>
+                    </ul>
+                </footer>
             </section>
+            </section>
+            {% endif %}
 
         </div>
 
