@@ -300,7 +300,7 @@
                                     </div>
                                     <div class="col-4 col-12-small" style="font-size:small;">
                                     {% if user.is_authenticated%}
-                                        <input type="email" name="email" id="email" value={{user.email}} placeholder={{user.email}} disabled>
+                                        <input type="email" name="email" id="email" value={{user.email}} placeholder={{user.email}} readonly>
                                     {% else %}
                                         <input type="email" name="email" id="email" value="" placeholder="Email Address">
                                     {% endif %}
