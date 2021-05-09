@@ -142,7 +142,7 @@ $(document).ready(function() {
             '</div></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="org' + newAcademicsNo + '-salary" id="org' + newAcademicsNo + '-salary" style="border: 0; background: transparent;" placeholder="Basic Salary"> </td>' +
             '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"> <input type="text" name="org' + newAcademicsNo + '-nature" id="org' + newAcademicsNo + '-nature" style="border: 0; background: transparent;" placeholder="Nature of Duty"></td>' +
-            '<td class="col-3" style="display:flex;place-content:space-between;height:4.7em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="org' + newAcademicsNo + '-file" name="org' + newAcademicsNo + '-file"></span>' +
+            '<td class="col-3" style="display:flex;place-content:space-between;height:6em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="org' + newAcademicsNo + '-file" name="org' + newAcademicsNo + '-file"></span>' +
             '<span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
 
@@ -296,7 +296,7 @@ $(document).ready(function() {
             '<div class="col-10" style="padding-top: 0;"><input type="date" name="semi_articles' + newAcademicsNo + '-to" id="semi_articles' + newAcademicsNo + '-to" value="" style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"></div>' +
             '</div></td>' +
             '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><select name="semi_articles' + newAcademicsNo + '-published" id="semi_articles' + newAcademicsNo + '-published"> <option value="Yes">Yes</option> <option value="No">No</option> </select></td>' +
-            '<td class="col-3" style="display:flex;place-content:space-between;height:4.7em;padding:0;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" name="semi_articles' + newAcademicsNo + '-file" id="semi_articles' + newAcademicsNo + '-file"></span>' +
+            '<td class="col-3" style="display:flex;place-content:space-between;height:6em;padding:0;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" name="semi_articles' + newAcademicsNo + '-file" id="semi_articles' + newAcademicsNo + '-file"></span>' +
             '<span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
 
