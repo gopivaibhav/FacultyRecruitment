@@ -5,7 +5,7 @@
 <head>
 	<title>Faculty Recruitment Form | IIIT Lucknow</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" author="AgilePlaya" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="viewport" author="MightyMoin" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
 	<link rel="icon" href="{% static 'images/final_logo.png' %}">
 	<noscript>
@@ -51,9 +51,7 @@
 							style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;">
 							<tbody class="application-row">
 								<tr id="app-thead">
-									<td colspan="24"
-										style="border-top-left-radius: 1rem; border-bottom: 1px solid #a6a6a6;">Section
-										A</td>
+									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">Section A</td>
 								</tr>
 								<tr>
 									<td colspan="6">Application No.</td>
@@ -66,16 +64,16 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="6">Application No.</td>
-									<td colspan="6">{{applicant_data.application_number}}</td>
+									<td colspan="6">Post</td>
+									<td colspan="6">{{applicant_data.post}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Application No.</td>
-									<td colspan="6">{{applicant_data.application_number}}</td>
+									<td colspan="6">Department/School</td>
+									<td colspan="6">{{applicant_data.department}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Application No.</td>
-									<td colspan="6">{{applicant_data.application_number}}</td>
+									<td colspan="6">Research Domain</td>
+									<td colspan="6">{{applicant_data.reserach_domain}}</td>
 								</tr>
 								<tr>
 									<td colspan="6">Full Name</td>
@@ -96,39 +94,33 @@
 								</tr>
 								<tr>
 									<td colspan="6">Mailing Address</td>
-									<td colspan="6">{{general_data.DOB}}</td>
+									<td colspan="6">{{general_data.address_mail}}</td>
 									<td colspan="6">Permanent Address</td>
-									<td colspan="6">{{general_data.category}}</td>
+									<td colspan="6">{{general_data.address_perm}}</td>
 								</tr>
 								<tr>
 									<td colspan="6">Mailing Pincode</td>
-									<td colspan="6">{{general_data.DOB}}</td>
+									<td colspan="6">{{general_data.pin_mail}}</td>
 									<td colspan="6">Permanent Pincode</td>
-									<td colspan="6">{{general_data.category}}</td>
+									<td colspan="6">{{general_data.pin_perm}}</td>
 								</tr>
 								<tr>
 									<td colspan="6">Mailing Telephone</td>
-									<td colspan="6">{{general_data.DOB}}</td>
+									<td colspan="6">{{general_data.telephone_mail}}</td>
 									<td colspan="6">Permanent Telephone</td>
-									<td colspan="6">{{general_data.category}}</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<table
-							style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;">
-							<tbody class="application-row">
+									<td colspan="6">{{general_data.telephone_perm}}</td>
+								</tr><tr><td colspan="24"></td></tr>
 								<tr>
 									<td colspan="6">State of Domicile</td>
-									<td colspan="6">{{general_data.DOB}}</td>
+									<td colspan="6">{{general_data.state}}</td>
 									<td colspan="6">Nationality</td>
-									<td colspan="6">{{general_data.category}}</td>
+									<td colspan="6">{{general_data.nationality}}</td>
 								</tr>
 								<tr>
 									<td colspan="6">Mobile No.</td>
-									<td colspan="6">{{general_data.DOB}}</td>
+									<td colspan="6">{{general_data.mobile_number}}</td>
 									<td colspan="6">Gender</td>
-									<td colspan="6">{{general_data.category}}</td>
+									<td colspan="6">{{general_data.gender}}</td>
 								</tr>
 								<tr>
 									<td colspan="6">Email ID</td>
@@ -141,11 +133,195 @@
 								</tr>
 								<tr>
 									<td colspan="6">Present Employer</td>
-									<td colspan="18">{{general_data.presentemployer}}</td>
+									<td colspan="18">{{general_data.employer}}</td>
+								</tr>
+								
+
+							</tbody>
+						</table>
+
+						<h4>2. Administrative Details</h4>
+
+						<table
+							style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;">
+							<tbody class="application-row">
+								<tr>
+									<td colspan="8">Enter the details of Administrative Positions held in the past 5
+										years</td>
+									<td colspan="16">{{administrative_details_data.administrative_details}}</td>
 								</tr>
 							</tbody>
 						</table>
 
+						<h4>3. Sponsored Projects</h4>
+
+						<table
+							style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;">
+							<tbody class="application-row">
+								<tr>
+									<td colspan="4">Total number of sponsored projects</td>
+									<td colspan="8">{{SponsoredProjects.spo_tot_number}}</td>
+									<td colspan="4">Number of ongoing sponsored projects</td>
+									<td colspan="8">{{SponsoredProjects.spo_ongoing}}</td>
+								</tr>
+								<tr>
+									<td colspan="4">Number of completed sponsored projects</td>
+									<td colspan="8">{{SponsoredProjects.spo_completed}}</td>
+									<td colspan="4">Upload a PDF / DOC file containing the list of sponsored projects
+									</td>
+									<td colspan="8">{{SponsoredProjects.spo_file}}</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h4>4. Experiments and Computational Project Details</h4>
+
+						<table
+							style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;">
+							<tbody class="application-row">
+								<tr>
+									<td colspan="4">Total number of experiments/ computational projects</td>
+									<td colspan="8">{{Experiments.exp_tot_number}}</td>
+									<td colspan="4">Number of ongoing experiments/ computational projects</td>
+									<td colspan="8">{{Experiments.exp_ongoing}}</td>
+								</tr>
+								<tr>
+									<td colspan="4">Number of completed experiments/ computational projects</td>
+									<td colspan="8">{{Experiments.exp_completed}}</td>
+									<td colspan="4">Upload a PDF / DOC file containing the list of experiments/
+										computational projects</td>
+									<td colspan="8">{{Experiments.exp_file}}</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h4>5. Patent Details</h4>
+
+						<table
+							style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;">
+							<tbody class="application-row">
+								<tr>
+									<td colspan="8">Please enter patent details, if any:</td>
+									<td colspan="16">{{Patent.patent_details}}</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h4>6. Summary</h4>
+
+						<table
+							style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;">
+							<tbody class="application-row">
+								<tr>
+									<td colspan="4">Ph.D Defence Date</td>
+									<td colspan="8">{{Summary.defence_date}}</td>
+									<td colspan="4">Total Experience (in years)</td>
+									<td colspan="8">{{Summary.total_exp}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Experience (Post PhD)</td>
+									<td colspan="16">{{Summary.exp_post_phd}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Total Ph.D Students Supervised (Degree Awarded)</td>
+									<td colspan="16">{{Summary.total_phd_students}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Total Ongoing Ph.D Supervision</td>
+									<td colspan="16">{{Summary.ongoing_phd_supervision}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Total number of sponsored projects (Ongoing + Completed)</td>
+									<td colspan="16">{{Summary.total_projects}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Number of ongoing sponsored projects</td>
+									<td colspan="16">{{Summary.ongoing_projects}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Total number of experiments/ computational projects</td>
+									<td colspan="16">{{Summary.computational_projects}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Total Number of Publications in SCI / ABDC Journals</td>
+									<td colspan="16">{{Summary.SCI_journal}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
+									<td colspan="16">{{Summary.SCI_journal_post_phd}}</td>
+								</tr>
+							</tbody>
+						</table>
+
+
+
+					</div>
+					<div class="table-wrapper" style="padding: 2px;">
+						<table style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;" id="mainTable">
+							<tbody class="application-row">
+								<tr id="app-thead">
+									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">Section B</td>
+								</tr>
+								<tr id="app-thead">
+									<th colspan="4">Exam/Degree</th>
+									<th colspan="4">Name of Board / College </th>
+									<th colspan="4">Grade/ Marks</th>
+									<th colspan="4">Subjects</th>
+									<th colspan="4">Year of Passing</th>
+									<th colspan="4">Supporting Document</th>
+								</tr>
+								{% for item in AcademicDetails %}
+								<tr >
+									<td colspan="4">
+										{{item.degree}}
+									</td>
+									<td colspan="4">
+										{{item.name}}
+									</td>
+									<td colspan="4">
+										{{item.marks}}
+									</td>
+									<td colspan="4">
+										{{item.subjects}}
+									</td>
+									<td colspan="4">
+										{{item.year_of_passing}}
+									</td>
+									<td colspan="4">
+										
+										<img src={{item.supporting_documents}} alt="">
+									</td>
+								</tr>
+								{% endfor %}
+								<!-- <tr>
+									<td colspan="4">col1</td>
+									<td colspan="4">col1</td>
+									<td colspan="4">col1</td>
+									<td colspan="4">col1</td>
+									<td colspan="4">col1</td>
+									<td colspan="4">col1</td>
+								</tr> -->
+
+
+								<tr>
+									<td colspan="24"></td>
+								</tr>
+
+								<tr>
+									<td colspan="8">Whether Ph.D awarded</td>
+									<td colspan="16">{{PhD.PhD_awarded}}</td>
+								</tr>
+
+								<tr>
+									<td colspan="8">Ph.D Title</td>
+									<td colspan="16">{{PhD.title_of_thesis}}</td>
+								</tr>					
+
+							</tbody>
+						</table>
+					</div>
+
+					<div class="table-wrapper" style="padding: 2px;">
 						<!-- Professional Details / SECTION - C	 -->
 						<h2>Professional Details</h2>
 						<!-- Details of Employment Experience -->
@@ -463,9 +639,82 @@
 							</tbody>
 						</table>
 
-
-
+					
 					</div>
+
+					<div class="table-wrapper" style="padding: 2px;">
+						<table style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;" id="mainTable">
+							<tbody class="application-row">
+								
+								<tr id="app-thead">
+									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">Section F</td>
+								</tr>
+								
+
+								<tr>
+									<td colspan="8">Membership/Fellowship of other institutions/professionals societies:</td>
+									<td colspan="16">{{otherinformation_data.membership}}</td>
+								</tr>
+
+								<tr>
+									<td colspan="8">Other activities/Responsibilities</td>
+									<td colspan="16">{{otherinformation_data.responsibilities}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Any other relevant information, if not given above </td>
+									<td colspan="16">{{otherinformation_data.Any_other_relevant_information}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Has there been any break in your academic career ? If so, give details</td>
+									<td colspan="16">{{otherinformation_data.academic_year_break}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed? If yes, give details in a separate sheet.</td>
+									<td colspan="16">{{otherinformation_data.unfit_for_position}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Name and Address of First Reference </td>
+									<td colspan="16">{{otherinformation_data.reference1}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Name and Address of Second Reference </td>
+									<td colspan="16">{{otherinformation_data.reference2}}</td>
+								</tr>
+								<tr>
+									<td colspan="8">Name and Address of Third Reference </td>
+									<td colspan="16">{{otherinformation_data.reference3}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+
+					<div class="table-wrapper" style="padding: 2px;">
+						<table style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;" id="mainTable">
+							<tbody class="application-row">
+								
+								<tr id="app-thead">
+									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">Declaration</td>
+								</tr>
+
+								<tr>
+									<td colspan="6">Place </td>
+									<td colspan="6">{{signed_data.place}}</td>
+									<td colspan="12" rowspan="2" style="vertical-align: middle;">
+									    <div style="max-width: min-content;margin-inline: auto;"><img id="profileImage" class="img-fluid mx-auto" src="{% static 'images/profilepic.png' %}" style="max-width: 16%;min-width: 12em; border-radius: 5vh;padding: 0;" /></div>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="6">Date</td>
+									<td colspan="6">{{signed_data.date}}</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+
+
+					
 				</form>
 			</section>
 		</div>
@@ -545,6 +794,99 @@
 					document.getElementById("yearOfPassing" + j).innerHTML += "<option value='" + i + "'>" + i + "</option>\n"
 			}
 		}
+
+
+
+
+
+
+		var list1 = [];
+		var list2 = [];
+		var list3 = [];
+		var list4 = [];
+		var list5 = [];
+		var list6 = [];
+
+		var n=1;
+		var x=0;
+
+		function addRow (){
+			var row = document.getElementById('mainTable');
+			var newRow = row.insertRow(n);
+
+			list1[x] = document.getElementById()
+		}
+
+
+		
+		var contentid = 'course' + parseInt(newAcademicsNo);
+		var elem = document.getElementById(contentid);
+		console.log(elem);
+
+
+
+
+
+// 		// trial
+// 		var table = document.getElementById('mainTable');
+
+//  if (table === null)
+//      return;
+
+//  if (table.rows[0].cells.length <= 1)
+//      return;
+
+//  var tblData = [];
+
+//  //Put a RowNumber name and values placeholder for the number of rows we have.
+//  for (r = 0; r < table.rows.length; r++) 
+//  {
+//      //Debug
+//      //console.log(" row: ", r);     
+
+//      tblData.push({
+//          name: "RowNumber" + r,
+//          items: []
+//      });
+
+//      //Get the cells for this row.
+//      var cells = table.rows[r].cells;
+
+//      //Loop through each column for this row and push the value...
+//      for (c = 0; c < cells.length; c++) 
+//      {
+//          var inputElem = cells[c].children[0];
+//          var tmpInputElem;
+
+//          if (inputElem == null)
+//          {
+//             tmpInputElem = "";
+//          }
+//          else
+//          {
+//             tmpInputElem = inputElem.value           
+//          }
+
+//          //Debug
+//          //console.log(" row-cel: ", r, "-", c, " ", inputElem);
+
+//          tblData[r].items.push(
+//          {
+//              //Comment out the type for now...
+//              //inputType: inputElem.getAttribute('type'),
+//              inputValue: tmpInputElem
+//          });
+//      }
+//  }
+
+//  //Debug
+//  //printData(tblData);
+
+
+
+
+
+
 	</script>
 </body>
 
