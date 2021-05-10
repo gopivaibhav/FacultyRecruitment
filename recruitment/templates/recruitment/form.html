@@ -5,7 +5,7 @@
 <head>
     <title>Faculty Recruitment Form | IIIT Lucknow</title>
     <meta charset="utf-8" />
-    <meta name="viewport" author="AgilePlaya" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" author="MightyMoin" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
     <link rel="icon" href="{% static 'images/final_logo.png' %}">
     <noscript>
@@ -27,7 +27,7 @@
                 Fill out the form here to apply for the faculty recruitment at <a href="https://iiitl.ac.in" target="###">IIIT Lucknow</a>.<br />
             </p>
         </header>
-
+        {% if user.is_authenticated%}
         <!--	Navbar	-->
         <nav id="nav">
             <ul>
@@ -73,7 +73,6 @@
                         {% endif %}
                     </div>
                 </div>
-
                 <!--	Start of form	-->
                 <form method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -104,16 +103,13 @@
                                                 <h3>Post Applied for:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium">
-                                                <select name="AppPost" id="AppPost">
+                                                <select name="AppPost" id="AppPost" required>
 													<option value="" selected disabled> - None - </option>
-													<option value="prof">Professor</option>
-													<option value="associate">Associate Professor</option>
-													<option value="assistantprofg2level10">Assistant Professor Grade 2
-														Level 10</option>
-													<option value="assistantprofg2level11">Assistant Professor Grade 2
-														Level 11</option>
-													<option value="assistantprofg1level12">Assistant Professor Grade 1
-														Level 12</option>
+													<option value="Professor">Professor</option>
+													<option value="Associate">Associate Professor</option>
+													<option value="assistantprofg2level10">Assistant Professor Grade 2 Level 10</option>
+													<option value="assistantprofg2level11">Assistant Professor Grade 2 Level 11</option>
+													<option value="assistantprofg1level12">Assistant Professor Grade 1 Level 12</option>
 												</select>
                                             </div>
 
@@ -122,7 +118,7 @@
                                                 <h3>Department/School:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium" style="margin-bottom: 4%;">
-                                                <select name="Dept" id="Dept">
+                                                <select name="Dept" id="Dept" required>
 													<option value="" selected disabled> - None - </option>
 													<option value="CSE-IT">CSE / IT</option>
 													<option value="ECE">Mathematics</option>
@@ -135,7 +131,7 @@
                                                 <h3>Research Domain:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium">
-                                                <textarea name="research_domain" id="research_domain" placeholder="Specific Subject Area's Description" rows="3"></textarea>
+                                                <textarea name="research_domain" id="research_domain" placeholder="Specific Subject Area's Description" rows="3" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +139,7 @@
                                     <!--  Profile Picture   -->
                                     <div id="profile-container" class="col-3 col-12-medium " style="max-block-size: 35vh; max-width: max-content;">
                                         <image id="profileImage" class="img-fluid mx-auto" src="{% static 'images/profilepic.png' %}" style="max-width: 100%; max-height: 100%; border-radius: 5vh;" />
-                                        <div><input id="imageUpload" type="file" style="font-size: small;" name="profile_photo" placeholder="Photo"="">
+                                        <div><input id="imageUpload" type="file" style="font-size: small;" name="profile_photo"  required>
                                             <label for="imageUpload" style="text-align:center">(Upload Profile Picture)</label>
                                         </div>
                                     </div>
@@ -167,31 +163,29 @@
                                     <div class="col-4 col-12-small" style="align-self:left;">
                                         <h3>Full Name:</h3>
                                     </div>
-                                    <div class="col-2 col-4-small"><select name="saluation" id="saluation" style="padding:0;text-align-last:center;padding-right:50%" placeholder="Gender" title="Gender">
-											<option value="Dr." style="text-align-last: center;">&nbsp;&nbsp; Dr.
-											</option>
-											<option value="Mr." style="text-align-last: center;">&nbsp;&nbsp; Mr.
-											</option>
-											<option value="Mrs." style="text-align-last: center;">&nbsp;&nbsp; Mrs.
-											</option>
-											<option value="Miss" style="text-align-last: center;">&nbsp;&nbsp; Miss
-											</option>
-										</select></div>
+                                    <div class="col-2 col-4-small">
+                                        <select name="saluation" id="saluation" style="padding:0;text-align-last:center;padding-right:50%" placeholder="Gender" title="Gender" required>
+											<option value="Dr." style="text-align-last: center;">&nbsp;&nbsp; Dr.</option>
+											<option value="Mr." style="text-align-last: center;">&nbsp;&nbsp; Mr.</option>
+											<option value="Mrs." style="text-align-last: center;">&nbsp;&nbsp; Mrs.</option>
+											<option value="Miss" style="text-align-last: center;">&nbsp;&nbsp; Miss</option>
+										</select>
+                                    </div>
                                     <div class="col-4 col-8-small">
-                                        <input style="text-transform: uppercase;" type="text" name="name" id="name" value="" placeholder="Full Name">
+                                        <input style="text-transform: uppercase;" type="text" name="name" id="name" value="" placeholder="Full Name" required>
                                     </div>
                                     <div class="col-4 col-12-small" style="align-self:left;">
                                         <h3>Date of Birth:</h3>
                                     </div>
                                     <div class="col-5 col-12-small">
-                                        <input type="date" name="dateofbirth" id="dateofbirth" class="dateofbirth">
+                                        <input type="date" name="dateofbirth" id="dateofbirth" class="dateofbirth" required>
                                     </div>
 
                                     <div class="col-4 col-12-small" style="align-self:left;">
                                         <h3>Father's Name:</h3>
                                     </div>
                                     <div class="col-5 col-12-small">
-                                        <input style="text-transform: uppercase;" type="text" name="fathername" id="fathername" value="" placeholder="Father's Name">
+                                        <input style="text-transform: uppercase;" type="text" name="fathername" id="fathername" value="" placeholder="Father's Name" required>
                                     </div>
                                 </div>
                             </div>
@@ -217,19 +211,19 @@
                                                 <h3>Address:</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <textarea name="mailingaddress" id="mailingaddress" placeholder="Enter Your Address For Mailing" rows="3"></textarea>
+                                                <textarea name="mailingaddress" id="mailingaddress" placeholder="Enter Your Address For Mailing" rows="3" required></textarea>
                                             </div>
                                             <div class="col-5 col-12-small" style="text-align:center;padding-top: 2rem;">
                                                 <h3>Pin Code:</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" name="mailingpincode" id="mailingpincode" value="" placeholder="Pin Code">
+                                                <input type="number" name="mailingpincode" id="mailingpincode" value="" placeholder="Pin Code" required>
                                             </div>
                                             <div class="col-5 col-12-small" style="text-align:center;">
                                                 <h3>Telephone No. (With STD Code)</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" name="mailingtelephone" id="mailingtelephone" value="" placeholder="Telephone No.">
+                                                <input type="number" name="mailingtelephone" id="mailingtelephone" value="" placeholder="Telephone No." required>
                                             </div>
                                             <div class="col-12" style="text-align: center;padding-top: 10%;">
                                                 <input type="checkbox" onclick="sameAddress(event)" class="custom-control-input" id="sameaddress">
@@ -252,19 +246,19 @@
                                                     <h3>Address:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <textarea name="permanentaddress" id="permanentaddress" placeholder="Enter Your Permanent Address" rows="3"></textarea>
+                                                    <textarea name="permanentaddress" id="permanentaddress" placeholder="Enter Your Permanent Address" rows="3" required></textarea>
                                                 </div>
                                                 <div class="col-5 col-12-small" style="text-align:center;padding-top: 2rem;">
                                                     <h3>Pin Code:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="number" name="permanentpincode" id="permanentpincode" value="" placeholder="Pin Code">
+                                                    <input type="number" name="permanentpincode" id="permanentpincode" value="" placeholder="Pin Code" required>
                                                 </div>
                                                 <div class="col-5 col-12-small" style="text-align:center;">
                                                     <h3>Telephone No. (With STD Code)</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="number" name="permanenttelephone" id="permanenttelephone" value="" placeholder="Telephone No.">
+                                                    <input type="number" name="permanenttelephone" id="permanenttelephone" value="" placeholder="Telephone No." required>
                                                 </div>
                                             </div>
                                         </div>
@@ -290,16 +284,20 @@
                                         <h3>Mobile No.</h3>
                                     </div>
                                     <div class="col-1 col-3-small" style="font-size:small;">
-                                        <input type="text" name="mobilecode" id="mobilecode" style="padding:0;text-align: center;" value="" placeholder="+91">
+                                        <input type="text" name="mobilecode" id="mobilecode" style="padding:0;text-align: center;" value="" placeholder="+91" required>
                                     </div>
                                     <div class="col-3 col-9-small" style="font-size:small;">
-                                        <input type="number" name="mobile" id="mobile" value="" placeholder="Mobile No.">
+                                        <input type="number" name="mobile" id="mobile" value="" placeholder="Mobile No." required>
                                     </div>
                                     <div class="col-2 col-12-small" style="text-align:center;">
                                         <h3>Email ID:</h3>
                                     </div>
                                     <div class="col-4 col-12-small" style="font-size:small;">
+                                    {% if user.is_authenticated%}
+                                        <input type="email" name="email" id="email" value={{user.email}} placeholder={{user.email}} readonly>
+                                    {% else %}
                                         <input type="email" name="email" id="email" value="" placeholder="Email Address">
+                                    {% endif %}
                                     </div>
                                     <div class="col-2 col-4-small" style="text-align:center;">
                                         <h3>Gender:</h3>
@@ -318,7 +316,7 @@
                                         <h3>Marital Status:</h3>
                                     </div>
                                     <div class="col-4 col-12-small">
-                                        <select name="maritalstatus" id="maritalstatus" placeholder="Marital Status" title="Category">
+                                        <select name="maritalstatus" id="maritalstatus" placeholder="Marital Status" title="Category" required>
 											<option value="" selected disabled>Status</option>
 											<option value="Married"> Married </option>
 											<option value="Unmarried"> Unmarried </option>
@@ -330,7 +328,7 @@
                                         <h3>Nationality:</h3>
                                     </div>
                                     <div class="col-4 col-12-small" style="font-size:small;">
-                                        <input type="text" name="nationality" id="nationality" value="" placeholder="Nationality">
+                                        <input type="text" name="nationality" id="nationality" value="" placeholder="Nationality" required>
                                     </div>
 
                                     <div class="col-2 col-12-small" style="text-align:center;">
@@ -344,7 +342,7 @@
                                         <h3>Category:</h3>
                                     </div>
                                     <div class="col-4 col-7-xsmall">
-                                        <select name="category" id="category" placeholder="Category" title="Category">
+                                        <select name="category" id="category" placeholder="Category" title="Category" required>
 											<option value="" selected disabled>Select Category</option>
 											<option value="GEN"> General </option>
 											<option value="SC"> SC </option>
@@ -599,6 +597,7 @@
                                                 </td>
                                                 <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <select name="books1-author" id="books1-author" style="inline-size: auto;">
+                                                        <option value="" disabled>Select Any Options</option>
 														<option value="First author">First Author</option>
 														<option value="Co-author">Co-author</option>
 													</select>
@@ -803,7 +802,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <select name="local16" id="local16">
+                                                    <select name="semi_articles1-published" id="semi_article1-published">
 														<option value="Yes">Yes</option>
 														<option value="No">No</option>
 													</select>
@@ -852,7 +851,7 @@
                                                 <h5 style="text-align:end;">Number of Ongoing PhDs</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="text" name="ongoing_phd" id="ongoing_phd">
+                                                <input type="text" name="ongoing_phd" id="ongoing_phd" required>
                                             </div>
                                         </div>
                                     </div>
@@ -864,7 +863,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="text" name="completed_phd" id="completed_phd">
+                                                <input type="text" name="completed_phd" id="completed_phd" required>
                                             </div>
                                         </div>
                                     </div>
@@ -877,11 +876,10 @@
                                     <div class="col-12 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Enter the details of Administrative Positions held in the past 5 years
-                                                </h5>
+                                                <h5 style="text-align: end;">Enter the details of Administrative Positions held in the past 5 years<br>(Write NA if not applicable)</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <textarea name="administrative_details" id="administrative_details" cols="3" rows="3"></textarea>
+                                                <textarea name="administrative_details" id="administrative_details" cols="3" rows="3" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -902,7 +900,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_tot_number" id="spo_tot_number">
+                                                <input type="number" name="spo_tot_number" id="spo_tot_number" required>
                                             </div>
                                         </div>
                                     </div>
@@ -914,7 +912,7 @@
                                                 <h5 style="text-align: end;">Number of ongoing sponsored projects</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_ongoing" id="spo_ongoing">
+                                                <input type="number" name="spo_ongoing" id="spo_ongoing" required>
                                             </div>
                                         </div>
                                     </div>
@@ -928,7 +926,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_completed" id="spo_completed">
+                                                <input type="number" name="spo_completed" id="spo_completed" required>
                                             </div>
                                         </div>
                                     </div>
@@ -962,7 +960,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="exp_tot_number" id="exp_tot_number">
+                                                <input type="number" name="exp_tot_number" id="exp_tot_number" required>
                                             </div>
                                         </div>
 
@@ -975,7 +973,7 @@
                                                 <h5 style="text-align: end;">Number of ongoing experiments/ computational projects</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="exp_ongoing" id="exp_ongoing">
+                                                <input type="number" name="exp_ongoing" id="exp_ongoing" required>
                                             </div>
                                         </div>
                                     </div>
@@ -988,7 +986,7 @@
                                                 <h5 style="text-align: end;">Number of completed experiments/ computational projects</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="exp_completed" id="exp_completed">
+                                                <input type="number" name="exp_completed" id="exp_completed" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1052,7 +1050,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="text" name="tot_exp" id="tot_exp" placeholder="Total Experience (eg: 3.5)">
+                                                <input type="text" name="tot_exp" id="tot_exp" placeholder="Total Experience (eg: 3.5)" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1066,7 +1064,7 @@
                                                 <h5>3. Experience (Post PhD)</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="text" name="exp_post_phd" id="exp_post_phd" placeholder="Experience (Post PhD) in Years (eg: 3.5)">
+                                                <input type="text" name="exp_post_phd" id="exp_post_phd" placeholder="Experience (Post PhD) in Years (eg: 3.5)" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1078,7 +1076,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="total_phd_students" id="total_phd_students" placeholder="Total Ph.D Students Supervised (Degree Awarded)">
+                                        <input type="text" name="total_phd_students" id="total_phd_students" placeholder="Total Ph.D Students Supervised (Degree Awarded)" required>
                                     </div>
 
                                 </div>
@@ -1092,7 +1090,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="ongoing_phd_supervision" id="ongoing_phd_supervision" placeholder="Total Ongoing Ph.D Supervision">
+                                        <input type="text" name="ongoing_phd_supervision" id="ongoing_phd_supervision" placeholder="Total Ongoing Ph.D Supervision" required>
                                     </div>
 
                                 </div><br>
@@ -1102,7 +1100,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="total_projects" id="total_projects" placeholder="Total number of sponsored projects (Ongoing + Completed)">
+                                        <input type="text" name="total_projects" id="total_projects" placeholder="Total number of sponsored projects (Ongoing + Completed)" required>
                                     </div>
 
                                 </div><br>
@@ -1112,7 +1110,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="ongoing_projects" id="ongoing_projects" placeholder="Number of ongoing sponsored projects">
+                                        <input type="text" name="ongoing_projects" id="ongoing_projects" placeholder="Number of ongoing sponsored projects" required>
                                     </div>
 
                                 </div>
@@ -1124,7 +1122,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="computational_projects" id="computational_projects" placeholder="Total number of experiments/ computational projects">
+                                        <input type="text" name="computational_projects" id="computational_projects" placeholder="Total number of experiments/ computational projects" required>
                                     </div>
 
                                 </div>
@@ -1136,7 +1134,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="SCI_journal" id="SCI_journal" placeholder="Total Number of Publications in SCI / ABDC Journals">
+                                        <input type="text" name="SCI_journal" id="SCI_journal" placeholder="Total Number of Publications in SCI / ABDC Journals" required>
                                     </div>
 
                                 </div>
@@ -1148,7 +1146,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="SCI_journal_post_phd" id="SCI_journal_post_phd" placeholder="Total Number of Publications in SCI / ABDC Journals (Post PhD)">
+                                        <input type="text" name="SCI_journal_post_phd" id="SCI_journal_post_phd" placeholder="Total Number of Publications in SCI / ABDC Journals (Post PhD)" required>
                                     </div>
 
                                 </div>
@@ -1172,19 +1170,19 @@
                                         <h4>1. Membership/Fellowship of other institutions/professionals societies:</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa1" id="miscTa1" placeholder="Membership/Fellowship of other institutions/professionals societies" rows="3"></textarea>
+                                        <textarea name="miscTa1" id="miscTa1" placeholder="Membership/Fellowship of other institutions/professionals societies" rows="3" required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <h4>2. Other activities/Responsibilities :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa2" id="miscTa2" placeholder="Other activities/Responsibilities" rows="3"></textarea>
+                                        <textarea name="miscTa2" id="miscTa2" placeholder="Other activities/Responsibilities" rows="3" required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <h4>3. Any other relevant information, if not given above :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa3" id="miscTa3" placeholder="Any other relevant information, if not given above" rows="3"></textarea>
+                                        <textarea name="miscTa3" id="miscTa3" placeholder="Any other relevant information, if not given above" rows="3" required></textarea>
                                     </div>
 
                                     <div class="col-4 col-12-medium">
@@ -1192,42 +1190,35 @@
                                         </h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa4" id="miscTa4" placeholder="Has there been any break in your academic career ?" rows="3"></textarea>
+                                        <textarea name="miscTa4" id="miscTa4" placeholder="Has there been any break in your academic career ?" rows="3" required></textarea>
                                     </div>
 
                                     <div class="col-4 col-12-medium">
-                                        <h4>5. Have you been punished during your studies at College/University ? If so, give details :</h4>
+                                        <h4>5. Have you been punished during your services or convicted by a court of law ? If so, give details. :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa5" id="miscTa5" placeholder="Have you been punished during your studies at College/University ?" rows="3"></textarea>
+                                        <textarea name="miscTa6" id="miscTa6" placeholder="Have you been punished during your services or convicted by a court of law ?" rows="3" required></textarea>
                                     </div>
 
                                     <div class="col-4 col-12-medium">
-                                        <h4>6. Have you been punished during your services or convicted by a court of law ? If so, give details. :</h4>
+                                        <h4>6. Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed? If yes, give details in a separate sheet. :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa6" id="miscTa6" placeholder="Have you been punished during your services or convicted by a court of law ?" rows="3"></textarea>
-                                    </div>
-
-                                    <div class="col-4 col-12-medium">
-                                        <h4>7. Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed? If yes, give details in a separate sheet. :</h4>
-                                    </div>
-                                    <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa7" id="miscTa7" placeholder="Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed ? If yes, give details in a separate sheet" rows="3"></textarea>
+                                        <textarea name="miscTa7" id="miscTa7" placeholder="Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed ? If yes, give details in a separate sheet" rows="3" required></textarea>
                                     </div>
 
                                     <div class="col-6 col-12-medium">
-                                        <h4>8. Name and Addresses of Three references</h4>
+                                        <h4>7. Name and Addresses of Three references</h4>
                                     </div>
                                     <div class="col-4 hidden-medium"></div>
                                     <div class="col-4 col-12-medium">
-                                        <textarea name="miscTa8" id="miscTa8" placeholder="Name and Addresses of First References" rows="3"></textarea>
+                                        <textarea name="miscTa8" id="miscTa8" placeholder="Name and Addresses of First References" rows="3" required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
-                                        <textarea name="miscTa9" id="miscTa9" placeholder="Name and Addresses of Second References" rows="3"></textarea>
+                                        <textarea name="miscTa9" id="miscTa9" placeholder="Name and Addresses of Second References" rows="3" required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
-                                        <textarea name="miscTa10" id="miscTa10" placeholder="Name and Addresses of Third References" rows="3"></textarea>
+                                        <textarea name="miscTa10" id="miscTa10" placeholder="Name and Addresses of Third References" rows="3" required></textarea>
                                     </div>
 
 
@@ -1247,9 +1238,9 @@
                                                 <h3>Place:</h3>
                                             </div>
                                             <div class="col-4 col-6-medium col-7-small">
-                                                <input style="text-transform: uppercase;" type="text" name="signPlace" id="place" value="" placeholder="Place">
+                                                <input style="text-transform: uppercase;" type="text" name="signPlace" id="place" value="" placeholder="Place" required>
                                             </div>
-                                            <div class="col-2 col-1-small"></div>
+                                            <!-- <div class="col-2 col-1-small"></div>
                                             <div class="col-1 col-4-medium">
                                                 <h3>Date:</h3>
                                             </div>
@@ -1257,7 +1248,7 @@
                                             <div class="col-4 col-6-medium col-7-small">
                                                 <input type="date" name="signDate" id="signedDate">
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="col-12" style="display: flex;align-items:center;text-align-last:center;justify-content: flex-end;">
@@ -1267,8 +1258,7 @@
 											<image id="signImage" src=""
 												style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;" />
 											<div>
-												<input id="signUpload" type="file" style="font-size: small;"
-													name="signUpload" placeholder="Signature">
+												<input id="signUpload" type="file" style="font-size: small;" name="signUpload" placeholder="Signature" required>
 												<label for="signUpload" style="text-align:center">(Upload Signatures)</label>
 											</div>
 										</span>
@@ -1283,7 +1273,20 @@
                         <button class="button small primary" type="submit">Submit</button>
                     </div>
                 </form>
+            {% else %}
+            <section id="apply" class="main special">
+                <header class="major">
+                    <h2>Apply for Faculty Recruitment</h2>
+                    <p><strong>Only online applications through the given link will be accepted.</strong></p>
+                </header>
+                <footer class="major">
+                    <ul class="actions special">
+                        <li><a href="/accounts/login" class="button small primary">Apply Online</a></li>
+                    </ul>
+                </footer>
             </section>
+            </section>
+            {% endif %}
 
         </div>
 

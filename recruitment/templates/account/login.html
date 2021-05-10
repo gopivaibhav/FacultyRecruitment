@@ -1,3 +1,4 @@
+{% load socialaccount %}
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -34,7 +35,6 @@
 			<nav id="nav">
 				<ul>
 					<li><a href="#received">Log In / Sign Up</a></li>
-					<li><a href="/submit">Apply for Development</a></li>
 				</ul>
 			</nav>
 
@@ -45,7 +45,7 @@
 				<section>
 
 					<div class="flex-container row">
-						<a href="#" class="col-6 col-12-medium">
+						<a href="{% provider_login_url 'google' %}" class="col-6 col-12-medium">
 							<div class="flex-item-left " style="display: flex; justify-content: space-between; ">
 								<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/google_logo2.png" width="15%" alt="Google_Logo">
 
@@ -57,15 +57,13 @@
 							</div>
 						</a>
 
-						<a href="#" class="col-6 col-12-medium">
+						<a href="{% provider_login_url 'google' %}" class="col-6 col-12-medium">
 							<div class="flex-item-right " style="display: flex; justify-content: space-between; ">
 								<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/google_logo2.png" width="15%" height=auto; alt="Google_Logo">
 
 								<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center; color: white;">
 									Sign Up with Google
 								</span>
-
-								
 							</div>
 						</a>
 

@@ -11,14 +11,122 @@ def handle_uploaded_file(f, application_number, name):
 def login(request):
     return render(request, 'recruitment/login.html',{})
 
+def profile(request):
+    return render(request,'recruitment/profile.html',{})
+
 def home(request):
     return render(request, 'recruitment/index.html',{})
 
 def admin(request):
-    return render(request, 'recruitment/admin.html',{})
+    admin_data = {}
+    appli_data = []
+    for i in list(General.objects.all()):
+        presAppli = {}
+        presAppli['application_no'] = (i.applicant)
+        presAppli['applicant_name'] = (i.full_name)
+        presAppli['applied_post'] = Applicant.objects.filter(application_no=i.applicant)[0].post
+        presAppli['applied_department'] = Applicant.objects.filter(application_no=i.applicant)[0].department
+        presAppli['applied_date'] = Applicant.objects.filter(application_no=i.applicant)[0].date
+        appli_data.append(presAppli)
+    admin_data['allData'] = appli_data
+    print(admin_data)
+    return render(request, 'recruitment/admin.html', {'data' :admin_data})
 
 def viewMore(request, application_number):
-    return render(request, 'recruitment/view-more.html', {'data':Applicant.objects.filter(application_no=application_number)})
+    # print (list(EmploymentExp.objects.filter(applicant=application_number)))
+    return render(request, 'recruitment/view-more.html', {
+        'applicant_data': {
+            'application_number': application_number,
+            'date' : Applicant.objects.filter(application_no=application_number)[0].date,
+            'post': Applicant.objects.filter(application_no=application_number)[0].post,
+            'department': Applicant.objects.filter(application_no=application_number)[0].department,
+            'reserach_domain': Applicant.objects.filter(application_no=application_number)[0].Research_Domain,
+            'profile_photo': Applicant.objects.filter(application_no=application_number)[0].profile_picture
+        },
+        'general_data': {
+            'full_name': General.objects.filter(applicant=application_number)[0].full_name,
+            'DOB': General.objects.filter(applicant=application_number)[0].DOB,
+            'father_name': General.objects.filter(applicant=application_number)[0].father_name,
+            'address_perm': General.objects.filter(applicant=application_number)[0].address_perm,
+            'telephone_perm': General.objects.filter(applicant=application_number)[0].telephone_perm,
+            'pin_perm': General.objects.filter(applicant=application_number)[0].pin_perm,
+            'address_mail': General.objects.filter(applicant=application_number)[0].address_mail,
+            'telephone_mail': General.objects.filter(applicant=application_number)[0].telephone_mail,
+            'pin_mail': General.objects.filter(applicant=application_number)[0].pin_mail,
+            'mobile_number': General.objects.filter(applicant=application_number)[0].mobile_number,
+            'email': General.objects.filter(applicant=application_number)[0].email,
+            'gender': General.objects.filter(applicant=application_number)[0].gender,
+            'marital_status': General.objects.filter(applicant=application_number)[0].marital_status,
+            'nationality': General.objects.filter(applicant=application_number)[0].nationality,
+            'state': General.objects.filter(applicant=application_number)[0].state,
+            'category': General.objects.filter(applicant=application_number)[0].category,
+            'reservation': General.objects.filter(applicant=application_number)[0].reservation,
+            'certificate': General.objects.filter(applicant=application_number)[0].reservation_certificate,
+            'employer': General.objects.filter(applicant=application_number)[0].present_employer
+        },
+        'otherinformation_data': {
+            'membership': OtherInfo.objects.filter(applicant=application_number)[0].membership,
+            'responsibilities': OtherInfo.objects.filter(applicant=application_number)[0].responsibilities,
+            'Any_other_relevant_information': OtherInfo.objects.filter(applicant=application_number)[0].Any_other_relevant_information,
+            'academic_year_break': OtherInfo.objects.filter(applicant=application_number)[0].academic_year_break,
+            'college_punishment': OtherInfo.objects.filter(applicant=application_number)[0].college_punishment,
+            'judicial_punishment': OtherInfo.objects.filter(applicant=application_number)[0].judicial_punishment,
+            'unfit_for_position': OtherInfo.objects.filter(applicant=application_number)[0].unfit_for_position,
+            'reference1': OtherInfo.objects.filter(applicant=application_number)[0].reference1,
+            'reference2': OtherInfo.objects.filter(applicant=application_number)[0].reference2,
+            'reference3': OtherInfo.objects.filter(applicant=application_number)[0].reference3,
+        },
+        'signed_data': {
+            'place': Declaration.objects.filter(applicant=application_number)[0].place,
+            'date': Declaration.objects.filter(applicant=application_number)[0].date,
+            'signature': Declaration.objects.filter(applicant=application_number)[0].signature,
+        },
+        'thesis_data': {
+            'ongoing_phd': Thesis.objects.filter(applicant=application_number)[0].ongoing_phd,
+            'completed_phd': Thesis.objects.filter(applicant=application_number)[0].completed_phd
+        },
+        'administrative_details_data': {
+            'administrative_details': AdministrativeDetails.objects.filter(applicant=application_number)[0].administrative_details
+        },
+        'Summary': {
+            'defence_date': Summary.objects.filter(applicant=application_number)[0].defence_date,
+            'total_exp': Summary.objects.filter(applicant=application_number)[0].total_exp,
+            'exp_post_phd': Summary.objects.filter(applicant=application_number)[0].exp_post_phd,
+            'total_phd_students': Summary.objects.filter(applicant=application_number)[0].total_phd_students,
+            'ongoing_phd_supervision': Summary.objects.filter(applicant=application_number)[0].ongoing_phd_supervision,
+            'total_projects': Summary.objects.filter(applicant=application_number)[0].total_projects,
+            'ongoing_projects': Summary.objects.filter(applicant=application_number)[0].ongoing_projects,
+            'computational_projects': Summary.objects.filter(applicant=application_number)[0].computational_projects,
+            'SCI_journal': Summary.objects.filter(applicant=application_number)[0].SCI_journal,
+            'SCI_journal_post_phd': Summary.objects.filter(applicant=application_number)[0].SCI_journal_post_phd
+        },
+        'Patent': {
+            'patent_details': Patent.objects.filter(applicant=application_number)[0].patent_details,
+        },
+        'SponsoredProjects': {
+            'spo_tot_number': SponsoredProject.objects.filter(applicant=application_number)[0].spo_tot_number,
+            'spo_ongoing': SponsoredProject.objects.filter(applicant=application_number)[0].spo_ongoing,
+            'spo_completed': SponsoredProject.objects.filter(applicant=application_number)[0].spo_completed,
+            'spo_file': SponsoredProject.objects.filter(applicant=application_number)[0].spo_file,
+        },
+        'Experiments': {
+            'exp_tot_number': Experiments.objects.filter(applicant=application_number)[0].exp_tot_number,
+            'exp_ongoing': Experiments.objects.filter(applicant=application_number)[0].exp_ongoing,
+            'exp_completed': Experiments.objects.filter(applicant=application_number)[0].exp_completed,
+            'exp_file': Experiments.objects.filter(applicant=application_number)[0].exp_file
+        },
+        'PhD': {
+            'PhD_awarded': PhD.objects.filter(applicant=application_number)[0].PhD_awarded,
+            'title_of_thesis': PhD.objects.filter(applicant=application_number)[0].title_of_thesis,
+        },
+        'AcademicDetails': list(EducationalQualifications.objects.filter(applicant=application_number)),
+        'ProfessionalDetails': list(EmploymentExp.objects.filter(applicant=application_number)),
+        'BooksDetails': list(Books.objects.filter(applicant=application_number)),
+        'ChaptersDetails': list(Chapters.objects.filter(applicant=application_number)),
+        'NewspapersArticlesDetails': list(NewspaperArticle.objects.filter(applicant=application_number)),
+        'SeminarArticles': list(SeminarArticles.objects.filter(applicant=application_number)),
+        'ResearchExperienceDetails': list(ResearchExp.objects.filter(applicant=application_number))
+    })
 
 def submission_form(request):
     if request.method == 'POST':
@@ -54,7 +162,8 @@ def submission_form(request):
         general_data['state'] = data['domicile_state']
         general_data['category'] = data['category']
         general_data['reservation'] = data['reservation']
-        general_data['reservation_certificate'] = request.FILES['reservation_certificate']
+        if(data.get('reservation') == 'YES'):
+            general_data['reservation_certificate'] = request.FILES['reservation_certificate']
         general_data['present_employer'] = data['present_employer']
         general_data['applicant'] = Applicant.objects.get(application_no=application_number) 
         General.objects.create(**general_data)
@@ -115,7 +224,8 @@ def submission_form(request):
         sponsored_projects_data['spo_tot_number'] = data['spo_tot_number']
         sponsored_projects_data['spo_ongoing'] = data['spo_ongoing']
         sponsored_projects_data['spo_completed'] = data['spo_completed']
-        sponsored_projects_data['spo_file'] = request.FILES['spofile']
+        if(data.get('spo_tot_number') != ""):
+            sponsored_projects_data['spo_file'] = request.FILES['spofile']
         sponsored_projects_data['applicant'] = Applicant.objects.get(application_no=application_number)
         SponsoredProject.objects.create(**sponsored_projects_data)
         # Experiments
@@ -123,7 +233,8 @@ def submission_form(request):
         experiments_data['exp_tot_number'] = data['exp_tot_number']
         experiments_data['exp_ongoing'] = data['exp_ongoing']
         experiments_data['exp_completed'] = data['exp_completed']
-        experiments_data['exp_file'] = request.FILES['expfile']
+        if(data.get('exp_tot_number') != ""):
+            experiments_data['exp_file'] = request.FILES['expfile']
         experiments_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Experiments.objects.create(**experiments_data)
         # PHD
@@ -163,7 +274,7 @@ def submission_form(request):
         last_professional_record = num_of_professional_records[len(num_of_professional_records)-1]
         number_professional_record = last_professional_record[3]
         for i in range(1,int(number_professional_record)+1):
-            if (data.get('org' + str(i) + '-name',False) == False):
+            if (data.get('org' + str(i) + '-name') == ""):
                 continue
             else:
                 professional_details = {}
@@ -184,7 +295,7 @@ def submission_form(request):
         number_books_record = last_book_record[5]
         books_data = []
         for i in range(1,int(number_books_record)+1):
-            if(data.get('books' + str(i) + '-title',False) == False):
+            if(data.get('books' + str(i) + '-title') == ""):
                 continue
             else:
                 books_details = {}
@@ -202,7 +313,7 @@ def submission_form(request):
         last_chapter_record = num_of_chapters_records[len(num_of_chapters_records)-1]
         number_chapter_record = last_chapter_record[8]   
         for i in range(1,int(number_chapter_record)+1):
-            if(data.get('chapters' + str(i) + '-book_title',False) == False):
+            if(data.get('chapters' + str(i) + '-book_title') == ""):
                 continue
             else:
                 chapter_details = {}
@@ -220,7 +331,7 @@ def submission_form(request):
         last_news_articles_record = num_of_news_articles_records[len(num_of_news_articles_records)-1]
         number_news_articles_record = last_news_articles_record[13]
         for i in range(1, int(number_news_articles_record)+1):
-            if(data.get('news_articles' + str(i) + '-article_title',False) == False):
+            if(data.get('news_articles' + str(i) + '-article_title') == ""):
                 continue
             else:
                 news_articles_details = {}
@@ -239,7 +350,7 @@ def submission_form(request):
         last_semi_articles_record = num_of_seminar_articles[len(num_of_seminar_articles)-1]
         number_semi_articles_record = last_semi_articles_record[13]
         for i in range(1,int(number_semi_articles_record)+1):
-            if(data.get('semi_articles' + str(i) + '-article_title',False) == False):
+            if(data.get('semi_articles' + str(i) + '-article_title') == ""):
                 continue
             else:
                 seminar_articles_details = {}
@@ -247,18 +358,18 @@ def submission_form(request):
                 seminar_articles_details['seminar_subject'] = data.get('semi_articles' + str(i) + '-seminar_subject',False)
                 seminar_articles_details['location'] = data.get('semi_articles' + str(i) + '-location',False)
                 seminar_articles_details['From'] = data.get('semi_articles' + str(i) + '-from',False)
-                seminar_articles_details['to'] = data.get('semi_articles' + str(i) + 'to',False)
+                seminar_articles_details['to'] = data.get('semi_articles' + str(i) + '-to',False)
                 seminar_articles_details['published'] = data.get('semi_articles' + str(i) + '-published',False)
-                ans = 'semi_articles'+str(i)+'-file'
-                seminar_articles_details['supporting_documents'] = request.FILES[ans]
+                seminar_articles_details['supporting_documents'] = request.FILES['semi_articles'+str(i)+'-file']
                 seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                print(seminar_articles_details)
                 SeminarArticles.objects.create(**seminar_articles_details)
         # Research Experience
         num_of_research_exp = list(filter(lambda s: 'exper' in s, list(data.keys())))
         last_research_exp_record = num_of_research_exp[len(num_of_research_exp) - 1]
         number_research_exp_record = last_research_exp_record[5]
         for i in range(1,int(number_research_exp_record)+1):
-            if(data.get('exper' + str(i) + '-from',False) == False):
+            if(data.get('exper' + str(i) + '-from') == ""):
                 continue
             else:
                 research_exp_details = {}
