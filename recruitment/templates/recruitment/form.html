@@ -165,10 +165,10 @@
                                     </div>
                                     <div class="col-2 col-4-small">
                                         <select name="saluation" id="saluation" style="padding:0;text-align-last:center;padding-right:50%" placeholder="Gender" title="Gender" required>
-											<option value="Dr." style="text-align-last: center;">&nbsp;&nbsp; Dr.</option>
-											<option value="Mr." style="text-align-last: center;">&nbsp;&nbsp; Mr.</option>
-											<option value="Mrs." style="text-align-last: center;">&nbsp;&nbsp; Mrs.</option>
-											<option value="Miss" style="text-align-last: center;">&nbsp;&nbsp; Miss</option>
+											<option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.</option>
+											<option value="Mr. " style="text-align-last: center;">&nbsp;&nbsp; Mr.</option>
+											<option value="Mrs. " style="text-align-last: center;">&nbsp;&nbsp; Mrs.</option>
+											<option value="Miss " style="text-align-last: center;">&nbsp;&nbsp; Miss</option>
 										</select>
                                     </div>
                                     <div class="col-4 col-8-small">
@@ -227,9 +227,7 @@
                                             </div>
                                             <div class="col-12" style="text-align: center;padding-top: 10%;">
                                                 <input type="checkbox" onclick="sameAddress(event)" class="custom-control-input" id="sameaddress">
-                                                <label class="custom-control-label" for="sameaddress">If your permanent
-													address is same as correspondence address, then please click
-													here.</label>
+                                                <label class="custom-control-label" for="sameaddress">If your permanent	address is same as correspondence address, then please click here.</label>
                                             </div>
                                         </div>
                                     </div>
@@ -522,12 +520,8 @@
                                             <tr style="align-items:center">
                                                 <th class="col-4" style="text-align: center;vertical-align: middle;">From</th>
                                                 <th class="col-4" style="text-align: center;vertical-align: middle;">To </th>
-                                                <!-- <th class="col-1" style="text-align: center;vertical-align: middle;">
-													Number of Years</th> -->
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    Numbers of Months</th>
-                                                <th class="col-4" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">Numbers of Months</th>
+                                                <th class="col-4" style="text-align: center;vertical-align: middle;">Supporting Documents</th>
                                             </tr>
                                             <tr style="align-items:center;">
                                                 <td class="col-2" style="text-align: center;vertical-align: middle;">
@@ -560,8 +554,6 @@
                                 <h1 style="text-align: center;"><strong> Section - D </strong></h1>
                                 <header class="major headLeft">
                                     <h2 class="alt"> Research and Academic Contributions <br> Research Publications</h2>
-
-
                                 </header>
 
                                 <div class="py-3">
@@ -664,10 +656,11 @@
                                         <button id="b2" class="but add-more4" type="button" style="padding: 0;">Add More</button>
                                     </div>
                                 </div>
-                                <br> <br>
+
+                                <br><br>
+
                                 <div>
-                                    <h3>3. Research/Articles/Papers published in Journals/Periodicals/Conference proceedings/Newspapers
-                                    </h3>
+                                    <h3>3. Research/Articles/Papers published in Journals/Periodicals/Conference proceedings/Newspapers</h3>
                                 </div>
                                 <div class="table-wrapper">
                                     <table class="alt" style="max-width: 100% !important;margin-bottom: 0;">
@@ -720,7 +713,9 @@
                                         <button type="button" id="b2" class="but add-more5" style="padding: 0;">Add More</button>
                                     </div>
                                 </div>
+
                                 <br><br>
+
                                 <div>
                                     <h3>4. Papers presented in Regional/National and International Seminars/ Conferences/ Workshop/ Symposium. Indicate whether the Conference Proceedings are published.</h3>
                                 </div>
@@ -970,11 +965,11 @@
 
                                     <div class="col-4 col-12-medium" style="align-self: center;">
                                         <h4 style="text-align: end;">
-                                            Please enter patent details, if any:
+                                            Please enter patent details, if any:<br>(Write NA if not applicable)
                                         </h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="patent_details" id="patent_details" cols="30" rows="3"></textarea>
+                                        <textarea name="patent_details" id="patent_details" cols="30" rows="3" required></textarea>
                                     </div>
                                 </div>
 
@@ -990,7 +985,7 @@
                                 <div class="row gtr-uniform">
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
-                                            <div class="col-4 col-12-medium">
+                                            <div class="col-4 col-12-medium" style="align-self: center;">
                                                 <h5>1. Ph.D Defence Date</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
