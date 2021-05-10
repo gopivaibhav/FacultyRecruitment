@@ -164,6 +164,18 @@
 									<td colspan="4">Supporting Documents</td>
 								</tr>
 
+								{% for item in ProfessionalDetails %}
+								<tr>
+									<td colspan="4">{{item.name}}</td>
+									<td colspan="4">{{item.post}}</td>
+									<td colspan="4">{{item.from_year}}</td>
+									<td colspan="4">{{item.to_year}}</td>
+									<td colspan="2">{{item.salary}}</td>
+									<td colspan="2">{{item.nature}}</td>
+									<td colspan="4">{{item.supporting_documents}}</td>
+								</tr>
+								{% endfor %}
+
 
 							</tbody>
 						</table>
@@ -178,6 +190,17 @@
 									<td colspan="6">Numbers of Months</td>
 									<td colspan="6">Supporting Documents</td>
 								</tr>
+
+								{% for item in ResearchExperienceDetails %}
+								<tr>
+									<td colspan="6">{{item.From}}</td>
+									<td colspan="6">{{item.to}}</td>
+									<td colspan="6">{{item.number_of_months}}</td>
+									<td colspan="6">{{item.supporting_documents}}</td>
+
+								</tr>
+								{% endfor %}
+
 
 							</tbody>
 						</table>
@@ -197,17 +220,19 @@
 									<td colspan="4">ISBN/ISSN No.</td>
 									<td colspan="4">Supporting Documents</td>
 								</tr>
-								{% for item in ProfessionalDetails %}
+
+								{% for item in BooksDetails %}
 								<tr>
-									<td colspan="4">{{item.name}}</td>
-									<td colspan="4">{{item.post}}</td>
-									<td colspan="4">{{item.from}}</td>
-									<td colspan="4">{{item.to}}</td>
-									<td colspan="2">{{item.name}}</td>
-									<td colspan="2">{{item.name}}</td>
-									<td colspan="4">{{item.name}}</td>
+									<td colspan="4">{{item.title}}</td>
+									<td colspan="4">{{item.author}}</td>
+									<td colspan="4">{{item.publisher}}</td>
+									<td colspan="4">{{item.date_publish}}</td>
+									<td colspan="4">{{item.isbn}}</td>
+									<td colspan="4">{{item.supporting_documents}}</td>
+
 								</tr>
 								{% endfor %}
+								
 							</tbody>
 						</table>
 
@@ -225,15 +250,20 @@
 									<td colspan="2">ISBN/ISSN No.</td>
 									<td colspan="4">Supporting Documents</td>
 								</tr>
+								
+								{% for item in ChaptersDetails %}
 								<tr>
-									<td colspan="4">{{general_data.DOB}}</td>
-									<td colspan="4">{{general_data.DOB}}</td>
-									<td colspan="2">{{general_data.DOB}}</td>
-									<td colspan="4">{{general_data.DOB}}</td>
-									<td colspan="4">{{general_data.DOB}}</td>
-									<td colspan="2">{{general_data.DOB}}</td>
-									<td colspan="4">{{general_data.DOB}}</td>
+									<td colspan="4">{{item.book_title}}</td>
+									<td colspan="4">{{item.chapter}}</td>
+									<td colspan="2">{{item.author}}</td>
+									<td colspan="4">{{item.publisher}}</td>
+									<td colspan="4">{{item.date_of_publisher}}</td>
+									<td colspan="2">{{item.isbn_issn}}</td>
+									<td colspan="4">{{item.supporting_documents}}</td>
+
 								</tr>
+								{% endfor %}
+
 							</tbody>
 						</table>
 
@@ -253,16 +283,21 @@
 									<td colspan="2">Impact Factor</td>
 									<td colspan="4">Supporting Documents</td>
 								</tr>
+								
+								{% for item in NewspapersArticlesDetails %}
 								<tr>
-									<td colspan="3">{{general_data.DOB}}</td>
-									<td colspan="3">{{general_data.DOB}}</td>
-									<td colspan="2">{{general_data.DOB}}</td>
-									<td colspan="4">{{general_data.DOB}}</td>
-									<td colspan="3">{{general_data.DOB}}</td>
-									<td colspan="3">{{general_data.DOB}}</td>
-									<td colspan="2">{{general_data.DOB}}</td>
-									<td colspan="4">{{general_data.DOB}}</td>
+									<td colspan="3">{{item.article_title}}</td>
+									<td colspan="3">{{item.journal_name}}</td>
+									<td colspan="2">{{item.author}}</td>
+									<td colspan="4">{{item.date_published}}</td>
+									<td colspan="3">{{item.vol_no}}</td>
+									<td colspan="3">{{item.referred}}</td>
+									<td colspan="2">{{item.naas}}</td>
+									<td colspan="4">{{item.supporting_documents}}</td>
 								</tr>
+								{% endfor %}
+
+
 							</tbody>
 						</table>
 
@@ -280,16 +315,18 @@
 									<td colspan="4">Whether the proceedings published</td>
 									<td colspan="4">Supporting Documents</td>
 								</tr>
+
+								{% for item in SeminarArticles %}
 								<tr>
-									<td colspan="4">{{professional_details.name}}</td>
-									<td colspan="4">{{professional_details.post}}</td>
-									<td colspan="4">{{professional_details.from}}</td>
-									<td colspan="2">{{professional_details.to}}</td>
-									<td colspan="2">{{professional_details.to}}</td>
-									<td colspan="4">{{professional_details.name}}</td>
-									<td colspan="4">{{professional_details.name}}</td>
+									<td colspan="4">{{item.article_title}}</td>
+									<td colspan="4">{{item.seminar_subject}}</td>
+									<td colspan="4">{{item.location}}</td>
+									<td colspan="4">{{item.From}}</td>
+									<td colspan="4">{{item.published}}</td>
+									<td colspan="4">{{item.supporting_documents}}</td>
 								</tr>
-							</tbody>
+								{% endfor %}
+
 						</table>
 
 						<br>

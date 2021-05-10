@@ -33,6 +33,7 @@ def admin(request):
     return render(request, 'recruitment/admin.html', {'data' :admin_data})
 
 def viewMore(request, application_number):
+    # print (list(EmploymentExp.objects.filter(applicant=application_number)))
     return render(request, 'recruitment/view-more.html', {
         'applicant_data': {
             'application_number': application_number,
