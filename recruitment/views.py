@@ -33,6 +33,7 @@ def admin(request):
     return render(request, 'recruitment/admin.html', {'data' :admin_data})
 
 def viewMore(request, application_number):
+    # print (list(EmploymentExp.objects.filter(applicant=application_number)))
     return render(request, 'recruitment/view-more.html', {
         'applicant_data': {
             'application_number': application_number,
@@ -148,8 +149,8 @@ def submission_form(request):
         general_data['DOB'] = data['dateofbirth']
         general_data['father_name'] = data['fathername']
         general_data['address_perm'] = data['permanentaddress']
-        general_data['telephone_perm'] = data['permanentpincode']
-        general_data['pin_perm'] = data['permanenttelephone']
+        general_data['pin_perm'] = data['permanentpincode']
+        general_data['telephone_perm'] = data['permanenttelephone']
         general_data['address_mail'] = data['mailingaddress']
         general_data['telephone_mail'] = data['mailingtelephone']
         general_data['pin_mail'] = data['mailingpincode']
