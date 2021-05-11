@@ -3,7 +3,7 @@ venv
 vscode
 __pycache__
 *.pyc
-db*
+# db*
 *.swp
 *.log
 *.pot
