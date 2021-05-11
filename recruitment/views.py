@@ -182,6 +182,7 @@ def submission_form(request):
         # Signature 
         signed_data= {}
         signed_data['place'] = data['signPlace']
+        signed_data['date'] = datetime.datetime.now().date()
         signed_data['signature'] = request.FILES['signUpload']
         signed_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Declaration.objects.create(**signed_data)
@@ -255,7 +256,8 @@ def submission_form(request):
                 academic_details['marks'] = data.get('course'+str(i)+'-percentage',False)
                 academic_details['subjects'] = data.get('course'+str(i)+'-subject',False)
                 academic_details['year_of_passing'] = data.get('yearOfPassing'+str(i),False)
-                academic_details['supporting_documents'] = "N/A"
+                ans = 'course' + str(i) + '-file'
+                academic_details['supporting_documents'] = request.FILES[ans]
                 academic_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 EducationalQualifications.objects.create(**academic_details)
             # if re.search(r'[12]\d{3}',data.get('yearOfPassing-'+str(i),False)) is None:
@@ -344,7 +346,7 @@ def submission_form(request):
                 chapter_details['publisher'] = data.get('chapters' + str(i) + '-publisher',False)
                 chapter_details['date_of_publisher'] = data.get('chapters' + str(i) + '-date_of_publisher',False)
                 chapter_details['isbn_issn'] = data.get('chapters' + str(i) + '-number',False)
-                chapter_details['supporting_documents'] = "N/A"
+                chapter_details['supporting_documents'] = request.FILES['chapters'+str(i)+'-file']
                 chapter_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 Chapters.objects.create(**chapter_details)
         # Newspapers Articles
