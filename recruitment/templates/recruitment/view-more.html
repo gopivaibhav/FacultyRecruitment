@@ -137,8 +137,64 @@
 
 							</tbody>
 						</table>
-
 					</div>
+
+					<!-- Educational Qualifications -->
+					<div class="table-wrapper" style="padding: 2px;">
+						<table style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;" id="mainTable">
+							<tbody class="application-row">
+								<tr id="app-thead">
+									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">Section B</td>
+								</tr>
+								<tr id="app-thead">
+									<th colspan="4">Exam/Degree</th>
+									<th colspan="4">Name of Board / College </th>
+									<th colspan="4">Grade/ Marks</th>
+									<th colspan="4">Subjects</th>
+									<th colspan="4">Year of Passing</th>
+									<th colspan="4">Supporting Document</th>
+								</tr>
+								{% for item in AcademicDetails %}
+								<tr >
+									<td colspan="4">
+										{{item.degree}}
+									</td>
+									<td colspan="4">
+										{{item.name}}
+									</td>
+									<td colspan="4">
+										{{item.marks}}
+									</td>
+									<td colspan="4">
+										{{item.subjects}}
+									</td>
+									<td colspan="4">
+										{{item.year_of_passing}}
+									</td>
+									<td colspan="4">
+
+										<img src={{item.supporting_documents}} alt="">
+									</td>
+								</tr>
+								{% endfor %}
+								<tr>
+									<td colspan="24"></td>
+								</tr>
+
+								<tr>
+									<td colspan="8">Whether Ph.D awarded</td>
+									<td colspan="16">{{PhD.PhD_awarded}}</td>
+								</tr>
+
+								<tr>
+									<td colspan="8">Ph.D Title</td>
+									<td colspan="16">{{PhD.title_of_thesis}}</td>
+								</tr>					
+
+							</tbody>
+						</table>
+					</div>
+
 						<!-- Professional Details / SECTION - C	 -->
 						<h2>Professional Details</h2>
 						<!-- Details of Employment Experience -->
