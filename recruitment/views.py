@@ -173,7 +173,6 @@ def submission_form(request):
         otherinformation_data['responsibilities'] = data['miscTa2']
         otherinformation_data['Any_other_relevant_information'] = data['miscTa3']
         otherinformation_data['academic_year_break'] = data['miscTa4']
-        otherinformation_data['college_punishment'] = data['miscTa5']
         otherinformation_data['judicial_punishment'] = data['miscTa6']
         otherinformation_data['unfit_for_position'] = data['miscTa7']
         otherinformation_data['reference1'] = data['miscTa8']
@@ -184,7 +183,7 @@ def submission_form(request):
         # Signature 
         signed_data= {}
         signed_data['place'] = data['signPlace']
-        signed_data['date'] = data['signDate']
+        signed_data['date'] = datetime.datetime.now().date()
         signed_data['signature'] = request.FILES['signUpload']
         signed_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Declaration.objects.create(**signed_data)
@@ -224,7 +223,7 @@ def submission_form(request):
         sponsored_projects_data['spo_tot_number'] = data['spo_tot_number']
         sponsored_projects_data['spo_ongoing'] = data['spo_ongoing']
         sponsored_projects_data['spo_completed'] = data['spo_completed']
-        if(data.get('spo_tot_number') != ""):
+        if(data.get('spo_tot_number') != "0"):
             sponsored_projects_data['spo_file'] = request.FILES['spofile']
         sponsored_projects_data['applicant'] = Applicant.objects.get(application_no=application_number)
         SponsoredProject.objects.create(**sponsored_projects_data)
@@ -233,7 +232,7 @@ def submission_form(request):
         experiments_data['exp_tot_number'] = data['exp_tot_number']
         experiments_data['exp_ongoing'] = data['exp_ongoing']
         experiments_data['exp_completed'] = data['exp_completed']
-        if(data.get('exp_tot_number') != ""):
+        if(data.get('exp_tot_number') != "0"):
             experiments_data['exp_file'] = request.FILES['expfile']
         experiments_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Experiments.objects.create(**experiments_data)
@@ -248,9 +247,8 @@ def submission_form(request):
         num_of_academic_records_length = len(num_of_academic_records)
         last_academic_record = num_of_academic_records[num_of_academic_records_length-1]
         number_academic_record = last_academic_record[6]
-        academic_data = []
         for i in range(1,int(number_academic_record)+1):
-            if (data.get('course'+str(i),False) == False):
+            if (data.get('course'+str(i)) == ""):
                 continue
             else:
                 academic_details = {}
@@ -275,7 +273,16 @@ def submission_form(request):
         number_professional_record = last_professional_record[3]
         for i in range(1,int(number_professional_record)+1):
             if (data.get('org' + str(i) + '-name') == ""):
-                continue
+                professional_details = {}
+                professional_details['name'] = "N/A"
+                professional_details['post'] = "N/A"
+                professional_details['from_year'] = "N/A"
+                professional_details['to_year'] = "N/A"
+                professional_details['salary'] = "N/A"
+                professional_details['nature'] = "N/A"
+                professional_details['supporting_documents'] = "N/A"
+                professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                EmploymentExp.objects.create(**professional_details)
             else:
                 professional_details = {}
                 professional_details['name'] = data.get('org' + str(i) + '-name',False)
@@ -293,10 +300,18 @@ def submission_form(request):
         num_of_books_records = list(filter(lambda s: 'books' in s, list(data.keys())))
         last_book_record = num_of_books_records[len(num_of_books_records)-1]
         number_books_record = last_book_record[5]
-        books_data = []
+        # books_data = []
         for i in range(1,int(number_books_record)+1):
             if(data.get('books' + str(i) + '-title') == ""):
-                continue
+                books_details = {}
+                books_details['title'] = "N/A"
+                books_details['author'] =  "N/A"   
+                books_details['publisher'] = "N/A"
+                books_details['date_publish'] = "N/A"
+                books_details['isbn'] = "N/A"
+                books_details['supporting_documents'] = "N/A"
+                books_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                Books.objects.create(**books_details)
             else:
                 books_details = {}
                 books_details['title'] = data.get('books' + str(i) + '-title',False)
@@ -314,7 +329,16 @@ def submission_form(request):
         number_chapter_record = last_chapter_record[8]   
         for i in range(1,int(number_chapter_record)+1):
             if(data.get('chapters' + str(i) + '-book_title') == ""):
-                continue
+                chapter_details = {}
+                chapter_details['book_title'] = "N/A"
+                chapter_details['chapter'] = "N/A"
+                chapter_details['author'] = "N/A"
+                chapter_details['publisher'] = "N/A"
+                chapter_details['date_of_publisher'] = "N/A" 
+                chapter_details['isbn_issn'] = "N/A"
+                chapter_details['supporting_documents'] = "N/A"
+                chapter_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                Chapters.objects.create(**chapter_details)
             else:
                 chapter_details = {}
                 chapter_details['book_title'] = data.get('chapters' + str(i) + '-book_title',False)
@@ -332,7 +356,17 @@ def submission_form(request):
         number_news_articles_record = last_news_articles_record[13]
         for i in range(1, int(number_news_articles_record)+1):
             if(data.get('news_articles' + str(i) + '-article_title') == ""):
-                continue
+                news_articles_details = {}
+                news_articles_details['article_title'] = "N/A"
+                news_articles_details['journal_name'] = "N/A"
+                news_articles_details['author'] = "N/A"
+                news_articles_details['date_published'] = "N/A"
+                news_articles_details['vol_no'] = "N/A"
+                news_articles_details['referred'] = "N/A"
+                news_articles_details['naas'] = "N/A"
+                news_articles_details['supporting_documents'] = ""
+                news_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                NewspaperArticle.objects.create(**news_articles_details)
             else:
                 news_articles_details = {}
                 news_articles_details['article_title'] = data.get('news_articles' + str(i) + '-article_title',False)
@@ -351,7 +385,16 @@ def submission_form(request):
         number_semi_articles_record = last_semi_articles_record[13]
         for i in range(1,int(number_semi_articles_record)+1):
             if(data.get('semi_articles' + str(i) + '-article_title') == ""):
-                continue
+                seminar_articles_details = {}
+                seminar_articles_details['article_title'] = "N/A"
+                seminar_articles_details['seminar_subject'] = "N/A"
+                seminar_articles_details['location'] = "N/A"
+                seminar_articles_details['From'] = "N/A"
+                seminar_articles_details['to'] = "N/A"
+                seminar_articles_details['published'] = "N/A"
+                seminar_articles_details['supporting_documents'] = "N/A"
+                seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                SeminarArticles.objects.create(**seminar_articles_details)
             else:
                 seminar_articles_details = {}
                 seminar_articles_details['article_title'] = data.get('semi_articles' + str(i) + '-article_title',False)
@@ -360,9 +403,8 @@ def submission_form(request):
                 seminar_articles_details['From'] = data.get('semi_articles' + str(i) + '-from',False)
                 seminar_articles_details['to'] = data.get('semi_articles' + str(i) + '-to',False)
                 seminar_articles_details['published'] = data.get('semi_articles' + str(i) + '-published',False)
-                seminar_articles_details['supporting_documents'] = request.FILES['semi_articles'+str(i)+'-file']
+                seminar_articles_details['supporting_documents'] = "N/A"
                 seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
-                print(seminar_articles_details)
                 SeminarArticles.objects.create(**seminar_articles_details)
         # Research Experience
         num_of_research_exp = list(filter(lambda s: 'exper' in s, list(data.keys())))
@@ -370,7 +412,13 @@ def submission_form(request):
         number_research_exp_record = last_research_exp_record[5]
         for i in range(1,int(number_research_exp_record)+1):
             if(data.get('exper' + str(i) + '-from') == ""):
-                continue
+                research_exp_details = {}
+                research_exp_details['From'] = "N/A"
+                research_exp_details['to'] = "N/A"
+                research_exp_details['number_of_months'] = "N/A"
+                research_exp_details['supporting_documents'] = "N/A"
+                research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
+                ResearchExp.objects.create(**research_exp_details)
             else:
                 research_exp_details = {}
                 research_exp_details['From'] = data.get('exper' + str(i) + '-from',False)
