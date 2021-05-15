@@ -364,7 +364,7 @@ def submission_form(request):
                 news_articles_details['vol_no'] = "N/A"
                 news_articles_details['referred'] = "N/A"
                 news_articles_details['naas'] = "N/A"
-                news_articles_details['supporting_documents'] = ""
+                news_articles_details['supporting_documents'] = "N/A"
                 news_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 NewspaperArticle.objects.create(**news_articles_details)
             else:
