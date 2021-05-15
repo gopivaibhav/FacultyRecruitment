@@ -515,7 +515,13 @@
 									<td colspan="4">Number of completed sponsored projects</td>
 									<td colspan="8">{{SponsoredProjects.spo_completed}}</td>
 									<td colspan="4">File containing the list of sponsored projects</td>
-									<td colspan="8" style="overflow-wrap: anywhere;">{{SponsoredProjects.spo_file}}</td>
+									{% if SponsoredProjects.exp_tot_number == "0" %}
+										<td colspan="4" style="overflow-wrap: anywhere;">{{SponsoredProjects.exp_file}}</td>
+									{% else %}
+										<td colspan="4" style="overflow-wrap: anywhere;">
+											<img src={{SponsoredProjects.exp_file.url}} height="150" width="150" alt="">
+										</td>
+									{% endif %}
 								</tr>
 							</tbody>
 						</table>
