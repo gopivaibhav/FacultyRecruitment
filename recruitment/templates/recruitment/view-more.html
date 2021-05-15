@@ -131,7 +131,15 @@
 								<tr>
 									<td colspan="6">Reservation Status<br>(with Certificate)</td>
 									<td colspan="4" style="vertical-align: middle;">{{general_data.reservation}}</td>
-									<td colspan="14">{{general_data.certificate}}</td>
+									{% if general_data.reservation == "N/A" %}
+										<td colspan="14">{{general_data.certificate}}</td>
+									{% else %}
+										<td colspan="14">
+											<img id="profileImage"
+												class="img-fluid mx-auto" src="{{ general_data.certificate.url  }}"
+												style="max-width: 16%;min-width: 12em; border-radius: 5vh;padding: 0;" />
+										</td>
+									{% endif %}
 								</tr>
 								<tr>
 									<td colspan="6">Present Employer</td>
