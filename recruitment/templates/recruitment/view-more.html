@@ -539,7 +539,13 @@
 									<td colspan="4">Number of completed experiments/ computational projects</td>
 									<td colspan="8">{{Experiments.exp_completed}}</td>
 									<td colspan="4">File containing the list of experiments/ computational projects</td>
-									<td colspan="8" style="overflow-wrap: anywhere;">{{Experiments.exp_file}}</td>
+									{% if Experiments.exp_tot_number == "0" %}
+										<td colspan="4" style="overflow-wrap: anywhere;">{{Experiments.exp_file}}</td>
+									{% else %}
+										<td colspan="4" style="overflow-wrap: anywhere;">
+											<img src={{Experiments.exp_file.url}} height="150" width="150" alt="">
+										</td>
+									{% endif %}
 								</tr>
 							</tbody>
 						</table>

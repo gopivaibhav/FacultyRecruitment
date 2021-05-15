@@ -225,6 +225,8 @@ def submission_form(request):
         sponsored_projects_data['spo_completed'] = data['spo_completed']
         if(data.get('spo_tot_number') != "0"):
             sponsored_projects_data['spo_file'] = request.FILES['spofile']
+        else:
+            sponsored_projects_data['spo_file'] = "N/A"
         sponsored_projects_data['applicant'] = Applicant.objects.get(application_no=application_number)
         SponsoredProject.objects.create(**sponsored_projects_data)
         # Experiments
@@ -234,6 +236,8 @@ def submission_form(request):
         experiments_data['exp_completed'] = data['exp_completed']
         if(data.get('exp_tot_number') != "0"):
             experiments_data['exp_file'] = request.FILES['expfile']
+        else:
+            experiments_data['exp_file'] = "N/A"
         experiments_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Experiments.objects.create(**experiments_data)
         # PHD
