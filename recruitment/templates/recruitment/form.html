@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
     <link rel="icon" href="{% static 'images/final_logo.png' %}">
     <noscript>
-		<link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" />
-	</noscript>
+        <link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" />
+    </noscript>
 </head>
 
 <body class="is-preload">
@@ -21,10 +21,12 @@
         <span class="menu_btn" onclick="openNav()">&#9776;</span>
         <!-- 	Header	-->
         <header id="header">
-            <span class="logo"><a href="https://iiitl.ac.in" target="###"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></a></span>
+            <span class="logo"><a href="https://iiitl.ac.in" target="###"><img
+                        src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></a></span>
             <h1>Faculty Recruitment Form</h1>
             <p>
-                Fill out the form here to apply for the faculty recruitment at <a href="https://iiitl.ac.in" target="###">IIIT Lucknow</a>.<br />
+                Fill out the form here to apply for the faculty recruitment at <a href="https://iiitl.ac.in"
+                    target="###">IIIT Lucknow</a>.<br />
             </p>
         </header>
         {% if user.is_authenticated%}
@@ -40,14 +42,14 @@
                 <li><a href="#other">Other</a></li>
                 <li><a href="#upload">Declaration</a></li>
                 <li><a>
-                    <form method="post" action="{% url 'account_logout' %}">
-                        {% csrf_token %}
-                        {% if redirect_field_value %}
-                          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                        {% endif %}
-                        <button style="background-color : red !important;" type="submit">Logout</button>
-                      </form>
-                </a></li>
+                        <form method="post" action="{% url 'account_logout' %}">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <button style="background-color : red !important;" type="submit">Logout</button>
+                        </form>
+                    </a></li>
             </ul>
         </nav>
 
@@ -64,14 +66,14 @@
                 <div><a href="#other" onclick="closeNav()">Other</a></div>
                 <div><a href="#upload" onclick="closeNav()">Declaration</a></div>
                 <div><a>
-                    <form method="post" action="{% url 'account_logout' %}">
-                        {% csrf_token %}
-                        {% if redirect_field_value %}
-                          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                        {% endif %}
-                        <button style="background-color : red !important;" type="submit">Logout</button>
-                      </form>
-                </a></div>
+                        <form method="post" action="{% url 'account_logout' %}">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <button style="background-color : red !important;" type="submit">Logout</button>
+                        </form>
+                    </a></div>
             </div>
         </div>
         <!-- Mobile Nav Ends here -->
@@ -112,9 +114,12 @@
                                                 <h3 class="topmargin">Advertisement Number:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium">
-                                                <select name="AdvertNumber" id="AdvertNumber" style="background-color: rgba(215, 215, 215, 0.85);" title="Cannot be changed for this form" disabled>
-													<option value="Rolling Advertisement No.1" selected disabled>Rolling Advertisement No.1</option>
-												</select>
+                                                <select name="AdvertNumber" id="AdvertNumber"
+                                                    style="background-color: rgba(215, 215, 215, 0.85);"
+                                                    title="Cannot be changed for this form" disabled>
+                                                    <option value="Rolling Advertisement No.1" selected disabled>Rolling
+                                                        Advertisement No.1</option>
+                                                </select>
                                             </div>
                                             <!--	Application Post	-->
                                             <div class="col-5 col-12-medium">
@@ -122,13 +127,16 @@
                                             </div>
                                             <div class="col-6 col-12-medium">
                                                 <select name="AppPost" id="AppPost" required>
-													<option value="" selected disabled> - None - </option>
-													<option value="Professor">Professor</option>
-													<option value="Associate Professor">Associate Professor</option>
-													<option value="Assistant Professor Grade 2 Level 10">Assistant Professor Grade 2 Level 10</option>
-													<option value="Assistant Professor Grade 2 Level 11">Assistant Professor Grade 2 Level 11</option>
-													<option value="Assistant Professor Grade 1 Level 12">Assistant Professor Grade 1 Level 12</option>
-												</select>
+                                                    <option value="" selected disabled> - None - </option>
+                                                    <option value="Professor">Professor</option>
+                                                    <option value="Associate Professor">Associate Professor</option>
+                                                    <option value="Assistant Professor Grade 2 Level 10">Assistant
+                                                        Professor Grade 2 Level 10</option>
+                                                    <option value="Assistant Professor Grade 2 Level 11">Assistant
+                                                        Professor Grade 2 Level 11</option>
+                                                    <option value="Assistant Professor Grade 1 Level 12">Assistant
+                                                        Professor Grade 1 Level 12</option>
+                                                </select>
                                             </div>
 
                                             <!--	Department	-->
@@ -137,11 +145,12 @@
                                             </div>
                                             <div class="col-6 col-12-medium" style="margin-bottom: 4%;">
                                                 <select name="Dept" id="Dept" required>
-													<option value="" selected disabled> - None - </option>
-													<option value="CSE / IT">CSE / IT</option>
-													<option value="Mathematics">Mathematics</option>
-													<option value="Management & Humanities">Management & Humanities</option>
-												</select>
+                                                    <option value="" selected disabled> - None - </option>
+                                                    <option value="CSE / IT">CSE / IT</option>
+                                                    <option value="Mathematics">Mathematics</option>
+                                                    <option value="Management & Humanities">Management & Humanities
+                                                    </option>
+                                                </select>
                                             </div>
 
                                             <!---   Research Domain  -->
@@ -149,16 +158,23 @@
                                                 <h3>Research Domain:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium">
-                                                <textarea name="research_domain" id="research_domain" placeholder="Specific Subject Area's Description" rows="3" required></textarea>
+                                                <textarea name="research_domain" id="research_domain"
+                                                    placeholder="Specific Subject Area's Description" rows="3"
+                                                    required></textarea>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!--  Profile Picture   -->
-                                    <div id="profile-container" class="col-3 col-12-medium " style="max-block-size: 35vh; max-width: max-content;">
-                                        <image id="profileImage" class="img-fluid mx-auto" src="{% static 'images/profilepic.png' %}" style="max-width: 100%; max-height: 100%; border-radius: 5vh;" />
-                                        <div><input id="imageUpload" type="file" style="font-size: small;" name="profile_photo"  required>
-                                            <label for="imageUpload" style="text-align:center">(Upload Profile Picture)</label>
+                                    <div id="profile-container" class="col-3 col-12-medium "
+                                        style="max-block-size: 35vh; max-width: max-content;">
+                                        <image id="profileImage" class="img-fluid mx-auto"
+                                            src="{% static 'images/profilepic.png' %}"
+                                            style="max-width: 100%; max-height: 100%; border-radius: 5vh;" />
+                                        <div><input id="imageUpload" type="file" style="font-size: small;"
+                                                name="profile_photo" required>
+                                            <label for="imageUpload" style="text-align:center">(Upload Profile
+                                                Picture)</label>
                                         </div>
                                     </div>
                                 </div>
@@ -180,28 +196,37 @@
                                         <h3>Full Name:</h3>
                                     </div>
                                     <div class="col-2 col-4-small">
-                                        <select name="saluation" id="saluation" style="padding:0;text-align-last:center;padding-right:50%" placeholder="Gender" title="Gender" required>
-											<option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.</option>
-											<option value="Mr. " style="text-align-last: center;">&nbsp;&nbsp; Mr.</option>
-											<option value="Mrs. " style="text-align-last: center;">&nbsp;&nbsp; Mrs.</option>
-											<option value="Miss " style="text-align-last: center;">&nbsp;&nbsp; Miss</option>
-										</select>
+                                        <select name="saluation" id="saluation"
+                                            style="padding:0;text-align-last:center;padding-right:50%"
+                                            placeholder="Gender" title="Gender" required>
+                                            <option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.
+                                            </option>
+                                            <option value="Mr. " style="text-align-last: center;">&nbsp;&nbsp; Mr.
+                                            </option>
+                                            <option value="Mrs. " style="text-align-last: center;">&nbsp;&nbsp; Mrs.
+                                            </option>
+                                            <option value="Miss " style="text-align-last: center;">&nbsp;&nbsp; Miss
+                                            </option>
+                                        </select>
                                     </div>
                                     <div class="col-4 col-8-small">
-                                        <input style="text-transform: uppercase;" type="text" name="name" id="name" value="" placeholder="Full Name" required>
+                                        <input style="text-transform: uppercase;" type="text" name="name" id="name"
+                                            value="" placeholder="Full Name" required>
                                     </div>
                                     <div class="col-4 col-12-small" style="align-self:left;">
                                         <h3>Date of Birth:</h3>
                                     </div>
                                     <div class="col-5 col-12-small">
-                                        <input type="date" name="dateofbirth" id="dateofbirth" class="dateofbirth" required>
+                                        <input type="date" name="dateofbirth" id="dateofbirth" class="dateofbirth"
+                                            required>
                                     </div>
 
                                     <div class="col-4 col-12-small" style="align-self:left;">
                                         <h3>Father's Name:</h3>
                                     </div>
                                     <div class="col-5 col-12-small">
-                                        <input style="text-transform: uppercase;" type="text" name="fathername" id="fathername" value="" placeholder="Father's Name" required>
+                                        <input style="text-transform: uppercase;" type="text" name="fathername"
+                                            id="fathername" value="" placeholder="Father's Name" required>
                                     </div>
                                 </div>
                             </div>
@@ -223,27 +248,36 @@
                                             <div class="col-12" style="text-align: center;">
                                                 <h2>Address For Mailing</h2>
                                             </div>
-                                            <div class="col-5 col-12-small" style="align-self:center;text-align: center;">
+                                            <div class="col-5 col-12-small"
+                                                style="align-self:center;text-align: center;">
                                                 <h3>Address:</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <textarea name="mailingaddress" id="mailingaddress" placeholder="Enter Your Address For Mailing" rows="3" required></textarea>
+                                                <textarea name="mailingaddress" id="mailingaddress"
+                                                    placeholder="Enter Your Address For Mailing" rows="3"
+                                                    required></textarea>
                                             </div>
-                                            <div class="col-5 col-12-small" style="text-align:center;padding-top: 2rem;">
+                                            <div class="col-5 col-12-small"
+                                                style="text-align:center;padding-top: 2rem;">
                                                 <h3>Pin Code:</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" name="mailingpincode" id="mailingpincode" value="" placeholder="Pin Code" required>
+                                                <input type="number" name="mailingpincode" id="mailingpincode" value=""
+                                                    placeholder="Pin Code" required>
                                             </div>
                                             <div class="col-5 col-12-small" style="text-align:center;">
                                                 <h3>Telephone No. (With STD Code)</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" name="mailingtelephone" id="mailingtelephone" value="" placeholder="Telephone No." required>
+                                                <input type="number" name="mailingtelephone" id="mailingtelephone"
+                                                    value="" placeholder="Telephone No." required>
                                             </div>
                                             <div class="col-12" style="text-align: center;padding-top: 10%;">
-                                                <input type="checkbox" onclick="sameAddress(event)" class="custom-control-input" id="sameaddress">
-                                                <label class="custom-control-label" for="sameaddress">If your permanent	address is same as correspondence address, then please click here.</label>
+                                                <input type="checkbox" onclick="sameAddress(event)"
+                                                    class="custom-control-input" id="sameaddress">
+                                                <label class="custom-control-label" for="sameaddress">If your permanent
+                                                    address is same as correspondence address, then please click
+                                                    here.</label>
                                             </div>
                                         </div>
                                     </div>
@@ -256,23 +290,30 @@
                                                 <div class="col-12" style="text-align: center;">
                                                     <h2>Permanent Address</h2>
                                                 </div>
-                                                <div class="col-5 col-12-small" style="align-self:center;text-align: center;">
+                                                <div class="col-5 col-12-small"
+                                                    style="align-self:center;text-align: center;">
                                                     <h3>Address:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <textarea name="permanentaddress" id="permanentaddress" placeholder="Enter Your Permanent Address" rows="3" required></textarea>
+                                                    <textarea name="permanentaddress" id="permanentaddress"
+                                                        placeholder="Enter Your Permanent Address" rows="3"
+                                                        required></textarea>
                                                 </div>
-                                                <div class="col-5 col-12-small" style="text-align:center;padding-top: 2rem;">
+                                                <div class="col-5 col-12-small"
+                                                    style="text-align:center;padding-top: 2rem;">
                                                     <h3>Pin Code:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="number" name="permanentpincode" id="permanentpincode" value="" placeholder="Pin Code" required>
+                                                    <input type="number" name="permanentpincode" id="permanentpincode"
+                                                        value="" placeholder="Pin Code" required>
                                                 </div>
                                                 <div class="col-5 col-12-small" style="text-align:center;">
                                                     <h3>Telephone No. (With STD Code)</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="number" name="permanenttelephone" id="permanenttelephone" value="" placeholder="Telephone No." required>
+                                                    <input type="number" name="permanenttelephone"
+                                                        id="permanenttelephone" value="" placeholder="Telephone No."
+                                                        required>
                                                 </div>
                                             </div>
                                         </div>
@@ -298,89 +339,111 @@
                                         <h3>Mobile No.</h3>
                                     </div>
                                     <div class="col-1 col-3-small" style="font-size:small;">
-                                        <input type="text" name="mobilecode" id="mobilecode" style="padding:0;text-align: center;" value="" placeholder="+91" required>
+                                        <input type="text" name="mobilecode" id="mobilecode"
+                                            style="padding:0;text-align: center;" value="" placeholder="+91" required>
                                     </div>
                                     <div class="col-3 col-9-small" style="font-size:small;">
-                                        <input type="number" name="mobile" id="mobile" value="" placeholder="Mobile No." required>
+                                        <input type="number" name="mobile" id="mobile" value="" placeholder="Mobile No."
+                                            required>
                                     </div>
                                     <div class="col-2 col-12-small" style="text-align:center;">
                                         <h3>Email ID:</h3>
                                     </div>
                                     <div class="col-4 col-12-small" style="font-size:small;">
-                                    {% if user.is_authenticated%}
-                                        <input type="email" name="email" id="email" value={{user.email}} placeholder={{user.email}} readonly>
-                                    {% else %}
-                                        <input type="email" name="email" id="email" value="" placeholder="Email Address">
-                                    {% endif %}
+                                        {% if user.is_authenticated%}
+                                        <input type="email" name="email" id="email" value={{user.email}}
+                                            placeholder={{user.email}} readonly>
+                                        {% else %}
+                                        <input type="email" name="email" id="email" value=""
+                                            placeholder="Email Address">
+                                        {% endif %}
                                     </div>
                                     <div class="col-2 col-4-small" style="text-align:center;">
                                         <h3>Gender:</h3>
                                     </div>
                                     <div class="col-4 col-8-small" style="align-self: center;font-size: small;">
-                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
-                                        <label style="align-self: center;margin-bottom: 0;" class="form-check-label" for="inlineRadio1"> Male</label>
-                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
-                                        <label style="align-self: center;margin-bottom: 0;" class="form-check-label" for="inlineRadio2"> Female</label>
-                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="Other">
-                                        <label style="align-self: center;margin-bottom: 0;" class="form-check-label" for="inlineRadio3"> Other</label>
+                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1"
+                                            value="Male">
+                                        <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
+                                            for="inlineRadio1"> Male</label>
+                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
+                                            value="Female">
+                                        <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
+                                            for="inlineRadio2"> Female</label>
+                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio3"
+                                            value="Other">
+                                        <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
+                                            for="inlineRadio3"> Other</label>
                                     </div>
                                     <div class="col-2 col-12-small" style="text-align:center;align-self: center;">
                                         <h3>Marital Status:</h3>
                                     </div>
                                     <div class="col-4 col-12-small">
-                                        <select name="maritalstatus" id="maritalstatus" placeholder="Marital Status" title="Category" required>
-											<option value="" selected disabled>Status</option>
-											<option value="Married"> Married </option>
-											<option value="Unmarried"> Unmarried </option>
-											<option value="Divorced"> Divorced </option>
-										</select>
+                                        <select name="maritalstatus" id="maritalstatus" placeholder="Marital Status"
+                                            title="Category" required>
+                                            <option value="" selected disabled>Status</option>
+                                            <option value="Married"> Married </option>
+                                            <option value="Unmarried"> Unmarried </option>
+                                            <option value="Divorced"> Divorced </option>
+                                        </select>
                                     </div>
 
                                     <div class="col-2 col-12-small" style="text-align:center;">
                                         <h3>Nationality:</h3>
                                     </div>
                                     <div class="col-4 col-12-small" style="font-size:small;">
-                                        <input type="text" name="nationality" id="nationality" value="" placeholder="Nationality" required>
+                                        <input type="text" name="nationality" id="nationality" value=""
+                                            placeholder="Nationality" required>
                                     </div>
 
                                     <div class="col-2 col-12-small" style="text-align:center;">
                                         <h3>State of Domicile:</h3>
                                     </div>
                                     <div class="col-4 col-12-small" style="padding-top: 2rem;">
-                                        <input type="text" name="domicile_state" id="domicile_state" value="" placeholder="State of Domicile">
+                                        <input type="text" name="domicile_state" id="domicile_state" value=""
+                                            placeholder="State of Domicile">
                                     </div>
 
                                     <div class="col-2 col-5-small" style="text-align:center;padding-top: 2rem;">
                                         <h3>Category:</h3>
                                     </div>
                                     <div class="col-4 col-7-xsmall">
-                                        <select name="category" id="category" placeholder="Category" title="Category" required>
-											<option value="" selected disabled>Select Category</option>
-											<option value="General"> General </option>
-											<option value="SC"> SC </option>
-											<option value="ST"> ST </option>
-											<option value="OBC - Creamy Layer"> OBC - Creamy Layer </option>
-											<option value="OBC - Non Creamy Layer"> OBC - Non Creamy Layer </option>
-											<option value="General (PwD)"> General (PwD)</option>
-											<option value="SC (PwD)"> SC (PwD)</option>
-											<option value="ST (PwD)"> ST (PwD)</option>
-											<option value="OBC - Creamy Layer (PwD)"> OBC - Creamy Layer (PwD)</option>
-											<option value="OBC - Non Creamy Layer (PwD)"> OBC - Non Creamy Layer (PwD)</option>
-											<option value="Economically weaker section"> Economically weaker section </option>
-										</select>
+                                        <select name="category" id="category" placeholder="Category" title="Category"
+                                            required>
+                                            <option value="" selected disabled>Select Category</option>
+                                            <option value="General"> General </option>
+                                            <option value="SC"> SC </option>
+                                            <option value="ST"> ST </option>
+                                            <option value="OBC - Creamy Layer"> OBC - Creamy Layer </option>
+                                            <option value="OBC - Non Creamy Layer"> OBC - Non Creamy Layer </option>
+                                            <option value="General (PwD)"> General (PwD)</option>
+                                            <option value="SC (PwD)"> SC (PwD)</option>
+                                            <option value="ST (PwD)"> ST (PwD)</option>
+                                            <option value="OBC - Creamy Layer (PwD)"> OBC - Creamy Layer (PwD)</option>
+                                            <option value="OBC - Non Creamy Layer (PwD)"> OBC - Non Creamy Layer (PwD)
+                                            </option>
+                                            <option value="Economically weaker section"> Economically weaker section
+                                            </option>
+                                        </select>
                                     </div>
 
                                     <div class="col-2 col-4-small" style="text-align:center;align-self: center;">
                                         <h3>Reservation Claimed:</h3>
                                     </div>
                                     <div class="col-1 col-2-small" style="align-self: center;font-size: small;">
-                                        <input class="form-check-input" type="radio" onclick="changeReservation(event)" name="reservation" id="Radio1" value="Yes">
-                                        <label style="align-self: center;margin-bottom: 0;" class="form-check-label" for="Radio1">Yes</label>
-                                        <input class="form-check-input" type="radio" onclick="changeReservation2(event)" name="reservation" id="Radio2" value="No">
-                                        <label style="align-self: center;margin-top: 0.5em;"  class="form-check-label" for="Radio2"> No</label>
+                                        <input class="form-check-input" type="radio" onclick="changeReservation(event)"
+                                            name="reservation" id="Radio1" value="Yes">
+                                        <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
+                                            for="Radio1">Yes</label>
+                                        <input class="form-check-input" type="radio" onclick="changeReservation2(event)"
+                                            name="reservation" id="Radio2" value="No">
+                                        <label style="align-self: center;margin-top: 0.5em;" class="form-check-label"
+                                            for="Radio2"> No</label>
                                     </div>
-                                    <div class="col-3 col-6-small" style="align-self: center;text-align: center;font-size: small;overflow: hidden;padding-left: 1.8em;">
-                                        <input id="reservation_certificate" type="file" style="font-size: small;" name="reservation_certificate" disabled>
+                                    <div class="col-3 col-6-small"
+                                        style="align-self: center;text-align: center;font-size: small;overflow: hidden;padding-left: 1.8em;">
+                                        <input id="reservation_certificate" type="file" style="font-size: small;"
+                                            name="reservation_certificate" disabled>
                                         <label for="reservation_certificate">( If Yes, Upload Certificate )</label>
                                     </div>
 
@@ -388,7 +451,8 @@
                                         <h3>Present Employer:</h3>
                                     </div>
                                     <div class="col-8 col-12-small">
-                                        <input type="text" name="present_employer" id="present_employer" value="" placeholder="Present Employer">
+                                        <input type="text" name="present_employer" id="present_employer" value=""
+                                            placeholder="Present Employer">
                                     </div>
 
                                 </div>
@@ -415,18 +479,25 @@
                                         <tbody class="academic-tbody all-tbody" style="text-align-last:center;">
                                             <!-- Table Headings -->
                                             <tr style="align-items:center">
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Examination / Degree</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Name of Board/College/<br>University</th>
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> Grade/ % of Marks</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Subject(s)</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Year of Passing</th>
-                                                <th class="col-3" style="text-align: center;vertical-align: middle;"> Supporting Documents</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Examination / Degree</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Name of Board/College/<br>University</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Grade/ % of Marks</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Subject(s)</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Year of Passing</th>
+                                                <th class="col-3" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
                                             </tr>
                                             <!-- Table rows are appended Dynamically (check main.js) -->
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="b1" class="but add-more" type="button" style="padding: 0;">Add More</button>
+                                        <button id="b1" class="but add-more" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                 </div>
                                 <br>
@@ -435,9 +506,11 @@
                                         Whether Ph.D awarded
                                     </div>
                                     <div class="col-5 col-7-small">
-                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdYes" value="Yes">
+                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdYes"
+                                            value="Yes">
                                         <label class="form-check-label" for="phdYes">Yes</label>
-                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdNo" value="No">
+                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdNo"
+                                            value="No">
                                         <label class="form-check-label" for="phdNo">No</label>
                                     </div>
                                     <div class="col-4 col-5-small" style="align-self: center;">
@@ -452,7 +525,8 @@
                     </section>
 
                     <!--  Section-C  Professional Details  -->
-                    <section id="professional" class="main" style="border-bottom: 1px solid black; padding-bottom: 1.5em;">
+                    <section id="professional" class="main"
+                        style="border-bottom: 1px solid black; padding-bottom: 1.5em;">
                         <div class="spotlight">
                             <div class="content">
                                 <br />
@@ -462,10 +536,10 @@
                                 </header>
 
                                 <!-- Details of Research Experience -->
-								<div class="col-12" style="text-align: center;">
-									<h2 style="margin: 0;">Details of Employment Experience</h2>
-									<h4>(In chronological order starting with the most recent)</h4>
-								</div>
+                                <div class="col-12" style="text-align: center;">
+                                    <h2 style="margin: 0;">Details of Employment Experience</h2>
+                                    <h4>(In chronological order starting with the most recent)</h4>
+                                </div>
                                 <div class="table-wrapper">
                                     <table class="alt" style="margin-bottom: 0;">
                                         <tbody class="all-tbody academic-tbody2 " style="text-align-last:center;">
@@ -474,52 +548,82 @@
                                             </tr>
                                             <tr></tr>
                                             <tr style="align-items:center">
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> Name of Employer/Status of Institute/University (Govt. /Quasi Govt./Autonomous etc.)</th>
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> Post held/Designation</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Period Of Employment<br>(From and To)</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Basic Salary</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Nature of Duty</th>
-                                                <th class="col-3" style="text-align: center;vertical-align: middle;"> Supporting Documents</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Name of Employer/Status of Institute/University (Govt. /Quasi
+                                                    Govt./Autonomous etc.)</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Post held/Designation</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Period Of Employment<br>(From and To)</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Basic Salary</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Nature of Duty</th>
+                                                <th class="col-3" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="org1-name" id="org1-name" style="margin: 0; background-color: transparent; border:none; " placeholder="Name of Employer/Status of Institute/University (Govt. /Quasi Govt./Autonomous etc.) ">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="org1-name" id="org1-name"
+                                                        style="margin: 0; background-color: transparent; border:none; "
+                                                        placeholder="Name of Employer/Status of Institute/University (Govt. /Quasi Govt./Autonomous etc.) ">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="org1-post" id="org1-post" style="margin: 0; background-color: transparent; border:none;" placeholder="Post held / Design">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="org1-post" id="org1-post"
+                                                        style="margin: 0; background-color: transparent; border:none;"
+                                                        placeholder="Post held / Design">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <div class="row gtr-uniform" style="inline-size: 14.2em;padding: 0.3em;">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <div class="row gtr-uniform"
+                                                        style="inline-size: 14.2em;padding: 0.3em;">
                                                         <div class="col-2">From:</div>
-                                                        <div class="col-10"><input type="date" name="org1-from" id="org1-from" value="" style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="From"></div>
+                                                        <div class="col-10"><input type="date" name="org1-from"
+                                                                id="org1-from" value=""
+                                                                style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
+                                                                placeholder="From"></div>
                                                         <div class="col-2" style="padding-top: 0;">To:</div>
-                                                        <div class="col-10" style="padding-top: 0;"><input type="date" name="org1-to" id="org1-to" value="" style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="To"></div>
+                                                        <div class="col-10" style="padding-top: 0;"><input type="date"
+                                                                name="org1-to" id="org1-to" value=""
+                                                                style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
+                                                                placeholder="To"></div>
                                                     </div>
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="org1-salary" id="org1-salary" style="border: 0; background: transparent;" placeholder="Basic Salary">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="org1-salary" id="org1-salary"
+                                                        style="border: 0; background: transparent;"
+                                                        placeholder="Basic Salary">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="text" name="org1-nature" id="org1-nature" style="border: 0; background: transparent;" placeholder="Nature of Duty">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+                                                    <input type="text" name="org1-nature" id="org1-nature"
+                                                        style="border: 0; background: transparent;"
+                                                        placeholder="Nature of Duty">
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
-                                                    <input type="file" name="org1-file" id="org1-file" style="border: 0; background: transparent; font-size: x-small;">
+                                                    <input type="file" name="org1-file" id="org1-file"
+                                                        style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="b2" class="but add-more2" type="button" style="padding: 0;">Add More</button>
+                                        <button id="b2" class="but add-more2" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                 </div>
                                 <br><br>
 
-								<!-- Research Experience -->
-								<div class="col-12" style="text-align: center;">
-									<h2 style="margin: 0;">Research Experience</h2>
-									<h4>Research Experience other than the period spent for obtaining M.Phil./Ph.D. Research Degree</h4>
-								</div>
+                                <!-- Research Experience -->
+                                <div class="col-12" style="text-align: center;">
+                                    <h2 style="margin: 0;">Research Experience</h2>
+                                    <h4>Research Experience other than the period spent for obtaining M.Phil./Ph.D.
+                                        Research Degree</h4>
+                                </div>
                                 <div class="table-wrapper">
                                     <table class="alt" style="margin-bottom: 0; ">
                                         <tbody class="all-tbody academic-tbody3" style="text-align-last:center; ">
@@ -527,34 +631,47 @@
 
                                             <tr style="align-items:center">
 
-                                                <tr style="align-items:center">
-                                                </tr>
+                                            <tr style="align-items:center">
+                                            </tr>
 
                                             </tr>
                                             <tr style="align-items:center">
-                                                <th class="col-4" style="text-align: center;vertical-align: middle;">From</th>
-                                                <th class="col-4" style="text-align: center;vertical-align: middle;">To </th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">Numbers of Months</th>
-                                                <th class="col-4" style="text-align: center;vertical-align: middle;">Supporting Documents</th>
+                                                <th class="col-4" style="text-align: center;vertical-align: middle;">
+                                                    From</th>
+                                                <th class="col-4" style="text-align: center;vertical-align: middle;">To
+                                                </th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Numbers of Months</th>
+                                                <th class="col-4" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
                                             </tr>
                                             <tr style="align-items:center;">
                                                 <td class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    <input type="date" name="exper1-from" id="exp1-from" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="From ">
+                                                    <input type="date" name="exper1-from" id="exp1-from"
+                                                        style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
+                                                        placeholder="From ">
                                                 </td>
                                                 <td class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    <input type="date" name="exper1-to" id="exp1-to" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="To">
+                                                    <input type="date" name="exper1-to" id="exp1-to"
+                                                        style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
+                                                        placeholder="To">
                                                 </td>
                                                 <td class="col-3" style="text-align: center;vertical-align: middle;">
-                                                    <input type="text" name="exper1-months" id="exp1-months" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Number of Months">
+                                                    <input type="text" name="exper1-months" id="exp1-months"
+                                                        style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
+                                                        placeholder="Number of Months">
                                                 </td>
-                                                <td class="col-3" style="text-align: center;vertical-align: middle; padding: 0;">
-                                                    <input type="file" style="font-size:x-small;" id="filebox" name="exper1-file">
+                                                <td class="col-3"
+                                                    style="text-align: center;vertical-align: middle; padding: 0;">
+                                                    <input type="file" style="font-size:x-small;" id="filebox"
+                                                        name="exper1-file">
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="b3" class="but add-more2B" type="button" style="padding: 0;">Add More</button>
+                                        <button id="b3" class="but add-more2B" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                 </div>
                             </div>
@@ -579,43 +696,65 @@
 
                                             <!-- Table Headings -->
                                             <tr style="align-items:center">
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Title of the Book(s)</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Whether First Author or Co-author</th>
-                                                <th class="col-3" style="padding: 0;vertical-align: middle;text-align: center;">Name of Publisher (with city/country)</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Month & year<br>of publication</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> ISBN/ISSN No.</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Supporting Documents</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Title of the Book(s)</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Whether First Author or Co-author</th>
+                                                <th class="col-3"
+                                                    style="padding: 0;vertical-align: middle;text-align: center;">Name
+                                                    of Publisher (with city/country)</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Month & year<br>of publication</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    ISBN/ISSN No.</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="books1-title" id="books1-title" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Title of the Book">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="books1-title" id="books1-title" value=""
+                                                        style="margin: 0; background-color: transparent; border:none;"
+                                                        placeholder="Title of the Book">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <select name="books1-author" id="books1-author" style="inline-size: auto;">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <select name="books1-author" id="books1-author"
+                                                        style="inline-size: auto;">
                                                         <option value="" disabled>Select Any Options</option>
-														<option value="First author">First Author</option>
-														<option value="Co-author">Co-author</option>
-													</select>
+                                                        <option value="First author">First Author</option>
+                                                        <option value="Co-author">Co-author</option>
+                                                    </select>
                                                 </td>
-                                                <td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <textarea type="text" name="books1-publisher" id="books1-publisher" value="" style="margin: 0;" rows="2" placeholder=""></textarea>
+                                                <td class="col-1"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <textarea type="text" name="books1-publisher" id="books1-publisher"
+                                                        value="" style="margin: 0;" rows="2" placeholder=""></textarea>
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="date" name="books1-date" id="books1-date" style="width:95%;background-color: transparent;margin-left: 0.3rem;">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="date" name="books1-date" id="books1-date"
+                                                        style="width:95%;background-color: transparent;margin-left: 0.3rem;">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="text" name="books1-number" id="books1-number" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="ISBN/ISSN No.">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+                                                    <input type="text" name="books1-number" id="books1-number" value=""
+                                                        style="margin: 0; background-color: transparent; border:none;"
+                                                        placeholder="ISBN/ISSN No.">
                                                 </td>
                                                 <td class="col-3" style="text-align: center;vertical-align: middle;">
-                                                    <input id="books1-file" type="file" style="font-size: x-small;text-align-last: left;" name="books1-file">
+                                                    <input id="books1-file" type="file"
+                                                        style="font-size: x-small;text-align-last: left;"
+                                                        name="books1-file">
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
 
                                     <div class="col-12" style="text-align:center">
-                                        <button id="b2" class="but add-more3" type="button" style="padding: 0;">Add More</button>
+                                        <button id="b2" class="but add-more3" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
 
                                 </div>
@@ -629,109 +768,179 @@
                                     <table class="alt" style="max-width: 100% !important;margin-bottom: 0;">
                                         <tbody class="all-tbody academic-tbody5">
                                             <tr style="align-items:center">
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> Title of the Chapter(s)</th>
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> Title of the Title(s)</th>
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> Whether First Author or Co-Author</th>
-                                                <th class="col-3" style="padding: 0;vertical-align: middle;text-align: center;">Name of Publisher (with city/country)</th>
-                                                <th class="col-3" style="text-align: center;vertical-align: middle;"> Month and Year of publication</th>
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> ISBN/ISSN No.</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Supporting Documents</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Title of the Chapter(s)</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Title of the Title(s)</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Whether First Author or Co-Author</th>
+                                                <th class="col-3"
+                                                    style="padding: 0;vertical-align: middle;text-align: center;">Name
+                                                    of Publisher (with city/country)</th>
+                                                <th class="col-3" style="text-align: center;vertical-align: middle;">
+                                                    Month and Year of publication</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    ISBN/ISSN No.</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
-                                                <td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="chapters1-book_title" id="chapters1-book_title" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Title of the Chapter(s) ">
+                                                <td class="col-1"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="chapters1-book_title"
+                                                        id="chapters1-book_title"
+                                                        style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
+                                                        placeholder="Title of the Chapter(s) ">
                                                 </td>
-                                                <td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="chapters1-chapter" id="chapters1-chapter" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Title of the Title(s) ">
+                                                <td class="col-1"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="chapters1-chapter" id="chapters1-chapter"
+                                                        style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
+                                                        placeholder="Title of the Title(s) ">
                                                 </td>
-                                                <td class="col-2" style="text-align: center;vertical-align: middle;padding:0;">
-                                                    <select name="chapters1-author" id="chapters1-author" style="background-color: transparent; border:none;inline-size: auto;">
-														<option value="First author">First Author</option>
-														<option value="Co-author">Co-author</option>
-													</select>
+                                                <td class="col-2"
+                                                    style="text-align: center;vertical-align: middle;padding:0;">
+                                                    <select name="chapters1-author" id="chapters1-author"
+                                                        style="background-color: transparent; border:none;inline-size: auto;">
+                                                        <option value="First author">First Author</option>
+                                                        <option value="Co-author">Co-author</option>
+                                                    </select>
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <textarea name="chapters1-publisher" id="chapters1-publisher" cols="10" rows="2"></textarea>
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <textarea name="chapters1-publisher" id="chapters1-publisher"
+                                                        cols="10" rows="2"></textarea>
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="date" style="width:95%;background-color: transparent;margin-left: 0.3rem;" name="chapters1-date_of_publisher" id="chapters1-date_of_publisher">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="date"
+                                                        style="width:95%;background-color: transparent;margin-left: 0.3rem;"
+                                                        name="chapters1-date_of_publisher"
+                                                        id="chapters1-date_of_publisher">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="text" name="chapters1-number" id="chapters1-number" style="border: 0; background: transparent;" placeholder="ISBN/ISSN No.">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+                                                    <input type="text" name="chapters1-number" id="chapters1-number"
+                                                        style="border: 0; background: transparent;"
+                                                        placeholder="ISBN/ISSN No.">
                                                 </td>
-                                                <td class="col-3" style="text-align-last: center; padding: 0;vertical-align: middle;">
-                                                    <input type="file" name="chapters1-file" id="chapters1-file" style="border: 0; background: transparent;font-size: x-small; ">
+                                                <td class="col-3"
+                                                    style="text-align-last: center; padding: 0;vertical-align: middle;">
+                                                    <input type="file" name="chapters1-file" id="chapters1-file"
+                                                        style="border: 0; background: transparent;font-size: x-small; ">
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="b2" class="but add-more4" type="button" style="padding: 0;">Add More</button>
+                                        <button id="b2" class="but add-more4" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                 </div>
 
                                 <br><br>
 
                                 <div>
-                                    <h3>3. Research/Articles/Papers published in Journals/Periodicals/Conference proceedings/Newspapers</h3>
+                                    <h3>3. Research/Articles/Papers published in Journals/Periodicals/Conference
+                                        proceedings/Newspapers</h3>
                                 </div>
                                 <div class="table-wrapper">
                                     <table class="alt" style="max-width: 100% !important;margin-bottom: 0;">
                                         <tbody class="all-tbody academic-tbody6">
                                             <tr style="align-items:center">
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> Title of research article/paper(s)</th>
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> Name of journal</th>
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> Whether First Author or Co-author</th>
-                                                <th class="col-1" style="padding: 0;vertical-align: middle;text-align: center; width: 50%;"> Date Of Issue</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Volume no. & Page nos.</th>
-                                                <th class="col-1" style="text-align: center;vertical-align: middle;"> Whether Referred/Non-referred</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Impact Factor</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;"> Supporting Documents</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Title of research article/paper(s)</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Name of journal</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Whether First Author or Co-author</th>
+                                                <th class="col-1"
+                                                    style="padding: 0;vertical-align: middle;text-align: center; width: 50%;">
+                                                    Date Of Issue</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Volume no. & Page nos.</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Whether Referred/Non-referred</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Impact Factor</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
-                                                <td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="news_articles1-article_title" id="news_articles1-article_title" style="margin: 0; background-color: transparent; border:none;" placeholder="Title of research">
+                                                <td class="col-1"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="news_articles1-article_title"
+                                                        id="news_articles1-article_title"
+                                                        style="margin: 0; background-color: transparent; border:none;"
+                                                        placeholder="Title of research">
                                                 </td>
-                                                <td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="news_articles1-journal_name" id="news_articles1-journal_name" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Name of journal ">
+                                                <td class="col-1"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="news_articles1-journal_name"
+                                                        id="news_articles1-journal_name"
+                                                        style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
+                                                        placeholder="Name of journal ">
                                                 </td>
-                                                <td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <select name="news_articles1-author" id="news_articles1-author" style="background-color: transparent; border:none;inline-size: auto;">
-														<option value="First Author">First Author</option>
-														<option value="Co-author">Co-author</option>
-													</select>
+                                                <td class="col-1"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <select name="news_articles1-author" id="news_articles1-author"
+                                                        style="background-color: transparent; border:none;inline-size: auto;">
+                                                        <option value="First Author">First Author</option>
+                                                        <option value="Co-author">Co-author</option>
+                                                    </select>
                                                 </td>
-                                                <td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="date" name="news_articles1-date_published" id="news_articles1-date_published" style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;">
+                                                <td class="col-1"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="date" name="news_articles1-date_published"
+                                                        id="news_articles1-date_published"
+                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="text" name="news_articles1-page" id="news_articles1-page" style="border: 0; background: transparent;" placeholder="Volume no. & Page nos.">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+                                                    <input type="text" name="news_articles1-page"
+                                                        id="news_articles1-page"
+                                                        style="border: 0; background: transparent;"
+                                                        placeholder="Volume no. & Page nos.">
                                                 </td>
-                                                <td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <select name="news_articles1-referred" id="news_articles1-referred" style="background-color: transparent; border:none;">
-														<option value="SCI/SSCI/SCI(E)/ABDC">SCI/SSCI/SCI(E)/ABDC</option>
-														<option value="Non (SCI/SSCI/SCI(E)/ABDC)">Non (SCI/SSCI/SCI(E)/ABDC)</option>
-													</select>
+                                                <td class="col-1"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <select name="news_articles1-referred" id="news_articles1-referred"
+                                                        style="background-color: transparent; border:none;">
+                                                        <option value="SCI/SSCI/SCI(E)/ABDC">SCI/SSCI/SCI(E)/ABDC
+                                                        </option>
+                                                        <option value="Non (SCI/SSCI/SCI(E)/ABDC)">Non
+                                                            (SCI/SSCI/SCI(E)/ABDC)</option>
+                                                    </select>
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" style="border: 0; background: transparent;" name="news_articles1-impact" id="news_articles1-impact" placeholder="Impact Factor"> </td>
-                                                <td class="col-2" style="text-align-last: center; padding: 0;vertical-align: middle;">
-                                                    <input type="file" name="news_articles1-file" id="news_articles1-file" style="border: 0; background: transparent;font-size: x-small; ">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" style="border: 0; background: transparent;"
+                                                        name="news_articles1-impact" id="news_articles1-impact"
+                                                        placeholder="Impact Factor">
+                                                </td>
+                                                <td class="col-2"
+                                                    style="text-align-last: center; padding: 0;vertical-align: middle;">
+                                                    <input type="file" name="news_articles1-file"
+                                                        id="news_articles1-file"
+                                                        style="border: 0; background: transparent;font-size: x-small; ">
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button type="button" id="b2" class="but add-more5" style="padding: 0;">Add More</button>
+                                        <button type="button" id="b2" class="but add-more5" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                 </div>
 
                                 <br><br>
 
                                 <div>
-                                    <h3>4. Papers presented in Regional/National and International Seminars/ Conferences/ Workshop/ Symposium. Indicate whether the Conference Proceedings are published.</h3>
+                                    <h3>4. Papers presented in Regional/National and International Seminars/
+                                        Conferences/ Workshop/ Symposium. Indicate whether the Conference Proceedings
+                                        are published.</h3>
                                 </div>
 
                                 <div class="table-wrapper">
@@ -740,47 +949,80 @@
 
                                             <!-- Table Headings -->
                                             <tr style="align-items:center">
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">Title/Subject of paper presented</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">Subject of Conference /Seminar/Symposium/ Workshop</th>
-                                                <th class="col-3" style="padding: 0;vertical-align: middle;text-align: center;">Organizing Institution & Name of City/Country</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">Duration (From and To)</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">Whether the proceedings published Yes/No</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">Supporting Documents</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Title/Subject of paper presented</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Subject of Conference /Seminar/Symposium/ Workshop</th>
+                                                <th class="col-3"
+                                                    style="padding: 0;vertical-align: middle;text-align: center;">
+                                                    Organizing Institution & Name of City/Country</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Duration (From and To)</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Whether the proceedings published Yes/No</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="semi_articles1-article_title" id="semi_articles1-article_title" value="" style="margin: 0; background-color: transparent; border:none;min-inline-size: 12.5vw;" placeholder="Title of research">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="semi_articles1-article_title"
+                                                        id="semi_articles1-article_title" value=""
+                                                        style="margin: 0; background-color: transparent; border:none;min-inline-size: 12.5vw;"
+                                                        placeholder="Title of research">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="semi_articles1-seminar_subject" id="semi_articles1-seminar_subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject of Conference /Seminar/Symposium/ Workshop">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="semi_articles1-seminar_subject"
+                                                        id="semi_articles1-seminar_subject" value=""
+                                                        style="margin: 0; background-color: transparent; border:none;"
+                                                        placeholder="Subject of Conference /Seminar/Symposium/ Workshop">
                                                 </td>
-                                                <td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="semi_articles1-location" id="semi_articles1-location" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Organizing Institution/and Name of City/Country">
+                                                <td class="col-1"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input type="text" name="semi_articles1-location"
+                                                        id="semi_articles1-location" value=""
+                                                        style="margin: 0; background-color: transparent; border:none;"
+                                                        placeholder="Organizing Institution/and Name of City/Country">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <div class="row gtr-uniform" style="inline-size: 14.2em;padding: 0.3em;">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <div class="row gtr-uniform"
+                                                        style="inline-size: 14.2em;padding: 0.3em;">
                                                         <div class="col-2">From:</div>
-                                                        <div class="col-10"><input type="date" name="semi_articles1-from" id="semi_articles1-from" value="" style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="From"></div>
+                                                        <div class="col-10"><input type="date"
+                                                                name="semi_articles1-from" id="semi_articles1-from"
+                                                                value=""
+                                                                style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
+                                                                placeholder="From"></div>
                                                         <div class="col-2" style="padding-top: 0;">To:</div>
-                                                        <div class="col-10" style="padding-top: 0;"><input type="date" name="semi_articles1-to" id="semi_articles1-to" value="" style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="To"></div>
+                                                        <div class="col-10" style="padding-top: 0;"><input type="date"
+                                                                name="semi_articles1-to" id="semi_articles1-to" value=""
+                                                                style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
+                                                                placeholder="To"></div>
                                                     </div>
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <select name="semi_articles1-published" id="semi_article1-published">
-														<option value="Yes">Yes</option>
-														<option value="No">No</option>
-													</select>
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+                                                    <select name="semi_articles1-published"
+                                                        id="semi_article1-published">
+                                                        <option value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    </select>
                                                 </td>
-                                                <td class="col-3" style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input id="semi_article1-file" type="file" style="font-size: x-small;" name="semi_articles1-file">
+                                                <td class="col-3"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
+                                                    <input id="semi_article1-file" type="file"
+                                                        style="font-size: x-small;" name="semi_articles1-file">
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
 
                                     <div class="col-12" style="text-align:center">
-                                        <button type="button" id="b2" class="but add-more6" style="padding: 0;">Add	More</button>
+                                        <button type="button" id="b2" class="but add-more6" style="padding: 0;">Add
+                                            More</button>
                                     </div>
 
                                 </div>
@@ -804,8 +1046,8 @@
                                 <div class="row gtr-uniform">
                                     <div class="col-12 class-12-medium">
                                         <strong>
-											<h2>1. Thesis Supervision</h2>
-										</strong><br>
+                                            <h2>1. Thesis Supervision</h2>
+                                        </strong><br>
                                     </div>
                                 </div>
 
@@ -841,10 +1083,13 @@
                                     <div class="col-12 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Enter the details of Administrative Positions held in the past 5 years<br>(Write NA if not applicable)</h5>
+                                                <h5 style="text-align: end;">Enter the details of Administrative
+                                                    Positions held in the past 5 years<br>(Write NA if not applicable)
+                                                </h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <textarea name="administrative_details" id="administrative_details" cols="3" rows="3" required></textarea>
+                                                <textarea name="administrative_details" id="administrative_details"
+                                                    cols="3" rows="3" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -899,7 +1144,8 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Upload a PDF / DOC file containing the list of sponsored projects
+                                                <h5 style="text-align: end;">Upload a PDF / DOC file containing the list
+                                                    of sponsored projects
                                                 </h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
@@ -921,7 +1167,8 @@
                                     <div class="col-6 col-12-medium" style="margin-bottom: 2rem;">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Total number of experiments/ computational projects</h5>
+                                                <h5 style="text-align: end;">Total number of experiments/ computational
+                                                    projects</h5>
                                             </div>
 
                                             <div class="col-8 col-12-medium">
@@ -935,7 +1182,8 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Number of ongoing experiments/ computational projects</h5>
+                                                <h5 style="text-align: end;">Number of ongoing experiments/
+                                                    computational projects</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="number" name="exp_ongoing" id="exp_ongoing" required>
@@ -948,7 +1196,8 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Number of completed experiments/ computational projects</h5>
+                                                <h5 style="text-align: end;">Number of completed experiments/
+                                                    computational projects</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="number" name="exp_completed" id="exp_completed" required>
@@ -959,7 +1208,8 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Upload a PDF / DOC file containing the list of experiments/ computational projects</h5>
+                                                <h5 style="text-align: end;">Upload a PDF / DOC file containing the list
+                                                    of experiments/ computational projects</h5>
                                             </div>
 
                                             <div class="col-8 col-12-medium">
@@ -983,7 +1233,8 @@
                                         </h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="patent_details" id="patent_details" cols="30" rows="3" required></textarea>
+                                        <textarea name="patent_details" id="patent_details" cols="30" rows="3"
+                                            required></textarea>
                                     </div>
                                 </div>
 
@@ -991,8 +1242,8 @@
                                 <div class="row gtr-uniform">
                                     <div class="col-12 class-12-medium">
                                         <strong>
-											<h2 >6. Summary</h2>
-										</strong><br>
+                                            <h2>6. Summary</h2>
+                                        </strong><br>
                                     </div>
                                 </div>
 
@@ -1015,7 +1266,8 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="text" name="tot_exp" id="tot_exp" placeholder="Total Experience (eg: 3.5)" required>
+                                                <input type="text" name="tot_exp" id="tot_exp"
+                                                    placeholder="Total Experience (eg: 3.5)" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1029,7 +1281,8 @@
                                                 <h5>3. Experience (Post PhD)</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="text" name="exp_post_phd" id="exp_post_phd" placeholder="Experience (Post PhD) in Years (eg: 3.5)" required>
+                                                <input type="text" name="exp_post_phd" id="exp_post_phd"
+                                                    placeholder="Experience (Post PhD) in Years (eg: 3.5)" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1041,7 +1294,8 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="total_phd_students" id="total_phd_students" placeholder="Total Ph.D Students Supervised (Degree Awarded)" required>
+                                        <input type="text" name="total_phd_students" id="total_phd_students"
+                                            placeholder="Total Ph.D Students Supervised (Degree Awarded)" required>
                                     </div>
 
                                 </div><br>
@@ -1052,7 +1306,8 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="ongoing_phd_supervision" id="ongoing_phd_supervision" placeholder="Total Ongoing Ph.D Supervision" required>
+                                        <input type="text" name="ongoing_phd_supervision" id="ongoing_phd_supervision"
+                                            placeholder="Total Ongoing Ph.D Supervision" required>
                                     </div>
 
                                 </div><br>
@@ -1062,7 +1317,9 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="total_projects" id="total_projects" placeholder="Total number of sponsored projects (Ongoing + Completed)" required>
+                                        <input type="text" name="total_projects" id="total_projects"
+                                            placeholder="Total number of sponsored projects (Ongoing + Completed)"
+                                            required>
                                     </div>
 
                                 </div><br>
@@ -1072,7 +1329,8 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="ongoing_projects" id="ongoing_projects" placeholder="Number of ongoing sponsored projects" required>
+                                        <input type="text" name="ongoing_projects" id="ongoing_projects"
+                                            placeholder="Number of ongoing sponsored projects" required>
                                     </div>
 
                                 </div>
@@ -1084,7 +1342,8 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="computational_projects" id="computational_projects" placeholder="Total number of experiments/ computational projects" required>
+                                        <input type="text" name="computational_projects" id="computational_projects"
+                                            placeholder="Total number of experiments/ computational projects" required>
                                     </div>
 
                                 </div>
@@ -1096,7 +1355,8 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="SCI_journal" id="SCI_journal" placeholder="Total Number of Publications in SCI / ABDC Journals" required>
+                                        <input type="text" name="SCI_journal" id="SCI_journal"
+                                            placeholder="Total Number of Publications in SCI / ABDC Journals" required>
                                     </div>
 
                                 </div>
@@ -1108,7 +1368,9 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="SCI_journal_post_phd" id="SCI_journal_post_phd" placeholder="Total Number of Publications in SCI / ABDC Journals (Post PhD)" required>
+                                        <input type="text" name="SCI_journal_post_phd" id="SCI_journal_post_phd"
+                                            placeholder="Total Number of Publications in SCI / ABDC Journals (Post PhD)"
+                                            required>
                                     </div>
 
                                 </div>
@@ -1132,40 +1394,56 @@
                                         <h4>1. Membership/Fellowship of other institutions/professionals societies:</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa1" id="miscTa1" placeholder="Membership/Fellowship of other institutions/professionals societies" rows="3" required></textarea>
+                                        <textarea name="miscTa1" id="miscTa1"
+                                            placeholder="Membership/Fellowship of other institutions/professionals societies"
+                                            rows="3" required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <h4>2. Other activities/Responsibilities :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa2" id="miscTa2" placeholder="Other activities/Responsibilities" rows="3" required></textarea>
+                                        <textarea name="miscTa2" id="miscTa2"
+                                            placeholder="Other activities/Responsibilities" rows="3"
+                                            required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <h4>3. Any other relevant information, if not given above :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa3" id="miscTa3" placeholder="Any other relevant information, if not given above" rows="3" required></textarea>
+                                        <textarea name="miscTa3" id="miscTa3"
+                                            placeholder="Any other relevant information, if not given above" rows="3"
+                                            required></textarea>
                                     </div>
 
                                     <div class="col-4 col-12-medium">
-                                        <h4>4. Has there been any break in your academic career ? If so, give details :</h4>
+                                        <h4>4. Has there been any break in your academic career ? If so, give details :
+                                        </h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa4" id="miscTa4" placeholder="Has there been any break in your academic career ?" rows="3" required></textarea>
+                                        <textarea name="miscTa4" id="miscTa4"
+                                            placeholder="Has there been any break in your academic career ?" rows="3"
+                                            required></textarea>
                                     </div>
 
                                     <div class="col-4 col-12-medium">
-                                        <h4>5. Have you been punished during your services or convicted by a court of law ? If so, give details. :</h4>
+                                        <h4>5. Have you been punished during your services or convicted by a court of
+                                            law ? If so, give details. :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa6" id="miscTa6" placeholder="Have you been punished during your services or convicted by a court of law ?" rows="3" required></textarea>
+                                        <textarea name="miscTa6" id="miscTa6"
+                                            placeholder="Have you been punished during your services or convicted by a court of law ?"
+                                            rows="3" required></textarea>
                                     </div>
 
                                     <div class="col-4 col-12-medium">
-                                        <h4>6. Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed? If yes, give details in a separate sheet. :</h4>
+                                        <h4>6. Were you at any time declared medically unfit or asked to submit your
+                                            resignation or discharged or dismissed? If yes, give details in a separate
+                                            sheet. :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa7" id="miscTa7" placeholder="Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed ? If yes, give details in a separate sheet" rows="3" required></textarea>
+                                        <textarea name="miscTa7" id="miscTa7"
+                                            placeholder="Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed ? If yes, give details in a separate sheet"
+                                            rows="3" required></textarea>
                                     </div>
 
                                     <div class="col-6 col-12-medium">
@@ -1173,13 +1451,19 @@
                                     </div>
                                     <div class="col-4 hidden-medium"></div>
                                     <div class="col-4 col-12-medium">
-                                        <textarea name="miscTa8" id="miscTa8" placeholder="Name and Addresses of First References" rows="3" required></textarea>
+                                        <textarea name="miscTa8" id="miscTa8"
+                                            placeholder="Name and Addresses of First References" rows="3"
+                                            required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
-                                        <textarea name="miscTa9" id="miscTa9" placeholder="Name and Addresses of Second References" rows="3" required></textarea>
+                                        <textarea name="miscTa9" id="miscTa9"
+                                            placeholder="Name and Addresses of Second References" rows="3"
+                                            required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
-                                        <textarea name="miscTa10" id="miscTa10" placeholder="Name and Addresses of Third References" rows="3" required></textarea>
+                                        <textarea name="miscTa10" id="miscTa10"
+                                            placeholder="Name and Addresses of Third References" rows="3"
+                                            required></textarea>
                                     </div>
 
 
@@ -1190,9 +1474,15 @@
 
                                     <div class="col-12">
                                         <h5>
-                                            <input type="checkbox" class="custom-control-input" id="declaration" required>
-                                            <label class="custom-control-label" for="declaration">I hereby declare that the information given by me in the Application is true, complete and correct to the best of my knowledge and belief and that nothing has been concealed or distorted. If at any time, I am found
-                                            to have concealed/distorted any information or given any false statement, my application/appointment shall liable to be summarily rejected/terminated without notice or compensation.</label>
+                                            <input type="checkbox" class="custom-control-input" id="declaration"
+                                                required>
+                                            <label class="custom-control-label" for="declaration">I hereby declare that
+                                                the information given by me in the Application is true, complete and
+                                                correct to the best of my knowledge and belief and that nothing has been
+                                                concealed or distorted. If at any time, I am found
+                                                to have concealed/distorted any information or given any false
+                                                statement, my application/appointment shall liable to be summarily
+                                                rejected/terminated without notice or compensation.</label>
                                         </h5>
                                     </div>
 
@@ -1202,7 +1492,8 @@
                                                 <h3>Place:</h3>
                                             </div>
                                             <div class="col-4 col-6-medium col-7-small">
-                                                <input style="text-transform: uppercase;" type="text" name="signPlace" id="place" value="" placeholder="Place" required>
+                                                <input style="text-transform: uppercase;" type="text" name="signPlace"
+                                                    id="place" value="" placeholder="Place" required>
                                             </div>
                                             <div class="col-2 col-1-small"></div>
                                             <div class="col-1 col-4-medium">
@@ -1215,17 +1506,20 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12" style="display: flex;align-items:center;text-align-last:center;justify-content: flex-end;">
+                                    <div class="col-12"
+                                        style="display: flex;align-items:center;text-align-last:center;justify-content: flex-end;">
                                         <span><strong>Signature: </strong></span>
 
                                         <span>
-											<image id="signImage" src=""
-												style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;" />
-											<div>
-												<input id="signUpload" type="file" style="font-size: small;" name="signUpload" placeholder="Signature" required>
-												<label for="signUpload" style="text-align:center">(Upload Signatures)</label>
-											</div>
-										</span>
+                                            <image id="signImage" src=""
+                                                style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;" />
+                                            <div>
+                                                <input id="signUpload" type="file" style="font-size: small;"
+                                                    name="signUpload" placeholder="Signature" required>
+                                                <label for="signUpload" style="text-align:center">(Upload
+                                                    Signatures)</label>
+                                            </div>
+                                        </span>
                                     </div>
 
 
@@ -1237,18 +1531,18 @@
                         <button id="submitform" class="button small primary" type="submit">Submit</button>
                     </div>
                 </form>
-            {% else %}
-            <section id="apply" class="main special">
-                <header class="major">
-                    <h2>Apply for Faculty Recruitment</h2>
-                    <p><strong>Only online applications through the given link will be accepted.</strong></p>
-                </header>
-                <footer class="major">
-                    <ul class="actions special">
-                        <li><a href="/accounts/login" class="button small primary">Apply Online</a></li>
-                    </ul>
-                </footer>
-            </section>
+                {% else %}
+                <section id="apply" class="main special">
+                    <header class="major">
+                        <h2>Apply for Faculty Recruitment</h2>
+                        <p><strong>Only online applications through the given link will be accepted.</strong></p>
+                    </header>
+                    <footer class="major">
+                        <ul class="actions special">
+                            <li><a href="/accounts/login" class="button small primary">Apply Online</a></li>
+                        </ul>
+                    </footer>
+                </section>
             </section>
             {% endif %}
 
@@ -1258,10 +1552,12 @@
         <footer id="footer">
             <section>
                 <h2>How to Reach Us</h2>
-                <p style="font-size: smaller;">The IIIT Lucknow campus is located at Chak Ganjeria City (C.G. City, Sultanpur Road), Lucknow . It is 23 km from the airport(CCSI Airport) and 14 km from the main railway station (Charbagh Junction).</p>
+                <p style="font-size: smaller;">The IIIT Lucknow campus is located at Chak Ganjeria City (C.G. City,
+                    Sultanpur Road), Lucknow . It is 23 km from the airport(CCSI Airport) and 14 km from the main
+                    railway station (Charbagh Junction).</p>
                 <ul class="actions">
                     <li><a href="https://goo.gl/maps/NufsSCj5hg7rFvaTA" target="#3" class="button small"><i
-								class="fas fa-map-marked-alt"></i><span> View Map </span></a></a>
+                                class="fas fa-map-marked-alt"></i><span> View Map </span></a></a>
                     </li>
                 </ul>
             </section>
@@ -1269,17 +1565,21 @@
                 <h2>Contact Details</h2>
                 <dl class="alt" style="font-size: smaller;">
                     <dt>Address</dt>
-                    <dd>IIIT Lucknow &bull; Chak Ganjaria, C.G. City &bull; Lucknow &bull; Uttar Pradesh – 226002 &bull; India
+                    <dd>IIIT Lucknow &bull; Chak Ganjaria, C.G. City &bull; Lucknow &bull; Uttar Pradesh – 226002 &bull;
+                        India
                     </dd>
                     <dt>Email</dt>
-                    <dd><a href="mailto:contact@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">contact@iiitl.ac.in</a>
+                    <dd><a
+                            href="mailto:contact@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">contact@iiitl.ac.in</a>
                     </dd>
                 </dl>
                 <ul class="icons" style="font-size: small;">
-                    <li><a href="https://www.linkedin.com/school/iiitl/" target="#4" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://www.linkedin.com/school/iiitl/" target="#4"
+                            class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
                     <li><a href="https://twitter.com/iiitlucknow" target="#5" class="icon brands fa-twitter alt"><span
-								class="label">Twitter</span></a></li>
-                    <li><a href="https://www.facebook.com/iiitlucknow/" target="#6" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+                                class="label">Twitter</span></a></li>
+                    <li><a href="https://www.facebook.com/iiitlucknow/" target="#6"
+                            class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
                     <!--	<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>	-->
                 </ul>
             </section>
@@ -1298,13 +1598,13 @@
 
 
     <script>
-        Date.prototype.toDateInputValue = (function() {
+        Date.prototype.toDateInputValue = (function () {
             var local = new Date(this);
             local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-            return local.toJSON().slice(0,10);
+            return local.toJSON().slice(0, 10);
         });
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#signDate').val(new Date().toDateInputValue());
         });
     </script>

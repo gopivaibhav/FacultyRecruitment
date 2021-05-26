@@ -36,6 +36,15 @@
 				<ul>
 					<li><a href="#filter" class="active">Filter Applications</a></li>
 					<li><a href="#received">Applications Received</a></li>
+					<!-- <li><a>
+						<form method="post" action="{% url 'account_logout' %}">
+							{% csrf_token %}
+							{% if redirect_field_value %}
+							  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+							{% endif %}
+							<button style="background-color : red !important;" type="submit">Logout</button>
+						  </form>
+					</a></li> -->
 				</ul>
 			</nav>
 
