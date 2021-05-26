@@ -50,7 +50,7 @@
 
 			<!-- Main -->
 			<div id="main">
-
+				<div id="totalData" hidden></div>
 				<!-- Filter Applications Sections -->
 				<section id="filter" class="main">
 					<div class="spotlight">
@@ -60,33 +60,33 @@
 							</header>
 							<!-- Add dropdowns here -->
 							<div class="container">
-							  <div class="row gtr-uniform">
+								<div class="row gtr-uniform">
 
-								<div class="col-3 col-5-medium">
-									Advertisement Number
-								</div>
-								<div class="col-3 col-6-medium">
-									<select name="adv_num" id="adv_num">
-										<option value="1">Dropdown</option>
-										<option value="1">1</option>
-										<option value="1">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-									</select>
-								</div>
-								<div class="col-1 col-0-medium"></div>
-								<div class="col-2 col-5-medium">
-									Applied For:
-								</div>
-								<div class="col-3 col-6-medium">
-									<select name="App_for" id="App_for">
-										<option value="1">Dropdown</option>
-										<option value="1">1</option>
-										<option value="1">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-									</select>
-								</div>
+									<div class="col-3 col-5-medium">
+										Advertisement Number
+									</div>
+									<div class="col-3 col-6-medium">
+										<select name="adv_num" id="adv_num">
+											<option value="1">Dropdown</option>
+											<option value="1">1</option>
+											<option value="1">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+										</select>
+									</div>
+									<div class="col-1 col-0-medium"></div>
+									<div class="col-2 col-5-medium">
+										Applied For:
+									</div>
+									<div class="col-3 col-6-medium">
+										<select name="App_for" id="App_for">
+											<option value="1">Dropdown</option>
+											<option value="1">1</option>
+											<option value="1">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+										</select>
+									</div>
 									<div class="col-3 col-5-medium">
 										Applicant Date After:
 									</div>
@@ -102,24 +102,25 @@
 										<input type="date" name="datechk" class="datechk">
 									</div>
 
-										<div class="col-3 col-5-medium">
-											Subject Selected
-										</div>
-										<div class="col-3 col-6-medium">
-											<select name="sub_selected" id="sub_selected">
-												<option value="1">Dropdown</option>
-												<option value="1">1</option>
-												<option value="1">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-											</select>
-										</div>
+									<div class="col-3 col-5-medium">
+										Subject Selected
+									</div>
+									<div class="col-3 col-6-medium">
+										<select name="sub_selected" id="sub_selected">
+											<option value="1">Dropdown</option>
+											<option value="1">1</option>
+											<option value="1">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+										</select>
+									</div>
 
-							  </div>
+								</div>
 
 							</div>
-								<center><input type="button" value="Submit" style="background-color:rgb(130, 196, 240); margin-top: 6vh;"></center>
-					   </div>
+							<center><input type="button" value="Submit"
+									style="background-color:rgb(130, 196, 240); margin-top: 6vh;"></center>
+						</div>
 					</div>
 				</section>
 
@@ -132,31 +133,42 @@
 							</header>
 							<!-- Add tables here -->
 							<div class="table-wrapper" style="padding: 2px;">
-								<table class="rounded" style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;">
-								<thead
-									id="app-thead">
-										<td style="border-top-left-radius: 1rem; border-bottom: 1px solid #a6a6a6;" scope="col">Application Number</td>
-										<td scope="col" style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">Applicant Name</td>
-										<td scope="col" style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">Applied for Position</td>
-										<td scope="col" style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">Application Date</td>
-										<td style="border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6 " scope="col">Subject Proficiency</td>
-										<td style="border-top-right-radius: 1rem;border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6 " scope="col">View More</td>
-								</thead>
-								
-								<tbody class="application-row">
-									<tr></tr>
-									{% for item in data.allData %}
+								<table class="rounded"
+									style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;">
+									<thead id="app-thead">
+										<td style="border-top-left-radius: 1rem; border-bottom: 1px solid #a6a6a6;"
+											scope="col">Application Number</td>
+										<td scope="col"
+											style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">
+											Applicant Name</td>
+										<td scope="col"
+											style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">
+											Applied for Position</td>
+										<td scope="col"
+											style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">
+											Application Date</td>
+										<td style="border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6 "
+											scope="col">Subject Proficiency</td>
+										<td style="border-top-right-radius: 1rem;border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6 "
+											scope="col">View More</td>
+									</thead>
+
+									<tbody class="application-row">
+										<tr></tr>
+										{% for item in data.allData %}
 										<tr>
 											<td>{{item.application_no}}</td>
 											<td>{{item.applicant_name}}</td>
 											<td>{{item.applied_post}}</td>
 											<td>{{item.applied_date}}</td>
 											<td>{{item.applied_department}}</td>
-											<td> <a href='/admin/user/{{item.application_no}}' > <i class="fas fa-arrow-right" style="color: cornflowerblue;"></i> </a> </td>
+											<td> <a href='/admin/user/{{item.application_no}}'> <i
+														class="fas fa-arrow-right" style="color: cornflowerblue;"></i>
+												</a> </td>
 										</tr>
-									{% endfor %}
-								</tbody>
-							</table>
+										{% endfor %}
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -208,13 +220,6 @@
 			<script src="{% static 'assets/js/breakpoints.min.js'%}"></script>
 			<script src="{% static 'assets/js/util.js'%}"></script>
 			<script src="{% static 'assets/js/main.js' %}"></script>
-
 	</body>
-</body>
-
-
-<style>
-
-</style>
 
 </html>
