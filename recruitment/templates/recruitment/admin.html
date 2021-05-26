@@ -50,7 +50,17 @@
 
 			<!-- Main -->
 			<div id="main">
-				<div id="totalData" hidden></div>
+				<div id="totalData" hidden>
+					{% for item in data.allData %}
+						<div>
+							<p>{{item.application_no}}</p>
+							<p>{{item.applicant_name}}</p>
+							<p>{{item.applied_post}}</p>
+							<p>{{item.applied_date}}</p>
+							<p>{{item.applied_department}}</p>
+						</div>
+					{% endfor %}
+				</div>
 				<!-- Filter Applications Sections -->
 				<section id="filter" class="main">
 					<div class="spotlight">
@@ -153,7 +163,7 @@
 											scope="col">View More</td>
 									</thead>
 
-									<tbody class="application-row">
+									<tbody id="admin-tbody" class="application-row">
 										<tr></tr>
 										{% for item in data.allData %}
 										<tr>
@@ -220,6 +230,16 @@
 			<script src="{% static 'assets/js/breakpoints.min.js'%}"></script>
 			<script src="{% static 'assets/js/util.js'%}"></script>
 			<script src="{% static 'assets/js/main.js' %}"></script>
+			<script>
+				var fullData = []
+				var allData = document.querySelectorAll('#totalData div');
+				allData.forEach( i => {
+					var presData = []
+					Array.from(i.children).forEach(j => {
+						presData.push(j.textContent);
+					});
+					fullData.push(presData)
+				});
+			</script>
 	</body>
-
 </html>
