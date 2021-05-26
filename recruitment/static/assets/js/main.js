@@ -71,7 +71,7 @@ $(document).ready(function() {
     // console.log("hvgvcvdgcvdvcgdvc");
     var yearId = 'yearOfPassing' + parseInt(newAcademicsNo);
     var ele = document.getElementById(yearId);
-    console.log(ele);
+    // console.log(ele);
     var presYear = new Date();
     for (let i = presYear.getFullYear(); i >= 1950; i--) {
         // console.log(i);
