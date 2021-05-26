@@ -39,6 +39,15 @@
                 <li><a href="#thesis">Thesis</a></li>
                 <li><a href="#other">Other</a></li>
                 <li><a href="#upload">Declaration</a></li>
+                <li><a>
+                    <form method="post" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        {% if redirect_field_value %}
+                          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                        {% endif %}
+                        <button style="background-color : red !important;" type="submit">Logout</button>
+                      </form>
+                </a></li>
             </ul>
         </nav>
 
@@ -54,6 +63,15 @@
                 <div><a href="#thesis" onclick="closeNav()">Thesis</a></div>
                 <div><a href="#other" onclick="closeNav()">Other</a></div>
                 <div><a href="#upload" onclick="closeNav()">Declaration</a></div>
+                <div><a>
+                    <form method="post" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        {% if redirect_field_value %}
+                          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                        {% endif %}
+                        <button style="background-color : red !important;" type="submit">Logout</button>
+                      </form>
+                </a></div>
             </div>
         </div>
         <!-- Mobile Nav Ends here -->

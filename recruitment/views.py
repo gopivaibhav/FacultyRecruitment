@@ -8,8 +8,6 @@ def handle_uploaded_file(f, application_number, name):
         for chunk in f.chunks():
             destination.write(chunk)
 
-def login(request):
-    return render(request, 'account/login.html',{})
 
 def profile(request):
     return render(request,'recruitment/profile.html',{})
