@@ -323,6 +323,48 @@ function closeNav() {
 
 
 
+/////   Profile Pic   /////
+$('#profileImage').click(function(e) {
+    $('#imageUpload').click();
+});
+
+function fasterPreview(uploader) {
+    if (uploader.files && uploader.files[0]) {
+        $('#profileImage').attr(
+            'src',
+            window.URL.createObjectURL(uploader.files[0])
+        );
+    }
+}
+
+$('#imageUpload').change(function() {
+    fasterPreview(this);
+});
+
+
+
+////   Upload Signatures   //////
+$('#signImage').click(function(e) {
+    $('#signUpload').click();
+});
+
+function fasterPreview2(uploader) {
+    if (uploader.files && uploader.files[0]) {
+        $('#signImage').attr(
+            'src',
+            window.URL.createObjectURL(uploader.files[0])
+        );
+    }
+}
+
+$('#signUpload').change(function() {
+    fasterPreview2(this);
+});
+
+
+
+
+
 (function($) {
     var $window = $(window),
         $body = $('body'),
@@ -420,41 +462,3 @@ function closeNav() {
         speed: 1000,
     });
 })(jQuery);
-
-/////   Profile Pic   /////
-$('#profileImage').click(function(e) {
-    $('#imageUpload').click();
-});
-
-function fasterPreview(uploader) {
-    if (uploader.files && uploader.files[0]) {
-        $('#profileImage').attr(
-            'src',
-            window.URL.createObjectURL(uploader.files[0])
-        );
-    }
-}
-
-$('#imageUpload').change(function() {
-    fasterPreview(this);
-});
-
-
-
-////   Upload Signatures   //////
-$('#signImage').click(function(e) {
-    $('#signUpload').click();
-});
-
-function fasterPreview2(uploader) {
-    if (uploader.files && uploader.files[0]) {
-        $('#signImage').attr(
-            'src',
-            window.URL.createObjectURL(uploader.files[0])
-        );
-    }
-}
-
-$('#signUpload').change(function() {
-    fasterPreview2(this);
-});
