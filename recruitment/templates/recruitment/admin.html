@@ -71,30 +71,21 @@
 							<!-- Add dropdowns here -->
 							<div class="container">
 								<div class="row gtr-uniform">
-
-									<div class="col-3 col-5-medium">
-										Advertisement Number
-									</div>
-									<div class="col-3 col-6-medium">
-										<select name="adv_num" id="adv_num">
-											<option value="1">Dropdown</option>
-											<option value="1">1</option>
-											<option value="1">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-										</select>
-									</div>
 									<div class="col-1 col-0-medium"></div>
 									<div class="col-2 col-5-medium">
 										Applied For:
 									</div>
 									<div class="col-3 col-6-medium">
 										<select name="App_for" id="App_for">
-											<option value="1">Dropdown</option>
-											<option value="1">1</option>
-											<option value="1">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
+											<option value="" selected disabled> - None - </option>
+											<option value="Professor">Professor</option>
+											<option value="Associate Professor">Associate Professor</option>
+											<option value="Assistant Professor Grade 2 Level 10">Assistant
+												Professor Grade 2 Level 10</option>
+											<option value="Assistant Professor Grade 2 Level 11">Assistant
+												Professor Grade 2 Level 11</option>
+											<option value="Assistant Professor Grade 1 Level 12">Assistant
+												Professor Grade 1 Level 12</option>
 										</select>
 									</div>
 									<div class="col-3 col-5-medium">
@@ -113,15 +104,15 @@
 									</div>
 
 									<div class="col-3 col-5-medium">
-										Subject Selected
+										Subject Proficiency
 									</div>
 									<div class="col-3 col-6-medium">
 										<select name="sub_selected" id="sub_selected">
-											<option value="1">Dropdown</option>
-											<option value="1">1</option>
-											<option value="1">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
+											<option value="" selected disabled> - None - </option>
+											<option value="CSE / IT">CSE / IT</option>
+											<option value="Mathematics">Mathematics</option>
+											<option value="Management & Humanities">Management & Humanities
+											</option>
 										</select>
 									</div>
 
@@ -165,7 +156,7 @@
 
 									<tbody id="admin-tbody" class="application-row">
 										<tr></tr>
-										{% for item in data.allData %}
+										<!-- {% for item in data.allData %}
 										<tr>
 											<td>{{item.application_no}}</td>
 											<td>{{item.applicant_name}}</td>
@@ -176,7 +167,7 @@
 														class="fas fa-arrow-right" style="color: cornflowerblue;"></i>
 												</a> </td>
 										</tr>
-										{% endfor %}
+										{% endfor %} -->
 									</tbody>
 								</table>
 							</div>
@@ -240,6 +231,30 @@
 					});
 					fullData.push(presData)
 				});
+				function appendData(){
+					var mybody = document.querySelector('#admin-tbody');
+					fullData.forEach( item => {
+						var temData = `<tr>
+							<td>${item[0]}</td>
+							<td>${item[1]}</td>
+							<td>${item[2]}</td>
+							<td>${item[3]}</td>
+							<td>${item[4]}</td>
+							<td> <a href='/admin/user/${item[0]}'> <i
+										class="fas fa-arrow-right" style="color: cornflowerblue;"></i>
+								</a> </td>
+										</tr>`;
+						$('#admin-tbody').append(temData);
+					});
+					console.log('apped hua ')
+				}
+				appendData();
+				function filterData(){
+					var mybody = document.querySelectorAll('#admin-tbody tr');
+					var se = mybody.length;
+					for(var zz = 1 ; zz < se ; zz++ ) mybody[zz].remove();
+					console.log(document.querySelector('#admin-tbody'));
+				}
 			</script>
 	</body>
 </html>
