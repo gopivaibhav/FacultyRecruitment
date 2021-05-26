@@ -231,10 +231,12 @@
 					});
 					fullData.push(presData)
 				});
-				function appendData(){
+				function appendData(apno ,apname, pos, appdate ,sub){
 					var mybody = document.querySelector('#admin-tbody');
 					fullData.forEach( item => {
-						var temData = `<tr>
+						var temData = '';
+						if( ( apno === '' || apno === item[0] )&&( apname === '' || apname === item[1] )&&(pos === '' || pos === item[2])&&(appdate === '' || appdate === item[3])&&(sub === '' || sub === item[4]) ){
+							temData = `<tr>
 							<td>${item[0]}</td>
 							<td>${item[1]}</td>
 							<td>${item[2]}</td>
@@ -245,10 +247,11 @@
 								</a> </td>
 										</tr>`;
 						$('#admin-tbody').append(temData);
+						}
 					});
 					console.log('apped hua ')
 				}
-				appendData();
+				appendData('','','','','');
 				function filterData(){
 					var mybody = document.querySelectorAll('#admin-tbody tr');
 					var se = mybody.length;
