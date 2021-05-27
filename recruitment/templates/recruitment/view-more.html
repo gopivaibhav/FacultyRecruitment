@@ -11,6 +11,15 @@
 	<noscript>
 		<link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" />
 	</noscript>
+	<style>
+		.application-row td{
+			vertical-align: middle;
+		}
+		.application-row th{
+			text-align: -webkit-match-parent;
+			vertical-align: middle;
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -44,13 +53,12 @@
 					{% csrf_token %}
 					<br>
 					<div class="table-wrapper" style="padding: 2px;">
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+						<table	style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
-									<td colspan="24"
-										style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
-										Section A</td>
+									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
+										Section A
+									</td>
 								</tr>
 								<tr>
 									<td colspan="6">Application No.</td>
@@ -153,16 +161,14 @@
 					<!-- Educational Qualifications -->
 					<h2>Academic Details</h2>
 					<!-- Details of Educational Qualifications -->
-					<h4>Details of Educational Qualifications </h4>
+					<h4>Details of Educational Qualifications</h4>
 					<div class="table-wrapper" style="padding: 2px;">
-						<table
-							style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 100vh;"
-							id="mainTable">
-							<tbody class="application-row">
+						<table	style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 55vh;"	id="mainTable">
+							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
-									<td colspan="24"
-										style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
-										Section B</td>
+									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
+										Section B
+									</td>
 								</tr>
 								<tr id="app-thead">
 									<th colspan="4">Exam/Degree</th>
@@ -217,8 +223,7 @@
 					<!-- Details of Employment Experience -->
 					<h4>Details of Employment Experience</h4>
 					<div class="table-wrapper" style="padding: 2px;">
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+						<table	style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
 							<tbody class="application-row" style="font-size: 0.92em;text-align: center;">
 								<tr>
 									<td colspan="4"
@@ -693,7 +698,8 @@
 								<tr id="app-thead">
 									<td colspan="24"
 										style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
-										Declaration</td>
+										Declaration
+									</td>
 								</tr>
 
 								<tr>

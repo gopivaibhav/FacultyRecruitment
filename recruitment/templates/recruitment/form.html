@@ -33,15 +33,15 @@
         <!--	Navbar	-->
         <nav id="nav">
             <ul>
-                <li><a href="#basic" class="active">Basic Details</a></li>
-                <li><a href="#personal">Personal</a></li>
-                <li><a href="#academic">Academic</a></li>
-                <li><a href="#professional">Professional</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#thesis">Thesis</a></li>
-                <li><a href="#other">Other</a></li>
-                <li><a href="#upload">Declaration</a></li>
-                <li><a>
+                <li><a href="#basic" class="active" style="padding-right: 0.6em;padding-left: 0.6em;">Basic Details</a></li>
+                <li><a href="#personal" style="padding-right: 0.6em;padding-left: 0.6em;">Personal</a></li>
+                <li><a href="#academic" style="padding-right: 0.6em;padding-left: 0.6em;">Academic</a></li>
+                <li><a href="#professional" style="padding-right: 0.6em;padding-left: 0.6em;">Professional</a></li>
+                <li><a href="#research" style="padding-right: 0.6em;padding-left: 0.6em;">Research</a></li>
+                <li><a href="#thesis" style="padding-right: 0.6em;padding-left: 0.6em;">Thesis</a></li>
+                <li><a href="#other" style="padding-right: 0.6em;padding-left: 0.6em;">Other</a></li>
+                <li><a href="#upload" style="padding-right: 0.6em;padding-left: 0.6em;">Declaration</a></li>
+                <li><a style="padding-right: 0.6em;padding-left: 0.6em;">
                         <form method="post" action="{% url 'account_logout' %}">
                             {% csrf_token %}
                             {% if redirect_field_value %}
@@ -1516,8 +1516,7 @@
                                             <div>
                                                 <input id="signUpload" type="file" style="font-size: small;"
                                                     name="signUpload" placeholder="Signature" required>
-                                                <label for="signUpload" style="text-align:center">(Upload
-                                                    Signatures)</label>
+                                                <label for="signUpload" style="text-align:center">(Upload Signatures)</label>
                                             </div>
                                         </span>
                                     </div>

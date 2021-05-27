@@ -62,12 +62,13 @@
 							<!-- Add dropdowns here -->
 							<div class="container">
 								<div class="row gtr-uniform">
-									<div class="col-2 col-5-medium">
+									<div class="col-3 col-5-medium">
 										Application number:
 									</div>
 									<div class="col-3 col-6-medium">
 										<input type="text" id="App_no" value="">
 									</div>
+									<div class="col-1"></div>
 									<div class="col-2 col-5-medium">
 										Applied For:
 									</div>
@@ -88,7 +89,7 @@
 										Applicant Date After:
 									</div>
 									<div class="col-3 col-6-medium">
-										<input id="date_after" type="date" name="datechk" class="datechk">
+										<input id="date_after" type="date" name="datechk" class="datechk" value=''>
 									</div>
 									<div class="col-1"></div>
 
@@ -96,7 +97,7 @@
 										Before:
 									</div>
 									<div class="col-3 col-6-medium">
-										<input id="date_before" type="date" name="datechk" class="datechk">
+										<input id="date_before" type="date" name="datechk" class="datechk" value=''>
 									</div>
 
 									<div class="col-3 col-5-medium">
@@ -209,6 +210,7 @@
 			<script>
 				var fullData = []
 				var allData = document.querySelectorAll('#totalData div');
+				// console.log(allData);
 				allData.forEach(i => {
 					var presData = []
 					Array.from(i.children).forEach(j => {
@@ -219,18 +221,22 @@
 				function appendData(apno, apname, pos, afterDate, beforeDate, sub) {
 					var presDate = new Date();
 					var miniDate = new Date(2010, 01, 01);
-					console.log(presDate, miniDate)
-					if (presDate.getTime() < miniDate.getTime())
-						console.log("presDate is lesser than miniDate");
-					else if (presDate.getTime() > miniDate.getTime())
-						console.log("presDate is greater than miniDate");
-					else
-						console.log("both are equal");
 
 					var mybody = document.querySelector('#admin-tbody');
 					fullData.forEach(item => {
 						var temData = '';
-						if ((apno === '' || apno === item[0]) && (apname === '' || apname === item[1]) && (pos === '' || pos === item[2]) && (afterDate === '' || afterDate === item[3]) && (beforeDate === '' || beforeDate === item[3]) && (sub === '' || sub === item[4])) {
+						var tempDate = new Date(item[3]);
+						var afd = new Date(afterDate).getTime();
+						var bed = new Date(beforeDate).getTime();
+						var abc=false;
+						var abc2=false;
+						if(tempDate.getTime()>=afd){
+						abc=true;
+						}
+						if(tempDate.getTime()<=bed){
+						abc2=true;
+						}
+						if ((apno === '' || apno === item[0]) && (apname === '' || apname === item[1]) && (pos === '' || pos === item[2]) && (afterDate == 'Invalid Date' || abc) && (beforeDate == 'Invalid Date' || abc2) && (sub === '' || sub === item[4])) {
 							temData = `<tr>
 							<td>${item[0]}</td>
 							<td>${item[1]}</td>
@@ -245,12 +251,20 @@
 						}
 					});
 				}
-				appendData('', '', '', '', '', '');
+				appendData('', '', '', 'Invalid Date', 'Invalid Date', '');
 				function filterData() {
 					var appFor = $('#App_for').val();
 					var appNum = $('#App_no').val();
-					var dateAfter = $('#date_after').val();
-					var dateBefore = $('#date_before').val();
+					if($('#date_after').val()===''){
+						var dateAfter = new Date( $('#date_after').val());
+					}
+					else{
+					var dateAfter = new Date( `${$('#date_after').val()} 00:00:00`);}
+					if($('#date_before').val()===''){
+						var dateBefore = new Date( $('#date_before').val());
+					}
+					else{
+					var dateBefore = new Date(`${$('#date_before').val()} 00:00:00`);}
 					var subSelected = $('#sub_selected').val();
 					var mybody = document.querySelectorAll('#admin-tbody tr');
 					var se = mybody.length;
