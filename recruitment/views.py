@@ -29,12 +29,16 @@ def adminLogin(request):
     return render(request,'recruitment/login.html',context)
 
 def profile(request):
+    if(request.user.is_superuser == 1):
+        return HttpResponseRedirect('/admin/')
     return render(request,'recruitment/profile.html',{})
 
 def home(request):
     return render(request, 'recruitment/index.html',{})
 
 def admin(request):
+    if(request.user.is_superuser != 1):
+        return HttpResponseRedirect('/')
     admin_data = {}
     appli_data = []
     for i in list(General.objects.all()):

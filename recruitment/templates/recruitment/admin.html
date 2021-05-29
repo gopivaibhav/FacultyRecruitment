@@ -15,9 +15,9 @@
 </head>
 
 <body>
-
 	<body class="is-preload">
 		<!-- Wrapper -->
+		{% if user.is_superuser == 1 %}
 		<div id="wrapper">
 
 			<!-- Header -->
@@ -273,5 +273,6 @@
 				}
 			</script>
 	</body>
+	{% endif %}
 
 </html>

@@ -14,7 +14,7 @@
 </head>
 
 <body class="is-preload">
-	{% if user.is_authenticated%}
+	{% if user.is_authenticated and user.is_superuser != 1%}
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -381,7 +381,6 @@
 		</footer>
 
 	</div>
-
 	<!-- Scripts -->
 	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
 	<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
