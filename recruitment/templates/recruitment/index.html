@@ -20,6 +20,9 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
+		 <!-- hamburger- for mobile view -->
+		 <span class="menu_btn" onclick="openNav()">&#9776;</span>
+
 		<!-- Header -->
 		<header id="header" class="alt">
 			<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
@@ -40,6 +43,18 @@
 				<li><a href="{% provider_login_url 'google' %}">Login</a></li>
 			</ul>
 		</nav>
+
+		        <!-- Mobile Nav Bar -->
+				<div id="myNav" class=" nav overlay col-0 col-12-medium">
+					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+					<div class="overlay-content">
+						<div><a href="#advert" onclick="closeNav()">Advertisement</a></div>
+						<div><a href="#spec" onclick="closeNav()">Area of Specialization</a></div>
+						<div><a href="#academic" onclick="closeNav()">Selection Procedure</a></div>
+						<div><a href="{% provider_login_url 'google' %}" onclick="closeNav()">Login</a></div>
+					</div>
+				</div>
+				<!-- Mobile Nav Ends here -->
 
 		<!-- Main -->
 		<div id="main">
