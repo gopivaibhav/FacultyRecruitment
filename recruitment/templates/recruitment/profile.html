@@ -1,4 +1,6 @@
+{% load socialaccount %}
 <!DOCTYPE HTML>
+
 {% load static %}
 <html>
 
@@ -14,24 +16,34 @@
 </head>
 
 <body class="is-preload">
-	{% if user.is_authenticated and user.is_superuser != 1%}
 	<!-- Wrapper -->
 	<div id="wrapper">
-
+		
 		<!-- Header -->
 		<header id="header" class="alt">
 			<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
 			<h1>Indian Institute of Information Technology, Lucknow</h1>
 			<p>IIIT Lucknow, Chak Ganjaria, C. G. City, Lucknow – 226002<br />
 				Contact: <a
-					href="mailto:contact@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">contact@iiitl.ac.in</a> for
+				href="mailto:contact@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">contact@iiitl.ac.in</a> for
 				more information.</p>
-			<h2>Rolling Advertisement for Faculty Recruitment</h2>
-		</header>
-
-		<!-- Nav -->
-		<nav id="nav">
-			<ul>
+				{% if user.is_authenticated %}
+				<h2>Rolling Advertisement for Faculty Recruitment</h2>
+				{% else %}
+					<div id="main" >
+						<div class="content" style="padding: 2rem;">
+							<h2 style="margin-bottom: 2rem;">
+								You are not logged in</h2>
+								<a class="btn" style="border-radius: .3rem; padding: .5rem; padding-left: 1rem; padding-right: 1rem; color: white; background-color: #005F9A;" href="{% provider_login_url 'google' %}" >Login </a>
+						</div>
+					</div>
+				{% endif %}
+			</header>
+			
+			<!-- Nav -->
+			{% if user.is_authenticated and user.is_superuser != 1%}
+			<nav id="nav">
+				<ul>
 				<li><a href="#advert" class="active" style="padding-right: 0.8em;padding-left: 0.8em;">Advertisement</a></li>
 				<li><a href="#spec" style="padding-right: 0.8em;padding-left: 0.8em;">Area of Specialization</a></li>
 				<li><a href="#selec" style="padding-right: 0.8em;padding-left: 0.8em;">Selection Procedure</a></li>
@@ -301,13 +313,6 @@
 						</p>
 					</div>
 				</div>
-
-				<!--
-					<footer class="major">
-						<ul class="actions special">
-							<li><a href="generic.html" class="button">Learn More</a></li>
-						</ul>
-					</footer>  -->
 			</section>
 
 			<!-- Reservation Sections -->
@@ -342,6 +347,7 @@
 				</footer>
 			</section>
 
+			{% endif%}
 		</div>
 
 		<!-- Footer -->
@@ -389,7 +395,6 @@
 	<script src="{% static 'assets/js/breakpoints.min.js'%}"></script>
 	<script src="{% static 'assets/js/util.js'%}"></script>
 	<script src="{% static 'assets/js/main.js' %}"></script>
-	{% endif%}
 </body>
 
 </html>
