@@ -4,14 +4,21 @@ import  re
 from recruitment.models import *
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 
 def handle_uploaded_file(f, application_number, name):
     with open(f'uploads/{application_number}/{name}', 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
 
-def error404(request):
-    return render(request, 'recruitment.error404.html', {});
+def error404(request,exception):
+    return render(request, 'recruitment/error404.html', {});
+def handler404(request):
+    response = render_to_response('recruitment/error404.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
 
 def adminLogin(request):
     context = {
