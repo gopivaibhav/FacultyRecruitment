@@ -2,12 +2,31 @@ from django.shortcuts import render
 import datetime
 import  re
 from recruitment.models import *
+from django.contrib.auth import login, authenticate, logout
+from django.http import HttpResponse, HttpResponseRedirect
 
 def handle_uploaded_file(f, application_number, name):
     with open(f'uploads/{application_number}/{name}', 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
 
+
+def adminLogin(request):
+    context = {
+        'could_not_log_in': False,
+    }
+    if(request.method == 'POST'):
+        username = request.POST.get('Username')
+        password = request.POST.get('Password')
+        user = authenticate(request, username=username, password=password)
+        if(user is not None and user.is_superuser == 1):
+            login(request,user)
+            return HttpResponseRedirect('profile/')
+        else:
+            context = {
+                'could_not_log_in': True,
+            }
+    return render(request,'recruitment/login.html',context)
 
 def profile(request):
     return render(request,'recruitment/profile.html',{})
