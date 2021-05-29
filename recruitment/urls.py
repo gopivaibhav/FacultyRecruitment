@@ -1,5 +1,6 @@
 from django.urls import path
 from django.contrib import admin
+from django.conf.urls import handler404
 from . import views
 
 urlpatterns = [
@@ -11,3 +12,4 @@ urlpatterns = [
                 path('submit/', views.submission_form, name='submission_form'),
                 path('admin/user/<str:application_number>',views.viewMore,name="View More")
             ]
+handler404 = views.error404
