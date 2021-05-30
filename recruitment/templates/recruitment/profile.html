@@ -68,12 +68,12 @@
 		<div id="myNav" class=" nav overlay col-0 col-12-medium">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<div class="overlay-content">
-				<div><a href="#advert" class="active">Advertisement</a></div>
-				<div><a href="#spec">Area of Specialization</a></div>
-				<div><a href="#selec">Selection Procedure</a></div>
-				<div><a href="#guide">Guidelines</a></div>
-				<div><a href="#reserve">Reservation</a></div>
-				<div><a href="#apply">Apply</a></div>
+				<div><a href="#advert" class="active" onclick="closeNav()">Advertisement</a></div>
+				<div><a href="#spec" onclick="closeNav()">Area of Specialization</a></div>
+				<div><a href="#selec" onclick="closeNav()">Selection Procedure</a></div>
+				<div><a href="#guide" onclick="closeNav()">Guidelines</a></div>
+				<div><a href="#reserve" onclick="closeNav()">Reservation</a></div>
+				<div><a href="#apply" onclick="closeNav()">Apply</a></div>
 				<div><a>
 						<form method="post" action="{% url 'account_logout' %}"  onsubmit="return confirm('Do you really wish to Logout?');">
 							{% csrf_token %}
