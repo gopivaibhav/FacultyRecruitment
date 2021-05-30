@@ -3827,3 +3827,30 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+.paginationjs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.paginationjs-pages{
+  width: 100%;
+}
+.paginationjs-pages ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.paginationjs-go-input{
+  width: 100%;
+  max-width: 5rem;
+  margin-right: 1rem;
+}
+.paginationjs-go-button{
+  width: 100%;
+  max-width: 5rem;
+  margin-left: 1rem;
+}
+.J-paginationjs-go-button{
+  min-width: fit-content;
+}

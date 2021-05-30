@@ -157,6 +157,7 @@
 									</tbody>
 								</table>
 							</div>
+							<div class="pagination-cont"></div>
 						</div>
 					</div>
 				</section>
@@ -261,11 +262,12 @@
 						}
 					});
 					console.log("presData ==> " , presData);
-					$('#admin-tbody').pagination({
+					$('.pagination-cont').pagination({
 						dataSource: presData,
 						pageSize: 1,
 						showGoInput: true,
 						showGoButton: true,
+						position: 'bottom',
 						callback: function(data, pagination) {
 							var html = myTemplate(data);
 							$('#admin-tbody').append(html);
