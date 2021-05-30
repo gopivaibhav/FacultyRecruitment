@@ -106,7 +106,7 @@
 									<div class="col-3 col-6-medium">
 										<select name="sub_selected" id="sub_selected">
 											<option value="" selected> - None - </option>
-											<option value="CSE / IT">CSE / IT</option>
+											<option value="CSE-IT">CSE / IT</option>
 											<option value="Mathematics">Mathematics</option>
 											<option value="Management & Humanities">Management & Humanities
 											</option>
@@ -205,6 +205,7 @@
 			<script src="{% static 'assets/js/jquery.scrolly.min.js'%}"></script>
 			<script src="{% static 'assets/js/browser.min.js'%}"></script>
 			<script src="{% static 'assets/js/breakpoints.min.js'%}"></script>
+			<script src="{% static 'assets/js/pagination.min.js' %}"></script>
 			<script src="{% static 'assets/js/util.js'%}"></script>
 			<script src="{% static 'assets/js/main.js' %}"></script>
 			<script>
@@ -218,13 +219,31 @@
 					});
 					fullData.push(presData)
 				});
+				console.log(fullData);
+				function myTemplate(data){
+					var finalData = '';
+					data.forEach((item , i) => {
+						finalData += `<tr>
+							<td>${item[0]}</td>
+							<td>${item[1]}</td>
+							<td>${item[2]}</td>
+							<td>${item[3]}</td>
+							<td>${item[4]}</td>
+							<td> <a href='/admin/user/${item[0]}'> <i
+										class="fas fa-arrow-right" style="color: cornflowerblue;"></i>
+								</a> </td>
+										</tr>`;
+					});
+					console.log(finalData);
+					return finalData;
+				}
 				function appendData(apno, apname, pos, afterDate, beforeDate, sub) {
 					var presDate = new Date();
 					var miniDate = new Date(2010, 01, 01);
 
 					var mybody = document.querySelector('#admin-tbody');
+					var presData = []
 					fullData.forEach(item => {
-						var temData = '';
 						var tempDate = new Date(item[3]);
 						var afd = new Date(afterDate).getTime();
 						var bed = new Date(beforeDate).getTime();
@@ -236,20 +255,23 @@
 						if(tempDate.getTime()<=bed){
 						abc2=true;
 						}
+						
 						if ((apno === '' || apno === item[0]) && (apname === '' || apname === item[1]) && (pos === '' || pos === item[2]) && (afterDate == 'Invalid Date' || abc) && (beforeDate == 'Invalid Date' || abc2) && (sub === '' || sub === item[4])) {
-							temData = `<tr>
-							<td>${item[0]}</td>
-							<td>${item[1]}</td>
-							<td>${item[2]}</td>
-							<td>${item[3]}</td>
-							<td>${item[4]}</td>
-							<td> <a href='/admin/user/${item[0]}'> <i
-										class="fas fa-arrow-right" style="color: cornflowerblue;"></i>
-								</a> </td>
-										</tr>`;
-							$('#admin-tbody').append(temData);
+							presData.push(item);
 						}
 					});
+					console.log("presData ==> " , presData);
+					$('#admin-tbody').pagination({
+						dataSource: presData,
+						pageSize: 1,
+						showGoInput: true,
+						showGoButton: true,
+						callback: function(data, pagination) {
+							var html = myTemplate(data);
+							$('#admin-tbody').append(html);
+							dataContainer.html(html);
+						}
+						})
 				}
 				appendData('', '', '', 'Invalid Date', 'Invalid Date', '');
 				function filterData() {
@@ -266,6 +288,7 @@
 					else{
 					var dateBefore = new Date(`${$('#date_before').val()} 00:00:00`);}
 					var subSelected = $('#sub_selected').val();
+					console.log(subSelected);
 					var mybody = document.querySelectorAll('#admin-tbody tr');
 					var se = mybody.length;
 					for (var zz = 1; zz < se; zz++) mybody[zz].remove();
