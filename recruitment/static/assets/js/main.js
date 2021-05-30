@@ -3,6 +3,41 @@ function removeRow(e) {
     $(e.target).parent().parent().parent().remove();
 }
 
+function references(e){
+    var abc8 = $('#miscTa8').val();
+    var abc9 = $('#miscTa9').val();
+    var abc10 = $('#miscTa10').val();
+    if(abc8=='NA'||abc8=="N/A"||abc8=='na' || abc9=='NA'||abc9=="N/A"||abc9=='na' || abc10=='NA'||abc10=="N/A"||abc10=='na'){
+        alert('References should be genuine');
+    }
+}
+
+
+function sponsored_input(e){
+    var abc=$('#spo_tot_number').val();
+    // console.log(abc);
+    if(abc>0){
+        document.getElementById('spofile').disabled=false;
+        document.getElementById('spofile').required=true;
+    }
+    else{
+        document.getElementById('spofile').disabled=true;
+        document.getElementById('spofile').required=false;
+    }
+}
+function experiments_input(e){
+    var abc=$('#exp_tot_number').val();
+    if(abc>0){
+        document.getElementById("expfile").disabled=false;
+        document.getElementById("expfile").required=true;
+
+    }
+    else{
+        document.getElementById("expfile").disabled = true;
+        document.getElementById("expfile").required=false;
+    }
+}
+
 function changeReservation(e){
     document.getElementById("reservation_certificate").disabled = false;
 }
