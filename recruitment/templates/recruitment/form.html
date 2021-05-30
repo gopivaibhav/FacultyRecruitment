@@ -29,7 +29,7 @@
                     target="###">IIIT Lucknow</a>.<br />
             </p>
         </header>
-        {% if user.is_authenticated%}
+        {% if user.is_authenticated and user.is_superuser != 1 %}
         <!--	Navbar	-->
         <nav id="nav">
             <ul>
@@ -1530,7 +1530,12 @@
                         <button id="submitform" class="button small primary" type="submit">Submit</button>
                     </div>
                 </form>
-                {% else %}
+                {% elif user.is_superuser == 1 %}
+                    <section id="main" >
+                        <h2>You are super user</h2>
+                        <a href="/admin/profile"> Back to Dashboard </a>
+                    </section>
+            {% else %}
                 <section id="apply" class="main special">
                     <header class="major">
                         <h2>Apply for Faculty Recruitment</h2>
