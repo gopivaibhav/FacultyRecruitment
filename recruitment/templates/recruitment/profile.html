@@ -54,7 +54,7 @@
 				<li><a href="#reserve" style="padding-right: 0.8em;padding-left: 0.8em;">Reservation</a></li>
 				<li><a href="#apply" style="padding-right: 0.8em;padding-left: 0.8em;">Apply</a></li>
 				<li><a style="padding: 0;padding-right: 0.2em;padding-left: 0.4em;">
-						<form method="post" action="{% url 'account_logout' %}">
+						<form method="post" action="{% url 'account_logout' %}" onsubmit="return confirm('Do you really wish to Logout?');">
 							{% csrf_token %}
 							{% if redirect_field_value %}
 							<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
@@ -75,7 +75,7 @@
 				<div><a href="#reserve">Reservation</a></div>
 				<div><a href="#apply">Apply</a></div>
 				<div><a>
-						<form method="post" action="{% url 'account_logout' %}">
+						<form method="post" action="{% url 'account_logout' %}"  onsubmit="return confirm('Do you really wish to Logout?');">
 							{% csrf_token %}
 							{% if redirect_field_value %}
 							<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />

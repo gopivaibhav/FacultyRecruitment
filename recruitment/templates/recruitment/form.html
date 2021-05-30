@@ -42,7 +42,7 @@
                 <li><a href="#other" style="padding-right: 0.6em;padding-left: 0.6em;">Other</a></li>
                 <li><a href="#upload" style="padding-right: 0.6em;padding-left: 0.6em;">Declaration</a></li>
                 <li><a style="padding-right: 0.6em;padding-left: 0.6em;">
-                        <form method="post" action="{% url 'account_logout' %}">
+                        <form method="post" action="{% url 'account_logout' %}"  onsubmit="return confirm('Do you really wish to Logout?');">
                             {% csrf_token %}
                             {% if redirect_field_value %}
                             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
@@ -66,7 +66,7 @@
                 <div><a href="#other" onclick="closeNav()">Other</a></div>
                 <div><a href="#upload" onclick="closeNav()">Declaration</a></div>
                 <div><a>
-                        <form method="post" action="{% url 'account_logout' %}">
+                        <form method="post" action="{% url 'account_logout' %}" onsubmit="return confirm('Do you really wish to Logout?');">
                             {% csrf_token %}
                             {% if redirect_field_value %}
                             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <!--	Start of form	-->
-                <form method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data" onsubmit="return confirm('Do you really want to Submit?');">
                     {% csrf_token %}
 
                     <!--	Initial Data	-->
