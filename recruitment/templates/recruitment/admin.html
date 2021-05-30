@@ -262,15 +262,15 @@
 						}
 					});
 					console.log("presData ==> " , presData);
+					var dataContainer = $('#admin-tbody');
 					$('.pagination-cont').pagination({
 						dataSource: presData,
-						pageSize: 1,
+						pageSize: 5,
 						showGoInput: true,
 						showGoButton: true,
 						position: 'bottom',
 						callback: function(data, pagination) {
 							var html = myTemplate(data);
-							$('#admin-tbody').append(html);
 							dataContainer.html(html);
 						}
 						})
