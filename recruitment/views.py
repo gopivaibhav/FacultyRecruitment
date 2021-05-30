@@ -462,5 +462,5 @@ def submission_form(request):
                 research_exp_details['supporting_documents'] = request.FILES[ans]
                 research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 ResearchExp.objects.create(**research_exp_details)                      
-        return render(request, 'recruitment/form.html',{'message':'Congrats! Your application number is '+ application_number})
+        return render(request, 'recruitment/index.html', {})
     return render(request, 'recruitment/form.html', {})
