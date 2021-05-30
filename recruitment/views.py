@@ -7,11 +7,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-def handle_uploaded_file(f, application_number, name):
-    with open(f'uploads/{application_number}/{name}', 'wb+') as destination:
-        for chunk in f.chunks():
-            destination.write(chunk)
-
 def error404(request,exception):
     return render(request, 'recruitment/error404.html', {});
 def handler404(request):
@@ -462,5 +457,5 @@ def submission_form(request):
                 research_exp_details['supporting_documents'] = request.FILES[ans]
                 research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 ResearchExp.objects.create(**research_exp_details)                      
-        return render(request, 'recruitment/form.html',{'message':'Congrats! Your application number is '+ application_number})
+        return HttpResponseRedirect('/accounts/profile/')
     return render(request, 'recruitment/form.html', {})
