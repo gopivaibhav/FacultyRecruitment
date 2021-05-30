@@ -92,6 +92,14 @@
 			<!-- Advertisement Sections -->
 			<section id="advert" class="main special">
 				<div class="spotlight">
+					<div class="spotlight">
+						<div class="content main special">
+							<!--	Change the content in the h3 tag to set the congratulatory message	-->
+							{% if message %}
+							<h3>{{message}}</h3>
+							{% endif %}
+						</div>
+					</div>
 					<div class="content">
 						<header class="major">
 							<h2>Advertisement Number:</h2>
