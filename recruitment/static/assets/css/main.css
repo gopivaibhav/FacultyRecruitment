@@ -3828,6 +3828,10 @@ a {
   align-items: center;
 }
 
+#admin-tbody td{
+  vertical-align: middle;
+}
+
 .paginationjs{
   display: flex;
   flex-wrap: wrap;
@@ -3836,15 +3840,26 @@ a {
 .paginationjs-pages{
   width: 100%;
 }
+.paginationjs-pages .active{
+  background-color: #e9e9e9;
+}
 .paginationjs-pages ul {
   list-style: none;
   display: flex;
   justify-content: center;
 }
+.paginationjs-pages ul li {
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  border-radius: 0.3em;
+}
 .paginationjs-go-input{
   width: 100%;
   max-width: 5rem;
   margin-right: 1rem;
+}
+.paginationjs-go-input input{
+  text-align: center;
 }
 .paginationjs-go-button{
   width: 100%;
