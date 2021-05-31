@@ -91,17 +91,16 @@
 
 			<!-- Advertisement Sections -->
 			<section id="advert" class="main special">
+				<div class="">
+					<!--	Change the content in the h3 tag to set the congratulatory message	-->
+					{% if messages %}
+					{% for message in messages %}
+						<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" style="font-size: larger; font-weight: 500;" role="alert">{{ message }}</div>
+					{% endfor %}
+				{% endif %}
+				</div>
 				<div class="spotlight">
-					<div class="spotlight">
-						<div class="content main special">
-							<!--	Change the content in the h3 tag to set the congratulatory message	-->
-							{% if messages %}
-							{% for message in messages %}
-								<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
-							{% endfor %}
-						{% endif %}
-						</div>
-					</div>
+					
 					<div class="content">
 						<header class="major">
 							<h2>Advertisement Number:</h2>
