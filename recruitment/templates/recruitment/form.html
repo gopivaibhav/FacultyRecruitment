@@ -32,16 +32,16 @@
         {% if user.is_authenticated and user.is_superuser != 1 %}
         <!--	Navbar	-->
         <nav id="nav">
-            <ul>
-                <li><a href="/accounts/profile/" style="padding-right: 0.6em;padding-left: 0.6em;">&#8592;</a></li>
-                <li><a href="#basic" class="active" style="padding-right: 0.6em;padding-left: 0.6em;">Basic Details</a></li>
-                <li><a href="#personal" style="padding-right: 0.6em;padding-left: 0.6em;">Personal</a></li>
-                <li><a href="#academic" style="padding-right: 0.6em;padding-left: 0.6em;">Academic</a></li>
-                <li><a href="#professional" style="padding-right: 0.6em;padding-left: 0.6em;">Professional</a></li>
-                <li><a href="#research" style="padding-right: 0.6em;padding-left: 0.6em;">Research</a></li>
-                <li><a href="#thesis" style="padding-right: 0.6em;padding-left: 0.6em;">Thesis</a></li>
-                <li><a href="#other" style="padding-right: 0.6em;padding-left: 0.6em;">Other</a></li>
-                <li><a href="#upload" style="padding-right: 0.6em;padding-left: 0.6em;">Declaration</a></li>
+            <ul id="nav-list">
+                <li><a href="/accounts/profile/" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">&#8592;</a></li>
+                <li><a href="#basic" class="active" onclick="navActivation(event)"  style="padding-right: 0.6em;padding-left: 0.6em;">Basic Details</a></li>
+                <li><a href="#personal" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">Personal</a></li>
+                <li><a href="#academic" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">Academic</a></li>
+                <li><a href="#professional" onclick="navActivation(event)"style="padding-right: 0.6em;padding-left: 0.6em;">Professional</a></li>
+                <li><a href="#research" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">Research</a></li>
+                <li><a href="#thesis" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">Thesis</a></li>
+                <li><a href="#other" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">Other</a></li>
+                <li><a href="#upload" onclick="navActivation(event)"style="padding-right: 0.6em;padding-left: 0.6em;">Declaration</a></li>
                 <li><a style="padding-right: 0.6em;padding-left: 0.6em;">
                         <form method="post" action="{% url 'account_logout' %}"  onsubmit="return confirm('Do you really wish to Logout?');">
                             {% csrf_token %}
@@ -757,7 +757,7 @@
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
                                                     Title of the Chapter(s)</th>
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
-                                                    Title of the Title(s)</th>
+                                                    Title of the Book(s)</th>
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
                                                     Whether First Author or Co-Author</th>
                                                 <th class="col-3"
@@ -1611,6 +1611,22 @@
                     document.getElementById("yearOfPassing" + j).innerHTML += "<option value='" + i + "'>" + i + "</option>\n"
             }
         }
+
+
+        function navActivation(event){
+            
+        var navList = Array.from(document.getElementById('nav-list').children);
+        var targetList = [];
+        navList.forEach(elem =>{
+            if(elem.children.item(0).className==='active'){
+                elem.children.item(0).classList.toggle('active');
+            }
+        })
+        // console.log();
+        event.target.classList.toggle('active');
+
+        }
+        
     </script>
 
 </body>

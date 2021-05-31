@@ -46,13 +46,13 @@
 			<!-- Nav -->
 			{% if user.is_authenticated and user.is_superuser != 1%}
 			<nav id="nav">
-				<ul>
-				<li><a href="#advert" class="active" style="padding-right: 0.8em;padding-left: 0.8em;">Advertisement</a></li>
-				<li><a href="#spec" style="padding-right: 0.8em;padding-left: 0.8em;">Area of Specialization</a></li>
-				<li><a href="#selec" style="padding-right: 0.8em;padding-left: 0.8em;">Selection Procedure</a></li>
-				<li><a href="#guide" style="padding-right: 0.8em;padding-left: 0.8em;">Guidelines</a></li>
-				<li><a href="#reserve" style="padding-right: 0.8em;padding-left: 0.8em;">Reservation</a></li>
-				<li><a href="#apply" style="padding-right: 0.8em;padding-left: 0.8em;">Apply</a></li>
+				<ul id="profile-nav-list">
+				<li><a href="#advert" class="active" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Advertisement</a></li>
+				<li><a href="#spec" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Area of Specialization</a></li>
+				<li><a href="#selec" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Selection Procedure</a></li>
+				<li><a href="#guide" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Guidelines</a></li>
+				<li><a href="#reserve" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Reservation</a></li>
+				<li><a href="#apply" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Apply</a></li>
 				<li><a style="padding: 0;padding-right: 0.2em;padding-left: 0.4em;">
 						<form method="post" action="{% url 'account_logout' %}" onsubmit="return confirm('Do you really wish to Logout?');">
 							{% csrf_token %}
@@ -406,6 +406,23 @@
 	<script src="{% static 'assets/js/breakpoints.min.js'%}"></script>
 	<script src="{% static 'assets/js/util.js'%}"></script>
 	<script src="{% static 'assets/js/main.js' %}"></script>
+
+	<script>
+		function profNavActivation(event){
+            
+			var profNavList = Array.from(document.getElementById('profile-nav-list').children);
+			var targetList = [];
+			profNavList.forEach(elem =>{
+				// console.log(elem)
+				if(elem.children.item(0).className==='active'){
+					elem.children.item(0).classList.toggle('active');
+				}
+			})
+			// console.log(event.target);
+			event.target.classList.toggle('active');
+	
+			}
+	</script>
 </body>
 
 </html>
