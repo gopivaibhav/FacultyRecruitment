@@ -3710,8 +3710,8 @@ html {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #32c0ca;
-  opacity: 0.75;
+  background-color: #575657;
+  opacity: 0.85;
   overflow-y: hidden;
   transition: 0.5s;
   z-index: 5;
