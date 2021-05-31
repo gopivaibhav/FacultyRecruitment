@@ -82,7 +82,7 @@
 
         <!-- Main part -->
         <div id="main">
-
+            
             <!-- Content -->
             <section id="content" class="main" style="padding-top: 0;">
 
@@ -90,12 +90,15 @@
                 <!--	Start of form	-->
                 <form method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data" onsubmit="return confirm('Do you really want to Submit?');">
                     {% csrf_token %}
-
+                    
                     <!--	Initial Data	-->
                     <section id="basic" class="main alt">
                         <div class="spotlight">
                             <div class="content" style="padding-top: 3em;">
                                 <p></p>
+                                <section style="margin-top: 5rem;">
+                                    <p>All the fields with an (<font class="asterisk">*</font>) are mandatory</p>
+                                </section>
                                 <header class="major special">
                                     <h2>Application Form</h2>
                                 </header>
