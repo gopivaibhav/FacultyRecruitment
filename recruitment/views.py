@@ -6,6 +6,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.contrib import messages
 
 def error404(request,exception):
     return render(request, 'recruitment/error404.html', {});
@@ -456,9 +457,8 @@ def submission_form(request):
                 ans = 'exper' + str(i) + '-file'
                 research_exp_details['supporting_documents'] = request.FILES[ans]
                 research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
-                ResearchExp.objects.create(**research_exp_details)                      
-        return  HttpResponseRedirect('/accounts/profile/') and render(request, 'recruitment/profile.html', {
-            'success': "Congratulations your application has been submitted successfully",
-            'application_number': application_number,
-        })
+                ResearchExp.objects.create(**research_exp_details)     
+            messages.success(request,'Congratulations your application has been submitted successfully')  
+            messages.success(request, application_number)             
+        return  HttpResponseRedirect('/accounts/profile/')
     return render(request, 'recruitment/form.html', {})
