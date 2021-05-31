@@ -457,5 +457,8 @@ def submission_form(request):
                 research_exp_details['supporting_documents'] = request.FILES[ans]
                 research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 ResearchExp.objects.create(**research_exp_details)                      
-        return HttpResponseRedirect('/accounts/profile/')
+        return  HttpResponseRedirect('/accounts/profile/') and render(request, 'recruitment/profile.html', {
+            'success': "Congratulations your application has been submitted successfully",
+            'application_number': application_number,
+        })
     return render(request, 'recruitment/form.html', {})

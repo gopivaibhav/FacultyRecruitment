@@ -95,9 +95,9 @@
 					<div class="spotlight">
 						<div class="content main special">
 							<!--	Change the content in the h3 tag to set the congratulatory message	-->
-							{% if message %}
-							<h3>{{message}}</h3>
-							{% endif %}
+							{% if success and application_number %}
+							<h3>{{success}} {{ application_number }}</h3>
+							{% endif	 %}
 						</div>
 					</div>
 					<div class="content">
