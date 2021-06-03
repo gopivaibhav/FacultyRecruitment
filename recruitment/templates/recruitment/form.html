@@ -436,15 +436,6 @@
                                             name="reservation_certificate" disabled>
                                         <label for="reservation_certificate">( If Yes, Upload Certificate )</label>
                                     </div>
-
-                                    <div class="col-3 col-12-small" style="text-align:center;align-self: center;">
-                                        <h3>Present Employer:</h3>
-                                    </div>
-                                    <div class="col-8 col-12-small">
-                                        <input type="text" name="present_employer" id="present_employer" value=""
-                                            placeholder="Present Employer">
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
@@ -462,7 +453,32 @@
                                 </header>
                                 <div class="table-wrapper">
                                     <div class="col-12" style="text-align: center;">
-                                        <h2 style="margin: 0;">Details of Educational Qualifications<font class="asterisk">*</font></h2>
+                                        <h2 style="margin: 0;">Phd Details</h2>
+                                        <h4>(In chronological order starting with the most recent)</h4>
+                                    </div>
+                                    <table class="alt" style="margin-bottom: 0;">
+                                        <tbody class="academic-tbody all-tbody" style="text-align-last:center;">
+                                            <!-- Table Headings -->
+                                            <tr style="align-items:center">
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Examination / Degree</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Name of Board/College/<br>University</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    Grade/ % of Marks</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Subject(s)</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Year of Passing</th>
+                                                <th class="col-3" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
+                                            </tr>
+                                            <!-- Table rows are appended Dynamically (check main.js) -->
+                                        </tbody>
+                                    </table>
+                                <div class="table-wrapper">
+                                    <div class="col-12" style="text-align: center;">
+                                        <h2 style="margin: 0;">Other Educational Qualifications<font class="asterisk">*</font></h2>
                                         <h4>(In chronological order starting with the most recent)</h4>
                                     </div>
                                     <table class="alt" style="margin-bottom: 0;">
@@ -490,25 +506,6 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div class="row gtr-uniform">
-                                    <div class="col-4 col-5-small">
-                                       Whether Ph.D awarded<font class="asterisk">*</font>&nbsp;
-                                    </div>
-                                    <div class="col-5 col-7-small">
-                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdYes"
-                                            value="Yes">
-                                        <label class="form-check-label" for="phdYes">Yes</label>
-                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdNo"
-                                            value="No">
-                                        <label class="form-check-label" for="phdNo">No</label>
-                                    </div>
-                                    <div class="col-4 col-5-small" style="align-self: center;">
-                                        Title of Ph.D thesis Awarded
-                                    </div>
-                                    <div class="col-6 col-7-small">
-                                        <textarea name="phdThesis" id="phdThesis" rows="3"></textarea>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </section>
