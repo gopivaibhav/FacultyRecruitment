@@ -451,7 +451,19 @@
                                 <header class="major headLeft">
                                     <h2>Educational Qualifications</h2>
                                 </header>
-                                <div class="table-wrapper">
+                                <div class="row gtr-uniform">
+                                    <div class="col-4 col-5-small">
+                                       Whether Ph.D awarded<font class="asterisk">*</font>&nbsp;
+                                    </div>
+                                    <div class="col-5 col-7-small">
+                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdYes" value="Yes" onclick="phdTable(event)">
+                                        <label class="form-check-label" for="phdYes">Yes</label>
+                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdNo" value="No" onclick="phdTable2(event)">
+                                        <label class="form-check-label" for="phdNo">No</label>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="table-wrapper" id="phdTableBody">
                                     <div class="col-12" style="text-align: center;">
                                         <h2 style="margin: 0;">Phd Details</h2>
                                         <h4>(In chronological order starting with the most recent)</h4>
@@ -476,6 +488,12 @@
                                             <!-- Table rows are appended Dynamically (check main.js) -->
                                         </tbody>
                                     </table>
+                                    
+                                    <div class="col-12" style="text-align:center">
+                                        <button id="b1" class="but add-more" type="button" style="padding: 0;">Add More</button>
+                                    </div>
+                                    <br>
+                                </div>
                                 <div class="table-wrapper">
                                     <div class="col-12" style="text-align: center;">
                                         <h2 style="margin: 0;">Other Educational Qualifications<font class="asterisk">*</font></h2>
@@ -1410,9 +1428,17 @@
                                             placeholder="Has there been any break in your academic career ?" rows="3"
                                             required></textarea>
                                     </div>
+                                    <div class="col-4 col-12-medium">
+                                        <h4>5. Awards and Recoginition<font class="asterisk">*</font>&nbsp; :</h4>
+                                    </div>
+                                    <div class="col-8 col-12-medium">
+                                        <textarea name="miscTa5" id="miscTa5"
+                                            placeholder="Awards and Recoginition"
+                                            rows="3" required></textarea>
+                                    </div>
 
                                     <div class="col-4 col-12-medium">
-                                        <h4>5. Have you been punished during your services or convicted by a court of
+                                        <h4>6. Have you been punished during your services or convicted by a court of
                                             law ? If so, give details.<font class="asterisk">*</font>&nbsp; :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
@@ -1422,7 +1448,7 @@
                                     </div>
 
                                     <div class="col-4 col-12-medium">
-                                        <h4>6. Were you at any time declared medically unfit or asked to submit your
+                                        <h4>7. Were you at any time declared medically unfit or asked to submit your
                                             resignation or discharged or dismissed? If yes, give details in a separate
                                             sheet.<font class="asterisk">*</font>&nbsp; :</h4>
                                     </div>
@@ -1433,7 +1459,7 @@
                                     </div>
 
                                     <div class="col-6 col-12-medium">
-                                        <h4>7. Name and Addresses of Three references<font class="asterisk">*</font>&nbsp;</h4>
+                                        <h4>8. Name and Addresses of Three references<font class="asterisk">*</font>&nbsp;</h4>
                                     </div>
                                     <div class="col-4 hidden-medium"></div>
                                     <div class="col-4 col-12-medium">
