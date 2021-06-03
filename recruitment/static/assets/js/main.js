@@ -45,6 +45,15 @@ function changeReservation2(e){
     document.getElementById("reservation_certificate").disabled = true;
 }
 
+
+
+function phdTable(e){
+    document.getElementById("phdTableBody").hidden = false;
+}
+function phdTable2(e){
+    document.getElementById("phdTableBody").hidden = true;
+}
+
 function sameAddress(e){
     // document.getElementById("permanentaddress").nodeValue = document.getElementById("mailingaddress").nodeValue;
     //console.log("dsfsdas");
