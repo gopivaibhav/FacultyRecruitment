@@ -10,6 +10,10 @@ from django.contrib import messages
 
 def error404(request,exception):
     return render(request, 'recruitment/error404.html', {});
+
+def loginPage(request):
+    return render(request, 'account/login.html', {});
+
 def handler404(request):
     response = render_to_response('recruitment/error404.html', {},
                                   context_instance=RequestContext(request))
