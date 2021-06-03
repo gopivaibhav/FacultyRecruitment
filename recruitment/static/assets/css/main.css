@@ -3664,6 +3664,7 @@ select:disabled {
 }
 
 .flex-container {
+  margin-top: 3.5rem;
   display: flex;
   flex-direction: row;
   font-size: 30px;
@@ -3797,9 +3798,6 @@ html {
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 
 @media (max-width: 800px) {
-  .flex-container {
-    flex-direction: column;
-  }
   a {
     font-size: large;
   }
