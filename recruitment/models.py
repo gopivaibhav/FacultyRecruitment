@@ -144,13 +144,13 @@ class General(models.Model):
     mobile_number = models.CharField(max_length=15)
     email = models.EmailField(max_length=50)
     gender = models.CharField(max_length=20)
-    marital_status = models.CharField(max_length = 10,choices = (
+    marital_status = models.CharField(max_length = 11,choices = (
                                                         ("Married", "Married"),
                                                         ("Not Married", "Not Married"),
                                                         ))
     nationality = models.CharField(max_length=20)
     state = models.CharField(max_length=50)
-    category = models.CharField(max_length = 10,choices = (
+    category = models.CharField(max_length = 11,choices = (
                                                         ("General", "General"),
                                                         ("OBC-CL", "OBC-CL"),
                                                         ("OBC-NCL", "OBC-NCL"),

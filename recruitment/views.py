@@ -4,7 +4,7 @@ import  re
 from recruitment.models import *
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response
+# from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib import messages
 
@@ -14,11 +14,11 @@ def error404(request,exception):
 def loginPage(request):
     return render(request, 'account/login.html', {});
 
-def handler404(request):
-    response = render_to_response('recruitment/error404.html', {},
-                                  context_instance=RequestContext(request))
-    response.status_code = 404
-    return response
+# def handler404(request):
+#     response = render_to_response('recruitment/error404.html', {},
+#                                   context_instance=RequestContext(request))
+#     response.status_code = 404
+#     return response
 
 def adminLogin(request):
     context = {
