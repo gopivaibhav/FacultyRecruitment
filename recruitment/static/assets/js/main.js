@@ -48,30 +48,39 @@ function changeReservation2(e){
 
 
 function phdTable(e){
-    document.querySelector('#phdongoing').checked=true;
-    document.querySelector('#phdthesissub').checked=true;
-    document.querySelector('#phdawarded').checked=true;
-    document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=false} )
-}
-function phdTable2(e){
     document.querySelector('#phdongoing').checked=false;
     document.querySelector('#phdthesissub').checked=false;
     document.querySelector('#phdawarded').checked=false;
     document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
+    document.querySelector(".phdTableBody").hidden=false;
+    document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=false} )
+}
+function phdTable2(e){
+    document.querySelector('#phdongoing').checked=true;
+    document.querySelector('#phdthesissub').checked=true;
+    document.querySelector('#phdawarded').checked=true;
+    document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
+    document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=true} )
 }
 
 
-document.querySelector('#phdongoing').addEventListener('click', function(){
-    document.querySelector('#ongoingTable').toggleAttribute("hidden");
-})
+function ongoingRadio(e){
+    document.querySelector('#ongoingTable').hidden=false;
+    document.querySelector('#thesisTable').hidden=true;
+    document.querySelector('#awardedTable').hidden=true;
+}
 
-document.querySelector('#phdthesissub').addEventListener('click', function(){
-    document.querySelector('#thesisTable').toggleAttribute("hidden");
-})
+function thesisRadio(){
+    document.querySelector('#ongoingTable').hidden=true;
+    document.querySelector('#thesisTable').hidden=false;
+    document.querySelector('#awardedTable').hidden=true;
+}
 
-document.querySelector('#phdawarded').addEventListener('click', function(){
-    document.querySelector('#awardedTable').toggleAttribute("hidden");
-})
+function awardedRadio(){
+    document.querySelector('#ongoingTable').hidden=true;
+    document.querySelector('#thesisTable').hidden=true;
+    document.querySelector('#awardedTable').hidden=false;
+}
 
 
 function sameAddress(e){

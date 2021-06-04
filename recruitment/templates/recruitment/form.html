@@ -467,41 +467,23 @@
                                     <div class="col-12" style="text-align: center;">
                                         <h2 style="margin: 0;">Ph.D Details</h2>
                                         <br>
-
-
                                         <div class="col-5 col-7-small">
-                                            <input class="form-check-input" type="checkbox" name="phdongoing" id="phdongoing" value="Ongoing" >
+                                            <input class="form-check-input" type="radio" name="phd" id="phdongoing" value="Ongoing" onclick="ongoingRadio(event)" >
                                             <label class="form-check-label" for="phdongoing" style="margin-right: 1rem;">Ongoing &nbsp;</label>
-                                        
-                                            <input class="form-check-input" type="checkbox" name="phdthesissub" id="phdthesissub" value="Thesis Submitted">
+                                            <input class="form-check-input" type="radio" name="phd" id="phdthesissub" value="Thesis Submitted" onclick="thesisRadio(event)">
                                             <label class="form-check-label" for="phdthesissub" style="margin-right: 1rem;">Thesis Submitted &nbsp;</label>
-                                            <input class="form-check-input" type="checkbox" name="phdawarded" id="phdawarded" value="Awarded">
+                                            <input class="form-check-input" type="radio" name="phd" id="phdawarded" value="Awarded" onclick="awardedRadio(event)">
                                             <label class="form-check-label" for="phdawarded">Awarded</label>
                                         </div>
                                     </div>
                                 </div>
-                                        
-
-                                        <!-- <div class="col-4 col-12-small" style="max-width: fit-content;
-                                        margin: auto;">
-                                            <select name="phdStatus" id="phdStatus" placeholder=""
-                                                title="Category" required>
-                                                <option value="" selected disabled>Ph.D Status</option>
-                                                <option value="Ongoing"> Ongoing </option>
-                                                <option value="Thesis Submitted"> Thesis Submitted </option>
-                                                <option value="Awarded"> Awarded </option>
-                                            </select>
-                                        </div>
-                                        <br><br> -->
-
-                                        <br>
-                                        <div class="table-wrapper phdTableBody" id="ongoingTable" hidden>
-                                            <div class="col-12" style="text-align: center;">
-
+                                <br>
+                                <div class="table-wrapper phdTableBody" id="ongoingTable" hidden>
+                                    <div class="col-12" style="text-align: center;">
                                         <!-- <h4>(In chronological order starting with the most recent)</h4> -->
                                         <h3>Ongoing Ph.D</h3>
                                     </div>
-                                    <table class="alt phdTableBody" id="ongoingTable" style="margin-bottom: 0;">
+                                    <table class="alt" id="ongoingTable" style="margin-bottom: 0;">
                                         <tbody class="academic-tbody all-tbody" style="text-align-last:center;">
                                             <!-- Table Headings -->
                                             <tr style="align-items:center">
@@ -523,18 +505,12 @@
                                             <!-- Table rows are appended Dynamically (check main.js) -->
                                         </tbody>
                                     </table>
-                                    
                                     <div class="col-12" style="text-align:center">
                                         <button id="b1" class="but add-more" type="button" style="padding: 0;">Add More</button>
                                     </div>
                                     <br>
                                 </div>
 
-
-
-
-
-                                <br>
                                 <div class="table-wrapper phdTableBody" id="thesisTable" hidden>
                                     <div class="col-12" style="text-align: center;">
                                         <!-- <h2 style="margin: 0;">Phd Details</h2> -->
@@ -563,7 +539,7 @@
                                             <!-- Table rows are appended Dynamically (check main.js) -->
                                         </tbody>
                                     </table>
-                                    
+
                                     <div class="col-12" style="text-align:center">
                                         <button id="b1" class="but add-more" type="button" style="padding: 0;">Add More</button>
                                     </div>
@@ -571,19 +547,13 @@
                                 </div>
 
 
-
-
-
-
-
-                                <br>
                                 <div class="table-wrapper phdTableBody" id="awardedTable" hidden>
                                     <div class="col-12" style="text-align: center;">
                                         <!-- <h2 style="margin: 0;">Phd Details</h2> -->
                                         <!-- <h4>(In chronological order starting with the most recent)</h4> -->
                                         <h3>Awarded</h3>
                                     </div>
-                                    <table class="alt phdTableBody" style="margin-bottom: 0;">
+                                    <table class="alt" style="margin-bottom: 0;">
                                         <tbody class="academic-tbody all-tbody" style="text-align-last:center;">
                                             <!-- Table Headings -->
                                             <tr style="align-items:center">
@@ -605,19 +575,11 @@
                                             <!-- Table rows are appended Dynamically (check main.js) -->
                                         </tbody>
                                     </table>
-                                    
                                     <div class="col-12" style="text-align:center">
                                         <button id="b1" class="but add-more" type="button" style="padding: 0;">Add More</button>
                                     </div>
                                     <br>
                                 </div>
-
-
-
-
-
-
-
 
 
                                 <div class="table-wrapper">
