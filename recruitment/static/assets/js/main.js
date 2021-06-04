@@ -48,11 +48,31 @@ function changeReservation2(e){
 
 
 function phdTable(e){
-    document.getElementById("phdTableBody").hidden = false;
+    document.querySelector('#phdongoing').checked=true;
+    document.querySelector('#phdthesissub').checked=true;
+    document.querySelector('#phdawarded').checked=true;
+    document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=false} )
 }
 function phdTable2(e){
-    document.getElementById("phdTableBody").hidden = true;
+    document.querySelector('#phdongoing').checked=false;
+    document.querySelector('#phdthesissub').checked=false;
+    document.querySelector('#phdawarded').checked=false;
+    document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
 }
+
+
+document.querySelector('#phdongoing').addEventListener('click', function(){
+    document.querySelector('#ongoingTable').toggleAttribute("hidden");
+})
+
+document.querySelector('#phdthesissub').addEventListener('click', function(){
+    document.querySelector('#thesisTable').toggleAttribute("hidden");
+})
+
+document.querySelector('#phdawarded').addEventListener('click', function(){
+    document.querySelector('#awardedTable').toggleAttribute("hidden");
+})
+
 
 function sameAddress(e){
     // document.getElementById("permanentaddress").nodeValue = document.getElementById("mailingaddress").nodeValue;
