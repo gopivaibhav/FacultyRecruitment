@@ -35,7 +35,7 @@ def adminLogin(request):
             context = {
                 'could_not_log_in': True,
             }
-    return render(request,'recruitment/login.html',context)
+    return render(request,'recruitment/adminLogin.html',context)
 
 def profile(request):
     if(request.user.is_superuser == 1):

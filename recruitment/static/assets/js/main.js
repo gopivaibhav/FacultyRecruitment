@@ -60,18 +60,22 @@ function phdTable2(e){
     document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
 }
 
+if( document.querySelector('#phdongoing') !== null ){
+    document.querySelector('#phdongoing').addEventListener('click', function(){
+        document.querySelector('#ongoingTable').toggleAttribute("hidden");
+    })
+}
+    
 
-document.querySelector('#phdongoing').addEventListener('click', function(){
-    document.querySelector('#ongoingTable').toggleAttribute("hidden");
-})
+if( document.querySelector('#phdthesissub') !== null )
+    document.querySelector('#phdthesissub').addEventListener('click', function(){
+        document.querySelector('#thesisTable').toggleAttribute("hidden");
+    })
 
-document.querySelector('#phdthesissub').addEventListener('click', function(){
-    document.querySelector('#thesisTable').toggleAttribute("hidden");
-})
-
-document.querySelector('#phdawarded').addEventListener('click', function(){
-    document.querySelector('#awardedTable').toggleAttribute("hidden");
-})
+if( document.querySelector('#phdawarded') !== null )
+    document.querySelector('#phdawarded').addEventListener('click', function(){
+        document.querySelector('#awardedTable').toggleAttribute("hidden");
+    })
 
 
 function sameAddress(e){
