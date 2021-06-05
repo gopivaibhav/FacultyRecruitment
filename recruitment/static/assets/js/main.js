@@ -48,11 +48,40 @@ function changeReservation2(e){
 
 
 function phdTable(e){
-    document.getElementById("phdTableBody").hidden = false;
+    document.querySelector('#phdongoing').checked=false;
+    document.querySelector('#phdthesissub').checked=false;
+    document.querySelector('#phdawarded').checked=false;
+    document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
+    document.querySelector(".phdTableBody").hidden=false;
+    document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=false} )
 }
 function phdTable2(e){
-    document.getElementById("phdTableBody").hidden = true;
+    document.querySelector('#phdongoing').checked=true;
+    document.querySelector('#phdthesissub').checked=true;
+    document.querySelector('#phdawarded').checked=true;
+    document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
+    document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=true} )
 }
+
+
+function ongoingRadio(e){
+    document.querySelector('#ongoingTable').hidden=false;
+    document.querySelector('#thesisTable').hidden=true;
+    document.querySelector('#awardedTable').hidden=true;
+}
+
+function thesisRadio(){
+    document.querySelector('#ongoingTable').hidden=true;
+    document.querySelector('#thesisTable').hidden=false;
+    document.querySelector('#awardedTable').hidden=true;
+}
+
+function awardedRadio(){
+    document.querySelector('#ongoingTable').hidden=true;
+    document.querySelector('#thesisTable').hidden=true;
+    document.querySelector('#awardedTable').hidden=false;
+}
+
 
 function sameAddress(e){
     // document.getElementById("permanentaddress").nodeValue = document.getElementById("mailingaddress").nodeValue;
