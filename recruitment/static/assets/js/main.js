@@ -63,12 +63,6 @@ function phdTable2(e){
     document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=true} )
 }
 
-if( document.querySelector('#phdongoing') !== null ){
-    document.querySelector('#phdongoing').addEventListener('click', function(){
-        document.querySelector('#ongoingTable').toggleAttribute("hidden");
-    })
-}
-    
 
 function ongoingRadio(e){
     document.querySelector('#ongoingTable').hidden=false;
