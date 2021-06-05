@@ -119,54 +119,6 @@ $('form input').keydown(function (e) {
 });
 
 
-
-
-
-//////////not suree
-
-// $(document).ready(function() {
-//     var newAcademicsNo = 2;
-//     $('.add-more-phd1').on('click touchstart', function(e) {
-//         e.preventDefault();
-
-//         var newIn3 = '<tr id="ongoing1"><td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing1-title"id="ongoing1-title"style="margin: 0; background-color: transparent; border:none;"placeholder="Ph.D Title"></td><td class="col-3"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing1-domain"id="ongoing1-domain"style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Broad Research Domain of Ph.D"></td><td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing1-institute"id="ongoing1-institute"style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Institute Name"></td><td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing1-university"id="ongoing1-university"style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;" placeholder="University Name"></td><td class="col-3"style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="ongoing1-reg-date"id="ongoing1-reg-date"style="border: 0; background: transparent;"></td></tr>'
-
-//         $('.academic-tbody4').append(newIn3);
-
-//         $('form input').keydown(function (e) {
-//             if (e.keyCode === 13) {
-//                 e.preventDefault();
-//                 return false;
-//             }
-//         });
-
-//     });
-// });
-/////////////not sure end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ////////////////   table 1  section B   ///////////////
 
 $(document).ready(function() {
