@@ -12,9 +12,73 @@
 	<noscript>
 		<link rel="stylesheet" href="{% static 'assets/css/noscript.css'%}">
 	</noscript>
-	<title>Faculty Recruitment | IIIT Lucknow</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Login | Faculty Recruitment | IIIT Lucknow</title>
 
 	<style>
+		#all-content{
+			display: flex;
+			justify-content: space-between;
+		}
+		#all-content header{
+			width:50%;
+		}
+		#all-content #main{
+			width:40%;
+			height:25em;
+			margin-top: 5em;
+		}
+		.yahoo:hover {
+			background-color: #54197d !important;
+		}
+		.outlook:hover {
+			background-color: #27272e !important;
+		}
+		.rediff:hover {
+			background-color: #630c0c !important;
+		}
+
+		/* style the container */
+		.container {
+			/* position: relative; */
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 20px 0 30px 0;
+		}
+
+		/* style inputs and link buttons */
+		input, .btn {
+			width: 100%;
+			padding: 12px;
+			border: none;
+			border-radius: 4px;
+			margin: 5px 0;
+			opacity: 0.85;
+			display: inline-block;
+			font-size: 17px;
+			line-height: 20px;
+			text-decoration: none; /* remove underline from anchors */
+		}
+
+		@media screen and (max-width: 738px) {
+  			#all-content {
+    			text-align: -webkit-center;
+				display: block;
+  			}
+			  #all-content header{
+			    width:100%;
+				padding-top: 2em !important;
+		    }
+			#all-content #main{
+				width:60%;
+				margin-top: 0;
+		    }
+		}
+		@media screen and (max-width: 500px) {
+			#all-content #main{
+				width: 85vw;
+		    }
+		}
 
 	</style>
 
@@ -27,87 +91,69 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
-		 <!-- hamburger- for mobile view -->
-		 <span class="menu_btn" onclick="openNav()">&#9776;</span>
+	<div id="all-content">
 
 		<!-- Header -->
 		<header id="header" class="alt">
 			<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
-			<h1>Indian Institute of Information Technology, Lucknow</h1>
+			<h1 style="font-size: xx-large;">Indian Institute of Information Technology, Lucknow</h1>
 			<p>IIIT Lucknow, Chak Ganjaria, C. G. City, Lucknow – 226002<br />
-				Contact: <a
-					href="mailto:contact@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">contact@iiitl.ac.in</a> for
+				Contact: <a href="mailto:contact@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">contact@iiitl.ac.in</a> for
 				more information.</p>
-			<h2>Rolling Advertisement for Faculty Recruitment</h2>
 		</header>
-
-		<!-- Nav -->
-		<nav id="nav">
-			<ul>
-				<li><a href="/"> Back</a></li>
-			</ul>
-		</nav>
-
-		        <!-- Mobile Nav Bar -->
-				<div id="myNav" class=" nav overlay col-0 col-12-medium">
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					<div class="overlay-content">
-						<!-- <div><a href="#advert" onclick="closeNav()">Advertisement</a></div>
-						<div><a href="#spec" onclick="closeNav()">Area of Specialization</a></div>
-						<div><a href="#selec" onclick="closeNav()">Selection Procedure</a></div>
-						<div><a href="{% provider_login_url 'google' %}" onclick="closeNav()">Login</a></div> -->
-					</div>
-				</div>
-				<!-- Mobile Nav Ends here -->
 
 		<!-- Main -->
 		<div id="main">
 			<section>
 
-				<div class="flex-container row">
-					<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
-						<div class="flex-item-left " style="display: flex; justify-content: space-between; ">
-							<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/google_logo2.png" width="15%" >
-							<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center;">
-								Login with Google
-							</span>
-						</div>
-					</a>
-
-					<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
-						<div class="flex-item-right " style="display: flex; justify-content: space-between; ">
-							<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/google_logo2.png" width="15%" height=auto; >
-							<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center; color: white;">
-								Sign Up with Google
-							</span>
-						</div>
-					</a>
+				<div class="row" style="padding: 1em;height: 55vh;">
 					<br>
-					<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
-						<div class="flex-item-left " style="display: flex; justify-content: space-between; ">
-							<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/google_logo2.png" width="15%" >
+					<div class="col">
+					  <a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
+						<div class="flex-item-left outlook" style="display: flex; justify-content: space-between;background-color: #666676;color: white;">
+							<img  style="vertical-align:middle; border-radius: 3px;  " src="https://findicons.com/files/icons/2795/office_2013_hd/2000/outlook.png" width="15%" >
 							<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center;">
-								Login with Google
+								Login with Outlook
 							</span>
 						</div>
-					</a>
-
-					<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
-						<div class="flex-item-right " style="display: flex; justify-content: space-between; ">
-							<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/google_logo2.png" width="15%" height=auto; >
+					  </a>
+					  <a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
+						<div class="flex-item-right yahoo" style="display: flex; justify-content: space-between;background-color: #9447c9; ">
+							<img  style="vertical-align:middle; border-radius: 3px;  " src="https://pcdn.sharethis.com/wp-content/uploads/2019/06/yahoomail-copy.png" width="15%" height=auto; >
 							<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center; color: white;">
-								Sign Up with Google
+								Login with Yahoo!
 							</span>
 						</div>
-					</a>
+						</a>
+						<br>
+						<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
+							<div class="flex-item-left rediff" style="display: flex; justify-content: space-between;color:white;background-color: #d54b4b; ">
+								<img  style="vertical-align:middle; border-radius: 3px;  " src="https://play-lh.googleusercontent.com/hGSAM4FBuxjt7J8UyAc6hhukWSH2RR9_OPZ9Qf5Ui09RL9O_n3q217WEYzqqYpdnQYEr" width="15%" >
+								<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center;">
+									Login with Rediff
+								</span>
+							</div>
+						</a>
+
+						<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
+							<div class="flex-item-right" style="display: flex; justify-content: space-between; ">
+								<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/google_logo2.png" width="15%" height=auto; >
+								<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center; color: white;">
+									Login with Google
+								</span>
+							</div>
+						</a>
+					</div>
 				</div>
 
 			</section>
 
 		</div>
 
+	</div>
+
 		<!-- Footer -->
-		<footer id="footer">
+		<footer id="footer" style="padding-bottom: 1em;">
 			<section>
 				<h2 style="font-size: x-large;">How to Reach Us</h2>
 				<p style="font-size: smaller;">The IIIT Lucknow campus is located at Chak Ganjeria City (C.G. City,
@@ -137,7 +183,7 @@
 						<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>	-->
 				</ul>
 			</section>
-			<p class="copyright">&copy; 2020 <a href="https://iiitl.ac.in" target="###">IIIT Lucknow</a>.</p>
+			<p class="copyright" style="margin:0;">&copy; 2020 <a href="https://iiitl.ac.in" target="###">IIIT Lucknow</a>.</p>
 		</footer>
 
 	</div>
