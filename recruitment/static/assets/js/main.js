@@ -53,14 +53,14 @@ function phdTable(e){
     document.querySelector('#phdawarded').checked=false;
     document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
     document.querySelector(".phdTableBody").hidden=false;
-    document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=false} )
+    // document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=false} )
 }
 function phdTable2(e){
     document.querySelector('#phdongoing').checked=true;
     document.querySelector('#phdthesissub').checked=true;
     document.querySelector('#phdawarded').checked=true;
     document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
-    document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=true} )
+    // document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=true} )
 }
 
 
@@ -145,23 +145,96 @@ $('form input').keydown(function (e) {
 /////////////not sure end
 
 
+////////phd table ongoing
+$(document).ready(function() {
+    var newAcademicsNo = 2;
+    $('.add-more-phd1').on('click touchstart', function(e) {
+        e.preventDefault();
+        var newIn3 = '<tr id="ongoing1">'+
+        '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-title" id="ongoing' + newAcademicsNo + '-title" style="margin: 0; background-color: transparent; border:none;"placeholder="Ph.D Title"></td>'+
+        '<td class="col-3"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-domain" id="ongoing' + newAcademicsNo + '-domain" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Broad Research Domain of Ph.D"></td>'+
+        '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-institute" id="ongoing' + newAcademicsNo + '-institute" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Institute Name"></td>'+
+        '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-university" id="ongoing' + newAcademicsNo + '-university" style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;" placeholder="University Name"></td>'+
+
+        '<td class="col-3" style="padding:0;display:flex;place-content:space-between">' +
+        '<span style="overflow:hidden;align-self:center"><input type="date" name="ongoing' + newAcademicsNo + '-date" id="ongoing' + newAcademicsNo + '-date" style="border: 0; background: transparent;"></span>' +
+        '<span style="display:inline;align-self:center;"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
+        '</td>'+
+        '</tr>'
+
+        $('.ongoing-tbody').append(newIn3);
+
+        $('form input').keydown(function (e) {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+    });
+});
 
 
 
+/////////phd table thesis
+$(document).ready(function() {
+    var newAcademicsNo = 2;
+    $('.add-more-phd2').on('click touchstart', function(e) {
+        e.preventDefault();
+        var newIn3 = '<tr id="thesis1">'+
+        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="thesis' + newAcademicsNo + '-title" id="thesis' + newAcademicsNo + '-title" style="margin: 0; background-color: transparent; border:none;" placeholder="Ph.D Title"></td>'+
+        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="thesis' + newAcademicsNo + '-domain" id="thesis' + newAcademicsNo + '-domain"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Broad Research Domain of Ph.D"></td>'+
+        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="thesis' + newAcademicsNo + '-institute" id="thesis' + newAcademicsNo + '-institute"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Institute Name"></td>'+
+        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="thesis' + newAcademicsNo + '-university" id="thesis' + newAcademicsNo + '-university"  style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;" placeholder="University Name"></td>'+
+        '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="thesis' + newAcademicsNo + '-regdate" id="thesis' + newAcademicsNo + '-regdate"  style="border: 0; background: transparent;"></td>'+
 
+        '<td class="col-3" style="padding:0;display:flex;place-content:space-between">' +
+        '<span style="overflow:hidden;align-self:center"><input type="date" name="thesis' + newAcademicsNo + '-subdate" id="thesis' + newAcademicsNo + '-subdate" style="border: 0; background: transparent;"></span>' +
+        '<span style="display:inline;align-self:center;"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
+        '</td>'+
+        '</tr>'
 
+        $('.thesis-tbody').append(newIn3);
 
+        $('form input').keydown(function (e) {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                return false;
+            }
+        });
 
+    });
+});
 
+///////phd table awarded
+$(document).ready(function() {
+    var newAcademicsNo = 2;
+    $('.add-more-phd3').on('click touchstart', function(e) {
+        e.preventDefault();
+        var newIn3 = '<tr id="thesis1">'+
+        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded' + newAcademicsNo + '-title" id="awarded' + newAcademicsNo + '-title" style="margin: 0; background-color: transparent; border:none;" placeholder="Ph.D Title"></td>'+
+        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded' + newAcademicsNo + '-domain" id="awarded' + newAcademicsNo + '-domain"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Broad Research Domain of Ph.D"></td>'+
+        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded' + newAcademicsNo + '-institute" id="awarded' + newAcademicsNo + '-institute"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Institute Name"></td>'+
+        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded' + newAcademicsNo + '-university" id="awarded' + newAcademicsNo + '-university"  style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;" placeholder="University Name"></td>'+
+        '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="awarded' + newAcademicsNo + '-regdate" id="awarded' + newAcademicsNo + '-regdate"  style="border: 0; background: transparent;"></td>'+
 
+        '<td class="col-3" style="padding:0;display:flex;place-content:space-between">' +
+        '<span style="overflow:hidden;align-self:center"><input type="date" name="awarded' + newAcademicsNo + '-defdate" id="awarded' + newAcademicsNo + '-defdate" style="border: 0; background: transparent;"></span>' +
+        '<span style="display:inline;align-self:center;"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
+        '</td>'+
+        '</tr>'
 
+        $('.awarded-tbody').append(newIn3);
 
+        $('form input').keydown(function (e) {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                return false;
+            }
+        });
 
-
-
-
-
-
+    });
+});
 
 
 

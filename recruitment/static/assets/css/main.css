@@ -3680,7 +3680,7 @@ select:disabled {
   flex: 50%;
   border-radius: 5px;
   margin: 2%;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 .flex-item-right {
