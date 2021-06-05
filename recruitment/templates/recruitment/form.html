@@ -33,17 +33,27 @@
         <!--	Navbar	-->
         <nav id="nav">
             <ul id="nav-list">
-                <li><a href="/accounts/profile/" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">&#8592;</a></li>
-                <li><a href="#basic" class="active" onclick="navActivation(event)"  style="padding-right: 0.6em;padding-left: 0.6em;">Basic Details</a></li>
-                <li><a href="#personal" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">Personal</a></li>
-                <li><a href="#academic" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">Academic</a></li>
-                <li><a href="#professional" onclick="navActivation(event)"style="padding-right: 0.6em;padding-left: 0.6em;">Professional</a></li>
-                <li><a href="#research" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">Research</a></li>
-                <li><a href="#thesis" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">Thesis</a></li>
-                <li><a href="#other" onclick="navActivation(event)" style="padding-right: 0.6em;padding-left: 0.6em;">Other</a></li>
-                <li><a href="#upload" onclick="navActivation(event)"style="padding-right: 0.6em;padding-left: 0.6em;">Declaration</a></li>
+                <li><a href="/accounts/profile/" onclick="navActivation(event)"
+                        style="padding-right: 0.6em;padding-left: 0.6em;">&#8592;</a></li>
+                <li><a href="#basic" class="active" onclick="navActivation(event)"
+                        style="padding-right: 0.6em;padding-left: 0.6em;">Basic Details</a></li>
+                <li><a href="#personal" onclick="navActivation(event)"
+                        style="padding-right: 0.6em;padding-left: 0.6em;">Personal</a></li>
+                <li><a href="#academic" onclick="navActivation(event)"
+                        style="padding-right: 0.6em;padding-left: 0.6em;">Academic</a></li>
+                <li><a href="#professional" onclick="navActivation(event)"
+                        style="padding-right: 0.6em;padding-left: 0.6em;">Professional</a></li>
+                <li><a href="#research" onclick="navActivation(event)"
+                        style="padding-right: 0.6em;padding-left: 0.6em;">Research</a></li>
+                <li><a href="#thesis" onclick="navActivation(event)"
+                        style="padding-right: 0.6em;padding-left: 0.6em;">Thesis</a></li>
+                <li><a href="#other" onclick="navActivation(event)"
+                        style="padding-right: 0.6em;padding-left: 0.6em;">Other</a></li>
+                <li><a href="#upload" onclick="navActivation(event)"
+                        style="padding-right: 0.6em;padding-left: 0.6em;">Declaration</a></li>
                 <li><a style="padding-right: 0.6em;padding-left: 0.6em;">
-                        <form method="post" action="{% url 'account_logout' %}"  onsubmit="return confirm('Do you really wish to Logout?');">
+                        <form method="post" action="{% url 'account_logout' %}"
+                            onsubmit="return confirm('Do you really wish to Logout?');">
                             {% csrf_token %}
                             {% if redirect_field_value %}
                             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
@@ -68,7 +78,8 @@
                 <div><a href="#other" onclick="closeNav()">Other</a></div>
                 <div><a href="#upload" onclick="closeNav()">Declaration</a></div>
                 <div><a>
-                        <form method="post" action="{% url 'account_logout' %}" onsubmit="return confirm('Do you really wish to Logout?');">
+                        <form method="post" action="{% url 'account_logout' %}"
+                            onsubmit="return confirm('Do you really wish to Logout?');">
                             {% csrf_token %}
                             {% if redirect_field_value %}
                             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
@@ -82,24 +93,25 @@
 
         <!-- Main part -->
         <div id="main">
-            
+
             <!-- Content -->
             <section id="content" class="main" style="padding-top: 0;">
 
                 <!--	Congratulatory Message	-->
                 <!--	Start of form	-->
-                <form method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data" onsubmit="return confirm('Do you really want to Submit?');">
+                <form method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data"
+                    onsubmit="return confirm('Do you really want to Submit?');">
                     {% csrf_token %}
-                    
+
                     <!--	Initial Data	-->
                     <section id="basic" class="main alt">
                         <div class="spotlight">
                             <div class="content" style="padding-top: 3em;">
                                 <p></p>
                                 <section style="margin-top: 5rem;">
-                                    <p> 
-                                        <span style="color:red; font-size: larger; font-weight: 500;" > Note: </span>
-                                         All the fields with an (<font class="asterisk">*</font>)&nbsp; are mandatory
+                                    <p>
+                                        <span style="color:red; font-size: larger; font-weight: 500;"> Note: </span>
+                                        All the fields with an (<font class="asterisk">*</font>)&nbsp; are mandatory
                                     </p>
                                 </section>
                                 <header class="major special">
@@ -111,13 +123,15 @@
                                         <!--	Advertisement Number	-->
                                         <div class="row gtr-uniform">
                                             <div class="col-5 col-12-medium">
-                                                <h3 class="topmargin">Advertisement Number<font class="asterisk">*</font>&nbsp;:</h3>
+                                                <h3 class="topmargin">Advertisement Number<font class="asterisk">*
+                                                    </font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium">
                                                 <select name="AdvertNumber" id="AdvertNumber"
                                                     style="background-color: rgba(215, 215, 215, 0.85);"
                                                     title="Cannot be changed for this form" disabled>
-                                                    <option value="Rolling Advertisement No.1" selected disabled>Rolling Advertisement No.1</option>
+                                                    <option value="Rolling Advertisement No.1" selected disabled>Rolling
+                                                        Advertisement No.1</option>
                                                 </select>
                                             </div>
                                             <!--	Application Post	-->
@@ -129,9 +143,12 @@
                                                     <option value="" selected disabled> - None - </option>
                                                     <option value="Professor">Professor</option>
                                                     <option value="Associate Professor">Associate Professor</option>
-                                                    <option value="Assistant Professor Grade 2 Level 10">Assistant Professor Grade 2 Level 10</option>
-                                                    <option value="Assistant Professor Grade 2 Level 11">Assistant Professor Grade 2 Level 11</option>
-                                                    <option value="Assistant Professor Grade 1 Level 12">Assistant Professor Grade 1 Level 12</option>
+                                                    <option value="Assistant Professor Grade 2 Level 10">Assistant
+                                                        Professor Grade 2 Level 10</option>
+                                                    <option value="Assistant Professor Grade 2 Level 11">Assistant
+                                                        Professor Grade 2 Level 11</option>
+                                                    <option value="Assistant Professor Grade 1 Level 12">Assistant
+                                                        Professor Grade 1 Level 12</option>
                                                 </select>
                                             </div>
 
@@ -169,7 +186,9 @@
                                             style="max-width: 100%; max-height: 100%; border-radius: 5vh;" />
                                         <div><input id="imageUpload" type="file" style="font-size: small;"
                                                 name="profile_photo" required>
-                                            <label for="imageUpload" style="text-align:center"><font class="asterisk">*</font>&nbsp;(Upload Profile Picture)</label>
+                                            <label for="imageUpload" style="text-align:center">
+                                                <font class="asterisk">*</font>&nbsp;(Upload Profile Picture)
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -194,10 +213,14 @@
                                         <select name="saluation" id="saluation"
                                             style="padding:0;text-align-last:center;padding-right:50%"
                                             placeholder="Gender" title="Gender" required>
-                                            <option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.</option>
-                                            <option value="Mr. " style="text-align-last: center;">&nbsp;&nbsp; Mr.</option>
-                                            <option value="Mrs. " style="text-align-last: center;">&nbsp;&nbsp; Mrs.</option>
-                                            <option value="Miss " style="text-align-last: center;">&nbsp;&nbsp; Miss</option>
+                                            <option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.
+                                            </option>
+                                            <option value="Mr. " style="text-align-last: center;">&nbsp;&nbsp; Mr.
+                                            </option>
+                                            <option value="Mrs. " style="text-align-last: center;">&nbsp;&nbsp; Mrs.
+                                            </option>
+                                            <option value="Miss " style="text-align-last: center;">&nbsp;&nbsp; Miss
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="col-4 col-8-small">
@@ -302,8 +325,8 @@
                                                     <h3>Telephone No. (With STD Code)</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="text" name="permanenttelephone"
-                                                        id="permanenttelephone" value="" placeholder="Telephone No.">
+                                                    <input type="text" name="permanenttelephone" id="permanenttelephone"
+                                                        value="" placeholder="Telephone No.">
                                                 </div>
                                             </div>
                                         </div>
@@ -453,12 +476,14 @@
                                 </header>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-5-small">
-                                       Whether Ph.D awarded<font class="asterisk">*</font>&nbsp;
+                                        Whether Ph.D awarded<font class="asterisk">*</font>&nbsp;
                                     </div>
                                     <div class="col-5 col-7-small">
-                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdYes" value="Yes" onclick="phdTable(event)">
+                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdYes"
+                                            value="Yes" onclick="phdTable(event)">
                                         <label class="form-check-label" for="phdYes">Yes</label>
-                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdNo" value="No" onclick="phdTable2(event)">
+                                        <input class="form-check-input" type="radio" name="awarded_phd" id="phdNo"
+                                            value="No" onclick="phdTable2(event)">
                                         <label class="form-check-label" for="phdNo">No</label>
                                     </div>
                                 </div>
@@ -468,11 +493,16 @@
                                         <h2 style="margin: 0;">Ph.D Details</h2>
                                         <br>
                                         <div class="col-5 col-7-small">
-                                            <input class="form-check-input" type="radio" name="phd" id="phdongoing" value="Ongoing" onclick="ongoingRadio(event)" >
-                                            <label class="form-check-label" for="phdongoing" style="margin-right: 1rem;">Ongoing &nbsp;</label>
-                                            <input class="form-check-input" type="radio" name="phd" id="phdthesissub" value="Thesis Submitted" onclick="thesisRadio(event)">
-                                            <label class="form-check-label" for="phdthesissub" style="margin-right: 1rem;">Thesis Submitted &nbsp;</label>
-                                            <input class="form-check-input" type="radio" name="phd" id="phdawarded" value="Awarded" onclick="awardedRadio(event)">
+                                            <input class="form-check-input" type="radio" name="phd" id="phdongoing"
+                                                value="Ongoing" onclick="ongoingRadio(event)">
+                                            <label class="form-check-label" for="phdongoing"
+                                                style="margin-right: 1rem;">Ongoing &nbsp;</label>
+                                            <input class="form-check-input" type="radio" name="phd" id="phdthesissub"
+                                                value="Thesis Submitted" onclick="thesisRadio(event)">
+                                            <label class="form-check-label" for="phdthesissub"
+                                                style="margin-right: 1rem;">Thesis Submitted &nbsp;</label>
+                                            <input class="form-check-input" type="radio" name="phd" id="phdawarded"
+                                                value="Awarded" onclick="awardedRadio(event)">
                                             <label class="form-check-label" for="phdawarded">Awarded</label>
                                         </div>
                                     </div>
@@ -486,46 +516,48 @@
                                         <tbody class="ongoing-tbody all-tbody" style="text-align-last:center;">
                                             <!-- Table Headings -->
                                             <tr style="align-items:center">
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">Ph.D title</th>
-                                                <th class="col-3" style="text-align: center;vertical-align: middle;">Broad Research Domain of Ph.D</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">Institute Name</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">University Name</th>
-                                                <th class="col-3" style="text-align: center;vertical-align: middle;">Ph.D Registration Date</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Ph.D title</th>
+                                                <th class="col-3" style="text-align: center;vertical-align: middle;">
+                                                    Broad Research Domain of Ph.D</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Institute Name</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    University Name</th>
+                                                <th class="col-3" style="text-align: center;vertical-align: middle;">
+                                                    Ph.D Registration Date</th>
                                             </tr>
 
 
                                             <tr id="ongoing1">
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="ongoing-title"
-                                                        id="ongoing-title"
+                                                    <input type="text" name="ongoing-title" id="ongoing-title"
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Ph.D Title">
                                                 </td>
                                                 <td class="col-3"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="ongoing-domain"
-                                                        id="ongoing-domain"
+                                                    <input type="text" name="ongoing-domain" id="ongoing-domain"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Broad Research Domain of Ph.D">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
 
-                                                    <input type="text" name="ongoing1-institute"
-                                                        id="ongoing1-institute"
+                                                    <input type="text" name="ongoing1-institute" id="ongoing1-institute"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Institute Name">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="ongoing-university"
-                                                        id="ongoing-university"
-                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;" placeholder="University Name">
+                                                    <input type="text" name="ongoing-university" id="ongoing-university"
+                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;"
+                                                        placeholder="University Name">
                                                 </td>
                                                 <td class="col-3"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="ongoing1-date"
-                                                        id="ongoing1-date"
+                                                    <input type="date" name="ongoing1-date" id="ongoing1-date"
                                                         style="border: 0; background: transparent;">
                                                 </td>
                                             </tr>
@@ -533,7 +565,8 @@
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="" class="but add-more-phd1" type="button" style="padding: 0;">Add More</button>
+                                        <button id="" class="but add-more-phd1" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                     <br>
                                 </div>
@@ -563,48 +596,44 @@
                                             <tr id="thesis1">
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="thesis1-title"
-                                                        id="thesis1-title"
+                                                    <input type="text" name="thesis1-title" id="thesis1-title"
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Ph.D Title">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="thesis1-domain"
-                                                        id="thesis1-domain"
+                                                    <input type="text" name="thesis1-domain" id="thesis1-domain"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Broad Research Domain of Ph.D">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
 
-                                                    <input type="text" name="thesis1-institute"
-                                                        id="thesis1-institute"
+                                                    <input type="text" name="thesis1-institute" id="thesis1-institute"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Institute Name">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="thesis1-university"
-                                                        id="thesis1-university"
-                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;" placeholder="University Name">
+                                                    <input type="text" name="thesis1-university" id="thesis1-university"
+                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;"
+                                                        placeholder="University Name">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="thesis1-regdate"
-                                                        id="thesis1-regdate"
+                                                    <input type="date" name="thesis1-regdate" id="thesis1-regdate"
                                                         style="border: 0; background: transparent;">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="thesis-subdate"
-                                                        id="thesis1-subdate"
+                                                    <input type="date" name="thesis-subdate" id="thesis1-subdate"
                                                         style="border: 0; background: transparent;">
                                                 </td>
                                             </tr>
 
 
                                         </tbody>
-                                    </table>                                    
+                                    </table>
                                     <br>
                                 </div>
 
@@ -628,7 +657,7 @@
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Ph.D Registration Date</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    Ph.D Defence Date</th>                                                
+                                                    Ph.D Defence Date</th>
                                             </tr>
                                             <!-- Table rows are appended Dynamically (check main.js) -->
 
@@ -637,22 +666,20 @@
                                             <tr>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="awarded1-title"
-                                                        id="awarded1-title"
+                                                    <input type="text" name="awarded1-title" id="awarded1-title"
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Ph.D Title">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="awarded1-domain"
-                                                        id="awarded1-domain"
+                                                    <input type="text" name="awarded1-domain" id="awarded1-domain"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Broad Research Domain of Ph.D">
                                                 </td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">
+                                                <td class="col-2"
+                                                    style="text-align: center; padding: 0;vertical-align: middle;">
 
-                                                    <input type="text" name="awarded1-institute"
-                                                        id="awarded1-institute"
+                                                    <input type="text" name="awarded1-institute" id="awarded1-institute"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Institute Name">
 
@@ -661,18 +688,17 @@
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input type="text" name="awarded1-university"
                                                         id="awarded1-university"
-                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;" placeholder="University Name">
+                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;"
+                                                        placeholder="University Name">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="awarded1-regdate"
-                                                        id="awarded1-regdate"
+                                                    <input type="date" name="awarded1-regdate" id="awarded1-regdate"
                                                         style="border: 0; background: transparent;">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="awarded1-defdate"
-                                                        id="awarded1-defdate"
+                                                    <input type="date" name="awarded1-defdate" id="awarded1-defdate"
                                                         style="border: 0; background: transparent;">
                                                 </td>
 
@@ -681,7 +707,8 @@
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="b1" class="but add-more-phd3" type="button" style="padding: 0;">Add More</button>
+                                        <button id="b1" class="but add-more-phd3" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                     <br>
                                 </div>
@@ -689,7 +716,9 @@
 
                                 <div class="table-wrapper">
                                     <div class="col-12" style="text-align: center;">
-                                        <h2 style="margin: 0;">Other Educational Qualifications<font class="asterisk">*</font></h2>
+                                        <h2 style="margin: 0;">Other Educational Qualifications<font class="asterisk">*
+                                            </font>
+                                        </h2>
                                         <h4>(In chronological order starting with the most recent)</h4>
                                     </div>
                                     <table class="alt" style="margin-bottom: 0;">
@@ -713,7 +742,8 @@
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="b1" class="but add-more" type="button" style="padding: 0;">Add More</button>
+                                        <button id="b1" class="but add-more" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                 </div>
                                 <br>
@@ -1252,7 +1282,8 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align:end;">Number of Ongoing PhDs<font class="asterisk">*</font>&nbsp;</h5>
+                                                <h5 style="text-align:end;">Number of Ongoing PhDs<font
+                                                        class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="text" name="ongoing_phd" id="ongoing_phd" required>
@@ -1263,7 +1294,8 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Number of Completed PhDs<font class="asterisk">*</font>&nbsp;</h5>
+                                                <h5 style="text-align: end;">Number of Completed PhDs<font
+                                                        class="asterisk">*</font>&nbsp;</h5>
                                             </div>
 
                                             <div class="col-8 col-12-medium">
@@ -1281,7 +1313,8 @@
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
                                                 <h5 style="text-align: end;">Enter the details of Administrative
-                                                    Positions held in the past 5 years<font class="asterisk">*</font>&nbsp;<br>(Write NA if not applicable)
+                                                    Positions held in the past 5 years<font class="asterisk">*</font>
+                                                    &nbsp;<br>(Write NA if not applicable)
                                                 </h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
@@ -1303,11 +1336,13 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Total number of sponsored projects<font class="asterisk">*</font>&nbsp;</h5>
+                                                <h5 style="text-align: end;">Total number of sponsored projects<font
+                                                        class="asterisk">*</font>&nbsp;</h5>
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" onchange="sponsored_input()" value="" name="spo_tot_number" id="spo_tot_number" required>
+                                                <input type="number" onchange="sponsored_input()" value=""
+                                                    name="spo_tot_number" id="spo_tot_number" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1316,7 +1351,8 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Number of ongoing sponsored projects<font class="asterisk">*</font>&nbsp;</h5>
+                                                <h5 style="text-align: end;">Number of ongoing sponsored projects<font
+                                                        class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="number" name="spo_ongoing" id="spo_ongoing" required>
@@ -1329,7 +1365,8 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Number of completed sponsored projects<font class="asterisk">*</font>&nbsp;</h5>
+                                                <h5 style="text-align: end;">Number of completed sponsored projects<font
+                                                        class="asterisk">*</font>&nbsp;</h5>
                                             </div>
 
                                             <div class="col-8 col-12-medium">
@@ -1369,7 +1406,8 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" onchange="experiments_input(event)" value="" name="exp_tot_number" id="exp_tot_number" required>
+                                                <input type="number" onchange="experiments_input(event)" value=""
+                                                    name="exp_tot_number" id="exp_tot_number" required>
                                             </div>
                                         </div>
 
@@ -1426,7 +1464,8 @@
 
                                     <div class="col-4 col-12-medium" style="align-self: center;">
                                         <h4 style="text-align: end;">
-                                            Please enter patent details, if any<font class="asterisk">*</font>&nbsp;:<br>(Write NA if not applicable)
+                                            Please enter patent details, if any<font class="asterisk">*</font>
+                                            &nbsp;:<br>(Write NA if not applicable)
                                         </h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
@@ -1459,7 +1498,8 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5>2. Total Experience<font class="asterisk">*</font>&nbsp; (in years)</h5>
+                                                <h5>2. Total Experience<font class="asterisk">*</font>&nbsp; (in years)
+                                                </h5>
                                             </div>
 
                                             <div class="col-8 col-12-medium">
@@ -1487,7 +1527,8 @@
                                 <br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>4. Total Ph.D Students Supervised <font class="asterisk">*</font>&nbsp;(Degree Awarded)</h5>
+                                        <h5>4. Total Ph.D Students Supervised <font class="asterisk">*</font>
+                                            &nbsp;(Degree Awarded)</h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
@@ -1510,7 +1551,8 @@
                                 </div><br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>6. Total number of sponsored projects<font class="asterisk">*</font>&nbsp; (Ongoing + Completed)</h5>
+                                        <h5>6. Total number of sponsored projects<font class="asterisk">*</font>&nbsp;
+                                            (Ongoing + Completed)</h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
@@ -1522,7 +1564,8 @@
                                 </div><br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>7. Number of ongoing sponsored projects<font class="asterisk">*</font>&nbsp;</h5>
+                                        <h5>7. Number of ongoing sponsored projects<font class="asterisk">*</font>&nbsp;
+                                        </h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
@@ -1535,7 +1578,8 @@
                                 <br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>8. Total number of experiments/ computational projects<font class="asterisk">*</font>&nbsp;</h5>
+                                        <h5>8. Total number of experiments/ computational projects<font
+                                                class="asterisk">*</font>&nbsp;</h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
@@ -1548,7 +1592,8 @@
                                 <br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>9.Total Number of Publications in SCI / ABDC Journals<font class="asterisk">*</font>&nbsp;</h5>
+                                        <h5>9.Total Number of Publications in SCI / ABDC Journals<font class="asterisk">
+                                                *</font>&nbsp;</h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
@@ -1561,7 +1606,8 @@
                                 <br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>10. Total Number of Publications in SCI / ABDC Journals (Post PhD)<font class="asterisk">*</font>&nbsp;</h5>
+                                        <h5>10. Total Number of Publications in SCI / ABDC Journals (Post PhD)<font
+                                                class="asterisk">*</font>&nbsp;</h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
@@ -1591,7 +1637,8 @@
                                         <h5><b>Note:</b> All Fields are mandatory. Write NA if Not Applicable</h5>
                                     </div>
                                     <div class="col-4 col-12-medium">
-                                        <h4>1. Membership/Fellowship of other institutions/professionals societies<font class="asterisk">*</font>&nbsp;:</h4>
+                                        <h4>1. Membership/Fellowship of other institutions/professionals societies<font
+                                                class="asterisk">*</font>&nbsp;:</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
                                         <textarea name="miscTa1" id="miscTa1"
@@ -1599,7 +1646,8 @@
                                             rows="3" required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
-                                        <h4>2. Other activities/Responsibilities<font class="asterisk">*</font>&nbsp; :</h4>
+                                        <h4>2. Other activities/Responsibilities<font class="asterisk">*</font>&nbsp; :
+                                        </h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
                                         <textarea name="miscTa2" id="miscTa2"
@@ -1607,7 +1655,8 @@
                                             required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
-                                        <h4>3. Any other relevant information, if not given above<font class="asterisk">*</font>&nbsp; :</h4>
+                                        <h4>3. Any other relevant information, if not given above<font class="asterisk">
+                                                *</font>&nbsp; :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
                                         <textarea name="miscTa3" id="miscTa3"
@@ -1616,7 +1665,8 @@
                                     </div>
 
                                     <div class="col-4 col-12-medium">
-                                        <h4>4. Has there been any break in your academic career ? If so, give details<font class="asterisk">*</font>&nbsp; :
+                                        <h4>4. Has there been any break in your academic career ? If so, give details
+                                            <font class="asterisk">*</font>&nbsp; :
                                         </h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
@@ -1628,8 +1678,7 @@
                                         <h4>5. Awards and Recoginition<font class="asterisk">*</font>&nbsp; :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa5" id="miscTa5"
-                                            placeholder="Awards and Recoginition"
+                                        <textarea name="miscTa5" id="miscTa5" placeholder="Awards and Recoginition"
                                             rows="3" required></textarea>
                                     </div>
 
@@ -1655,29 +1704,31 @@
                                     </div>
 
                                     <div class="col-6 col-12-medium">
-                                        <h4>8. Name and Addresses of Three references<font class="asterisk">*</font>&nbsp;</h4>
+                                        <h4>8. Name and Addresses of Three references<font class="asterisk">*</font>
+                                            &nbsp;</h4>
                                     </div>
                                     <div class="col-4 hidden-medium"></div>
                                     <div class="col-4 col-12-medium">
                                         <textarea name="miscTa8" id="miscTa8"
-                                            placeholder="Name and Addresses of First References" rows="3" onchange="references(event)"
-                                            required></textarea>
+                                            placeholder="Name and Addresses of First References" rows="3"
+                                            onchange="references(event)" required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <textarea name="miscTa9" id="miscTa9"
-                                            placeholder="Name and Addresses of Second References" rows="3" onchange="references(event)"
-                                            required></textarea>
+                                            placeholder="Name and Addresses of Second References" rows="3"
+                                            onchange="references(event)" required></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <textarea name="miscTa10" id="miscTa10"
-                                            placeholder="Name and Addresses of Third References" rows="3" onchange="references(event)"
-                                            required></textarea>
+                                            placeholder="Name and Addresses of Third References" rows="3"
+                                            onchange="references(event)" required></textarea>
                                     </div>
 
 
                                     <hr width="100%">
                                     <div id="upload" class="col-12">
-                                        <h4><strong>Declaration to Be Signed by the Candidate<font class="asterisk">*</font>&nbsp;:</strong></h4>
+                                        <h4><strong>Declaration to Be Signed by the Candidate<font class="asterisk">*
+                                                </font>&nbsp;:</strong></h4>
                                     </div>
 
                                     <div class="col-12">
@@ -1724,7 +1775,8 @@
                                             <div>
                                                 <input id="signUpload" type="file" style="font-size: small;"
                                                     name="signUpload" placeholder="Signature" required>
-                                                <label for="signUpload" style="text-align:center">(Upload Signatures)</label>
+                                                <label for="signUpload" style="text-align:center">(Upload
+                                                    Signatures)</label>
                                             </div>
                                         </span>
                                     </div>
@@ -1739,11 +1791,11 @@
                     </div>
                 </form>
                 {% elif user.is_superuser == 1 %}
-                    <section id="main" >
-                        <h2>You are super user</h2>
-                        <a href="/admin/profile"> Back to Dashboard </a>
-                    </section>
-            {% else %}
+                <section id="main">
+                    <h2>You are super user</h2>
+                    <a href="/admin/profile"> Back to Dashboard </a>
+                </section>
+                {% else %}
                 <section id="apply" class="main special">
                     <header class="major">
                         <h2>Apply for Faculty Recruitment</h2>
@@ -1835,25 +1887,25 @@
         }
 
 
-        function navActivation(event){
-            
-        var navList = Array.from(document.getElementById('nav-list').children);
-        var targetList = [];
-        navList.forEach(elem =>{
-            if(elem.children.item(0).className==='active'){
-                elem.children.item(0).classList.toggle('active');
-            }
-        })
-        // console.log();
-        event.target.classList.toggle('active');
+        function navActivation(event) {
+
+            var navList = Array.from(document.getElementById('nav-list').children);
+            var targetList = [];
+            navList.forEach(elem => {
+                if (elem.children.item(0).className === 'active') {
+                    elem.children.item(0).classList.toggle('active');
+                }
+            })
+            // console.log();
+            event.target.classList.toggle('active');
 
         }
 
 
 
 
-        
-        
+
+
     </script>
 
 </body>
