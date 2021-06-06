@@ -92,7 +92,6 @@ def viewMore(request, application_number):
             'category': General.objects.filter(applicant=application_number)[0].category,
             'reservation': General.objects.filter(applicant=application_number)[0].reservation,
             'certificate': General.objects.filter(applicant=application_number)[0].reservation_certificate,
-            'employer': General.objects.filter(applicant=application_number)[0].present_employer
         },
         'otherinformation_data': {
             'membership': OtherInfo.objects.filter(applicant=application_number)[0].membership,
@@ -194,7 +193,6 @@ def submission_form(request):
         general_data['reservation'] = data['reservation']
         if(data.get('reservation') == 'YES'):
             general_data['reservation_certificate'] = request.FILES['reservation_certificate']
-        general_data['present_employer'] = data['present_employer']
         general_data['applicant'] = Applicant.objects.get(application_no=application_number) 
         General.objects.create(**general_data)
         # Other Information
