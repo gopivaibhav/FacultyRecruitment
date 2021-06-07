@@ -109,13 +109,26 @@ def export_csv(request):
         heading_data.append('Supporting Documents- ' + str(i))
     heading_data.append('Total Research Experience')   
     for i in range(1,6):
-        heading_data.append('Name of Employer/Status of Institute/University- ' + str(i))
-        heading_data.append('Post held/Designation- ' + str(i))
-        heading_data.append('Period Of Employment From- ' + str(i))
-        heading_data.append('Period Of Employment To- ' + str(i))
-        heading_data.append('Basic Salary- ' + str(i))
-        heading_data.append('Nature of Duty- ' + str(i))
-        heading_data.append('Supporting Documents- ' + str(i))  
+        heading_data.append('Research Experience- ' + str(i) + 'From')
+        heading_data.append('Research Experience- ' + str(i) + 'To')
+        heading_data.append('Research Experience- ' + str(i) + 'Number of Months')
+        heading_data.append('Research Experience- ' + str(i) + 'Supporting Documents')
+    heading_data.append('Total Number of Books by Candindate')
+    for i in range(1,6):
+        heading_data.append('Title of the Book- ' + str(i))
+        heading_data.append('Whether First Author or Co-author of Book- ' + str(i))
+        heading_data.append('Name of Publisher of Book- ' + str(i))
+        heading_data.append('Month & year of publication of Book- ' + str(i))
+        heading_data.append('ISBN/ISSN No. of Book- ' + str(i))
+        heading_data.append('Supporting Documents of Book- ' + str(i))
+    for i in range(1,6):
+        heading_data.append('Title of the Chapter- ' + str(i))
+        heading_data.append('Title of the Book- ' + str(i))
+        heading_data.append('Whether First Author or Co-author of Chapter- ' + str(i))
+        heading_data.append('Name of Publisher of Chapter- ' + str(i))
+        heading_data.append('Month & year of publication of Chapter- ' + str(i))
+        heading_data.append('ISBN/ISSN No. of Chapter- ' + str(i))
+        heading_data.append('Supporting Documents of Chapter- ' + str(i))
     writer.writerow(heading_data)  
 
     return response
