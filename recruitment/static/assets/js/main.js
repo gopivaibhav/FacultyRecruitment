@@ -68,18 +68,27 @@ function ongoingRadio(e){
     document.querySelector('#ongoingTable').hidden=false;
     document.querySelector('#thesisTable').hidden=true;
     document.querySelector('#awardedTable').hidden=true;
+    document.querySelectorAll("#ongoingTable input").forEach( e =>{e.disabled=false} )
+    document.querySelectorAll("#thesisTable input").forEach( e =>{e.disabled=true} )
+    document.querySelectorAll("#awardedTable input").forEach( e =>{e.disabled=true} )
 }
 
 function thesisRadio(){
     document.querySelector('#ongoingTable').hidden=true;
     document.querySelector('#thesisTable').hidden=false;
     document.querySelector('#awardedTable').hidden=true;
+    document.querySelectorAll("#ongoingTable input").forEach( e =>{e.disabled=true} )
+    document.querySelectorAll("#thesisTable input").forEach( e =>{e.disabled=false} )
+    document.querySelectorAll("#awardedTable input").forEach( e =>{e.disabled=true} )
 }
 
 function awardedRadio(){
     document.querySelector('#ongoingTable').hidden=true;
     document.querySelector('#thesisTable').hidden=true;
     document.querySelector('#awardedTable').hidden=false;
+    document.querySelectorAll("#ongoingTable input").forEach( e =>{e.disabled=true} )
+    document.querySelectorAll("#thesisTable input").forEach( e =>{e.disabled=true} )
+    document.querySelectorAll("#awardedTable input").forEach( e =>{e.disabled=false} )
 }
 
 
