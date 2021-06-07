@@ -53,14 +53,14 @@ function phdTable(e){
     document.querySelector('#phdawarded').checked=false;
     document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
     document.querySelector(".phdTableBody").hidden=false;
-    // document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=false} )
+    document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=false} )
 }
 function phdTable2(e){
     document.querySelector('#phdongoing').checked=true;
     document.querySelector('#phdthesissub').checked=true;
     document.querySelector('#phdawarded').checked=true;
     document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
-    // document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=true} )
+    document.querySelectorAll(".phdTableBody input").forEach( e =>{e.disabled=true} )
 }
 
 
@@ -68,18 +68,27 @@ function ongoingRadio(e){
     document.querySelector('#ongoingTable').hidden=false;
     document.querySelector('#thesisTable').hidden=true;
     document.querySelector('#awardedTable').hidden=true;
+    // document.querySelectorAll("#ongoingTable input").forEach( e =>{e.value=""} )
+    document.querySelectorAll("#thesisTable input").forEach( e =>{e.value=""} )
+    document.querySelectorAll("#awardedTable input").forEach( e =>{e.value=""} )
 }
 
 function thesisRadio(){
     document.querySelector('#ongoingTable').hidden=true;
     document.querySelector('#thesisTable').hidden=false;
     document.querySelector('#awardedTable').hidden=true;
+    document.querySelectorAll("#ongoingTable input").forEach( e =>{e.value=""} )
+    // document.querySelectorAll("#thesisTable input").forEach( e =>{e.disabled=false} )
+    document.querySelectorAll("#awardedTable input").forEach( e =>{e.value=""} )
 }
 
 function awardedRadio(){
     document.querySelector('#ongoingTable').hidden=true;
     document.querySelector('#thesisTable').hidden=true;
     document.querySelector('#awardedTable').hidden=false;
+    document.querySelectorAll("#ongoingTable input").forEach( e =>{e.value=""} )
+    document.querySelectorAll("#thesisTable input").forEach( e =>{e.value=""} )
+    // document.querySelectorAll("#awardedTable input").forEach( e =>{e.disabled=false} )
 }
 
 
