@@ -60,14 +60,51 @@ def export_csv(request):
                         'Defense Date of Awarded PhD ',
                         'Supporting Documents of Awarded PhD',
                     ]
+    heading_data.append('Total Number of Thesis\' Submitted')
     for i in range(1,6):
-        heading_data.append('Title of Thesis Submitted ' + str(i))
-        heading_data.append('Research Domain of Thesis Submitted ' + str(i))
-        heading_data.append('Institute Name of Thesis Submitted ' + str(i))
-        heading_data.append('University Name of Thesis Submitted ' + str(i))
-        heading_data.append('Registration Date of Thesis Submitted ' + str(i))
-        heading_data.append('Submission Date of Thesis Submitted ' + str(i))
-        heading_data.append('Supporting Documents of Thesis Submitted ' + str(i))
+        heading_data.append('Title of Thesis Submitted- ' + str(i))
+        heading_data.append('Research Domain of Thesis Submitted- ' + str(i))
+        heading_data.append('Institute Name of Thesis Submitted- ' + str(i))
+        heading_data.append('University Name of Thesis Submitted- ' + str(i))
+        heading_data.append('Registration Date of Thesis Submitted- ' + str(i))
+        heading_data.append('Submission Date of Thesis Submitted- ' + str(i))
+        heading_data.append('Supporting Documents of Thesis Submitted- ' + str(i))
+    heading_data.append('Total NUmber of PhD\'s Awarded')
+    for i in range(1,6):
+        heading_data.append('Title of Awarded PhD- ' + str(i))
+        heading_data.append('Research Domain of Awarded PhD- ' + str(i))
+        heading_data.append('Institute Name of Awarded PhD- ' + str(i))
+        heading_data.append('University Name of Awarded PhD- ' + str(i))
+        heading_data.append('Registration Date of Awarded PhD- ' + str(i))
+        heading_data.append('Defense Date of Awarded PhD- ' + str(i))
+        heading_data.append('Supporting Documents of Awarded PhD- ' + str(i))
+    heading_data += [
+                        'Institute / University Name - Master\'s Degree or equivalent',
+                        'Percentage Marks / CGPA / CPI - Master\'s Degree or equivalent', 
+                        'Subjects Taken - Master\'s Degree or equivalent', 
+                        'Year of Passing - Master\'s Degree or equivalent', 
+                        'Supporting Documents - Master\'s Degree or Equivalent',
+                        'Institute / University Name - Bachelor\'s Degree or equivalent',
+                        'Percentage Marks / CGPA / CPI - Bachelor\'s Degree or equivalent', 
+                        'Subjects Taken - Bachelor\'s Degree or equivalent', 
+                        'Year of Passing - Bachelor\'s Degree or equivalent', 
+                        'Supporting Documents - Bachelor\'s Degree or Equivalent',
+                        'Institute / University Name - XII or equivalent',
+                        'Percentage Marks / CGPA / CPI - XII or equivalent', 
+                        'Subjects Taken - XII or equivalent', 
+                        'Year of Passing - XII or equivalent', 
+                        'Supporting Documents - XII or Equivalent',
+                        'Institute / University Name - X or equivalent',
+                        'Percentage Marks / CGPA / CPI - X or equivalent', 
+                        'Subjects Taken - X or equivalent', 
+                        'Year of Passing - X or equivalent', 
+                        'Supporting Documents - X or Equivalent',
+                        'Institute / University Name - Diploma or equivalent',
+                        'Percentage Marks / CGPA / CPI - Diploma or equivalent', 
+                        'Subjects Taken - Diploma or equivalent', 
+                        'Year of Passing - Diploma or equivalent', 
+                        'Supporting Documents - Diploma or Equivalent'                                            
+                    ]
     writer.writerow(heading_data)  
 
     return response
