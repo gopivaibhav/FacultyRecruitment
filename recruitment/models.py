@@ -182,7 +182,7 @@ class PhD(models.Model):
                                                         ))
     PhD_details = models.CharField(max_length=11,choices = (
                                                         ("Ongoing", "Ongoing"),
-                                                        ("Submitted", "Thesis Submitted"),
+                                                        ("Submitted", "Submitted"),
                                                         ("Awarded", "Awarded"),
     ))
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='PhD')
