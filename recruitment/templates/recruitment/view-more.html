@@ -19,6 +19,10 @@
 			text-align: -webkit-match-parent;
 			vertical-align: middle;
 		}
+		h2{
+			font-weight: 500;
+			text-align: center;
+		}
 	</style>
 </head>
 
@@ -53,10 +57,10 @@
 					{% csrf_token %}
 					<br>
 					<div class="table-wrapper" style="padding: 2px;">
-						<table	style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+						<table	style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
-									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
+									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
 										Section A
 									</td>
 								</tr>
@@ -66,7 +70,7 @@
 									<td colspan="12" rowspan="5" style="vertical-align: middle;">
 										<div style="max-width: min-content;margin-inline: auto;"><img id="profileImage"
 												class="img-fluid mx-auto" src="{{ applicant_data.profile_photo.url  }}"
-												style="max-width: 16%;min-width: 12em; border-radius: 5vh;padding: 0;" />
+												style="max-width: 16%;min-width: 12em;  padding: 0;" />
 										</div>
 									</td>
 								</tr>
@@ -145,14 +149,14 @@
 										<td colspan="14">
 											<img id="profileImage"
 												class="img-fluid mx-auto" src="{{ general_data.certificate.url  }}"
-												style="max-width: 16%;min-width: 12em; border-radius: 5vh;padding: 0;" />
+												style="max-width: 16%;min-width: 12em;  padding: 0;" />
 										</td>
 									{% endif %}
 								</tr>
-								<tr>
+								<!-- <tr>
 									<td colspan="6">Present Employer</td>
 									<td colspan="18">{{general_data.employer}}</td>
-								</tr>
+								</tr> -->
 
 							</tbody>
 						</table>
@@ -160,16 +164,158 @@
 
 					<!-- Educational Qualifications -->
 					<h2>Academic Details</h2>
-					<!-- Details of Educational Qualifications -->
-					<h4>Details of Educational Qualifications</h4>
 					<div class="table-wrapper" style="padding: 2px;">
-						<table	style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 55vh;"	id="mainTable">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
-									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
+									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
 										Section B
 									</td>
 								</tr>
+								<tr>
+									<td colspan="8" >Whether Ph.D awarded</td>
+									<td colspan="16" style="min-inline-size: 5rem; ">{{PhD.PhD_awarded}}</td>
+								</tr>
+							</tbody>
+							</table>
+							</div>
+					<h4>Ongoing Ph.D</h4>
+					<div class="table-wrapper" style="padding: 2px;">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
+							<tbody class="application-row" style="text-align: center;">
+								<tr style="align-items:center">
+									<th class="col-2" style="text-align: center;vertical-align: middle; ">
+										Ph.D title</th>
+									<th class="col-3" style="text-align: center;vertical-align: middle;">
+										Broad Research Domain of Ph.D</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Institute Name</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										University Name</th>
+									<th class="col-3" style="text-align: center;vertical-align: middle;  ">
+										Ph.D Registration Date</th>
+								</tr>
+
+								<tr>
+									<td >{{PhDOngoing.PhD_title}}</td>
+									<td >{{PhDOngoing.Research_Domain}}</td>
+									<td >{{PhDOngoing.Institute_Name}}</td>
+									<td >{{PhDOngoing.University_Name}}</td>
+									<td >{{PhDOngoing.Registration_Date}}</td>
+									
+									
+									
+								</tr>
+								
+
+							</tbody>
+						</table>
+					</div>
+
+
+
+
+
+
+					<h4>Thesis Submitted</h4>
+
+
+					<div class="table-wrapper" style="padding: 2px;">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
+							<tbody class="application-row" style="text-align: center;">
+								<tr style="align-items:center">
+									<th class="col-2" style="text-align: center;vertical-align: middle;  ">
+										Ph.D title</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Broad Research Domain of Ph.D</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Institute Name</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										University Name</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Ph.D Registration Date</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;  ">
+											Ph.D Submission Date</th>
+								</tr>
+
+								{% for item in ThesisSubmitted %}
+								<tr>
+									<td >{{item.PhD_title}}</td>
+									<td >{{item.Research_Domain}}</td>
+									<td >{{item.Institute_Name}}</td>
+									<td >{{item.University_Name}}</td>
+									<td >{{item.Registration_Date}}</td>
+									<td >{{item.Submission_Date}}</td>
+									
+									
+								</tr>
+								{% endfor %}
+
+							</tbody>
+						</table>
+					</div>
+					<h4>Ph.D Awarded</h4>
+
+					<div class="table-wrapper" style="padding: 2px;">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
+							<tbody class="application-row" style="text-align: center;">
+								<tr style="align-items:center">
+									<th class="col-2" style="text-align: center;vertical-align: middle;  ">
+										Ph.D title</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Broad Research Domain of Ph.D</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Institute Name</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										University Name</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Ph.D Registration Date</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;  ">
+										Ph.D Defence Date</th>
+								</tr>
+
+								{% for item in PhDAwarded %}
+								<tr>
+									<td >{{item.PhD_title}}</td>
+									<td >{{item.Research_Domain}}</td>
+									<td >{{item.Institute_Name}}</td>
+									<td >{{item.University_Name}}</td>
+									<td >{{item.Registration_Date}}</td>
+									<td >{{item.Defense_Date}}</td>
+									
+									
+								</tr>
+								{% endfor %}
+
+							</tbody>
+						</table>
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+					<!-- Details of Educational Qualifications -->
+					<h4>Details of Educational Qualifications</h4>
+					<div class="table-wrapper" style="padding: 2px;">
+						<table	style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 55vh;"	id="mainTable">
+							<tbody class="application-row" style="text-align: center;">
+								<!-- <tr id="app-thead">
+									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
+										Section B
+									</td>
+								</tr> -->
 								<tr id="app-thead">
 									<th colspan="4">Exam/Degree</th>
 									<th colspan="4">Name of Board / College </th>
@@ -200,19 +346,19 @@
 									</td>
 								</tr>
 								{% endfor %}
-								<tr>
+								<!-- <tr>
 									<td colspan="24"></td>
-								</tr>
+								</tr> -->
 
-								<tr>
+								<!-- <tr>
 									<td colspan="8">Whether Ph.D awarded</td>
 									<td colspan="16">{{PhD.PhD_awarded}}</td>
-								</tr>
+								</tr> -->
 
-								<tr>
+								<!-- <tr>
 									<td colspan="8">Ph.D Title</td>
 									<td colspan="16">{{PhD.title_of_thesis}}</td>
-								</tr>
+								</tr> -->
 
 							</tbody>
 						</table>
@@ -223,11 +369,11 @@
 					<!-- Details of Employment Experience -->
 					<h4>Details of Employment Experience</h4>
 					<div class="table-wrapper" style="padding: 2px;">
-						<table	style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+						<table	style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="font-size: 0.92em;text-align: center;">
 								<tr>
 									<td colspan="4"
-										style="border-top-left-radius: 1rem;max-inline-size: 40vh;font-size: 0.9em;">
+										style=" max-inline-size: 40vh;font-size: 0.9em;">
 										Name of Employer/ Status of Institute/ University<br>
 										<font style="font-size: x-small;">( Govt./ Quasi Govt./ Autonomous etc. )</font>
 									</td>
@@ -235,7 +381,7 @@
 									<td colspan="8" style="inline-size: 25%;">Period Of Employment<br>(From and To)</td>
 									<td colspan="2">Basic Salary</td>
 									<td colspan="2">Nature of Duty</td>
-									<td colspan="4" style="border-top-right-radius: 1rem;">Supporting Documents</td>
+									<td colspan="4" style=" ">Supporting Documents</td>
 								</tr>
 
 								{% for item in ProfessionalDetails %}
@@ -265,14 +411,14 @@
 					<h4>Research Experience</h4>
 					<div class="table-wrapper" style="padding: 2px;">
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr>
-									<td colspan="6" style="border-top-left-radius: 1rem;min-inline-size: 12vh;">From
+									<td colspan="6" style=" min-inline-size: 12vh;">From
 									</td>
 									<td colspan="6" style="min-inline-size: 12vh;">To</td>
 									<td colspan="6">Numbers of Months</td>
-									<td colspan="6" style="border-top-right-radius: 1rem;">Supporting Documents</td>
+									<td colspan="6" style=" ">Supporting Documents</td>
 								</tr>
 
 								{% for item in ResearchExperienceDetails %}
@@ -302,17 +448,17 @@
 						<h4>Books- Self authored /co-authored/ edited</h4>
 
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr>
-									<td colspan="4" style="border-top-left-radius: 1rem;">Title of the Book(s)</td>
+									<td colspan="4" style=" ">Title of the Book(s)</td>
 									<td colspan="4">Whether First Author or Co-author</td>
 									<td colspan="4">Name of Publisher<br>
 										<font style="font-size: small;">(with city/ country)</font>
 									</td>
 									<td colspan="4">Month & year of publication</td>
 									<td colspan="4">ISBN/ISSN No.</td>
-									<td colspan="4" style="border-top-right-radius: 1rem;">Supporting Documents</td>
+									<td colspan="4" style=" ">Supporting Documents</td>
 								</tr>
 
 								{% for item in BooksDetails %}
@@ -343,10 +489,10 @@
 						<h4>Chapters contributed in edited books</h4>
 
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr>
-									<td colspan="4" style="border-top-left-radius: 1rem;">Title of the Chapter(s)</td>
+									<td colspan="4" style=" ">Title of the Chapter(s)</td>
 									<td colspan="4">Title of the Book(s)</td>
 									<td colspan="2">Whether First Author or Co-author</td>
 									<td colspan="4">Name of Publisher<br>
@@ -354,7 +500,7 @@
 									</td>
 									<td colspan="4">Month & year of publication</td>
 									<td colspan="2">ISBN/ ISSN No.</td>
-									<td colspan="4" style="border-top-right-radius: 1rem;">Supporting Documents</td>
+									<td colspan="4" style=" ">Supporting Documents</td>
 								</tr>
 
 								{% for item in ChaptersDetails %}
@@ -387,10 +533,10 @@
 						</h4>
 
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align:center;">
 								<tr>
-									<td colspan="3" style="border-top-left-radius: 1rem;">Title of research
+									<td colspan="3" style=" ">Title of research
 										article/paper(s)</td>
 									<td colspan="3">Name of journal</td>
 									<td colspan="2">Whether First Author or Co-author</td>
@@ -398,7 +544,7 @@
 									<td colspan="3">Volume no. & Page nos.</td>
 									<td colspan="3">Whether Referred/Non-referred</td>
 									<td colspan="2">Impact Factor</td>
-									<td colspan="4" style="border-top-right-radius: 1rem;">Supporting Documents</td>
+									<td colspan="4" style=" ">Supporting Documents</td>
 								</tr>
 
 								{% for item in NewspapersArticlesDetails %}
@@ -432,10 +578,10 @@
 							Symposium. Indicate whether the Conference Proceedings are published.</h4>
 
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr>
-									<td colspan="4" style="border-top-left-radius: 1rem;">Title/Subject of paper
+									<td colspan="4" style=" ">Title/Subject of paper
 										presented</td>
 									<td colspan="4">Subject of Conference /Seminar/Symposium/ Workshop</td>
 									<td colspan="4">Organizing Institution & Name of City/Country </td>
@@ -443,7 +589,7 @@
 										<font style="font-size: 0.75rem;">(From and To)<font>
 									</td>
 									<td colspan="4">Whether the proceedings published</td>
-									<td colspan="4" style="border-top-right-radius: 1rem;">Supporting Documents</td>
+									<td colspan="4" style=" ">Supporting Documents</td>
 								</tr>
 
 								{% for item in SeminarArticles %}
@@ -476,11 +622,11 @@
 						<h4>1. Thesis Supervision</h4>
 
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; ">
 							<tbody class="application-row">
 								<tr>
-									<td colspan="8" style="border-top-left-radius: 1rem;">Number of Ongoing PhDs</td>
-									<td colspan="16" style="inline-size: 50%;border-top-right-radius: 1rem;">
+									<td colspan="8" style=" ">Number of Ongoing PhDs</td>
+									<td colspan="16" style="inline-size: 50%; ">
 										{{thesis_data.ongoing_phd}}</td>
 								</tr>
 								<tr>
@@ -497,12 +643,12 @@
 						<h4>2. Administrative Details</h4>
 
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; ">
 							<tbody class="application-row">
 								<tr>
-									<td colspan="8" style="border-top-left-radius: 1rem;">Enter the details of
+									<td colspan="8" style=" ">Enter the details of
 										Administrative Positions held in the past 5 years</td>
-									<td colspan="16" style="inline-size: 50%;border-top-right-radius: 1rem;">
+									<td colspan="16" style="inline-size: 50%; ">
 										{{administrative_details_data.administrative_details}}</td>
 								</tr>
 							</tbody>
@@ -514,14 +660,14 @@
 					<div class="table-wrapper" style="padding: 2px;">
 
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr>
-									<td colspan="4" style="border-top-left-radius: 1rem;inline-size: 30%;">Total number
+									<td colspan="4" style=" inline-size: 30%;">Total number
 										of sponsored projects</td>
 									<td colspan="8" style="inline-size: 20%;">{{SponsoredProjects.spo_tot_number}}</td>
 									<td colspan="4">Number of ongoing sponsored projects</td>
-									<td colspan="8" style="border-top-right-radius: 1rem;inline-size: 20%;">
+									<td colspan="8" style=" inline-size: 20%;">
 										{{SponsoredProjects.spo_ongoing}}</td>
 								</tr>
 								<tr>
@@ -544,14 +690,14 @@
 					<div class="table-wrapper" style="padding: 2px;">
 
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr>
-									<td colspan="4" style="border-top-left-radius: 1rem;inline-size: 30%;">Total number
+									<td colspan="4" style=" inline-size: 30%;">Total number
 										of experiments/ computational projects</td>
 									<td colspan="8" style="inline-size: 20%;">{{Experiments.exp_tot_number}}</td>
 									<td colspan="4">Number of ongoing experiments/ computational projects</td>
-									<td colspan="8" style="border-top-right-radius: 1rem;inline-size: 20%;">
+									<td colspan="8" style=" inline-size: 20%;">
 										{{Experiments.exp_ongoing}}</td>
 								</tr>
 								<tr>
@@ -574,12 +720,12 @@
 					<div class="table-wrapper" style="padding: 2px;">
 
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; ">
 							<tbody class="application-row">
 								<tr>
-									<td colspan="8" style="border-top-left-radius: 1rem;">Please enter patent details,
+									<td colspan="8" style=" ">Please enter patent details,
 										if any:</td>
-									<td colspan="16" style="inline-size: 65%;border-top-right-radius: 1rem;">
+									<td colspan="16" style="inline-size: 65%; ">
 										{{Patent.patent_details}}</td>
 								</tr>
 							</tbody>
@@ -590,14 +736,14 @@
 					<div class="table-wrapper" style="padding: 2px;">
 
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row">
 								<tr>
-									<td colspan="4" style="inline-size: 30%;border-top-left-radius: 1rem;">Ph.D Defence
+									<td colspan="4" style="inline-size: 30%; ">Ph.D Defence
 										Date</td>
 									<td colspan="4" style="inline-size: 20%;">{{Summary.defence_date}}</td>
 									<td colspan="8" style="inline-size: 30%;">Total Experience (in years)</td>
-									<td colspan="8" style="border-top-right-radius: 1rem;">{{Summary.total_exp}}</td>
+									<td colspan="8" style=" ">{{Summary.total_exp}}</td>
 								</tr>
 								<tr>
 									<td colspan="8">Experience (Post PhD)</td>
@@ -638,12 +784,12 @@
 
 					<div class="table-wrapper" style="padding: 2px;">
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;"
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;"
 							id="mainTable">
 							<tbody class="application-row">
 								<tr id="app-thead">
 									<td colspan="24"
-										style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
+										style="    border-bottom: 1px solid #a6a6a6;">
 										Section F</td>
 								</tr>
 
@@ -692,12 +838,12 @@
 
 					<div class="table-wrapper" style="padding: 2px;">
 						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;"
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;"
 							id="mainTable">
 							<tbody class="application-row">
 								<tr id="app-thead">
 									<td colspan="24"
-										style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
+										style="    border-bottom: 1px solid #a6a6a6;">
 										Declaration
 									</td>
 								</tr>
@@ -708,7 +854,7 @@
 									<td colspan="12" rowspan="2" style="vertical-align: middle;">
 										<div style="max-width: min-content;margin-inline: auto;"><img id="profileImage"
 												class="img-fluid mx-auto" src="{{ signed_data.signature.url }}"
-												style="max-width: 15em;min-width: 8em;max-height: 8em; border-radius: 5vh;padding: 0;" />
+												style="max-width: 15em;min-width: 8em;max-height: 8em;  padding: 0;" />
 										</div>
 										<div>Signatures</div>
 									</td>
