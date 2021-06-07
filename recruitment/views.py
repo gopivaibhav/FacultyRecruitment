@@ -46,19 +46,12 @@ def export_csv(request):
                         'Reservation Certificate',
                         'PhD Awarded',
                         'PhD Status',
-                        'Ongoing PhD Title',
-                        'Ongoing PhD Research Domain',
-                        'Ongoing PhD Institute Name',
-                        'Ongoing PhD University Name',
-                        'Ongoing PhD Registration Date',
-                        'Ongoing PhD Supporting Documents',
-                        'Title of Awarded PhD',
-                        'Research Domain of Awarded PhD',
-                        'Institute Name of Awarded PhD',
-                        'University of Awarded PhD',
-                        'Registration of Awarded PhD',
-                        'Defense Date of Awarded PhD ',
-                        'Supporting Documents of Awarded PhD',
+                        'Title of Ongoing PhD',
+                        'Research Domain of Ongoing PhD',
+                        'Institute Name of Ongoing PhD',
+                        'University Name of Ongoing PhD',
+                        'Registration Date of Ongoing PhD',
+                        'Supporting Documents of Ongoing PhD',
                     ]
     heading_data.append('Total Number of Thesis\' Submitted')
     for i in range(1,6):
@@ -103,8 +96,26 @@ def export_csv(request):
                         'Percentage Marks / CGPA / CPI - Diploma or equivalent', 
                         'Subjects Taken - Diploma or equivalent', 
                         'Year of Passing - Diploma or equivalent', 
-                        'Supporting Documents - Diploma or Equivalent'                                            
+                        'Supporting Documents - Diploma or Equivalent',
+                        'Total Number of Employers',                                       
                     ]
+    for i in range(1,6):
+        heading_data.append('Name of Employer/Status of Institute/University- ' + str(i))
+        heading_data.append('Post held/Designation- ' + str(i))
+        heading_data.append('Period Of Employment From- ' + str(i))
+        heading_data.append('Period Of Employment To- ' + str(i))
+        heading_data.append('Basic Salary- ' + str(i))
+        heading_data.append('Nature of Duty- ' + str(i))
+        heading_data.append('Supporting Documents- ' + str(i))
+    heading_data.append('Total Research Experience')   
+    for i in range(1,6):
+        heading_data.append('Name of Employer/Status of Institute/University- ' + str(i))
+        heading_data.append('Post held/Designation- ' + str(i))
+        heading_data.append('Period Of Employment From- ' + str(i))
+        heading_data.append('Period Of Employment To- ' + str(i))
+        heading_data.append('Basic Salary- ' + str(i))
+        heading_data.append('Nature of Duty- ' + str(i))
+        heading_data.append('Supporting Documents- ' + str(i))  
     writer.writerow(heading_data)  
 
     return response
