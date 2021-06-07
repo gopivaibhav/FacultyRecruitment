@@ -215,7 +215,7 @@ $(document).ready(function() {
         '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="awarded' + newAcademicsNo + '-regdate" id="awarded' + newAcademicsNo + '-regdate"  style="border: 0; background: transparent;"></td>'+
         '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="awarded' + newAcademicsNo + '-defdate" id="awarded' + newAcademicsNo + '-defdate" style="border: 0; background: transparent;"></td>'+
 
-        '<td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="thesis' + newAcademicsNo + '-file" name="thesis' + newAcademicsNo + '-file"></span>' +
+        '<td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="awarded' + newAcademicsNo + '-file" name="awarded' + newAcademicsNo + '-file"></span>' +
         '<span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
         '</td></tr>'
 
