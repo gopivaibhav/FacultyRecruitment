@@ -303,11 +303,11 @@ def submission_form(request):
             PhD.objects.create(**phd_data)
             if(data['PhD_details'] == "Ongoing"):
                 ongoing_data = {}
-                ongoing_data['PhD_title'] = "N/A"
-                ongoing_data['Research_Domain'] = "N/A"
-                ongoing_data['Institute_Name'] = "N/A"
-                ongoing_data['University_Name'] = "N/A"
-                ongoing_data['Registration_Date'] = "N/A"
+                ongoing_data['PhD_title'] = data['ongoing1-title']
+                ongoing_data['Research_Domain'] = data['ongoing1-domain']
+                ongoing_data['Institute_Name'] = data['ongoing1-institute']
+                ongoing_data['University_Name'] = data['ongoing1-university']
+                ongoing_data['Registration_Date'] = data['ongoing1-regdate']
                 PhDOngoing.objects.create(**ongoing_data)
                 submitted_data = {}
                 submitted_data['PhD_title'] = "N/A"
@@ -334,12 +334,12 @@ def submission_form(request):
                 ongoing_data['Registration_Date'] = "N/A"
                 PhDOngoing.objects.create(**ongoing_data)
                 submitted_data = {}
-                submitted_data['PhD_title'] = "N/A"
-                submitted_data['Research_Domain'] = "N/A"
-                submitted_data['Institute_Name'] = "N/A"
-                submitted_data['University_Name'] = "N/A"
-                submitted_data['Registration_Date'] = "N/A"
-                submitted_data['Submission_Date'] = "N/A"
+                submitted_data['PhD_title'] = data['thesis1-title']
+                submitted_data['Research_Domain'] = data['thesis1-domain']
+                submitted_data['Institute_Name'] = data['thesis1-institute']
+                submitted_data['University_Name'] = data['thesis1-university']
+                submitted_data['Registration_Date'] = data['thesis1-regdate']
+                submitted_data['Submission_Date'] = data['thesis1-subdate']
                 ThesisSubmitted.objects.create(**submitted_data)
                 awarded_data= {},
                 awarded_data['PhD_title'] = "N/A"
@@ -365,13 +365,21 @@ def submission_form(request):
                 submitted_data['Registration_Date'] = "N/A"
                 submitted_data['Submission_Date'] = "N/A"
                 ThesisSubmitted.objects.create(**submitted_data)
-                awarded_data= {},
-                awarded_data['PhD_title'] = "N/A"
-                awarded_data['Research_Domain'] = "N/A"
-                awarded_data['Institute_Name'] = "N/A"
-                awarded_data['University_Name'] = "N/A"
-                awarded_data['Registration_Date'] = "N/A"
-                awarded_data['Submission_Date'] = "N/A"
+                num_of_awarded_records = list(filter(lambda s: 'awarded' in s,list(data.keys())))
+                num_of_awarded_records_length = len(num_of_awarded_records)
+                last_awarded_record = num_of_awarded_records[num_of_awarded_records_length-1]
+                number_awarded_record =  last_awarded_record['7']
+                for i in range(1,int(number_awarded_record)+1):
+                    if(data.get('awarded'+str(i),False) == False):
+                        continue
+                    else:
+                        awarded_data= {},
+                        awarded_data['PhD_title'] = data.get('awarded'+str(i)+'-title',False)
+                        awarded_data['Research_Domain'] = data.get('awarded'+str(i)+'-domain',False)
+                        awarded_data['Institute_Name'] = data.get('awarded'+str(i)+'-institute',False)
+                        awarded_data['University_Name'] = data.get('awarded'+str(i)+'-university',False)
+                        awarded_data['Registration_Date'] = data.get('awarded'+str(i)+'-regdate',False)
+                        awarded_data['Submission_Date'] = data.get('awarded'+str(i)+'-defdate',False)
         # Academic Details
         num_of_academic_records = list(filter(lambda s: 'course' in s,list(data.keys())))
         num_of_academic_records_length = len(num_of_academic_records)
