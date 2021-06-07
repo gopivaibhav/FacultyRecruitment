@@ -23,6 +23,9 @@
 			font-weight: 500;
 			text-align: center;
 		}
+		.headingfont{
+			font-weight: 400;
+		}
 	</style>
 </head>
 
@@ -56,7 +59,7 @@
 				<form method="GET" enctype="multipart/form-data">
 					{% csrf_token %}
 					<br>
-					<div class="table-wrapper" style="padding: 2px;">
+					<div class="table-wrapper section_a" style="padding: 2px;">
 						<table	style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
@@ -67,7 +70,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="6">Application No.</td>
+									<td class="headingfont" colspan="6">Application No.</td>
 									<td colspan="6">{{applicant_data.application_number}}</td>
 									<td colspan="12" rowspan="5" style="vertical-align: middle;">
 										<div style="max-width: min-content;margin-inline: auto;"><img id="profileImage"
@@ -77,73 +80,73 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="6">Post</td>
+									<td class="headingfont" colspan="6">Post</td>
 									<td colspan="6">{{applicant_data.post}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Department/School</td>
+									<td class="headingfont" colspan="6">Department/School</td>
 									<td colspan="6">{{applicant_data.department}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Research Domain</td>
+									<td class="headingfont" colspan="6">Research Domain</td>
 									<td colspan="6">{{applicant_data.reserach_domain}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Full Name</td>
+									<td class="headingfont" colspan="6">Full Name</td>
 									<td colspan="6">{{general_data.full_name}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Date of Birth</td>
+									<td class="headingfont" colspan="6">Date of Birth</td>
 									<td colspan="6">{{general_data.DOB}}</td>
-									<td colspan="6">Category</td>
+									<td class="headingfont" colspan="6">Category</td>
 									<td colspan="6">{{general_data.category}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Father's Name</td>
+									<td class="headingfont" colspan="6">Father's Name</td>
 									<td colspan="18">{{general_data.father_name}}</td>
 								</tr>
 								<tr>
 									<td colspan="24"></td>
 								</tr>
 								<tr>
-									<td colspan="6" style="inline-size: 25%;">Mailing Address</td>
+									<td class="headingfont" colspan="6" style="inline-size: 25%;">Mailing Address</td>
 									<td colspan="6" style="inline-size: 25%;">{{general_data.address_mail}}</td>
-									<td colspan="6" style="inline-size: 25%;">Permanent Address</td>
+									<td class="headingfont" colspan="6" style="inline-size: 25%;">Permanent Address</td>
 									<td colspan="6" style="inline-size: 25%;">{{general_data.address_perm}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Mailing Pincode</td>
+									<td class="headingfont" colspan="6">Mailing Pincode</td>
 									<td colspan="6">{{general_data.pin_mail}}</td>
-									<td colspan="6">Permanent Pincode</td>
+									<td class="headingfont" colspan="6">Permanent Pincode</td>
 									<td colspan="6">{{general_data.pin_perm}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Mailing Telephone</td>
+									<td class="headingfont" colspan="6">Mailing Telephone</td>
 									<td colspan="6">{{general_data.telephone_mail}}</td>
-									<td colspan="6">Permanent Telephone</td>
+									<td class="headingfont" colspan="6">Permanent Telephone</td>
 									<td colspan="6">{{general_data.telephone_perm}}</td>
 								</tr>
 								<tr>
 									<td colspan="24"></td>
 								</tr>
 								<tr>
-									<td colspan="6">State of Domicile</td>
+									<td class="headingfont" colspan="6">State of Domicile</td>
 									<td colspan="6">{{general_data.state}}</td>
-									<td colspan="6">Nationality</td>
+									<td class="headingfont" colspan="6">Nationality</td>
 									<td colspan="6">{{general_data.nationality}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Mobile No.</td>
+									<td class="headingfont" colspan="6">Mobile No.</td>
 									<td colspan="6">{{general_data.mobile_number}}</td>
-									<td colspan="6">Gender</td>
+									<td class="headingfont" colspan="6">Gender</td>
 									<td colspan="6">{{general_data.gender}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Email ID</td>
+									<td class="headingfont" colspan="6">Email ID</td>
 									<td colspan="18">{{general_data.email}}</td>
 								</tr>
 								<tr>
-									<td colspan="6">Reservation Status<br>(with Certificate)</td>
+									<td class="headingfont" colspan="6">Reservation Status<br>(with Certificate)</td>
 									<td colspan="4" style="vertical-align: middle;">{{general_data.reservation}}</td>
 									{% if general_data.reservation == "No" %}
 										<td colspan="14">{{general_data.certificate}}</td>
@@ -164,20 +167,25 @@
 						</table>
 					</div>
 
+
+
+
+
+
 					<!-- Educational Qualifications -->
-					
-					<div class="table-wrapper" style="padding: 2px;">
+
+					<div class="table-wrapper section_b" style="padding: 2px;">
 						<table
 							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
 									<td colspan="24" style="font-weight: 500; font-size: 1.8rem;  border-bottom: 1px solid #a6a6a6;">
-										Section B 
+										Section B
 										<span style="display: block;  font-size: 1.2rem;" >(Academic Details)</span>
 									</td>
 								</tr>
 								<tr>
-									<td colspan="16" >Whether Ph.D awarded</td>
+									<td colspan="16"  class="headingfont" >Whether Ph.D awarded</td>
 									<td colspan="8" style="min-inline-size: 5rem; ">{{PhD.PhD_awarded}}</td>
 								</tr>
 
@@ -260,7 +268,7 @@
 
 
 								<tr id="app-thead">
-									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
+									<td colspan="24" style=" border-bottom: 1px solid #a6a6a6;">
 										Ph.D Awarded
 									</td>
 								</tr>
@@ -337,119 +345,13 @@
 								{% endfor %}
 
 							</tbody>
-							</table>
-							</div>
-					<!-- <div class="table-wrapper" style="padding: 2px;">
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
-							<tbody class="application-row" style="text-align: center;">
-								
-
-
-
-
-
-
-							</tbody>
 						</table>
-					</div> -->
-
-
-
-
-
-
-					
-
-<!-- 
-					<div class="table-wrapper" style="padding: 2px;">
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
-							<tbody class="application-row" style="text-align: center;">
-								
-
-							</tbody>
-						</table>
-					</div> -->
-					<!-- <h4></h4>
-
-					<div class="table-wrapper" style="padding: 2px;">
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
-							<tbody class="application-row" style="text-align: center;">
-								<tr style="align-items:center">
-									<th class="col-2" style="text-align: center;vertical-align: middle;  ">
-										Ph.D title</th>
-									<th class="col-2" style="text-align: center;vertical-align: middle;">
-										Broad Research Domain of Ph.D</th>
-									<th class="col-2" style="text-align: center;vertical-align: middle;">
-										Institute Name</th>
-									<th class="col-2" style="text-align: center;vertical-align: middle;">
-										University Name</th>
-									<th class="col-2" style="text-align: center;vertical-align: middle;">
-										Ph.D Registration Date</th>
-									<th class="col-2" style="text-align: center;vertical-align: middle;  ">
-										Ph.D Defence Date</th>
-								</tr>
-
-								{% for item in PhDAwarded %}
-								<tr>
-									<td >{{item.PhD_title}}</td>
-									<td >{{item.Research_Domain}}</td>
-									<td >{{item.Institute_Name}}</td>
-									<td >{{item.University_Name}}</td>
-									<td >{{item.Registration_Date}}</td>
-									<td >{{item.Defense_Date}}</td>
-								</tr>
-								{% endfor %}
-
-							</tbody>
-						</table>
-					</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-					<!-- Details of Educational Qualifications -->
-					<!-- <h4</h4>
-					<div class="table-wrapper" style="padding: 2px;">
-						<table	style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 55vh;"	id="mainTable">
-							<tbody class="application-row" style="text-align: center;"> -->
-								<!-- <tr id="app-thead">
-									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
-										Section B
-									</td>
-								</tr> -->
-								
-								<!-- <tr>
-									<td colspan="24"></td>
-								</tr> -->
-
-								<!-- <tr>
-									<td colspan="8">Whether Ph.D awarded</td>
-									<td colspan="16">{{PhD.PhD_awarded}}</td>
-								</tr> -->
-
-								<!-- <tr>
-									<td colspan="8">Ph.D Title</td>
-									<td colspan="16">{{PhD.title_of_thesis}}</td>
-								</tr> -->
-
+					</div>
 
 
 					<!-- Professional Details / SECTION - C	 -->
-					<h2></h2>
 					<!-- Details of Employment Experience -->
-					<h4></h4>
-					<div class="table-wrapper" style="padding: 2px;">
+					<div class="table-wrapper section_c" style="padding: 2px;">
 						<table	style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="font-size: 0.92em;text-align: center;">
 
@@ -479,7 +381,7 @@
 									<th colspan="4" style=" ">Supporting Documents</th>
 								</tr>
 
-								{% for item in ProfessionalDhtails %}
+								{% for item in ProfessionalDetails %}
 								<tr>
 									<td colspan="4">{{item.name}}</td>
 									<td colspan="4">{{item.post}}</td>
@@ -537,18 +439,6 @@
 							</tbody>
 						</table>
 					</div>
-
-					<!-- Research Experience -->
-					<!-- <h4></h4>
-					<div class="table-wrapper" style="padding: 2px;">
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
-							<tbody class="application-row" style="text-align: center;">
-								
-
-							</tbody>
-						</table>
-					</div> -->
 
 					<!-- <h2></h2> -->
 					<div class="table-wrapper" style="padding: 2px;">
@@ -613,19 +503,7 @@
 										Chapters contributed in edited books
 									</td>
 								</tr>
-<!-- 
-							</tbody>
-						</table>
-					</div>
 
-
-					<div class="table-wrapper" style="padding: 2px;">
-
-						<h4></h4>
-
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
-							<tbody class="application-row" style="text-align: center;"> -->
 								<tr>
 									<th colspan="4" style=" ">Title of the Chapter(s)</th>
 									<th colspan="4">Title of the Book(s)</th>
@@ -672,26 +550,13 @@
 										Research/Articles/Papers published in Journals/Periodicals/Conference proceedings/Newspapers
 									</td>
 								</tr>
-<!-- 
-							</tbody>
-						</table>
-					</div>
 
-
-					<div class="table-wrapper" style="padding: 2px;">
-
-						<h4
-						</h4>
-
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
-							<tbody class="application-row" style="text-align:center;"> -->
 								<tr>
 									<th colspan="3" style=" ">Title of research
 										article/paper(s)</th>
 									<th colspan="3">Name of journal</th>
 									<th colspan="2">Whether First Author or Co-author</th>
-									<td colspan="4" style="min-inline-size: 5em;">Date Of Issue</th>
+									<th colspan="4" style="min-inline-size: 5em;">Date Of Issue</th>
 									<th colspan="3">Volume no. & Page nos.</th>
 									<th colspan="3">Whether Referred/Non-referred</th>
 									<th colspan="2">Impact Factor</th>
@@ -727,19 +592,6 @@
 									</td>
 								</tr>
 
-<!-- 
-							</tbody>
-						</table>
-
-					</div>
-
-					<div class="table-wrapper" style="padding: 2px;">
-
-						<h4></h4>
-
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
-							<tbody class="application-row" style="text-align: center;"> -->
 								<tr>
 									<th colspan="4" style=" ">Title/Subject of paper
 										presented</th>
@@ -768,6 +620,7 @@
 									{% endif %}
 								</tr>
 								{% endfor %}
+							</tbody>
 
 						</table>
 
@@ -776,11 +629,8 @@
 					<br>
 					<hr>
 
-					<div class="table-wrapper" style="padding: 2px;">
-
-
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; ">
+					<div class="table-wrapper section_e" style="padding: 2px;">
+						<table style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; ">
 							<tbody class="application-row">
 
 
@@ -792,77 +642,64 @@
 									</td>
 								</tr>
 								<tr id="app-thead">
-									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
+									<td  class="headingfont" colspan="24" style=" border-bottom: 1px solid #a6a6a6;">
 										1. Thesis Supervision
 									</td>
 								</tr>
 
 
 								<tr>
-									<td colspan="8" style=" ">Number of Ongoing PhDs</td>
+									<td class="headingfont" colspan="8" style=" ">Number of Ongoing PhDs</td>
 									<td colspan="16" style="inline-size: 50%; ">
 										{{thesis_data.ongoing_phd}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Number of Completed PhDs
+									<td class="headingfont" colspan="8">Number of Completed PhDs
 									</td>
 									<td colspan="16">{{thesis_data.completed_phd}}</td>
 								</tr>
 
 
 
-								
+
 								<tr id="app-thead">
-									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
+									<td class="headingfont" colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
 										2. Administrative Details
 									</td>
 								</tr>
-							<!-- </tbody>
-						</table>
-					</div>
 
-					<div class="table-wrapper" style="padding: 2px;">
-
-						<h4></h4>
-
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; ">
-							<tbody class="application-row"> -->
 								<tr>
-									<td colspan="8" style=" ">Enter the details of
+									<td class="headingfont" colspan="8" style=" ">Enter the details of
 										Administrative Positions held in the past 5 years</td>
 									<td colspan="16" style="inline-size: 50%; ">
 										{{administrative_details_data.administrative_details}}</td>
 								</tr>
 
+
+
+
+
+
+
+
 								<tr id="app-thead">
-									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
+									<td class="headingfont" colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
 										3. Sponsored Projects
 									</td>
 								</tr>
-							<!-- </tbody>
-						</table>
 
-					</div>
-
-					<h4></h4>
-					<div class="table-wrapper" style="padding: 2px;">
-
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
-							<tbody class="application-row" style="text-align: center;"> -->
 								<tr>
-									<td colspan="4" style=" inline-size: 30%;">Total number
+									<td  class="headingfont" colspan="4" style=" inline-size: 30%;">Total number
 										of sponsored projects</td>
 									<td colspan="8" style="inline-size: 20%;">{{SponsoredProjects.spo_tot_number}}</td>
-									<td colspan="4">Number of ongoing sponsored projects</td>
+									<td class="headingfont" colspan="4">Number of ongoing sponsored projects</td>
 									<td colspan="8" style=" inline-size: 20%;">
 										{{SponsoredProjects.spo_ongoing}}</td>
 								</tr>
 								<tr>
-									<td colspan="4">Number of completed sponsored projects</td>
+									<td class="headingfont" colspan="4">Number of completed sponsored projects</td>
 									<td colspan="8">{{SponsoredProjects.spo_completed}}</td>
-									<td colspan="4">File containing the list of sponsored projects</td>
+									<td class="headingfont" colspan="4">File containing the list of sponsored projects</td>
 									{% if SponsoredProjects.exp_tot_number == "0" %}
 										<td colspan="4" style="overflow-wrap: anywhere;">{{SponsoredProjects.exp_file}}</td>
 									{% else %}
@@ -875,33 +712,29 @@
 
 
 
+
+
+
+
+
 								<tr id="app-thead">
 									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
 										4. Experiments and Computational Project Details
 									</td>
 								</tr>
-							<!-- </tbody>
-						</table>
-					</div>
 
-					<h4></h4>
-					<div class="table-wrapper" style="padding: 2px;">
-
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
-							<tbody class="application-row" style="text-align: center;"> -->
 								<tr>
-									<td colspan="4" style=" inline-size: 30%;">Total number
+									<td class="headingfont" colspan="4" style=" inline-size: 30%;">Total number
 										of experiments/ computational projects</td>
 									<td colspan="8" style="inline-size: 20%;">{{Experiments.exp_tot_number}}</td>
-									<td colspan="4">Number of ongoing experiments/ computational projects</td>
+									<td class="headingfont" colspan="4">Number of ongoing experiments/ computational projects</td>
 									<td colspan="8" style=" inline-size: 20%;">
 										{{Experiments.exp_ongoing}}</td>
 								</tr>
 								<tr>
-									<td colspan="4">Number of completed experiments/ computational projects</td>
+									<td class="headingfont" colspan="4">Number of completed experiments/ computational projects</td>
 									<td colspan="8">{{Experiments.exp_completed}}</td>
-									<td colspan="4">File containing the list of experiments/ computational projects</td>
+									<td class="headingfont" colspan="4">File containing the list of experiments/ computational projects</td>
 									{% if Experiments.exp_tot_number == "0" %}
 										<td colspan="4" style="overflow-wrap: anywhere;">{{Experiments.exp_file}}</td>
 									{% else %}
@@ -913,23 +746,17 @@
 
 
 
+
+
+
 								<tr id="app-thead">
 									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
 										5. Patent Details
 									</td>
 								</tr>
-							<!-- </tbody>
-						</table>
-					</div>
 
-					<h4></h4>
-					<div class="table-wrapper" style="padding: 2px;">
-
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; ">
-							<tbody class="application-row"> -->
 								<tr>
-									<td colspan="8" style=" ">Please enter patent details,
+									<td class="headingfont" colspan="8" style=" ">Please enter patent details,
 										if any:</td>
 									<td colspan="16" style="inline-size: 65%; ">
 										{{Patent.patent_details}}</td>
@@ -943,109 +770,100 @@
 										6. Summary
 									</td>
 								</tr>
-							<!-- </tbody>
-						</table>
-					</div>
 
-					<h4></h4>
-					<div class="table-wrapper" style="padding: 2px;">
-
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
-							<tbody class="application-row"> -->
 								<tr>
-									<td colspan="4" style="inline-size: 30%; ">Ph.D Defence
+									<td class="headingfont" colspan="4" style="inline-size: 30%; ">Ph.D Defence
 										Date</td>
 									<td colspan="4" style="inline-size: 20%;">{{Summary.defence_date}}</td>
-									<td colspan="8" style="inline-size: 30%;">Total Experience (in years)</td>
+									<td class="headingfont" colspan="8" style="inline-size: 30%;">Total Experience (in years)</td>
 									<td colspan="8" style=" ">{{Summary.total_exp}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Experience (Post PhD)</td>
+									<td class="headingfont" colspan="8">Experience (Post PhD)</td>
 									<td colspan="16">{{Summary.exp_post_phd}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Total Ph.D Students Supervised (Degree Awarded)</td>
+									<td class="headingfont" colspan="8">Total Ph.D Students Supervised (Degree Awarded)</td>
 									<td colspan="16">{{Summary.total_phd_students}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Total Ongoing Ph.D Supervision</td>
+									<td class="headingfont" colspan="8">Total Ongoing Ph.D Supervision</td>
 									<td colspan="16">{{Summary.ongoing_phd_supervision}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Total number of sponsored projects (Ongoing + Completed)</td>
+									<td class="headingfont" colspan="8">Total number of sponsored projects (Ongoing + Completed)</td>
 									<td colspan="16">{{Summary.total_projects}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Number of ongoing sponsored projects</td>
+									<td class="headingfont" colspan="8">Number of ongoing sponsored projects</td>
 									<td colspan="16">{{Summary.ongoing_projects}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Total number of experiments/ computational projects</td>
+									<td class="headingfont" colspan="8">Total number of experiments/ computational projects</td>
 									<td colspan="16">{{Summary.computational_projects}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Total Number of Publications in SCI / ABDC Journals</td>
+									<td class="headingfont" colspan="8">Total Number of Publications in SCI / ABDC Journals</td>
 									<td colspan="16">{{Summary.SCI_journal}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
+									<td class="headingfont" colspan="8">Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
 									<td colspan="16">{{Summary.SCI_journal_post_phd}}</td>
 								</tr>
+
+
+
 							</tbody>
 						</table>
 
 					</div>
 
-					<div class="table-wrapper" style="padding: 2px;">
-						<table
-							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;"
-							id="mainTable">
+					<div class="table-wrapper section_f" style="padding: 2px;">
+						<table style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;" id="mainTable">
 							<tbody class="application-row">
 								<tr id="app-thead">
 									<td colspan="24"
 										style="font-weight: 500; font-size: 1.8rem;  border-bottom: 1px solid #a6a6a6;">
 										Section F
-										
 									</td>
 								</tr>
 
 								<tr>
-									<td colspan="8">Membership/Fellowship of other institutions/professionals societies:
+									<td class="headingfont" colspan="8">Membership/Fellowship of other institutions/professionals societies:
 									</td>
 									<td colspan="16" style="inline-size: 50%;">{{otherinformation_data.membership}}</td>
 								</tr>
 
 								<tr>
-									<td colspan="8">Other activities/Responsibilities</td>
+									<td class="headingfont" colspan="8">Other activities/Responsibilities</td>
 									<td colspan="16">{{otherinformation_data.responsibilities}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Any other relevant information, if not given above </td>
+									<td class="headingfont" colspan="8">Any other relevant information, if not given above </td>
 									<td colspan="16">{{otherinformation_data.Any_other_relevant_information}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Has there been any break in your academic career ? If so, give
+									<td class="headingfont" colspan="8">Has there been any break in your academic career ? If so, give
 										details</td>
 									<td colspan="16">{{otherinformation_data.academic_year_break}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Were you at any time declared medically unfit or asked to submit
+									<td class="headingfont" colspan="8">Were you at any time declared medically unfit or asked to submit
 										your resignation or discharged or dismissed?<br>
 										<font style="font-size: small;">If yes, give details in a separate sheet.</font>
 									</td>
 									<td colspan="16">{{otherinformation_data.unfit_for_position}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Name and Address of First Reference </td>
+									<td class="headingfont" colspan="8">Name and Address of First Reference </td>
 									<td colspan="16">{{otherinformation_data.reference1}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Name and Address of Second Reference </td>
+									<td class="headingfont" colspan="8">Name and Address of Second Reference </td>
 									<td colspan="16">{{otherinformation_data.reference2}}</td>
 								</tr>
 								<tr>
-									<td colspan="8">Name and Address of Third Reference </td>
+									<td class="headingfont" colspan="8">Name and Address of Third Reference </td>
 									<td colspan="16">{{otherinformation_data.reference3}}</td>
 								</tr>
 							</tbody>
@@ -1066,18 +884,18 @@
 								</tr>
 
 								<tr>
-									<td colspan="6" style="vertical-align:middle;">Place </td>
+									<td class="headingfont" colspan="6" style="vertical-align:middle;">Place </td>
 									<td colspan="6" style="vertical-align:middle;">{{signed_data.place}}</td>
 									<td colspan="12" rowspan="2" style="vertical-align: middle;">
 										<div style="max-width: min-content;margin-inline: auto;"><img id="profileImage"
 												class="img-fluid mx-auto" src="{{ signed_data.signature.url }}"
 												style="max-width: 15em;min-width: 8em;max-height: 8em;  padding: 0;" />
 										</div>
-										<div>Signatures</div>
+										<div class="headingfont">Signatures</div>
 									</td>
 								</tr>
 								<tr>
-									<td colspan="6" style="vertical-align:middle;">Date</td>
+									<td class="headingfont" colspan="6" style="vertical-align:middle;">Date</td>
 									<td colspan="6" style="vertical-align:middle;">{{signed_data.date}}</td>
 								</tr>
 
