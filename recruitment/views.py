@@ -92,7 +92,6 @@ def viewMore(request, application_number):
             'category': General.objects.filter(applicant=application_number)[0].category,
             'reservation': General.objects.filter(applicant=application_number)[0].reservation,
             'certificate': General.objects.filter(applicant=application_number)[0].reservation_certificate,
-            'employer': General.objects.filter(applicant=application_number)[0].present_employer
         },
         'otherinformation_data': {
             'membership': OtherInfo.objects.filter(applicant=application_number)[0].membership,
@@ -147,8 +146,17 @@ def viewMore(request, application_number):
         },
         'PhD': {
             'PhD_awarded': PhD.objects.filter(applicant=application_number)[0].PhD_awarded,
-            'title_of_thesis': PhD.objects.filter(applicant=application_number)[0].title_of_thesis,
+            'PhD_details': PhD.objects.filter(applicant=application_number)[0].PhD_details
         },
+        'PhDOngoing': {
+            'PhD_title': PhDOngoing.objects.filter(applicant=application_number)[0].PhD_title,
+            'Research_Domain': PhDOngoing.objects.filter(applicant=application_number)[0].Research_Domain,
+            'Institute_Name': PhDOngoing.objects.filter(applicant=application_number)[0].Institute_Name,                        
+            'University_Name': PhDOngoing.objects.filter(applicant=application_number)[0].University_Name,
+            'Registration_Date': PhDOngoing.objects.filter(applicant=application_number)[0].Registration_Date,
+        },
+        'ThesisSubmitted': list(ThesisSubmitted.objects.filter(applicant=application_number)),
+        'PhDAwarded': list(PhDAwarded.objects.filter(applicant=application_number)),
         'AcademicDetails': list(EducationalQualifications.objects.filter(applicant=application_number)),
         'ProfessionalDetails': list(EmploymentExp.objects.filter(applicant=application_number)),
         'BooksDetails': list(Books.objects.filter(applicant=application_number)),
@@ -194,7 +202,6 @@ def submission_form(request):
         general_data['reservation'] = data['reservation']
         if(data.get('reservation') == 'YES'):
             general_data['reservation_certificate'] = request.FILES['reservation_certificate']
-        general_data['present_employer'] = data['present_employer']
         general_data['applicant'] = Applicant.objects.get(application_no=application_number) 
         General.objects.create(**general_data)
         # Other Information
@@ -203,6 +210,7 @@ def submission_form(request):
         otherinformation_data['responsibilities'] = data['miscTa2']
         otherinformation_data['Any_other_relevant_information'] = data['miscTa3']
         otherinformation_data['academic_year_break'] = data['miscTa4']
+        otherinformation_data['awards_and_recognition'] = data['miscTa5']
         otherinformation_data['judicial_punishment'] = data['miscTa6']
         otherinformation_data['unfit_for_position'] = data['miscTa7']
         otherinformation_data['reference1'] = data['miscTa8']
@@ -270,12 +278,140 @@ def submission_form(request):
             experiments_data['exp_file'] = "N/A"
         experiments_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Experiments.objects.create(**experiments_data)
-        # PHD
+        # Educational Qualifications
         phd_data = {}
         phd_data['PhD_awarded'] = data['awarded_phd']
-        phd_data['title_of_thesis'] = data['phdThesis']
         phd_data['applicant'] = Applicant.objects.get(application_no=application_number)
-        PhD.objects.create(**phd_data)
+        if(data['awarded_phd'] == "No"):
+            phd_data['PhD_details'] = "N/A"
+            PhD.objects.create(**phd_data)
+            ongoing_data = {}
+            ongoing_data['PhD_title'] = "N/A"
+            ongoing_data['Research_Domain'] = "N/A"
+            ongoing_data['Institute_Name'] = "N/A"
+            ongoing_data['University_Name'] = "N/A"
+            ongoing_data['Registration_Date'] = "N/A"
+            ongoing_data['applicant'] = Applicant.objects.get(application_no=application_number)
+            PhDOngoing.objects.create(**ongoing_data)
+            submitted_data = {}
+            submitted_data['PhD_title'] = "N/A"
+            submitted_data['Research_Domain'] = "N/A"
+            submitted_data['Institute_Name'] = "N/A"
+            submitted_data['University_Name'] = "N/A"
+            submitted_data['Registration_Date'] = "N/A"
+            submitted_data['Submission_Date'] = "N/A"
+            submitted_data['applicant'] = Applicant.objects.get(application_no=application_number)
+            ThesisSubmitted.objects.create(**submitted_data)
+            awarded_data= {}
+            awarded_data['PhD_title'] = "N/A"
+            awarded_data['Research_Domain'] = "N/A"
+            awarded_data['Institute_Name'] = "N/A"
+            awarded_data['University_Name'] = "N/A"
+            awarded_data['Registration_Date'] = "N/A"
+            awarded_data['Defense_Date'] = "N/A"
+            awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)    
+            PhDAwarded.objects.create(**awarded_data)
+        else:
+            phd_data['PhD_details'] = data['phd']
+            phd_data['applicant'] = Applicant.objects.get(application_no=application_number)            
+            PhD.objects.create(**phd_data)
+            if(data['phd'] == "Ongoing"):
+                ongoing_data = {}
+                ongoing_data['PhD_title'] = data['ongoing1-title']
+                ongoing_data['Research_Domain'] = data['ongoing1-domain']
+                ongoing_data['Institute_Name'] = data['ongoing1-institute']
+                ongoing_data['University_Name'] = data['ongoing1-university']
+                ongoing_data['Registration_Date'] = data['ongoing1-date']
+                ongoing_data['applicant'] = Applicant.objects.get(application_no=application_number)
+                PhDOngoing.objects.create(**ongoing_data)
+                submitted_data = {}
+                submitted_data['PhD_title'] = "N/A"
+                submitted_data['Research_Domain'] = "N/A"
+                submitted_data['Institute_Name'] = "N/A"
+                submitted_data['University_Name'] = "N/A"
+                submitted_data['Registration_Date'] = "N/A"
+                submitted_data['Submission_Date'] = "N/A"
+                submitted_data['applicant'] = Applicant.objects.get(application_no=application_number)
+                ThesisSubmitted.objects.create(**submitted_data)
+                awarded_data= {}
+                awarded_data['PhD_title'] = "N/A"
+                awarded_data['Research_Domain'] = "N/A"
+                awarded_data['Institute_Name'] = "N/A"
+                awarded_data['University_Name'] = "N/A"
+                awarded_data['Registration_Date'] = "N/A"
+                awarded_data['Defense_Date'] = "N/A"
+                awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)
+                PhDAwarded.objects.create(**awarded_data)
+            elif(data['phd'] == "Thesis Submitted"):
+                ongoing_data = {}
+                ongoing_data['PhD_title'] = "N/A"
+                ongoing_data['Research_Domain'] = "N/A"
+                ongoing_data['Institute_Name'] = "N/A"
+                ongoing_data['University_Name'] = "N/A"
+                ongoing_data['Registration_Date'] = "N/A"
+                ongoing_data['applicant'] = Applicant.objects.get(application_no=application_number)
+                PhDOngoing.objects.create(**ongoing_data)
+                num_of_submitted_records = list(filter(lambda s: 'thesis' in s,list(data.keys())))
+                num_of_submitted_records_length = len(num_of_submitted_records)
+                last_awarded_record = num_of_submitted_records[num_of_submitted_records_length-1]
+                number_awarded_record =  last_awarded_record[6]
+                for i in range(1,int(number_awarded_record)+1):
+                    if(data.get('thesis'+str(i) + '-title',False) == False):
+                        continue
+                    else:
+                        submitted_data = {}
+                        submitted_data['PhD_title'] = data['thesis1-title']
+                        submitted_data['Research_Domain'] = data['thesis1-domain']
+                        submitted_data['Institute_Name'] = data['thesis1-institute']
+                        submitted_data['University_Name'] = data['thesis1-university']
+                        submitted_data['Registration_Date'] = data['thesis1-regdate']
+                        submitted_data['Submission_Date'] = data['thesis1-subdate']
+                        submitted_data['applicant'] = Applicant.objects.get(application_no=application_number)
+                        ThesisSubmitted.objects.create(**submitted_data)
+                awarded_data= {}
+                awarded_data['PhD_title'] = "N/A"
+                awarded_data['Research_Domain'] = "N/A"
+                awarded_data['Institute_Name'] = "N/A"
+                awarded_data['University_Name'] = "N/A"
+                awarded_data['Registration_Date'] = "N/A"
+                awarded_data['Defense_Date'] = "N/A"
+                awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)    
+                PhDAwarded.objects.create(**awarded_data)
+            elif(data['phd'] == "Awarded"):
+                ongoing_data = {}
+                ongoing_data['PhD_title'] = "N/A"
+                ongoing_data['Research_Domain'] = "N/A"
+                ongoing_data['Institute_Name'] = "N/A"
+                ongoing_data['University_Name'] = "N/A"
+                ongoing_data['Registration_Date'] = "N/A"
+                ongoing_data['applicant'] = Applicant.objects.get(application_no=application_number)    
+                PhDOngoing.objects.create(**ongoing_data)
+                submitted_data = {}
+                submitted_data['PhD_title'] = "N/A"
+                submitted_data['Research_Domain'] = "N/A"
+                submitted_data['Institute_Name'] = "N/A"
+                submitted_data['University_Name'] = "N/A"
+                submitted_data['Registration_Date'] = "N/A"
+                submitted_data['Submission_Date'] = "N/A"
+                submitted_data['applicant'] = Applicant.objects.get(application_no=application_number)    
+                ThesisSubmitted.objects.create(**submitted_data)
+                num_of_awarded_records = list(filter(lambda s: 'awarded' in s,list(data.keys())))
+                num_of_awarded_records_length = len(num_of_awarded_records)
+                last_awarded_record = num_of_awarded_records[num_of_awarded_records_length-1]
+                number_awarded_record =  last_awarded_record[7]
+                for i in range(1,int(number_awarded_record)+1):
+                    if(data.get('awarded'+str(i) + '-title',False) == False):
+                        continue
+                    else:
+                        awarded_data= {}
+                        awarded_data['PhD_title'] = data.get('awarded'+str(i)+'-title',False)
+                        awarded_data['Research_Domain'] = data.get('awarded'+str(i)+'-domain',False)
+                        awarded_data['Institute_Name'] = data.get('awarded'+str(i)+'-institute',False)
+                        awarded_data['University_Name'] = data.get('awarded'+str(i)+'-university',False)
+                        awarded_data['Registration_Date'] = data.get('awarded'+str(i)+'-regdate',False)
+                        awarded_data['Defense_Date'] = data.get('awarded'+str(i)+'-defdate',False)
+                        awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)  
+                        PhDAwarded.objects.create(**awarded_data)  
         # Academic Details
         num_of_academic_records = list(filter(lambda s: 'course' in s,list(data.keys())))
         num_of_academic_records_length = len(num_of_academic_records)

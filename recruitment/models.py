@@ -167,7 +167,6 @@ class General(models.Model):
                                                         ("No", "No"),
                                                         ))
     reservation_certificate = models.ImageField(upload_to=handle_uploaded, null=True, blank=True)
-    present_employer = models.CharField(max_length=200)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='General',
@@ -181,16 +180,53 @@ class PhD(models.Model):
                                                         ("Yes", "Yes"),
                                                         ("No", "No"),
                                                         ))
-    title_of_thesis = models.CharField(max_length=500)
+    PhD_details = models.CharField(max_length=11,choices = (
+                                                        ("Ongoing", "Ongoing"),
+                                                        ("Submitted", "Submitted"),
+                                                        ("Awarded", "Awarded"),
+    ))
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='PhD')
     def __str__(self):
         return str(self.applicant)   
 
+class PhDOngoing(models.Model):
+    PhD_title = models.CharField(max_length=200)
+    Research_Domain = models.CharField(max_length=200)
+    Institute_Name = models.CharField(max_length=200)
+    University_Name = models.CharField(max_length=200)
+    Registration_Date = models.CharField(max_length=200)
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='PhDOngoing')
+    def __str__(self):
+        return str(self.applicant)   
+
+class ThesisSubmitted(models.Model):
+    PhD_title = models.CharField(max_length=200)    
+    Research_Domain = models.CharField(max_length=200)
+    Institute_Name = models.CharField(max_length=200)
+    University_Name = models.CharField(max_length=200)
+    Registration_Date = models.CharField(max_length=200)
+    Submission_Date = models.CharField(max_length=200)
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='ThesisSubmitted')
+    def __str__(self):
+        return str(self.applicant)   
+
+class PhDAwarded(models.Model):
+    PhD_title = models.CharField(max_length=200)    
+    Research_Domain = models.CharField(max_length=200)
+    Institute_Name = models.CharField(max_length=200)
+    University_Name = models.CharField(max_length=200)
+    Registration_Date = models.CharField(max_length=200)
+    Defense_Date = models.CharField(max_length=200)
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='PhDAwarded')
+    def __str__(self):
+        return str(self.applicant)   
+    
 class OtherInfo(models.Model):
     membership = models.TextField()
     responsibilities = models.TextField()
     Any_other_relevant_information = models.TextField()
     academic_year_break = models.TextField()
+    awards_and_recognition = models.TextField(default=None)
     college_punishment = models.TextField()
     judicial_punishment = models.TextField()
     unfit_for_position = models.TextField()

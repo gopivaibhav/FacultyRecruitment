@@ -149,10 +149,10 @@
 										</td>
 									{% endif %}
 								</tr>
-								<tr>
+								<!-- <tr>
 									<td colspan="6">Present Employer</td>
 									<td colspan="18">{{general_data.employer}}</td>
-								</tr>
+								</tr> -->
 
 							</tbody>
 						</table>
@@ -160,16 +160,158 @@
 
 					<!-- Educational Qualifications -->
 					<h2>Academic Details</h2>
-					<!-- Details of Educational Qualifications -->
-					<h4>Details of Educational Qualifications</h4>
 					<div class="table-wrapper" style="padding: 2px;">
-						<table	style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 55vh;"	id="mainTable">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
 									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
 										Section B
 									</td>
 								</tr>
+								<tr>
+									<td colspan="8" >Whether Ph.D awarded</td>
+									<td colspan="16" style="min-inline-size: 5rem; ">{{PhD.PhD_awarded}}</td>
+								</tr>
+							</tbody>
+							</table>
+							</div>
+					<h4>Ongoing Ph.D</h4>
+					<div class="table-wrapper" style="padding: 2px;">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							<tbody class="application-row" style="text-align: center;">
+								<tr style="align-items:center">
+									<th class="col-2" style="text-align: center;vertical-align: middle;border-top-left-radius: 1rem;">
+										Ph.D title</th>
+									<th class="col-3" style="text-align: center;vertical-align: middle;">
+										Broad Research Domain of Ph.D</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Institute Name</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										University Name</th>
+									<th class="col-3" style="text-align: center;vertical-align: middle; border-top-right-radius: 1rem;">
+										Ph.D Registration Date</th>
+								</tr>
+
+								<tr>
+									<td >{{PhDOngoing.PhD_title}}</td>
+									<td >{{PhDOngoing.Research_Domain}}</td>
+									<td >{{PhDOngoing.Institute_Name}}</td>
+									<td >{{PhDOngoing.University_Name}}</td>
+									<td >{{PhDOngoing.Registration_Date}}</td>
+									
+									
+									
+								</tr>
+								
+
+							</tbody>
+						</table>
+					</div>
+
+
+
+
+
+
+					<h4>Thesis Submitted</h4>
+
+
+					<div class="table-wrapper" style="padding: 2px;">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							<tbody class="application-row" style="text-align: center;">
+								<tr style="align-items:center">
+									<th class="col-2" style="text-align: center;vertical-align: middle; border-top-left-radius: 1rem;">
+										Ph.D title</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Broad Research Domain of Ph.D</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Institute Name</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										University Name</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Ph.D Registration Date</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle; border-top-right-radius: 1rem;">
+											Ph.D Submission Date</th>
+								</tr>
+
+								{% for item in ThesisSubmitted %}
+								<tr>
+									<td >{{item.PhD_title}}</td>
+									<td >{{item.Research_Domain}}</td>
+									<td >{{item.Institute_Name}}</td>
+									<td >{{item.University_Name}}</td>
+									<td >{{item.Registration_Date}}</td>
+									<td >{{item.Submission_Date}}</td>
+									
+									
+								</tr>
+								{% endfor %}
+
+							</tbody>
+						</table>
+					</div>
+					<h4>Ph.D Awarded</h4>
+
+					<div class="table-wrapper" style="padding: 2px;">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 50vh;">
+							<tbody class="application-row" style="text-align: center;">
+								<tr style="align-items:center">
+									<th class="col-2" style="text-align: center;vertical-align: middle; border-top-left-radius: 1rem;">
+										Ph.D title</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Broad Research Domain of Ph.D</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Institute Name</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										University Name</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle;">
+										Ph.D Registration Date</th>
+									<th class="col-2" style="text-align: center;vertical-align: middle; border-top-right-radius: 1rem;">
+										Ph.D Defence Date</th>
+								</tr>
+
+								{% for item in PhDAwarded %}
+								<tr>
+									<td >{{item.PhD_title}}</td>
+									<td >{{item.Research_Domain}}</td>
+									<td >{{item.Institute_Name}}</td>
+									<td >{{item.University_Name}}</td>
+									<td >{{item.Registration_Date}}</td>
+									<td >{{item.Defense_Date}}</td>
+									
+									
+								</tr>
+								{% endfor %}
+
+							</tbody>
+						</table>
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+					<!-- Details of Educational Qualifications -->
+					<h4>Details of Educational Qualifications</h4>
+					<div class="table-wrapper" style="padding: 2px;">
+						<table	style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;min-width: 55vh;"	id="mainTable">
+							<tbody class="application-row" style="text-align: center;">
+								<!-- <tr id="app-thead">
+									<td colspan="24" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom: 1px solid #a6a6a6;">
+										Section B
+									</td>
+								</tr> -->
 								<tr id="app-thead">
 									<th colspan="4">Exam/Degree</th>
 									<th colspan="4">Name of Board / College </th>
@@ -200,19 +342,19 @@
 									</td>
 								</tr>
 								{% endfor %}
-								<tr>
+								<!-- <tr>
 									<td colspan="24"></td>
-								</tr>
+								</tr> -->
 
-								<tr>
+								<!-- <tr>
 									<td colspan="8">Whether Ph.D awarded</td>
 									<td colspan="16">{{PhD.PhD_awarded}}</td>
-								</tr>
+								</tr> -->
 
-								<tr>
+								<!-- <tr>
 									<td colspan="8">Ph.D Title</td>
 									<td colspan="16">{{PhD.title_of_thesis}}</td>
-								</tr>
+								</tr> -->
 
 							</tbody>
 						</table>
