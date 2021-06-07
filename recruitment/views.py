@@ -7,6 +7,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 # from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib import messages
+import csv
 
 def error404(request,exception):
     return render(request, 'recruitment/error404.html', {});
@@ -20,6 +21,12 @@ def loginPage(request):
 #     response.status_code = 404
 #     return response
 
+def export_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=Recruitment' + \
+        datetime.datetime.now() + '.csv'
+    writer = csv.writer(response)
+    writer.writerow(['Application_number','Post','Department','Research Doamin','Full Name','Date of Birth','Father\'s Name', 'Address', 'Pin Code', 'Telephone No.','Mobile No.', 'Email ID', 'Gender'])
 def adminLogin(request):
     context = {
         'could_not_log_in': False,
@@ -59,7 +66,6 @@ def admin(request):
         presAppli['applied_date'] = Applicant.objects.filter(application_no=i.applicant)[0].date
         appli_data.append(presAppli)
     admin_data['allData'] = appli_data
-    print(admin_data)
     return render(request, 'recruitment/admin.html', {'data' :admin_data})
 
 def viewMore(request, application_number):
