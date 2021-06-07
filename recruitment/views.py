@@ -52,13 +52,6 @@ def export_csv(request):
                         'Ongoing PhD University Name',
                         'Ongoing PhD Registration Date',
                         'Ongoing PhD Supporting Documents',
-                        'Title of Thesis Submitted',
-                        'Research Domain of Thesis Submitted',
-                        'Institute Name of Thesis Submitted',
-                        'University Name of Thesis Submitted',
-                        'Registration Date of Thesis Submitted',
-                        'Submission Date of Thesis Submitted',
-                        'Supporting Documents of Thesis Submitted',
                         'Title of Awarded PhD',
                         'Research Domain of Awarded PhD',
                         'Institute Name of Awarded PhD',
@@ -67,6 +60,14 @@ def export_csv(request):
                         'Defense Date of Awarded PhD ',
                         'Supporting Documents of Awarded PhD',
                     ]
+    for i in range(1,6):
+        heading_data.append('Title of Thesis Submitted ' + str(i))
+        heading_data.append('Research Domain of Thesis Submitted ' + str(i))
+        heading_data.append('Institute Name of Thesis Submitted ' + str(i))
+        heading_data.append('University Name of Thesis Submitted ' + str(i))
+        heading_data.append('Registration Date of Thesis Submitted ' + str(i))
+        heading_data.append('Submission Date of Thesis Submitted ' + str(i))
+        heading_data.append('Supporting Documents of Thesis Submitted ' + str(i))
     writer.writerow(heading_data)  
 
     return response
