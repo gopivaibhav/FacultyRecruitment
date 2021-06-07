@@ -487,8 +487,8 @@
                                         <label class="form-check-label" for="phdNo">No</label>
                                     </div>
                                 </div>
-                                <br>
                                 <div class="table-wrapper phdTableBody" hidden>
+                                    <br>
                                     <div class="col-12" style="text-align: center;">
                                         <h2 style="margin: 0;">Ph.D Details</h2>
                                         <div style="margin-bottom: 2rem;" >
@@ -499,12 +499,12 @@
                                                 <div style="display: block;">
                                                 i.e., in <span style="font-weight: 500;">either</span> Ongoing 
                                                 <span style="font-weight: 500;">or</span> 
-                                                Thesis Submitted 
+                                                Thesis Submitted
                                                 <span style="font-weight: 500;"> or </span> 
                                                 Awarded )
                                                 </div>
                                         </div>
-                                        
+
                                         <div class="col-5 col-7-small">
                                             <input class="form-check-input" type="radio" name="phd" id="phdongoing"
                                                 value="Ongoing" onclick="ongoingRadio(event)">
@@ -539,6 +539,8 @@
                                                     University Name</th>
                                                 <th class="col-3" style="text-align: center;vertical-align: middle;">
                                                     Ph.D Registration Date</th>
+                                                <th class="col-3" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
                                             </tr>
 
 
@@ -573,13 +575,16 @@
                                                     <input type="date" name="ongoing1-date" id="ongoing1-date"
                                                         style="border: 0; background: transparent;">
                                                 </td>
+                                                <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
+                                                    <input type="file" name="ongoing1-file" id="ongoing1-file"
+                                                        style="border: 0; background: transparent; font-size: x-small;">
+                                                </td>
                                             </tr>
 
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="" class="but add-more-phd1" type="button" style="padding: 0;">Add
-                                            More</button>
+                                        <button id="" class="but add-more-phd1" type="button" style="padding: 0;">Add More</button>
                                     </div>
                                     <br>
                                 </div>
@@ -604,6 +609,8 @@
                                                     Ph.D Registration Date</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Ph.D Submission Date</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
                                             </tr>
 
                                             <tr id="thesis1">
@@ -642,15 +649,15 @@
                                                     <input type="date" name="thesis1-subdate" id="thesis1-subdate"
                                                         style="border: 0; background: transparent;">
                                                 </td>
+                                                <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
+                                                    <input type="file" name="thesis1-file" id="thesis1-file"
+                                                        style="border: 0; background: transparent; font-size: x-small;">
+                                                </td>
                                             </tr>
-                                            
-
-
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="" class="but add-more-phd2" type="button" style="padding: 0;">Add
-                                            More</button>
+                                        <button id="" class="but add-more-phd2" type="button" style="padding: 0;">Add More</button>
                                     </div>
                                     <br>
                                 </div>
@@ -676,9 +683,9 @@
                                                     Ph.D Registration Date</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Ph.D Defence Date</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents</th>
                                             </tr>
-                                            <!-- Table rows are appended Dynamically (check main.js) -->
-
 
 
                                             <tr>
@@ -696,11 +703,9 @@
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-
                                                     <input type="text" name="awarded1-institute" id="awarded1-institute"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Institute Name">
-
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
@@ -719,7 +724,10 @@
                                                     <input type="date" name="awarded1-defdate" id="awarded1-defdate"
                                                         style="border: 0; background: transparent;">
                                                 </td>
-
+                                                <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
+                                                    <input type="file" name="awarded1-file" id="awarded1-file"
+                                                        style="border: 0; background: transparent; font-size: x-small;">
+                                                </td>
                                             </tr>
 
                                         </tbody>
@@ -746,6 +754,8 @@
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Examination / Degree</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    Equivalent To</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Name of Board/College/<br>University</th>
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
                                                     Grade/ % of Marks</th>
@@ -760,8 +770,7 @@
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="b1" class="but add-more" type="button" style="padding: 0;">Add
-                                            More</button>
+                                        <button id="b1" class="but add-more" type="button" style="padding: 0;">Add More</button>
                                     </div>
                                 </div>
                                 <br>
@@ -794,8 +803,8 @@
                                             <tr></tr>
                                             <tr style="align-items:center">
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
-                                                    Name of Employer/Status of Institute/University (Govt. /Quasi
-                                                    Govt./Autonomous etc.)</th>
+                                                    Name of Employer/ Status of Institute/ University (Govt. /Quasi
+                                                    Govt./ Autonomous etc.)</th>
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
                                                     Post held/Designation</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
@@ -826,15 +835,18 @@
                                                     <div class="row gtr-uniform"
                                                         style="inline-size: 14.2em;padding: 0.3em;">
                                                         <div class="col-2">From:</div>
-                                                        <div class="col-10"><input type="date" name="org1-from"
+                                                        <div class="col-10">
+                                                            <input type="date" name="org1-from"
                                                                 id="org1-from" value=""
                                                                 style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
                                                                 placeholder="From"></div>
                                                         <div class="col-2" style="padding-top: 0;">To:</div>
-                                                        <div class="col-10" style="padding-top: 0;"><input type="date"
+                                                        <div class="col-10" style="padding-top: 0;">
+                                                            <input type="date"
                                                                 name="org1-to" id="org1-to" value=""
                                                                 style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
-                                                                placeholder="To"></div>
+                                                                placeholder="To">
+                                                        </div>
                                                     </div>
                                                 </td>
                                                 <td class="col-2"
@@ -967,7 +979,7 @@
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <select name="books1-author" id="books1-author"
                                                         style="inline-size: auto;">
-                                                        <option value="" disabled>Select Any Options</option>
+                                                        <option value="" disabled selected>Select Any Options</option>
                                                         <option value="First author">First Author</option>
                                                         <option value="Co-author">Co-author</option>
                                                     </select>
@@ -1047,7 +1059,8 @@
                                                 <td class="col-2"
                                                     style="text-align: center;vertical-align: middle;padding:0;">
                                                     <select name="chapters1-author" id="chapters1-author"
-                                                        style="background-color: transparent; border:none;inline-size: auto;">
+                                                        style="background-color: transparent; border:none;inline-size: auto;" >
+                                                        <option value="" disabled selected>Select Any Options</option>
                                                         <option value="First author">First Author</option>
                                                         <option value="Co-author">Co-author</option>
                                                     </select>
@@ -1132,6 +1145,7 @@
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <select name="news_articles1-author" id="news_articles1-author"
                                                         style="background-color: transparent; border:none;inline-size: auto;">
+                                                        <option value="" disabled selected>Select Any Options</option>
                                                         <option value="First Author">First Author</option>
                                                         <option value="Co-author">Co-author</option>
                                                     </select>
