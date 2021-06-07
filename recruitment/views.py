@@ -129,6 +129,60 @@ def export_csv(request):
         heading_data.append('Month & year of publication of Chapter- ' + str(i))
         heading_data.append('ISBN/ISSN No. of Chapter- ' + str(i))
         heading_data.append('Supporting Documents of Chapter- ' + str(i))
+    for i in range(1,6):
+        heading_data.append('Title of research article/paper published in Journal- ' + str(i))
+        heading_data.append('Name of journal- ' + str(i))
+        heading_data.append('Whether First Author or Co-author of research article/paper published in Journal- ' + str(i))
+        heading_data.append('Date Of Issue  of research article/paper published in Journal-- ' + str(i))
+        heading_data.append('Volume no. & Page nos.  of research article/paper published in Journal-- ' + str(i))
+        heading_data.append('Whether Referred/Non-referred  of research article/paper published in Journal-- ' + str(i))
+        heading_data.append('Impact Factor  of research article/paper published in Journal-- ' + str(i))
+        heading_data.append('Supporting Documents  of research article/paper published in Journal-- ' + str(i))
+    for i in range(1,6):
+        heading_data.append('Title/Subject of paper presented in Seminar- ' + str(i))
+        heading_data.append('Subject of Conference /Seminar/Symposium/ Workshop  presented in Seminar- -  ' + str(i))
+        heading_data.append('Organizing Institution & Name of City/Country presented in Seminar- ' + str(i))
+        heading_data.append('Duration of research article/paper presented in Seminar- ' + str(i))
+        heading_data.append('Whether the proceedings published or not presented in Seminar- ' + str(i))
+        heading_data.append('Supporting Documents presented in Seminar- ' + str(i))
+    heading_data += [
+                        'Number of Ongoing PhDs', 
+                        'Number of Completed PhDs', 
+                        'Enter the details of Administrative Positions held in the past 5 years', 
+                        'Total number of sponsored projects', 
+                        'Number of ongoing sponsored projects',
+                        'Number of completed sponsored projects',
+                        'Supporting Documents of sponsored projects',
+                        'Total number of experiments/ computational projects',
+                        'Number of ongoing experiments/ computational projects',
+                        'Number of completed experiments/ computational projects',
+                        'Supporting Documents of experiments/ computational projects',
+                        'Patent Details',
+                        'Ph.D Defence Date',
+                        'Total Experience',
+                        'Post PhD Experience',
+                        'Total Ph.D Students Supervised (Degree Awarded)',
+                        'Total Ongoing Ph.D Supervision',
+                        'Total number of sponsored projects (Ongoing + Completed)',
+                        'Number of ongoing sponsored projects',
+                        'Total number of experiments/ computational projects',
+                        'Total Number of Publications in SCI / ABDC Journals',
+                        'Total Number of Publications in SCI / ABDC Journals (Post PhD)',
+                        'Membership/Fellowship of other institutions/professionals societies',
+                        'Other activities/Responsibilities',
+                        'Any other relevant information',
+                        'Academic Year Break',
+                        'Awards and Recoginition',
+                        'Have you been punished during your services or convicted by a court of law ?',
+                        'Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed?',
+                        'Details regarding First Reference',
+                        'Details regarding Second Reference',
+                        'Details regarding Third Reference',
+                        'Place of Candidate',
+                        'Date',
+                        'Signature of Candidate',
+                        'Resume of Candidate',
+                    ]
     writer.writerow(heading_data)  
 
     return response
