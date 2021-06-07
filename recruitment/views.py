@@ -181,7 +181,7 @@ def export_csv(request):
                         'Place of Candidate',
                         'Date',
                         'Signature of Candidate',
-                        'Resume of Candidate',
+                        'Resume of Candidate'
                     ]
     writer.writerow(heading_data)  
 
