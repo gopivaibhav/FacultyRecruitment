@@ -24,9 +24,38 @@ def loginPage(request):
 def export_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=Recruitment' + \
-        datetime.datetime.now() + '.csv'
+        str(datetime.datetime.now() )+ '.csv'
     writer = csv.writer(response)
-    writer.writerow(['Application_number','Post','Department','Research Doamin','Full Name','Date of Birth','Father\'s Name', 'Address', 'Pin Code', 'Telephone No.','Mobile No.', 'Email ID', 'Gender'])
+    writer.writerow(['Application_number',
+                        'Post',
+                        'Department',
+                        'Research Doamin',
+                        'Full Name',
+                        'Date of Birth',
+                        'Father\'s Name',
+                        'Address',
+                        'Pin Code',
+                        'Telephone No.',
+                        'Mobile No.', 
+                        'Email ID', 
+                        'Gender',
+                        'Marital Status', 
+                        'Nationality', 
+                        'Category', 
+                        'Reservation Claimed', 
+                        'Reservation Certificate',
+                        'PhD Awarded',
+                        'PhD Status',
+                        'Ongoing PhD Title',
+                        'Ongoing PhD Research Domain',
+                        'Ongoing PhD Institute Name',
+                        'Ongoing PhD University Name',
+                        'Ongoing PhD Registration Date',
+                        'Ongoing PhD Supporting Documentts',
+                        
+                    ])
+
+    return response
 def adminLogin(request):
     context = {
         'could_not_log_in': False,
