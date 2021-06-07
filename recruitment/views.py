@@ -201,6 +201,7 @@ def submission_form(request):
         otherinformation_data['responsibilities'] = data['miscTa2']
         otherinformation_data['Any_other_relevant_information'] = data['miscTa3']
         otherinformation_data['academic_year_break'] = data['miscTa4']
+        otherinformation_data['awards_and_recognition'] = data['miscTa5']
         otherinformation_data['judicial_punishment'] = data['miscTa6']
         otherinformation_data['unfit_for_position'] = data['miscTa7']
         otherinformation_data['reference1'] = data['miscTa8']
@@ -268,12 +269,38 @@ def submission_form(request):
             experiments_data['exp_file'] = "N/A"
         experiments_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Experiments.objects.create(**experiments_data)
-        # PHD
-        phd_data = {}
+        # Educational Qualifications
+        phd_data = {},
         phd_data['PhD_awarded'] = data['awarded_phd']
-        phd_data['title_of_thesis'] = data['phdThesis']
-        phd_data['applicant'] = Applicant.objects.get(application_no=application_number)
-        PhD.objects.create(**phd_data)
+        if(data['awarded_phd'] == "No"):
+            phd_data['phd'] = "N/A"
+            PhD.objects.create(**phd_data)
+            ongoing_data = {}
+            ongoing_data['ongoing1-title'] = "N/A"
+            ongoing_data['ongoing1-domain'] = "N/A"
+            ongoing_data['ongoing1-institute'] = "N/A"
+            ongoing_data['ongoing1-university'] = "N/A"
+            ongoing_data['ongoing1-regdate'] = "N/A"
+            PhDOngoing.objects.create(**ongoing_data)
+            submitted_data = {}
+            submitted_data['thesis1-title'] = "N/A"
+            submitted_data['thesis1-domain'] = "N/A"
+            submitted_data['thesis1-institute'] = "N/A"
+            submitted_data['thesis1-university'] = "N/A"
+            submitted_data['thesis1-regdate'] = "N/A"
+            submitted_data['thesis1-subdate'] = "N/A"
+            ThesisSubmitted.objects.create(**submitted_data)
+            awarded_data= {},
+            awarded_data['awarded1-title'] = "N/A"
+            awarded_data['awarded1-domain'] = "N/A"
+            awarded_data['awarded1-institute'] = "N/A"
+            awarded_data['awarded1-university'] = "N/A"
+            awarded_data['awarded1-regdate'] = "N/A"
+            awarded_data['awarded1-subdate'] = "N/A"
+            PhDAwarded.objects.create(**awarded_data)
+        else:
+            phd_data = data['phd']
+            PhD.objects.create(**phd_data)
         # Academic Details
         num_of_academic_records = list(filter(lambda s: 'course' in s,list(data.keys())))
         num_of_academic_records_length = len(num_of_academic_records)

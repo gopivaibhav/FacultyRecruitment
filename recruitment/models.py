@@ -226,6 +226,7 @@ class OtherInfo(models.Model):
     responsibilities = models.TextField()
     Any_other_relevant_information = models.TextField()
     academic_year_break = models.TextField()
+    awards_and_recognition = models.TextField(default=None)
     college_punishment = models.TextField()
     judicial_punishment = models.TextField()
     unfit_for_position = models.TextField()
