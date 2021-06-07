@@ -26,7 +26,7 @@ def export_csv(request):
     response['Content-Disposition'] = 'attachment; filename=Recruitment' + \
         str(datetime.datetime.now() )+ '.csv'
     writer = csv.writer(response)
-    writer.writerow(['Application_number',
+    heading_data = ['Application_number',
                         'Post',
                         'Department',
                         'Research Doamin',
@@ -51,9 +51,23 @@ def export_csv(request):
                         'Ongoing PhD Institute Name',
                         'Ongoing PhD University Name',
                         'Ongoing PhD Registration Date',
-                        'Ongoing PhD Supporting Documentts',
-                        
-                    ])
+                        'Ongoing PhD Supporting Documents',
+                        'Title of Thesis Submitted',
+                        'Research Domain of Thesis Submitted',
+                        'Institute Name of Thesis Submitted',
+                        'University Name of Thesis Submitted',
+                        'Registration Date of Thesis Submitted',
+                        'Submission Date of Thesis Submitted',
+                        'Supporting Documents of Thesis Submitted',
+                        'Title of Awarded PhD',
+                        'Research Domain of Awarded PhD',
+                        'Institute Name of Awarded PhD',
+                        'University of Awarded PhD',
+                        'Registration of Awarded PhD',
+                        'Defense Date of Awarded PhD ',
+                        'Supporting Documents of Awarded PhD',
+                    ]
+    writer.writerow(heading_data)  
 
     return response
 def adminLogin(request):
