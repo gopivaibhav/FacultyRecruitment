@@ -26,6 +26,9 @@
 		.headingfont{
 			font-weight: 400;
 		}
+		.document_link{
+			color:blueviolet;
+		}
 	</style>
 </head>
 
@@ -152,9 +155,7 @@
 										<td colspan="14">{{general_data.certificate}}</td>
 									{% else %}
 										<td colspan="14">
-											<img id="profileImage"
-												class="img-fluid mx-auto" src="{{ general_data.certificate.url  }}"
-												style="max-width: 16%;min-width: 12em;  padding: 0;" />
+											<a href="{{ general_data.certificate.url  }}" target="_blank"><font class="document_link">Link</font></a>
 										</td>
 									{% endif %}
 								</tr>
@@ -339,7 +340,7 @@
 										{{item.year_of_passing}}
 									</td>
 									<td colspan="4">
-										<img src={{item.supporting_documents.url}} height="150" width="150" alt="">
+										<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
 									</td>
 								</tr>
 								{% endfor %}
@@ -393,7 +394,7 @@
 										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
 										<td colspan="4" style="overflow-wrap: anywhere;">
-											<img src={{item.supporting_documents.url}} height="150" width="150" alt="">
+											<a href={{item.supporting_documents.url}}  target="_blank"><font class="document_link">Link</font></a>
 										</td>
 									{% endif %}
 								</tr>
@@ -430,7 +431,7 @@
 										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
 										<td colspan="4" style="overflow-wrap: anywhere;">
-											<img src={{item.supporting_documents.url}} height="150" width="150" alt="">
+											<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
 										</td>
 									{% endif %}
 								</tr>
@@ -484,7 +485,7 @@
 										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
 										<td colspan="4" style="overflow-wrap: anywhere;">
-											<img src={{item.supporting_documents.url}} height="150" width="150" alt="">
+											<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
 										</td>
 									{% endif %}
 
@@ -513,7 +514,7 @@
 									</th>
 									<th colspan="4">Month & year of publication</th>
 									<th colspan="2">ISBN/ ISSN No.</th>
-									<th colspan="4" style=" ">Supporting Documents</th>
+									<th colspan="4">Supporting Documents</th>
 								</tr>
 
 								{% for item in ChaptersDetails %}
@@ -528,7 +529,7 @@
 										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
 										<td colspan="4" style="overflow-wrap: anywhere;">
-											<img src={{item.supporting_documents.url}} height="150" width="150" alt="">
+											<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
 										</td>
 									{% endif %}
 
@@ -576,7 +577,7 @@
 										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
 										<td colspan="4" style="overflow-wrap: anywhere;">
-											<img src={{item.supporting_documents.url}} height="150" width="150" alt="">
+											<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
 										</td>
 									{% endif %}
 								</tr>
@@ -615,7 +616,7 @@
 										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
 										<td colspan="4" style="overflow-wrap: anywhere;">
-											<img src={{item.supporting_documents.url}} height="150" width="150" alt="">
+											<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
 										</td>
 									{% endif %}
 								</tr>
@@ -700,11 +701,11 @@
 									<td class="headingfont" colspan="4">Number of completed sponsored projects</td>
 									<td colspan="8">{{SponsoredProjects.spo_completed}}</td>
 									<td class="headingfont" colspan="4">File containing the list of sponsored projects</td>
-									{% if SponsoredProjects.exp_tot_number == "0" %}
-										<td colspan="4" style="overflow-wrap: anywhere;">{{SponsoredProjects.exp_file}}</td>
+									{% if SponsoredProjects.spo_tot_number == "0" %}
+										<td colspan="4" style="overflow-wrap: anywhere;">{{SponsoredProjects.spo_file}}</td>
 									{% else %}
 										<td colspan="4" style="overflow-wrap: anywhere;">
-											<img src={{SponsoredProjects.exp_file.url}} height="150" width="150" alt="">
+											<a href={{SponsoredProjects.spo_file.url}} target="_blank"><font class="document_link">Link</font></a>
 										</td>
 									{% endif %}
 								</tr>
@@ -739,7 +740,7 @@
 										<td colspan="4" style="overflow-wrap: anywhere;">{{Experiments.exp_file}}</td>
 									{% else %}
 										<td colspan="4" style="overflow-wrap: anywhere;">
-											<img src={{Experiments.exp_file.url}} height="150" width="150" alt="">
+											<a href={{Experiments.exp_file.url}} target="_blank"><font class="document_link">Link</font></a>
 										</td>
 									{% endif %}
 								</tr>
