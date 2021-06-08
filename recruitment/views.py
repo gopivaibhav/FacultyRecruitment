@@ -427,6 +427,32 @@ def export_csv(request):
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].referred)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].naas)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].supporting_documents.url)
+            if(len(list(SeminarArticles.objects.filter(applicant=i)))<=5):
+                    for j in range(0,len(list(SeminarArticles.objects.filter(applicant=i)))):
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].article_title)
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].seminar_subject)
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].location)
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].From)
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].to)                      
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].published)
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].supporting_documents.url)
+                    for j in range(len(list(SeminarArticles.objects.filter(applicant=i))),5):
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+            else:
+                    for j in range(0,5):
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].article_title)
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].seminar_subject)
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].location)
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].From)
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].to)                      
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].published)
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].supporting_documents.url)
 
         writer.writerow(applicant_data)
     return response
