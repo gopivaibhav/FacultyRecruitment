@@ -3874,16 +3874,30 @@ a {
   height: 3rem;
 }
 .csv-cont:hover::after{
+  animation: .5s moveleft ease;
   opacity: 1;
 }
 .csv-cont{
   display: flex;
   align-items: center;
+  margin-bottom: .6rem;
 }
 .csv-cont::after{
   content: "Export All";
-  opacity: 0;
   color: #005F9A;
+  display: inline-block;
   vertical-align: top;
   padding-left: .5rem;
+  opacity: 0;
+}
+
+@keyframes moveleft {
+  0%{
+    opacity: 0;
+    transform: translate(-50px);
+  },
+  100%{
+    opacity: 1;
+    transform: translate(0px);
+  }
 }
