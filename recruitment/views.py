@@ -1,6 +1,8 @@
 from django.shortcuts import render
 import datetime
 import  re
+
+from django.utils.timezone import activate
 from recruitment.models import *
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
@@ -91,13 +93,7 @@ def export_csv(request):
                         'Percentage Marks / CGPA / CPI - X or equivalent', 
                         'Subjects Taken - X or equivalent', 
                         'Year of Passing - X or equivalent', 
-                        'Supporting Documents - X or Equivalent',
-                        'Institute / University Name - Diploma or equivalent',
-                        'Percentage Marks / CGPA / CPI - Diploma or equivalent', 
-                        'Subjects Taken - Diploma or equivalent', 
-                        'Year of Passing - Diploma or equivalent', 
-                        'Supporting Documents - Diploma or Equivalent',
-                        'Total Number of Employers',                                       
+                        'Supporting Documents - X or Equivalent',                               
                     ]
     for i in range(1,6):
         heading_data.append('Name of Employer/Status of Institute/University- ' + str(i))
@@ -107,7 +103,6 @@ def export_csv(request):
         heading_data.append('Basic Salary- ' + str(i))
         heading_data.append('Nature of Duty- ' + str(i))
         heading_data.append('Supporting Documents- ' + str(i))
-    heading_data.append('Total Research Experience')   
     for i in range(1,6):
         heading_data.append('Research Experience- ' + str(i) + 'From')
         heading_data.append('Research Experience- ' + str(i) + 'To')
@@ -284,6 +279,77 @@ def export_csv(request):
                         applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Registration_Date)
                         applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Submission_Date)
                         applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].supporting_documents.url)
+            # for j in range(0,len(list(EducationalQualifications.objects.filter(applicant=i)))):
+            #     print(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to)
+            #     if(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Masters"):
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
+            #     elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Bachelors"): 
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
+            #     elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Class 12th"): 
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
+            #     elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Class 10th"): 
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
+            #         applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
+            for j in range(0,20):
+                applicant_data.append("N/A")
+            if(len(list(EmploymentExp.objects.filter(applicant=i)))<=5):
+                    for j in range(0,len(list(EmploymentExp.objects.filter(applicant=i)))):
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].name)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].post)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].from_year)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].to_year)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].salary)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].nature)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].supporting_documents.url)
+                    for j in range(len(list(EmploymentExp.objects.filter(applicant=i))),5):
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+            else:
+                    for j in range(0,5):
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].name)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].post)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].from_year)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].to_year)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].salary)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].nature)
+                        applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].supporting_documents.url)
+            if(len(list(ResearchExp.objects.filter(applicant=i)))<=5):
+                    for j in range(0,len(list(ResearchExp.objects.filter(applicant=i)))):
+                        applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].From)
+                        applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].to)
+                        applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].number_of_months)
+                        applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].supporting_documents.url)
+                    for j in range(len(list(ResearchExp.objects.filter(applicant=i))),5):
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+            else:
+                    for j in range(0,5):
+                        applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].From)
+                        applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].to)
+                        applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].number_of_months)
+                        applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].supporting_documents.url)
         writer.writerow(applicant_data)
     return response
 def adminLogin(request):
