@@ -453,7 +453,43 @@ def export_csv(request):
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].to)                      
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].published)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].supporting_documents.url)
-
+            applicant_data += [
+                Thesis.objects.filter(applicant=i)[0].ongoing_phd,
+                Thesis.objects.filter(applicant=i)[0].completed_phd,
+                AdministrativeDetails.objects.filter(applicant=i).administrative_details,
+                SponsoredProject.objects.filter(applicant=i).spo_tot_number,
+                SponsoredProject.objects.filter(applicant=i).spo_ongoing,
+                SponsoredProject.objects.filter(applicant=i).spo_completed,
+                SponsoredProject.objects.filter(applicant=i).spo_file,
+                Experiments.objects.filter(applicant=i).exp_tot_number,
+                Experiments.objects.filter(applicant=i).exp_ongoing,
+                Experiments.objects.filter(applicant=i).exp_completed,
+                Experiments.objects.filter(applicant=i).exp_file,
+                Patent.objects.filter(applicant=i).patent_details,
+                Summary.objects.filter(applicant=i).defence_date,
+                Summary.objects.filter(applicant=i).total_exp,
+                Summary.objects.filter(applicant=i).exp_post_phd,
+                Summary.objects.filter(applicant=i).total_phd_students,
+                Summary.objects.filter(applicant=i).ongoing_phd_supervision,
+                Summary.objects.filter(applicant=i).total_projects,
+                Summary.objects.filter(applicant=i).ongoing_projects,
+                Summary.objects.filter(applicant=i).computational_projects,
+                Summary.objects.filter(applicant=i).SCI_journal,
+                Summary.objects.filter(applicant=i).SCI_journal_post_phd,
+                OtherInfo.objects.filter(applicant=i).membership,
+                OtherInfo.objects.filter(applicant=i).responsibilities,
+                OtherInfo.objects.filter(applicant=i).Any_other_relevant_information,
+                OtherInfo.objects.filter(applicant=i).academic_year_break,
+                OtherInfo.objects.filter(applicant=i).awards_and_recognition,
+                OtherInfo.objects.filter(applicant=i).judicial_punishment,
+                OtherInfo.objects.filter(applicant=i).unfit_for_position,
+                OtherInfo.objects.filter(applicant=i).reference1,
+                OtherInfo.objects.filter(applicant=i).reference2,
+                OtherInfo.objects.filter(applicant=i).reference3,
+                Declaration.objects.filter(applicant=i).place,
+                Declaration.objects.filter(applicant=i).date,
+                Declaration.objects.filter(applicant=i).signature,
+            ]
         writer.writerow(applicant_data)
     return response
 def adminLogin(request):
