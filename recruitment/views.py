@@ -571,7 +571,7 @@ def viewMore(request, application_number):
             'responsibilities': OtherInfo.objects.filter(applicant=application_number)[0].responsibilities,
             'Any_other_relevant_information': OtherInfo.objects.filter(applicant=application_number)[0].Any_other_relevant_information,
             'academic_year_break': OtherInfo.objects.filter(applicant=application_number)[0].academic_year_break,
-            'college_punishment': OtherInfo.objects.filter(applicant=application_number)[0].college_punishment,
+            # 'college_punishment': OtherInfo.objects.filter(applicant=application_number)[0].college_punishment,
             'judicial_punishment': OtherInfo.objects.filter(applicant=application_number)[0].judicial_punishment,
             'unfit_for_position': OtherInfo.objects.filter(applicant=application_number)[0].unfit_for_position,
             'reference1': OtherInfo.objects.filter(applicant=application_number)[0].reference1,
