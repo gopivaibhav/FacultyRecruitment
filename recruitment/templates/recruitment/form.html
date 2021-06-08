@@ -1797,23 +1797,36 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12"
-                                        style="display: flex;align-items:center;text-align-last:center;justify-content: flex-end;">
-                                        <span><strong>Signature<font class="asterisk">*</font>&nbsp;: </strong></span>
-
-                                        <span>
-                                            <image id="signImage" src=""
+                                    <div class="col-12">
+                                        <div class="row gtr-uniform" style="align-items:center">
+                                            <div class="col-1 col-4-medium">
+                                                <h3>Resume<font class="asterisk">*</font>&nbsp;:</h3>
+                                            </div>
+                                            <div class="col-4 col-6-medium col-7-small">
+                                                <image id="resumeFile" src=""
                                                 style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;" />
-                                            <div>
+                                            
+                                                <input id="resumeUpload" type="file" style="font-size: small;"
+                                                    name="resumeUpload" placeholder="Resume" required>
+                                                <label for="resumeUpload" style="text-align:center">(Upload
+                                                    Resume)</label>
+                                            </div>
+                                            <div class="col-2 col-1-small"></div>
+                                            <div class="col-1 col-4-medium">
+                                                <h3>Signature<font class="asterisk">*</font>&nbsp;:</h3>
+                                            </div>
+
+                                            <div class="col-4 col-6-medium col-7-small">
+                                                <image id="signImage" src=""
+                                                style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;" />
+                                            
                                                 <input id="signUpload" type="file" style="font-size: small;"
                                                     name="signUpload" placeholder="Signature" required>
                                                 <label for="signUpload" style="text-align:center">(Upload
                                                     Signatures)</label>
                                             </div>
-                                        </span>
+                                        </div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
