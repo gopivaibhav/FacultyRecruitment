@@ -3870,3 +3870,16 @@ a {
 .asterisk{
   color:rgb(200, 0, 0);
 }
+.csv-icon{
+  height: 3rem;
+}
+.csv-cont:hover::after{
+  opacity: 1;
+}
+.csv-cont::after{
+  content: "Export All";
+  opacity: 0;
+  color: #005F9A;
+  vertical-align: top;
+  padding-left: .5rem;
+}
