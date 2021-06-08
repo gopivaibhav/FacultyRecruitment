@@ -184,7 +184,32 @@ def export_csv(request):
                         'Resume of Candidate'
                     ]
     writer.writerow(heading_data)  
-
+    for i in list(Applicant.objects.all()):
+        applicant_data = []
+        applicant_data += [i.application_no,
+                            Applicant.objects.filter(application_no=i)[0].post,
+                            Applicant.objects.filter(application_no=i)[0].department,
+                            Applicant.objects.filter(application_no=i)[0].Research_Domain,
+                            General.objects.filter(applicant=i)[0].full_name,
+                            General.objects.filter(applicant=i)[0].DOB,
+                            General.objects.filter(applicant=i)[0].father_name,
+                            General.objects.filter(applicant=i)[0].address_perm,
+                            General.objects.filter(applicant=i)[0].telephone_perm,
+                            General.objects.filter(applicant=i)[0].pin_perm,
+                            General.objects.filter(applicant=i)[0].mobile_number,
+                            General.objects.filter(applicant=i)[0].email,
+                            General.objects.filter(applicant=i)[0].gender,
+                            General.objects.filter(applicant=i)[0].marital_status,
+                            General.objects.filter(applicant=i)[0].nationality,
+                            General.objects.filter(applicant=i)[0].state,
+                            General.objects.filter(applicant=i)[0].category,
+                            General.objects.filter(applicant=i)[0].reservation,
+                            PhD.objects.filter(applicant=i)[0].PhD_awarded,
+                        ]
+        if(PhD.objects.filter(applicant=i)[0].PhD_awarded == "No"):
+            for i in range(0,79):
+                applicant_data.append("N/A")
+        writer.writerow(applicant_data)
     return response
 def adminLogin(request):
     context = {
