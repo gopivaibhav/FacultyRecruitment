@@ -252,6 +252,8 @@ def export_csv(request):
                         applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].Registration_Date)
                         applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].Submission_Date)
                         applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].supporting_documents.url)
+                for j in range(0,36):
+                    applicant_data.append("N/A")
             elif(PhD.objects.filter(applicant=i)[0].PhD_details == "Awarded"):
                 for j in range(0,42):
                     applicant_data.append("N/A")
