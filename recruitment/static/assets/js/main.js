@@ -240,57 +240,71 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     var newAcademicsNo = 1;
-    var newIn = '<tr class="appliRow' + newAcademicsNo + '" id="field1"> <td class="col-2" style="text-align: center; padding: 0;">' +
-        '<input type="text" name="course' + newAcademicsNo + '" id="course' + newAcademicsNo + '" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" required></td>' +
-        '<td style="text-align: center; padding: 0;vertical-align: middle;">'+
-        '<select name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
-            '<option value="" disabled selected>Select Any Options</option>'+
-            '<option value="Masters">Masters</option>'+
-            '<option value="Bachelors">Bachelors</option>'+
-            '<option value="Class 12th">Class 12th</option>'+
-            '<option value="Class 10th">Class 10th</option>'+
-        '</select></td>'+
-        '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-1" style="text-align: center; padding: 0;">' +
-        '<input type="text" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="% of Marks" required></td><td class="col-2" style="text-align: center; padding: 0;">' +
-        '<input type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;">' +
-        '<select style="inline-size: auto; " name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '" ></select></td><td class="col-3" style="display:flex;place-content:space-between">' +
-        '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>' +
-        '</td></tr>';
-    $('.academic-tbody').append(newIn);
+    var EquivalentOptions = [
+    '<option value="Masters">Masters</option>' ,
+     '<option value="Bachelors">Bachelors</option>',
+    '<option value="Class 12th">Class 12th</option>',
+    '<option value="Class 10th">Class 10th</option>'
+    ]
+    var diploma
+    for(var ii=0;ii<4;ii+=1){
+        var newIn = '<tr class="appliRow' + newAcademicsNo + '" id="field1"> <td class="col-2" style="text-align: center; padding: 0;">' +
+            '<input type="text" name="course' + newAcademicsNo + '" id="course' + newAcademicsNo + '" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" required></td>' +
+            '<td style="text-align: center; padding: 0;vertical-align: middle;">'+
+            '<select name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
+                // '<option value="" disabled selected>Select Any Options</option>'+
+                EquivalentOptions[ii] +
+            '</select></td>'+
+            '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-1" style="text-align: center; padding: 0;">' +
+            '<input type="text" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="% of Marks" required></td><td class="col-2" style="text-align: center; padding: 0;">' +
+            '<input type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;">' +
+            '<select style="inline-size: auto; " name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '" ></select></td><td class="col-3" style="display:flex;place-content:space-between">' +
+            '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>' +
+            '</td></tr>';
+        $('.academic-tbody').append(newIn);
 
-    $("form input").keydown(function (e) {
-        if (e.keyCode === 13) {
-          e.preventDefault();
-          return false;
+        $("form input").keydown(function (e) {
+            if (e.keyCode === 13) {
+            e.preventDefault();
+            return false;
+            }
+        });
+
+        // console.log("hvgvcvdgcvdvcgdvc");
+        var yearId = 'yearOfPassing' + parseInt(newAcademicsNo);
+        var ele = document.getElementById(yearId);
+        // console.log(ele);
+        var presYear = new Date();
+        for (let i = presYear.getFullYear(); i >= 1950; i--) {
+            // console.log(i);
+            var op = document.createElement('option');
+            op.value = i;
+            op.textContent = i;
+            op.disabled
+            ele.appendChild(op);
+            // ele.innerHTML += '<option value=' + i + '>' + i + '</option>\n'
         }
-      });
-
-    // console.log("hvgvcvdgcvdvcgdvc");
-    var yearId = 'yearOfPassing' + parseInt(newAcademicsNo);
-    var ele = document.getElementById(yearId);
-    // console.log(ele);
-    var presYear = new Date();
-    for (let i = presYear.getFullYear(); i >= 1950; i--) {
-        // console.log(i);
-        var op = document.createElement('option');
-        op.value = i;
-        op.textContent = i;
-        ele.appendChild(op);
-        // ele.innerHTML += '<option value=' + i + '>' + i + '</option>\n'
+        newAcademicsNo += 1;
     }
-    newAcademicsNo += 1;
+
+    for(var ii=0;ii<4;ii++){
+        // var option = document.querySelectorAll('.academic-tbody option')[4*ii + ii];
+        var option = document.querySelectorAll(`#course${ii+1}-equivalent option`)[ii];
+        option.selected="true";
+        // console.log(option);
+    }
 });
 
 
 $(document).ready(function() {
-    var newAcademicsNo = 2;
+    var newAcademicsNo = 5;
     $('.add-more').on('click touchstart', function(e) {
         e.preventDefault();
         var newIn = '<tr class="appliRow' + newAcademicsNo + '" id="field1"> <td class="col-2" style="text-align: center; padding: 0;">' +
             '<input type="text" name="course' + newAcademicsNo + '" id="course' + newAcademicsNo + '" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" required></td>' +
             '<td style="text-align: center; padding: 0;vertical-align: middle;">'+
             '<select name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
-                '<option value="" disabled selected>Select Any Options</option>'+
+                // '<option value="" disabled selected>Select Any Options</option>'+
                 '<option value="Masters">Masters</option>'+
                 '<option value="Bachelors">Bachelors</option>'+
                 '<option value="Class 12th">Class 12th</option>'+
