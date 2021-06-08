@@ -398,6 +398,35 @@ def export_csv(request):
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].date_of_publisher)                      
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].isbn_issn)
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].supporting_documents.url)
+            if(len(list(NewspaperArticle.objects.filter(applicant=i)))<=5):
+                    for j in range(0,len(list(NewspaperArticle.objects.filter(applicant=i)))):
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].article_title)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].journal_name)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].author)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].date_published)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].vol_no)                      
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].referred)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].naas)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].supporting_documents.url)
+                    for j in range(len(list(NewspaperArticle.objects.filter(applicant=i))),5):
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+            else:
+                    for j in range(0,5):
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].article_title)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].journal_name)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].author)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].date_published)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].vol_no)                      
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].referred)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].naas)
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].supporting_documents.url)
 
         writer.writerow(applicant_data)
     return response
