@@ -456,6 +456,7 @@ def submission_form(request):
             ongoing_data['Institute_Name'] = "N/A"
             ongoing_data['University_Name'] = "N/A"
             ongoing_data['Registration_Date'] = "N/A"
+            ongoing_data['supporting_documents'] = "N/A"
             ongoing_data['applicant'] = Applicant.objects.get(application_no=application_number)
             PhDOngoing.objects.create(**ongoing_data)
             submitted_data = {}
@@ -465,6 +466,7 @@ def submission_form(request):
             submitted_data['University_Name'] = "N/A"
             submitted_data['Registration_Date'] = "N/A"
             submitted_data['Submission_Date'] = "N/A"
+            submitted_data['supporting_documents'] = "N/A"
             submitted_data['applicant'] = Applicant.objects.get(application_no=application_number)
             ThesisSubmitted.objects.create(**submitted_data)
             awarded_data= {}
@@ -474,6 +476,7 @@ def submission_form(request):
             awarded_data['University_Name'] = "N/A"
             awarded_data['Registration_Date'] = "N/A"
             awarded_data['Defense_Date'] = "N/A"
+            awarded_data['supporting_documents'] = "N/A"
             awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)    
             PhDAwarded.objects.create(**awarded_data)
         else:
@@ -487,6 +490,7 @@ def submission_form(request):
                 ongoing_data['Institute_Name'] = data['ongoing1-institute']
                 ongoing_data['University_Name'] = data['ongoing1-university']
                 ongoing_data['Registration_Date'] = data['ongoing1-date']
+                ongoing_data['supporting_documents'] = request.FILES['ongoing1-file']
                 ongoing_data['applicant'] = Applicant.objects.get(application_no=application_number)
                 PhDOngoing.objects.create(**ongoing_data)
                 submitted_data = {}
@@ -496,6 +500,7 @@ def submission_form(request):
                 submitted_data['University_Name'] = "N/A"
                 submitted_data['Registration_Date'] = "N/A"
                 submitted_data['Submission_Date'] = "N/A"
+                submitted_data['supporting_documents'] = "N/A"
                 submitted_data['applicant'] = Applicant.objects.get(application_no=application_number)
                 ThesisSubmitted.objects.create(**submitted_data)
                 awarded_data= {}
@@ -505,6 +510,7 @@ def submission_form(request):
                 awarded_data['University_Name'] = "N/A"
                 awarded_data['Registration_Date'] = "N/A"
                 awarded_data['Defense_Date'] = "N/A"
+                awarded_data['supporting_documents'] = "N/A"
                 awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)
                 PhDAwarded.objects.create(**awarded_data)
             elif(data['phd'] == "Thesis Submitted"):
@@ -514,6 +520,7 @@ def submission_form(request):
                 ongoing_data['Institute_Name'] = "N/A"
                 ongoing_data['University_Name'] = "N/A"
                 ongoing_data['Registration_Date'] = "N/A"
+                ongoing_data['supporting_documents'] = "N/A"
                 ongoing_data['applicant'] = Applicant.objects.get(application_no=application_number)
                 PhDOngoing.objects.create(**ongoing_data)
                 num_of_submitted_records = list(filter(lambda s: 'thesis' in s,list(data.keys())))
@@ -525,12 +532,14 @@ def submission_form(request):
                         continue
                     else:
                         submitted_data = {}
-                        submitted_data['PhD_title'] = data['thesis1-title']
-                        submitted_data['Research_Domain'] = data['thesis1-domain']
-                        submitted_data['Institute_Name'] = data['thesis1-institute']
-                        submitted_data['University_Name'] = data['thesis1-university']
-                        submitted_data['Registration_Date'] = data['thesis1-regdate']
-                        submitted_data['Submission_Date'] = data['thesis1-subdate']
+                        submitted_data['PhD_title'] = data.get('thesis' + str(i) + '-title')
+                        submitted_data['Research_Domain'] = data.get('thesis' + str(i) + '-domain')
+                        submitted_data['Institute_Name'] = data.get('thesis' + str(i) + '-institute')
+                        submitted_data['University_Name'] = data.get('thesis' + str(i) + '-university')
+                        submitted_data['Registration_Date'] = data.get('thesis' + str(i) + '-regdate')
+                        submitted_data['Submission_Date'] = data.get('thesis' + str(i) + '-subdate')
+                        ans = 'thesis' + str(i) + '-file'
+                        submitted_data['supporting_documents'] = request.FILES[ans]
                         submitted_data['applicant'] = Applicant.objects.get(application_no=application_number)
                         ThesisSubmitted.objects.create(**submitted_data)
                 awarded_data= {}
@@ -540,6 +549,7 @@ def submission_form(request):
                 awarded_data['University_Name'] = "N/A"
                 awarded_data['Registration_Date'] = "N/A"
                 awarded_data['Defense_Date'] = "N/A"
+                awarded_data['supporting_documents'] = "N/A"
                 awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)    
                 PhDAwarded.objects.create(**awarded_data)
             elif(data['phd'] == "Awarded"):
@@ -549,6 +559,7 @@ def submission_form(request):
                 ongoing_data['Institute_Name'] = "N/A"
                 ongoing_data['University_Name'] = "N/A"
                 ongoing_data['Registration_Date'] = "N/A"
+                ongoing_data['supporting_documents'] = "N/A"
                 ongoing_data['applicant'] = Applicant.objects.get(application_no=application_number)    
                 PhDOngoing.objects.create(**ongoing_data)
                 submitted_data = {}
@@ -558,6 +569,7 @@ def submission_form(request):
                 submitted_data['University_Name'] = "N/A"
                 submitted_data['Registration_Date'] = "N/A"
                 submitted_data['Submission_Date'] = "N/A"
+                submitted_data['supporting_documents'] = "N/A"
                 submitted_data['applicant'] = Applicant.objects.get(application_no=application_number)    
                 ThesisSubmitted.objects.create(**submitted_data)
                 num_of_awarded_records = list(filter(lambda s: 'awarded' in s,list(data.keys())))
@@ -575,6 +587,8 @@ def submission_form(request):
                         awarded_data['University_Name'] = data.get('awarded'+str(i)+'-university',False)
                         awarded_data['Registration_Date'] = data.get('awarded'+str(i)+'-regdate',False)
                         awarded_data['Defense_Date'] = data.get('awarded'+str(i)+'-defdate',False)
+                        ans = 'awarded'+str(i)+'-file'
+                        awarded_data['supporting_documents'] = request.FILES[ans]
                         awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)  
                         PhDAwarded.objects.create(**awarded_data)  
         # Academic Details
@@ -588,6 +602,7 @@ def submission_form(request):
             else:
                 academic_details = {}
                 academic_details['degree'] = data.get('course'+str(i),False)
+                academic_details['equivalent_to'] = data.get('course' + str(i) + '-equivalent',False)
                 academic_details['name'] = data.get('course'+str(i)+'-name',False)
                 academic_details['marks'] = data.get('course'+str(i)+'-percentage',False)
                 academic_details['subjects'] = data.get('course'+str(i)+'-subject',False)

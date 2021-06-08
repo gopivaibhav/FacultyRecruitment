@@ -100,6 +100,7 @@ class Chapters(models.Model):
 class EducationalQualifications(models.Model):
     ''' Model for educational qualifications of applicant.'''
     degree = models.CharField(max_length=200)
+    equivalent_to = models.CharField(max_length=200, default=None)
     name = models.CharField(max_length=200)
     marks = models.CharField(max_length=10)
     subjects = models.CharField(max_length=200)
@@ -195,6 +196,7 @@ class PhDOngoing(models.Model):
     Institute_Name = models.CharField(max_length=200)
     University_Name = models.CharField(max_length=200)
     Registration_Date = models.CharField(max_length=200)
+    supporting_documents = models.FileField(upload_to=handle_uploaded, null=True, blank=True)
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='PhDOngoing')
     def __str__(self):
         return str(self.applicant)   
@@ -206,6 +208,7 @@ class ThesisSubmitted(models.Model):
     University_Name = models.CharField(max_length=200)
     Registration_Date = models.CharField(max_length=200)
     Submission_Date = models.CharField(max_length=200)
+    supporting_documents = models.FileField(upload_to=handle_uploaded, null=True, blank=True)
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='ThesisSubmitted')
     def __str__(self):
         return str(self.applicant)   
@@ -217,6 +220,7 @@ class PhDAwarded(models.Model):
     University_Name = models.CharField(max_length=200)
     Registration_Date = models.CharField(max_length=200)
     Defense_Date = models.CharField(max_length=200)
+    supporting_documents = models.FileField(upload_to=handle_uploaded, null=True, blank=True)
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='PhDAwarded')
     def __str__(self):
         return str(self.applicant)   
@@ -227,7 +231,6 @@ class OtherInfo(models.Model):
     Any_other_relevant_information = models.TextField()
     academic_year_break = models.TextField()
     awards_and_recognition = models.TextField(default=None)
-    college_punishment = models.TextField()
     judicial_punishment = models.TextField()
     unfit_for_position = models.TextField()
     reference1 = models.TextField()
