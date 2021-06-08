@@ -547,6 +547,25 @@ $('#imageUpload').change(function() {
 });
 
 
+////   Upload Resume   //////
+$('#resumeFile').click(function(e) {
+    $('#resumeUpload').click();
+});
+
+function fasterPreview3(uploader) {
+    if (uploader.files && uploader.files[0]) {
+        $('#resumeFile').attr(
+            'src',
+            window.URL.createObjectURL(uploader.files[0])
+        );
+    }
+}
+
+$('#resumeUpload').change(function() {
+    fasterPreview3(this);
+});
+
+
 
 ////   Upload Signatures   //////
 $('#signImage').click(function(e) {
