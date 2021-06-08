@@ -240,16 +240,20 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     var newAcademicsNo = 1;
+    var EquivalentOptions = [
+    '<option value="Masters">Masters</option>' ,
+     '<option value="Bachelors">Bachelors</option>',
+    '<option value="Class 12th">Class 12th</option>',
+    '<option value="Class 10th">Class 10th</option>'
+    ]
+    var diploma
     for(var ii=0;ii<4;ii+=1){
         var newIn = '<tr class="appliRow' + newAcademicsNo + '" id="field1"> <td class="col-2" style="text-align: center; padding: 0;">' +
             '<input type="text" name="course' + newAcademicsNo + '" id="course' + newAcademicsNo + '" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" required></td>' +
             '<td style="text-align: center; padding: 0;vertical-align: middle;">'+
             '<select name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
                 // '<option value="" disabled selected>Select Any Options</option>'+
-                '<option value="Masters">Masters</option>'+
-                '<option value="Bachelors">Bachelors</option>'+
-                '<option value="Class 12th">Class 12th</option>'+
-                '<option value="Class 10th">Class 10th</option>'+
+                EquivalentOptions[ii] +
             '</select></td>'+
             '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-1" style="text-align: center; padding: 0;">' +
             '<input type="text" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="% of Marks" required></td><td class="col-2" style="text-align: center; padding: 0;">' +
@@ -276,6 +280,7 @@ $(document).ready(function() {
             var op = document.createElement('option');
             op.value = i;
             op.textContent = i;
+            op.disabled
             ele.appendChild(op);
             // ele.innerHTML += '<option value=' + i + '>' + i + '</option>\n'
         }
