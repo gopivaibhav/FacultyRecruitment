@@ -243,6 +243,45 @@ def export_csv(request):
                         applicant_data.append("N/A")
                         applicant_data.append("N/A")
                         applicant_data.append("N/A")
+                else:
+                    for j in range(0,5):
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].PhD_title)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].Research_Domain)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].Institute_Name)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].University_Name)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].Registration_Date)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].Submission_Date)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].supporting_documents.url)
+            elif(PhD.objects.filter(applicant=i)[0].PhD_details == "Awarded"):
+                for j in range(0,42):
+                    applicant_data.append("N/A")
+                applicant_data.append(len(list(PhDAwarded.objects.filter(applicant=i))))
+                if(len(list(PhDAwarded.objects.filter(applicant=i)))<=5):
+                    for j in range(0,len(list(PhDAwarded.objects.filter(applicant=i)))):
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].PhD_title)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Research_Domain)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Institute_Name)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].University_Name)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Registration_Date)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Defense_Date)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].supporting_documents.url)
+                    for j in range(len(list(PhDAwarded.objects.filter(applicant=i))),5):
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                else:
+                    for j in range(0,5):
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].PhD_title)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Research_Domain)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Institute_Name)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].University_Name)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Registration_Date)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Submission_Date)
+                        applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].supporting_documents.url)
         writer.writerow(applicant_data)
     return response
 def adminLogin(request):
