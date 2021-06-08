@@ -27,7 +27,12 @@
 			font-weight: 400;
 		}
 		.document_link{
-			color:blueviolet;
+			color:rebeccapurple;
+			font-weight: 400;
+		}
+		.document_link:hover::after{
+			content: "→";
+			display: inline-block;
 		}
 	</style>
 </head>
@@ -41,7 +46,8 @@
 		<!-- 	Header	-->
 		<header id="header">
 			<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
-			<h1>Faculty Recruitment Form</h1>
+			<h1>Indian Institute of Information Technology, Lucknow</h1>
+			<h2>Applicant Form </h2>
 		</header>
 
 		<!-- Main part -->
@@ -67,9 +73,13 @@
 							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
 									<td colspan="24" style="font-weight: 500; font-size: 1.8rem; border-bottom: 1px solid #a6a6a6;">
-										Section A
-										<span style="display: block;  font-size: 1.2rem;" >(Applicant Details)</span>
-
+										<div class="row">
+											<div class="col-3"></div>
+											<div class="col-6" >Section A
+												<span style="display: block;  font-size: 1.2rem;" >(Applicant Details)</span>
+											</div>
+											<a href="#" class="col-3" onmouseover="this.style.color='red'" onmouseout="this.style.color='rebeccapurple'"  style="display: flex; align-items: center; color: rebeccapurple;" >Open Resume</a>
+										</div>
 									</td>
 								</tr>
 								<tr>
