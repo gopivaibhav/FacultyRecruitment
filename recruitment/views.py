@@ -108,7 +108,6 @@ def export_csv(request):
         heading_data.append('Research Experience- ' + str(i) + 'To')
         heading_data.append('Research Experience- ' + str(i) + 'Number of Months')
         heading_data.append('Research Experience- ' + str(i) + 'Supporting Documents')
-    heading_data.append('Total Number of Books by Candindate')
     for i in range(1,6):
         heading_data.append('Title of the Book- ' + str(i))
         heading_data.append('Whether First Author or Co-author of Book- ' + str(i))
@@ -350,6 +349,30 @@ def export_csv(request):
                         applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].to)
                         applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].number_of_months)
                         applicant_data.append(ResearchExp.objects.filter(applicant=i)[j].supporting_documents.url)
+            if(len(list(Books.objects.filter(applicant=i)))<=5):
+                    for j in range(0,len(list(Books.objects.filter(applicant=i)))):
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].title)
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].author)
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].publisher)
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].date_publish)                      
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].isbn)
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].supporting_documents.url)
+                    for j in range(len(list(Books.objects.filter(applicant=i))),5):
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+            else:
+                    for j in range(0,5):
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].title)
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].author)
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].publisher)
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].date_publish)                      
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].isbn)
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].supporting_documents.url)
+
         writer.writerow(applicant_data)
     return response
 def adminLogin(request):
