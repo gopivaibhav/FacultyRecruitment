@@ -136,7 +136,8 @@ def export_csv(request):
         heading_data.append('Title/Subject of paper presented in Seminar- ' + str(i))
         heading_data.append('Subject of Conference /Seminar/Symposium/ Workshop  presented in Seminar- -  ' + str(i))
         heading_data.append('Organizing Institution & Name of City/Country presented in Seminar- ' + str(i))
-        heading_data.append('Duration of research article/paper presented in Seminar- ' + str(i))
+        heading_data.append('Starting Date of research article/paper presented in Seminar- ' + str(i))
+        heading_data.append('Ending Date of research article/paper presented in Seminar- ' + str(i))
         heading_data.append('Whether the proceedings published or not presented in Seminar- ' + str(i))
         heading_data.append('Supporting Documents presented in Seminar- ' + str(i))
     heading_data += [
@@ -489,6 +490,7 @@ def export_csv(request):
                 Declaration.objects.filter(applicant=i)[0].place,
                 Declaration.objects.filter(applicant=i)[0].date,
                 Declaration.objects.filter(applicant=i)[0].signature,
+                Declaration.objects.filter(applicant=i)[0].resume,
             ]
         writer.writerow(applicant_data)
     return response
@@ -694,6 +696,7 @@ def submission_form(request):
         signed_data['place'] = data['signPlace']
         signed_data['date'] = datetime.datetime.now().date()
         signed_data['signature'] = request.FILES['signUpload']
+        signed_data['resume'] = request.FILES['resumeUpload']
         signed_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Declaration.objects.create(**signed_data)
         # Page 4
