@@ -3876,6 +3876,10 @@ a {
 .csv-cont:hover::after{
   opacity: 1;
 }
+.csv-cont{
+  display: flex;
+  align-items: center;
+}
 .csv-cont::after{
   content: "Export All";
   opacity: 0;
