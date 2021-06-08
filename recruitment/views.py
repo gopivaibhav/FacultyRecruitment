@@ -372,6 +372,32 @@ def export_csv(request):
                         applicant_data.append(Books.objects.filter(applicant=i)[j].date_publish)                      
                         applicant_data.append(Books.objects.filter(applicant=i)[j].isbn)
                         applicant_data.append(Books.objects.filter(applicant=i)[j].supporting_documents.url)
+            if(len(list(Chapters.objects.filter(applicant=i)))<=5):
+                    for j in range(0,len(list(Chapters.objects.filter(applicant=i)))):
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].book_title)
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].chapter)
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].author)
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].publisher)
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].date_of_publisher)                      
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].isbn_issn)
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].supporting_documents.url)
+                    for j in range(len(list(Chapters.objects.filter(applicant=i))),5):
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+            else:
+                    for j in range(0,5):
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].book_title)
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].chapter)
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].author)
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].publisher)
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].date_of_publisher)                      
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].isbn_issn)
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].supporting_documents.url)
 
         writer.writerow(applicant_data)
     return response
