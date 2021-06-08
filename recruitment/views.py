@@ -207,8 +207,42 @@ def export_csv(request):
                             PhD.objects.filter(applicant=i)[0].PhD_awarded,
                         ]
         if(PhD.objects.filter(applicant=i)[0].PhD_awarded == "No"):
-            for i in range(0,79):
+            for j in range(0,79):
                 applicant_data.append("N/A")
+        else:
+            applicant_data.append(PhD.objects.filter(applicant=i)[0].PhD_details)
+            if(PhD.objects.filter(applicant=i)[0].PhD_details == "Ongoing"):
+                applicant_data += [
+                    PhDOngoing.objects.filter(applicant=i)[0].PhD_title,
+                    PhDOngoing.objects.filter(applicant=i)[0].Research_Domain,
+                    PhDOngoing.objects.filter(applicant=i)[0].Institute_Name,
+                    PhDOngoing.objects.filter(applicant=i)[0].University_Name,
+                    PhDOngoing.objects.filter(applicant=i)[0].Registration_Date,
+                    PhDOngoing.objects.filter(applicant=i)[0].supporting_documents.url,
+                ]
+                for j in range(0,72):
+                    applicant_data.append("N/A")
+            elif(PhD.objects.filter(applicant=i)[0].PhD_details == "Thesis Submitted"):
+                for j in range(0,6):
+                    applicant_data.append("N/A")
+                applicant_data.append(len(list(ThesisSubmitted.objects.filter(applicant=i))))
+                if(len(list(ThesisSubmitted.objects.filter(applicant=i)))<=5):
+                    for j in range(0,len(list(ThesisSubmitted.objects.filter(applicant=i)))):
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].PhD_title)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].Research_Domain)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].Institute_Name)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].University_Name)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].Registration_Date)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].Submission_Date)
+                        applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].supporting_documents.url)
+                    for j in range(len(list(ThesisSubmitted.objects.filter(applicant=i))),5):
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
+                        applicant_data.append("N/A")
         writer.writerow(applicant_data)
     return response
 def adminLogin(request):
