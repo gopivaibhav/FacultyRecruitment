@@ -176,7 +176,8 @@ def export_csv(request):
                         'Place of Candidate',
                         'Date',
                         'Signature of Candidate',
-                        'Resume of Candidate'
+                        'Resume of Candidate',
+                        'View More of Candidate'
                     ]
     writer.writerow(heading_data)  
     for i in list(Applicant.objects.all()):
@@ -491,6 +492,7 @@ def export_csv(request):
                 Declaration.objects.filter(applicant=i)[0].date,
                 Declaration.objects.filter(applicant=i)[0].signature,
                 Declaration.objects.filter(applicant=i)[0].resume,
+                'http://127.0.0.1:8000/admin/user/' + str(i),
             ]
         writer.writerow(applicant_data)
     return response
