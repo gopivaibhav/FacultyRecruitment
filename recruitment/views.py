@@ -1089,6 +1089,6 @@ def submission_form(request):
                 research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 ResearchExp.objects.create(**research_exp_details)     
             messages.success(request,'Congratulations, your application has been submitted successfully!')  
-            messages.success(request, 'Your application number is : ' + application_number + '. Keep this application number for future references. ')             
+            messages.success(request, 'Your application number is : ' + application_number + '. Note this for future reference. ')             
         return  HttpResponseRedirect('/accounts/profile/')
     return render(request, 'recruitment/form.html', {})
