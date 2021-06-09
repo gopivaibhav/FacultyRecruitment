@@ -582,6 +582,7 @@ def viewMore(request, application_number):
             'place': Declaration.objects.filter(applicant=application_number)[0].place,
             'date': Declaration.objects.filter(applicant=application_number)[0].date,
             'signature': Declaration.objects.filter(applicant=application_number)[0].signature,
+            'resume': Declaration.objects.filter(applicant=application_number)[0].resume,
         },
         'thesis_data': {
             'ongoing_phd': Thesis.objects.filter(applicant=application_number)[0].ongoing_phd,
