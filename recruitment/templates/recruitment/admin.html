@@ -299,6 +299,9 @@
 					var se = mybody.length;
 					for (var zz = 1; zz < se; zz++) mybody[zz].remove();
 					appendData(appNum, '', appFor, dateAfter, dateBefore, subSelected);
+					$([document.documentElement, document.body]).animate({
+						scrollTop: $("#received").offset().top
+					}, 1000);
 				}
 			</script>
 	</body>
