@@ -243,7 +243,7 @@ $(document).ready(function() {
     var EquivalentOptions = [
     '<option value="Masters">Masters</option>' ,
      '<option value="Bachelors">Bachelors</option>',
-    '<option value="Class 12th">Class 12th</option>',
+    '<option value="Class 12th">Class 12th</option><option value="Diploma">Diploma</option>',
     '<option value="Class 10th">Class 10th</option>'
     ]
     var diploma
@@ -308,6 +308,7 @@ $(document).ready(function() {
                 '<option value="Masters">Masters</option>'+
                 '<option value="Bachelors">Bachelors</option>'+
                 '<option value="Class 12th">Class 12th</option>'+
+                '<option value="Diploma">Diploma</option>'+
                 '<option value="Class 10th">Class 10th</option>'+
             '</select></td>'+
             '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-1" style="text-align: center; padding: 0;">' +
