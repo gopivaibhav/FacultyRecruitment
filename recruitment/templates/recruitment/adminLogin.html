@@ -40,16 +40,26 @@
                         
                         <form action='.', method="POST" style="margin-top: 5em;">
                             {% csrf_token %}
-                            <div class="col-12" style="padding: 50px;">
+                            <div class="col-12" style="padding: 20px;">
                                 <img height="100px" src="{% static 'images/adminUser.svg' %}" alt="admin logo">
                             </div>
                             <div class="text-box">
+                                <h2 style="font-weight: 900;">Admin Login</h2>
                                 <input type="text" placeholder="Username" name="Username" class="textbox"></input>
                                 <br>
-                                <input type="password" placeholder="Password" name="Password" class="textbox"></input>
+                                <input type="password" id="pass" placeholder="Password" name="Password" class="textbox"></input>
                                 <br>
                             </div>
                             <button id="submitform" class="button small primary" type="submit">Login</button>
+                            <script>
+                                var input = document.getElementById("pass");
+                                input.addEventListener("keyup", function(event) {
+                                  if (event.keyCode === 13) {
+                                   event.preventDefault();
+                                   document.getElementById("submitform").click();
+                                  }
+                                });
+                                </script>
                         </form>
                         {%if could_not_log_in %}
                         <p class="error">Either username or password is incorrect</p>
