@@ -142,6 +142,21 @@ $('form input').keydown(function (e) {
     }
 });
 
+$('input[type="file"]').on('change', function(input){
+    // alert("file added");
+    console.log(input);
+            const fileSize = input.currentTarget.files[0].size / 1024 / 1024; // in MiB
+            // console.log(fileSize);
+        if (fileSize > 0.5) {
+            alert('File size exceeds 450 KB');
+            input.currentTarget.value=null;
+            // $(file).val(''); //for clearing with Jquery
+        }
+        if(input.currentTarget.accept==".pdf"){
+            var type = input.currentTarget.files[0].type
+        }
+});
+
 ////////phd table ongoing
 $(document).ready(function() {
     var newAcademicsNo = 2;
@@ -151,7 +166,7 @@ $(document).ready(function() {
         '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-title" id="ongoing' + newAcademicsNo + '-title" style="margin: 0; background-color: transparent; border:none;"placeholder="Ph.D Title"></td>'+
         '<td class="col-3"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-domain" id="ongoing' + newAcademicsNo + '-domain" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Broad Research Domain of Ph.D"></td>'+
         '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-institute" id="ongoing' + newAcademicsNo + '-institute" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Institute Name"></td>'+
-        '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-university" id="ongoing' + newAcademicsNo + '-university" style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;" placeholder="University Name"></td>'+
+        '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-university" id="ongoing' + newAcademicsNo + '-university" style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none" placeholder="University Name"></td>'+
         '<td class="col-3" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="ongoing' + newAcademicsNo + '-date" id="ongoing' + newAcademicsNo + '-date" style="border: 0; background: transparent;"></td>'+
         '<td class="col-3" style="padding:0;display:flex;place-content:space-between">' +
         '<td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="ongoing' + newAcademicsNo + '-file" name="ongoing' + newAcademicsNo + '-file"></span>' +
@@ -182,7 +197,7 @@ $(document).ready(function() {
         '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="thesis' + newAcademicsNo + '-title" id="thesis' + newAcademicsNo + '-title" style="margin: 0; background-color: transparent; border:none;" placeholder="Ph.D Title"></td>'+
         '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="thesis' + newAcademicsNo + '-domain" id="thesis' + newAcademicsNo + '-domain"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Broad Research Domain of Ph.D"></td>'+
         '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="thesis' + newAcademicsNo + '-institute" id="thesis' + newAcademicsNo + '-institute"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Institute Name"></td>'+
-        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="thesis' + newAcademicsNo + '-university" id="thesis' + newAcademicsNo + '-university"  style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;" placeholder="University Name"></td>'+
+        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="thesis' + newAcademicsNo + '-university" id="thesis' + newAcademicsNo + '-university"  style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none" placeholder="University Name"></td>'+
         '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="thesis' + newAcademicsNo + '-regdate" id="thesis' + newAcademicsNo + '-regdate"  style="border: 0; background: transparent;"></td>'+
         '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="thesis' + newAcademicsNo + '-subdate" id="thesis' + newAcademicsNo + '-subdate" style="border: 0; background: transparent;"></td>'+
         '<td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="thesis' + newAcademicsNo + '-file" name="thesis' + newAcademicsNo + '-file"></span>' +
@@ -211,7 +226,7 @@ $(document).ready(function() {
         '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded' + newAcademicsNo + '-title" id="awarded' + newAcademicsNo + '-title" style="margin: 0; background-color: transparent; border:none;" placeholder="Ph.D Title"></td>'+
         '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded' + newAcademicsNo + '-domain" id="awarded' + newAcademicsNo + '-domain"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Broad Research Domain of Ph.D"></td>'+
         '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded' + newAcademicsNo + '-institute" id="awarded' + newAcademicsNo + '-institute"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Institute Name"></td>'+
-        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded' + newAcademicsNo + '-university" id="awarded' + newAcademicsNo + '-university"  style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;" placeholder="University Name"></td>'+
+        '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded' + newAcademicsNo + '-university" id="awarded' + newAcademicsNo + '-university"  style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none" placeholder="University Name"></td>'+
         '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="awarded' + newAcademicsNo + '-regdate" id="awarded' + newAcademicsNo + '-regdate"  style="border: 0; background: transparent;"></td>'+
         '<td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="awarded' + newAcademicsNo + '-defdate" id="awarded' + newAcademicsNo + '-defdate" style="border: 0; background: transparent;"></td>'+
 

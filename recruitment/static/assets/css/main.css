@@ -3906,3 +3906,21 @@ a {
     transform: translate(0px);
   }
 }
+
+.supp-doc{
+  padding-top: 0.7rem;
+}
+.size-limit{
+  font-size: x-small;
+  display: block;
+  color:rgb(210, 0, 0);
+}
+.document-format{
+  font-size: x-small;
+  display: block;
+  color:rgb(210, 0, 0);
+}
+.image-upload-size{
+  color:rgb(210, 0, 0);
+  font-size: 0.8em;
+}

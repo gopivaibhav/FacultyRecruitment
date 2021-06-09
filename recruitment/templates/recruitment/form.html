@@ -185,10 +185,10 @@
                                             src="{% static 'images/profilepic.png' %}"
                                             style="max-width: 100%; max-height: 100%; border-radius: 5vh;" />
                                         <div><input id="imageUpload" type="file" style="font-size: small;"
-                                                name="profile_photo" required>
+                                                name="profile_photo" accept=".png, .jpeg, .jpg" required>
                                             <label for="imageUpload" style="text-align:center">
-                                                <font class="asterisk">*</font>&nbsp;(Upload Profile Picture)
-                                            </label>
+                                                <font class="asterisk">*</font>&nbsp;(Upload Profile Picture)<font class="image-upload-size"><br>Size Limit: 450KB<br>Format: JPG, JPEG, PNG</font></label>
+                                            <label for="imageUpload" style="text-align:center"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -213,14 +213,10 @@
                                         <select name="saluation" id="saluation"
                                             style="padding:0;text-align-last:center;padding-right:50%"
                                             placeholder="Gender" title="Gender" required>
-                                            <option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.
-                                            </option>
-                                            <option value="Mr. " style="text-align-last: center;">&nbsp;&nbsp; Mr.
-                                            </option>
-                                            <option value="Mrs. " style="text-align-last: center;">&nbsp;&nbsp; Mrs.
-                                            </option>
-                                            <option value="Miss " style="text-align-last: center;">&nbsp;&nbsp; Miss
-                                            </option>
+                                            <option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.</option>
+                                            <option value="Mr. " style="text-align-last: center;">&nbsp;&nbsp; Mr.</option>
+                                            <option value="Mrs. " style="text-align-last: center;">&nbsp;&nbsp; Mrs.</option>
+                                            <option value="Miss " style="text-align-last: center;">&nbsp;&nbsp; Miss</option>
                                         </select>
                                     </div>
                                     <div class="col-4 col-8-small">
@@ -457,7 +453,7 @@
                                         style="align-self: center;text-align: center;font-size: small;overflow: hidden;padding-left: 1.8em;">
                                         <input id="reservation_certificate" type="file" style="font-size: small;"
                                             name="reservation_certificate" disabled>
-                                        <label for="reservation_certificate">( If Yes, Upload Certificate )</label>
+                                        <label for="reservation_certificate">(If Yes, Upload Certificate)<br>Size Limit: 450KB</label>
                                     </div>
                                 </div>
                             </div>
@@ -539,8 +535,8 @@
                                                     University Name</th>
                                                 <th class="col-3" style="text-align: center;vertical-align: middle;">
                                                     Ph.D Registration Date</th>
-                                                <th class="col-3" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-3 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents <font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
 
 
@@ -567,7 +563,7 @@
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input type="text" name="ongoing1-university" id="ongoing1-university"
-                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;"
+                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none"
                                                         placeholder="University Name">
                                                 </td>
                                                 <td class="col-3"
@@ -576,7 +572,7 @@
                                                         style="border: 0; background: transparent;">
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
-                                                    <input type="file" name="ongoing1-file" id="ongoing1-file"
+                                                    <div class="tooltip"><input type="file" name="ongoing1-file" id="ongoing1-file"
                                                         style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
                                             </tr>
@@ -609,8 +605,8 @@
                                                     Ph.D Registration Date</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Ph.D Submission Date</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents <font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
 
                                             <tr id="thesis1">
@@ -636,7 +632,7 @@
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input type="text" name="thesis1-university" id="thesis1-university"
-                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;"
+                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none"
                                                         placeholder="University Name">
                                                 </td>
                                                 <td class="col-2"
@@ -683,8 +679,8 @@
                                                     Ph.D Registration Date</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Ph.D Defence Date</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
 
 
@@ -711,7 +707,7 @@
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input type="text" name="awarded1-university"
                                                         id="awarded1-university"
-                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;"
+                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none"
                                                         placeholder="University Name">
                                                 </td>
                                                 <td class="col-2"
@@ -763,8 +759,8 @@
                                                     Subject(s)</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Year of Passing</th>
-                                                <th class="col-3" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-3 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
                                             <!-- Table rows are appended Dynamically (check main.js) -->
                                         </tbody>
@@ -813,8 +809,8 @@
                                                     Basic Salary</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Nature of Duty</th>
-                                                <th class="col-3" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-3 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
@@ -899,8 +895,8 @@
                                                 </th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Numbers of Months</th>
-                                                <th class="col-4" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-4 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
                                             <tr style="align-items:center;">
                                                 <td class="col-2" style="text-align: center;vertical-align: middle;">
@@ -964,8 +960,8 @@
                                                     Month & year<br>of publication</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     ISBN/ISSN No.</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
@@ -1038,8 +1034,8 @@
                                                     Month and Year of publication</th>
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
                                                     ISBN/ISSN No.</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
@@ -1121,8 +1117,8 @@
                                                     Whether Referred/Non-referred</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Impact Factor</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
@@ -1217,8 +1213,8 @@
                                                     Duration (From and To)</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Whether the proceedings published Yes/No</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents</th>
+                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
@@ -1408,13 +1404,13 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Upload a PDF / DOC file containing the list
+                                                <h5 style="text-align: end;">Upload a PDF file containing the list
                                                     of sponsored projects
                                                 </h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="file" name="spofile" id="spofile" disabled><br>
-                                                <h6>File size limit: 10MB</h6>
+                                                <label for="spofile"><font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></label>
                                             </div>
                                         </div>
                                     </div>
@@ -1473,13 +1469,13 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Upload a PDF / DOC file containing the list
+                                                <h5 style="text-align: end;">Upload a PDF file containing the list
                                                     of experiments/ computational projects</h5>
                                             </div>
 
                                             <div class="col-8 col-12-medium">
                                                 <input type="file" name="expfile" id="expfile" disabled><br>
-                                                <h6>File size limit: 10MB</h6>
+                                                <label for="expfile"><font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></label>
                                             </div>
                                         </div>
                                     </div>
@@ -1801,13 +1797,9 @@
                                                 <h3>Resume<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-4 col-6-medium col-7-small">
-                                                <image id="resumeFile" src=""
-                                                style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;" />
-                                            
                                                 <input id="resumeUpload" type="file" style="font-size: small;"
-                                                    name="resumeUpload" placeholder="Resume" required>
-                                                <label for="resumeUpload" style="text-align:center">(Upload
-                                                    Resume)</label>
+                                                    name="resumeUpload" placeholder="Resume" accept=".pdf" required>
+                                                <label for="resumeUpload" style="text-align:center">(Upload Resume)<font class="image-upload-size"><br>Size Limit: 450KB<br>File Format: PDF</font></label>
                                             </div>
                                             <div class="col-2 col-1-small"></div>
                                             <div class="col-1 col-4-medium">
@@ -1817,11 +1809,11 @@
                                             <div class="col-4 col-6-medium col-7-small">
                                                 <image id="signImage" src=""
                                                 style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;" />
-                                            
-                                                <input id="signUpload" type="file" style="font-size: small;"
-                                                    name="signUpload" placeholder="Signature" required>
+
+                                                <input id="signUpload" type="file" style="font-size: small;display:block;margin-left:2.5em;"
+                                                    name="signUpload" placeholder="Signature" accept=".png, .jpeg, .jpg" required>
                                                 <label for="signUpload" style="text-align:center">(Upload
-                                                    Signatures)</label>
+                                                    Signatures)<font class="image-upload-size"><br>Size Limit: 450KB<br>Format: JPG, JPEG, PNG</font></label>
                                             </div>
                                         </div>
                                     </div>
@@ -1834,9 +1826,9 @@
                     </div>
                 </form>
                 {% elif user.is_superuser == 1 %}
-                <section id="main">
-                    <h2>You are super user</h2>
-                    <a href="/admin/profile"> Back to Dashboard </a>
+                <section id="main" style="padding: 2em;">
+                    <h2>You are a super user!</h2>
+                    <a href="/admin/profile" style="color: rebeccapurple;text-decoration: underline;"> Back to Dashboard </a>
                 </section>
                 {% else %}
                 <section id="apply" class="main special">
