@@ -3874,7 +3874,7 @@ a {
   height: 3rem;
 }
 .csv-cont:hover::after{
-  animation: .5s moveleft ease;
+  animation: .4s moveleft ease;
   opacity: 1;
 }
 .csv-cont{
@@ -3894,7 +3894,7 @@ a {
 @keyframes moveleft {
   0%{
     opacity: 0;
-    transform: translate(-8px);
+    transform: translate(-40px);
   }
   100%{
     opacity: 1;
