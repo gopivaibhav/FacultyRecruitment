@@ -2161,7 +2161,12 @@ input[type='radio']:focus + label:before {
     font-size: 4.75rem;
   }
 }
-
+@media screen and (min-width: 900px) {
+  div.text-box {
+    width: 70%;
+    padding-left: 30%;
+  }
+}
 @media screen and (max-width: 736px) {
   .icon.major {
     margin: 0 0 1.5em 0;
