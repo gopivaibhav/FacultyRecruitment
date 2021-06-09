@@ -40,13 +40,15 @@
                         
                         <form action='.', method="POST" style="margin-top: 5em;">
                             {% csrf_token %}
-                            <div class="col-12">
-                                <img height="100px" style="  " src="{% static 'images/adminUser.svg' %}" alt="">
+                            <div class="col-12" style="padding: 50px;">
+                                <img height="100px" src="{% static 'images/adminUser.svg' %}" alt="admin logo">
                             </div>
-                            <input type="text" placeholder="Username" name="Username" class="textbox"></input>
-                            <br>
-                            <input type="password" placeholder="Password" name="Password" class="textbox"></input>
-                            <br>
+                            <div class="text-box">
+                                <input type="text" placeholder="Username" name="Username" class="textbox"></input>
+                                <br>
+                                <input type="password" placeholder="Password" name="Password" class="textbox"></input>
+                                <br>
+                            </div>
                             <button id="submitform" class="button small primary" type="submit">Login</button>
                         </form>
                         {%if could_not_log_in %}
