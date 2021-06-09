@@ -144,16 +144,34 @@ $('form input').keydown(function (e) {
 
 $('input[type="file"]').on('change', function(input){
     // alert("file added");
-    console.log(input);
-            const fileSize = input.currentTarget.files[0].size / 1024 / 1024; // in MiB
+        console.log(input);
+            var fileSize = 100;
+            if(input.currentTarget)
+                fileSize = input.currentTarget.files[0].size / 1024 / 1024; // in MiB
             // console.log(fileSize);
         if (fileSize > 0.5) {
             alert('File size exceeds 450 KB');
             input.currentTarget.value=null;
             // $(file).val(''); //for clearing with Jquery
         }
-        if(input.currentTarget.accept==".pdf"){
-            var type = input.currentTarget.files[0].type
+        else if(input.currentTarget.value && input.currentTarget.accept == ".pdf"){
+            var type = input.currentTarget.files[0].type;
+            if( type !== "application/pdf" ){
+                alert("Upload only .pdf file!")
+                input.currentTarget.value=null;
+            }
+        }else{
+            var type = input.currentTarget.files[0].type;
+            if( !(type === "image/jpeg" || type === "image/jpg" || type === "image/png") ){
+                alert("Upload only .jpeg/.jpg/.png image file!")
+                input.currentTarget.value = null;
+                console.log(input.currentTarget.id);
+                if(input.currentTarget.id == "signUpload"){
+                    document.querySelector("#signImage").src = "";
+                }else if( input.currentTarget.id == "imageUpload" ){
+                    document.querySelector("#profileImage").src = "/static/images/profilepic.png";
+                }
+            }
         }
 });
 
