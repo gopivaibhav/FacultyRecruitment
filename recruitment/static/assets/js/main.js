@@ -154,7 +154,7 @@ $('input[type="file"]').on('change', function(input){
             input.currentTarget.value=null;
             // $(file).val(''); //for clearing with Jquery
         }
-        else if(input.currentTarget.value && input.currentTarget.accept == ".pdf"){
+        else if(input.currentTarget.value && ( !(input.currentTarget.accept) || input.currentTarget.accept == ".pdf" )){
             var type = input.currentTarget.files[0].type;
             if( type !== "application/pdf" ){
                 alert("Upload only .pdf file!")
@@ -162,6 +162,7 @@ $('input[type="file"]').on('change', function(input){
             }
         }else{
             var type = input.currentTarget.files[0].type;
+            console.log(type)
             if( !(type === "image/jpeg" || type === "image/jpg" || type === "image/png") ){
                 alert("Upload only .jpeg/.jpg/.png image file!")
                 input.currentTarget.value = null;
