@@ -201,6 +201,11 @@ $(document).ready(function() {
                 return false;
             }
         });
+        document.querySelectorAll('input[type="date"]').forEach(i =>{ 
+            i.setAttribute("max",`${new Date().toDateInputValue()}`)
+            
+        } )
+
 
     });
 });
@@ -232,6 +237,11 @@ $(document).ready(function() {
                 return false;
             }
         });
+        document.querySelectorAll('input[type="date"]').forEach(i =>{ 
+            i.setAttribute("max",`${new Date().toDateInputValue()}`)
+            
+        } )
+
 
     });
 });
@@ -262,6 +272,11 @@ $(document).ready(function() {
                 return false;
             }
         });
+        document.querySelectorAll('input[type="date"]').forEach(i =>{ 
+            i.setAttribute("max",`${new Date().toDateInputValue()}`)
+            
+        } )
+
 
     });
 });
@@ -390,7 +405,7 @@ $(document).ready(function() {
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">'+
             '<div class="row gtr-uniform" style="padding: 0.3em;">'+
                 '<div class="col-2">From:</div>'+
-                '<div class="col-10"><input type="date" name="org' + newAcademicsNo + '-from" id="org' + newAcademicsNo + '-from" value="" style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="From"></div>'+
+                '<div class="col-10"><input type="date" name="org' + newAcademicsNo + '-from" id="org' + newAcademicsNo + '-from" value="" onchange="dateOrgPaperFrom(event)" style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="From"></div>'+
                 '<div class="col-2" style="padding-top: 0;">To:</div>'+
                 '<div class="col-10" style="padding-top: 0;"><input type="date" name="org' + newAcademicsNo + '-to" id="org' + newAcademicsNo + '-to" value="" style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;" placeholder="To"></div>'+
             '</div></td>' +
@@ -408,9 +423,19 @@ $(document).ready(function() {
                 return false;
             }
         });
+        // var att = document.createAttribute("max")
+        // att.value=`${$('#signDate').val()}`
+        // console.log(document.querySelector('#signDate').value)
+
+        document.querySelectorAll('input[type="date"]').forEach(i =>{ 
+            i.setAttribute("max",`${new Date().toDateInputValue()}`)
+            
+        } )
 
     });
 });
+
+
 
 
 /////////////////////// table 2B  section C /////////////////
@@ -421,7 +446,7 @@ $(document).ready(function() {
         e.preventDefault();
 
         var newIn2 = '<tr id="field1">' +
-            '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exper' + newAcademicsNo + '-from" id="exp' + newAcademicsNo + '-from" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="From "></td>' +
+            '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exper' + newAcademicsNo + '-from" id="exp' + newAcademicsNo + '-from" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="From " onchange="dateResearchFrom(event)"></td>' +
             '<td class="col-2" style="text-align: center;vertical-align: middle;"><input type="date" name="exper' + newAcademicsNo + '-to" id="exp' + newAcademicsNo + '-to" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="To"></td>' +
             '<td class="col-3" style="text-align: center;vertical-align: middle;"> <input type="text" name="exper' + newAcademicsNo + '-months" id="exp' + newAcademicsNo + '-months" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; " placeholder="Number of Months"></td>' +
             '<td class="col-3" style="display:flex;place-content:space-between;height:4.4em;">' + '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="exp' + newAcademicsNo + '-file" name="exper' + newAcademicsNo + '-file"></span>' +
@@ -436,6 +461,11 @@ $(document).ready(function() {
                 return false;
             }
         });
+        
+        document.querySelectorAll('input[type="date"]').forEach(i =>{ 
+            i.setAttribute("max",`${new Date().toDateInputValue()}`)
+            
+        } )
 
     });
 });
@@ -545,7 +575,7 @@ $(document).ready(function() {
             '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;">' +
             '<div class="row gtr-uniform" style="padding: 0.3em;">' +
             '<div class="col-2">From:</div>' +
-            '<div class="col-10"><input type="date" name="semi_articles' + newAcademicsNo + '-from" id="semi_articles' + newAcademicsNo + '-from" value="" style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"></div>' +
+            '<div class="col-10"><input type="date" name="semi_articles' + newAcademicsNo + '-from" id="semi_articles' + newAcademicsNo + '-from" value="" onchange="dateOrgPaperFrom(event)" style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"></div>' +
             '<div class="col-2" style="padding-top: 0;">To:</div>' +
             '<div class="col-10" style="padding-top: 0;"><input type="date" name="semi_articles' + newAcademicsNo + '-to" id="semi_articles' + newAcademicsNo + '-to" value="" style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"></div>' +
             '</div></td>' +
@@ -562,6 +592,11 @@ $(document).ready(function() {
                 return false;
             }
         });
+
+        document.querySelectorAll('input[type="date"]').forEach(i =>{ 
+            i.setAttribute("max",`${new Date().toDateInputValue()}`)
+            
+        } )
 
     });
 });

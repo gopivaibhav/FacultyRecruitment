@@ -833,7 +833,7 @@
                                                         <div class="col-2">From:</div>
                                                         <div class="col-10">
                                                             <input type="date" name="org1-from"
-                                                                id="org1-from" value=""
+                                                                id="org1-from" value="" onchange="dateOrgPaperFrom(event)"
                                                                 style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
                                                                 placeholder="From"></div>
                                                         <div class="col-2" style="padding-top: 0;">To:</div>
@@ -902,7 +902,7 @@
                                                 <td class="col-2" style="text-align: center;vertical-align: middle;">
                                                     <input type="date" name="exper1-from" id="exp1-from"
                                                         style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
-                                                        placeholder="From ">
+                                                        placeholder="From " onchange="dateResearchFrom(event)">
                                                 </td>
                                                 <td class="col-2" style="text-align: center;vertical-align: middle;">
                                                     <input type="date" name="exper1-to" id="exp1-to"
@@ -1248,7 +1248,7 @@
                                                                 name="semi_articles1-from" id="semi_articles1-from"
                                                                 value=""
                                                                 style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
-                                                                placeholder="From"></div>
+                                                                placeholder="From" onchange="dateOrgPaperFrom(event)"></div>
                                                         <div class="col-2" style="padding-top: 0;">To:</div>
                                                         <div class="col-10" style="padding-top: 0;"><input type="date"
                                                                 name="semi_articles1-to" id="semi_articles1-to" value=""
@@ -1903,9 +1903,41 @@
             return local.toJSON().slice(0, 10);
         });
 
-        $(document).ready(function () {
+        $(document).ready(function () { 
             $('#signDate').val(new Date().toDateInputValue());
+            // console.log(document.querySelectorAll('input[id="signDate"]'))
         });
+
+        
+        var att = document.createAttribute("max")
+        att.value=`${$('#signDate').val()}`
+        // console.log(document.querySelector('#signDate').value)
+
+        document.querySelectorAll('input[type="date"]').forEach(i =>{ 
+            i.setAttribute("max",`${new Date().toDateInputValue()}`)
+            
+        } )
+
+
+
+        function dateOrgPaperFrom(e){
+            console.log(e.target.value)
+            e.target.parentElement.parentElement.children[3].children[0].min = e.target.value
+            // console.log(zxc)
+            // var from = new Date(document.getElementById("org1-from").value).toJSON().slice(0,10);
+            // console.log('hi')
+        }
+
+        function dateResearchFrom(e){
+            console.log(e.target)
+            e.target.parentElement.parentElement.children[1].children[0]. min = e.target.value
+    
+
+        }
+
+
+
+
     </script>
 
     <script>
