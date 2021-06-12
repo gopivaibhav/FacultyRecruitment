@@ -272,14 +272,14 @@
                                                 <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="text" name="mailingpincode" id="mailingpincode" value=""
+                                                <input type="number" name="mailingpincode" id="mailingpincode" value=""
                                                     placeholder="Pin Code" required>
                                             </div>
                                             <div class="col-5 col-12-small" style="text-align:center;">
                                                 <h3>Telephone No. (With STD Code)</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="text" name="mailingtelephone" id="mailingtelephone"
+                                                <input type="number" name="mailingtelephone" id="mailingtelephone"
                                                     value="" placeholder="Telephone No.">
                                             </div>
                                             <div class="col-12" style="text-align: center;padding-top: 10%;">
@@ -314,14 +314,14 @@
                                                     <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="text" name="permanentpincode" id="permanentpincode"
+                                                    <input type="number" name="permanentpincode" id="permanentpincode"
                                                         value="" placeholder="Pin Code" required>
                                                 </div>
                                                 <div class="col-5 col-12-small" style="text-align:center;">
                                                     <h3>Telephone No. (With STD Code)</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="text" name="permanenttelephone" id="permanenttelephone"
+                                                    <input type="number" name="permanenttelephone" id="permanenttelephone"
                                                         value="" placeholder="Telephone No.">
                                                 </div>
                                             </div>
@@ -751,22 +751,25 @@
                                         <tbody class="academic-tbody all-tbody" style="text-align-last:center;">
                                             <!-- Table Headings -->
                                             <tr style="align-items:center">
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
                                                     Examination / Degree</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Equivalent To</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    Name of Board/College/<br>University</th>
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
-                                                    CGPA/ % of Marks</th>
+                                                    Name of Board/College/<br>University</th>
+                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                    CGPA/ % of Total Marks</th>
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
+                                                    CGPA/ % of Marks Obtained</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Subject(s)</th>
-                                                <th class="col-2" style="text-align: center;vertical-align: middle;">
+                                                <th class="col-1" style="text-align: center;vertical-align: middle;">
                                                     Year of Passing</th>
-                                                <th class="col-3 supp-doc" style="text-align: center;vertical-align: middle;">
+                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
                                                     Supporting Documents<font class="size-limit">Size Limit: 450KB</font><font class="document-format">(File Format: PDF)</font></th>
                                             </tr>
                                             <!-- Table rows are appended Dynamically (check main.js) -->
+                                            
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
