@@ -11,6 +11,19 @@
     <noscript>
         <link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" />
     </noscript>
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+    </style>
 </head>
 
 <body class="is-preload">
@@ -272,15 +285,15 @@
                                                 <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" name="mailingpincode" id="mailingpincode" value=""
-                                                    placeholder="Pin Code" required>
+                                                <input type="number" pattern="[0-9]{6}" maxlength="6" name="mailingpincode" id="mailingpincode" value=""
+                                                    placeholder="Pin Code"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
                                             </div>
                                             <div class="col-5 col-12-small" style="text-align:center;">
                                                 <h3>Telephone No. (With STD Code)</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" name="mailingtelephone" id="mailingtelephone"
-                                                    value="" placeholder="Telephone No.">
+                                                <input type="number" pattern="[0-9]{11}" maxlength="11" name="mailingtelephone" id="mailingtelephone"
+                                                    value="" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Telephone No.">
                                             </div>
                                             <div class="col-12" style="text-align: center;padding-top: 10%;">
                                                 <input type="checkbox" onclick="sameAddress(event)"
@@ -314,15 +327,15 @@
                                                     <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="number" name="permanentpincode" id="permanentpincode"
+                                                    <input type="text" pattern="[0-9]{6}" maxlength="6" name="permanentpincode" id="permanentpincode"
                                                         value="" placeholder="Pin Code" required>
                                                 </div>
                                                 <div class="col-5 col-12-small" style="text-align:center;">
                                                     <h3>Telephone No. (With STD Code)</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="number" name="permanenttelephone" id="permanenttelephone"
-                                                        value="" placeholder="Telephone No.">
+                                                    <input type="number" name="permanenttelephone" id="permanenttelephone" pattern="[0-9]{11}" maxlength="11"
+                                                        value="" placeholder="Telephone No." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                                 </div>
                                             </div>
                                         </div>
@@ -352,8 +365,8 @@
                                             style="padding:0;text-align: center;" value="" placeholder="+91" required>
                                     </div>
                                     <div class="col-3 col-9-small" style="font-size:small;">
-                                        <input type="text" name="mobile" id="mobile" value="" placeholder="Mobile No."
-                                            required>
+                                        <input type="number" pattern="[0-9]{10}" maxlength="10" name="mobile" id="mobile" value="" placeholder="Mobile No."
+                                            required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                     </div>
                                     <div class="col-2 col-12-small" style="text-align:center;">
                                         <h3>Email ID<font class="asterisk">*</font>&nbsp;:</h3>
@@ -408,9 +421,48 @@
                                     <div class="col-2 col-12-small" style="text-align:center;">
                                         <h3>State of Domicile<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
-                                    <div class="col-4 col-12-small" style="padding-top: 2rem;">
-                                        <input type="text" name="domicile_state" id="domicile_state" value=""
-                                            placeholder="State of Domicile">
+                                    <div class="col-4 col-12-small">
+                                        <select name="domicile_state" id="domicile_state" placeholder="Marital Status"
+                                            title="Category" required>
+                                            <option value="" selected disabled>Select State</option>
+                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                            <option value="Assam">Assam</option>
+                                            <option value="Bihar">Bihar</option>
+                                            <option value="Chandigarh">Chandigarh</option>
+                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                            <option value="Daman and Diu">Daman and Diu</option>
+                                            <option value="Delhi">Delhi</option>
+                                            <option value="Lakshadweep">Lakshadweep</option>
+                                            <option value="Puducherry">Puducherry</option>
+                                            <option value="Goa">Goa</option>
+                                            <option value="Gujarat">Gujarat</option>
+                                            <option value="Haryana">Haryana</option>
+                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                            <option value="Jharkhand">Jharkhand</option>
+                                            <option value="Karnataka">Karnataka</option>
+                                            <option value="Kerala">Kerala</option>
+                                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                            <option value="Maharashtra">Maharashtra</option>
+                                            <option value="Manipur">Manipur</option>
+                                            <option value="Meghalaya">Meghalaya</option>
+                                            <option value="Mizoram">Mizoram</option>
+                                            <option value="Nagaland">Nagaland</option>
+                                            <option value="Odisha">Odisha</option>
+                                            <option value="Punjab">Punjab</option>
+                                            <option value="Rajasthan">Rajasthan</option>
+                                            <option value="Sikkim">Sikkim</option>
+                                            <option value="Tamil Nadu">Tamil Nadu</option>
+                                            <option value="Telangana">Telangana</option>
+                                            <option value="Tripura">Tripura</option>
+                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                            <option value="Uttarakhand">Uttarakhand</option>
+                                            <option value="West Bengal">West Bengal</option>
+
+                                        </select>
                                     </div>
 
                                     <div class="col-2 col-5-small" style="text-align:center;padding-top: 2rem;">
@@ -485,7 +537,7 @@
                                     <input type="text" id="awarded_phd" name="awarded_phd" value="" hidden>
                                 </div>
                                 <div class="table-wrapper">
-                                    <br>
+                                    <!-- <br> -->
                                     <div class="col-12" style="text-align: center;">
                                         <h2 style="margin: 0;">Ph.D Details</h2>
                                         <div style="margin-bottom: 2rem;" >
@@ -1968,6 +2020,44 @@
         function setDefDate(event){
             document.getElementById('phd_defence_date').value = event.target.value
             console.log('yarrrr')
+        }
+
+
+
+        function marksValidation(e){
+            console.log(e.target.id[6])
+            var id = document.getElementById(`course${e.target.id[6]}-obtained`)
+            var mode = document.getElementById(`course${e.target.id[6]}-percentage`)
+            console.log(mode, "-----", id)
+            
+                if(mode.value=='Percentage'){
+                    // console.log("okayyy")
+                    // id.max = 100
+                    if(id.value > 100 || id.value <0){
+                        alert("Percentage must be between 0 and 100 (both inclusive)")
+                        id.value= ""
+                    }
+
+                }
+                if(mode.value=='CGPA out of 10'){
+                    // console.log("okayyy")
+                    // id.max = 100
+                    if(id.value > 10 || id.value <0){
+                        alert("CGPA must be between 0 and 10 (both inclusive)")
+                        id.value= ""
+                    }
+
+                }
+
+                if(mode.value=='GPA out of 5'){
+                    // console.log("okayyy")
+                    // id.max = 100
+                    if(id.value > 5 || id.value < 0){
+                        alert("GPA must be between 0 and 5 (both inclusive)")
+                        id.value= ""
+                    }
+
+                }
         }
 
 
