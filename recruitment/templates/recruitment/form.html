@@ -470,19 +470,20 @@
                                 <header class="major headLeft">
                                     <h2>Educational Qualifications</h2>
                                 </header>
-                                <!-- <div class="row gtr-uniform">
-                                    <div class="col-4 col-5-small">
+                                <div class="row gtr-uniform" hidden style="position: absolute; display: none;">
+                                    <!-- <div class="col-4 col-5-small" hidden>
                                         Whether Ph.D awarded<font class="asterisk">*</font>&nbsp;
                                     </div>
-                                    <div class="col-5 col-7-small">
+                                    <div class="col-5 col-7-small" hidden>
                                         <input class="form-check-input" type="radio" name="awarded_phd" id="phdYes"
-                                            value="Yes" onclick="phdTable(event)">
+                                            value="Yes" >
                                         <label class="form-check-label" for="phdYes">Yes</label>
                                         <input class="form-check-input" type="radio" name="awarded_phd" id="phdNo"
-                                            value="No" onclick="phdTable2(event)">
+                                            value="No" >
                                         <label class="form-check-label" for="phdNo">No</label>
-                                    </div>
-                                </div> -->
+                                    </div> -->
+                                    <input type="text" id="awarded_phd" name="awarded_phd" value="" hidden>
+                                </div>
                                 <div class="table-wrapper">
                                     <br>
                                     <div class="col-12" style="text-align: center;">
@@ -515,7 +516,7 @@
                                             <label class="form-check-label" for="phdawarded">Awarded</label>
                                             <input class="form-check-input" type="radio" name="phd" id="phdNo"
                                             value="No" onclick="phdTable2(event)">
-                                        <label class="form-check-label" for="phdNo">No</label>
+                                            <label class="form-check-label" for="phdNo">No Ph.D awarded</label>
                                         </div>
                                     </div>
                                 </div>
@@ -641,7 +642,7 @@
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <input type="date" name="thesis1-regdate" id="thesis1-regdate"
-                                                        style="border: 0; background: transparent;">
+                                                        style="border: 0; background: transparent;" onchange="dateThesisAwardedFrom(event)">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
@@ -716,7 +717,7 @@
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <input type="date" name="awarded1-regdate" id="awarded1-regdate"
-                                                        style="border: 0; background: transparent;">
+                                                        style="border: 0; background: transparent;" onchange="dateThesisAwardedFrom(event)">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
@@ -757,7 +758,7 @@
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Name of Board/College/<br>University</th>
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
-                                                    Grade/ % of Marks</th>
+                                                    CGPA/ % of Marks</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Subject(s)</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
@@ -1519,7 +1520,7 @@
                                                 <h5>1. Ph.D Defence Date<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="date" name="phd_defence_date" id="phd_defence_date" readonly>
+                                                <input type="date" name="phd_defence_date" id="phd_defence_date" value="" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -1926,9 +1927,7 @@
         function dateOrgPaperFrom(e){
             console.log(e.target.value)
             e.target.parentElement.parentElement.children[3].children[0].min = e.target.value
-            // console.log(zxc)
-            // var from = new Date(document.getElementById("org1-from").value).toJSON().slice(0,10);
-            // console.log('hi')
+            
         }
 
         function dateResearchFrom(e){
@@ -1937,6 +1936,14 @@
     
 
         }
+
+        function dateThesisAwardedFrom(e){
+            console.log(e.target)
+            e.target.parentElement.parentElement.children[5].children[0].min= e.target.value
+    
+
+        }
+        
 
 
         function setValueSpoProject(event){

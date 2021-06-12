@@ -269,7 +269,7 @@ class AdministrativeDetails(models.Model):
         return str(self.applicant)
 
 class Summary(models.Model):
-    defence_date = models.DateField()
+    defence_date = models.CharField(max_length=100)
     total_exp = models.CharField(max_length=10)
     exp_post_phd = models.TextField()
     total_phd_students = models.CharField(max_length=20)

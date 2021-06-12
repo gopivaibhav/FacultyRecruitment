@@ -720,7 +720,10 @@ def submission_form(request):
         Patent.objects.create(**patent_data)
         # Summary
         summary_data = {}
-        summary_data['defence_date'] = data['phd_defence_date']
+        if(data['phd_defence_date']==''):
+            summary_data['defence_date'] = 'N/A'
+        else:
+            summary_data['defence_date'] = data['phd_defence_date']
         summary_data['total_exp'] = data['tot_exp']
         summary_data['exp_post_phd'] = data['exp_post_phd']
         summary_data['total_phd_students'] = data['total_phd_students']
