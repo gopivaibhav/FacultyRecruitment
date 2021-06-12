@@ -307,7 +307,7 @@ $(document).ready(function() {
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">'+
             '<select name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
                 // '<option value="" disabled selected>Select Any Options</option>'+
-                EquivalentOptions[ii] +
+                EquivalentOptions[3-ii] +
             '</select></td>'+
             '<td class="col-1" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-2" style="text-align: center; padding: 0;">' +
             '<select name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none; inline-size:auto;" placeholder="Select Mode" required><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
@@ -342,10 +342,12 @@ $(document).ready(function() {
         newAcademicsNo += 1;
     }
 
-    for(var ii=0;ii<4;ii++){
+    for(var ii=1;ii<4;ii++){
         // var option = document.querySelectorAll('.academic-tbody option')[4*ii + ii];
-        var option = document.querySelectorAll(`#course${ii+1}-equivalent option`)[ii];
-        option.selected="true";
+        // var option = document.querySelectorAll(`#course${ii+1}-equivalent option`)[ii];
+        // option.selected="true";
+        document.querySelectorAll(`.appliRow${ii+1} input`).forEach(i => {i.required=false});
+        document.querySelectorAll(`.appliRow${ii+1} select`).forEach(i => {i.required=false});
         // console.log(option);
     }
 });

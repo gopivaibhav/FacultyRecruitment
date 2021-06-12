@@ -44,7 +44,7 @@ class SeminarArticles(models.Model):
     to = models.CharField(max_length=20)
     published = models.TextField()
     supporting_documents = models.ImageField(upload_to=handle_uploaded, null=True, blank=True)
-    applicant = models.ForeignKey(Applicant, 
+    applicant = models.ForeignKey(Applicant,
                                 on_delete=models.CASCADE,
                                 related_name='seminararticles',
                 )
@@ -103,10 +103,11 @@ class EducationalQualifications(models.Model):
     equivalent_to = models.CharField(max_length=200, default=None)
     name = models.CharField(max_length=200)
     marks = models.CharField(max_length=10)
+    obtained = models.CharField(max_length=10)
     subjects = models.CharField(max_length=200)
     year_of_passing = models.IntegerField()
     supporting_documents = models.FileField(upload_to=handle_uploaded, null=True, blank=True)
-    applicant = models.ForeignKey(Applicant, 
+    applicant = models.ForeignKey(Applicant,
                                 on_delete=models.CASCADE,
                                 related_name='Educational_qualifications',
                 )
