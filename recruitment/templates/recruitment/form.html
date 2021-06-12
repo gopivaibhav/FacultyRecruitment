@@ -470,20 +470,21 @@
                                 <header class="major headLeft">
                                     <h2>Educational Qualifications</h2>
                                 </header>
-                                <div class="row gtr-uniform">
-                                    <div class="col-4 col-5-small">
+                                <div class="row gtr-uniform" hidden style="position: absolute; display: none;">
+                                    <!-- <div class="col-4 col-5-small" hidden>
                                         Whether Ph.D awarded<font class="asterisk">*</font>&nbsp;
                                     </div>
-                                    <div class="col-5 col-7-small">
+                                    <div class="col-5 col-7-small" hidden>
                                         <input class="form-check-input" type="radio" name="awarded_phd" id="phdYes"
-                                            value="Yes" onclick="phdTable(event)">
+                                            value="Yes" >
                                         <label class="form-check-label" for="phdYes">Yes</label>
                                         <input class="form-check-input" type="radio" name="awarded_phd" id="phdNo"
-                                            value="No" onclick="phdTable2(event)">
+                                            value="No" >
                                         <label class="form-check-label" for="phdNo">No</label>
-                                    </div>
+                                    </div> -->
+                                    <input type="text" id="awarded_phd" name="awarded_phd" value="" hidden>
                                 </div>
-                                <div class="table-wrapper phdTableBody" hidden>
+                                <div class="table-wrapper">
                                     <br>
                                     <div class="col-12" style="text-align: center;">
                                         <h2 style="margin: 0;">Ph.D Details</h2>
@@ -513,6 +514,9 @@
                                             <input class="form-check-input" type="radio" name="phd" id="phdawarded"
                                                 value="Awarded" onclick="awardedRadio(event)">
                                             <label class="form-check-label" for="phdawarded">Awarded</label>
+                                            <input class="form-check-input" type="radio" name="phd" id="phdNo"
+                                            value="No" onclick="phdTable2(event)">
+                                            <label class="form-check-label" for="phdNo">No Ph.D awarded</label>
                                         </div>
                                     </div>
                                 </div>
@@ -638,7 +642,7 @@
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <input type="date" name="thesis1-regdate" id="thesis1-regdate"
-                                                        style="border: 0; background: transparent;">
+                                                        style="border: 0; background: transparent;" onchange="dateThesisAwardedFrom(event)">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
@@ -713,12 +717,12 @@
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <input type="date" name="awarded1-regdate" id="awarded1-regdate"
-                                                        style="border: 0; background: transparent;">
+                                                        style="border: 0; background: transparent;" onchange="dateThesisAwardedFrom(event)">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <input type="date" name="awarded1-defdate" id="awarded1-defdate"
-                                                        style="border: 0; background: transparent;">
+                                                        style="border: 0; background: transparent;" onchange="setDefDate(event)">
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="awarded1-file" id="awarded1-file"
@@ -754,7 +758,7 @@
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Name of Board/College/<br>University</th>
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
-                                                    Grade/ % of Marks</th>
+                                                    CGPA/ % of Marks</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Subject(s)</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
@@ -1367,8 +1371,8 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" onchange="sponsored_input()" value=""
-                                                    name="spo_tot_number" id="spo_tot_number" required>
+                                                <input type="number" onchange="sponsored_input(), setValueSpoProject(event)" value=""
+                                                    name="spo_tot_number" id="spo_tot_number" required >
                                             </div>
                                         </div>
                                     </div>
@@ -1381,7 +1385,7 @@
                                                         class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_ongoing" id="spo_ongoing" required>
+                                                <input type="number" name="spo_ongoing" id="spo_ongoing" required onchange="setValSpoOngoing(event)">
                                             </div>
                                         </div>
                                     </div>
@@ -1396,7 +1400,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_completed" id="spo_completed" required>
+                                                <input type="number" name="spo_completed" id="spo_completed" required >
                                             </div>
                                         </div>
                                     </div>
@@ -1432,7 +1436,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" onchange="experiments_input(event)" value=""
+                                                <input type="number" onchange="experiments_input(event), setValCompProject(event)" value=""
                                                     name="exp_tot_number" id="exp_tot_number" required>
                                             </div>
                                         </div>
@@ -1516,7 +1520,7 @@
                                                 <h5>1. Ph.D Defence Date<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="date" name="phd_defence_date" id="phd_defence_date">
+                                                <input type="date" name="phd_defence_date" id="phd_defence_date" value="" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -1581,10 +1585,10 @@
                                             (Ongoing + Completed)</h5>
                                     </div>
 
-                                    <div class="col-8 col-12-medium">
+                                    <div class="col-8 col-12-medium"> 
                                         <input type="text" name="total_projects" id="total_projects"
                                             placeholder="Total number of sponsored projects (Ongoing + Completed)"
-                                            required>
+                                            required value="" readonly >
                                     </div>
 
                                 </div><br>
@@ -1596,7 +1600,7 @@
 
                                     <div class="col-8 col-12-medium">
                                         <input type="text" name="ongoing_projects" id="ongoing_projects"
-                                            placeholder="Number of ongoing sponsored projects" required>
+                                            placeholder="Number of ongoing sponsored projects" required value="" readonly>
                                     </div>
 
                                 </div>
@@ -1610,7 +1614,7 @@
 
                                     <div class="col-8 col-12-medium">
                                         <input type="text" name="computational_projects" id="computational_projects"
-                                            placeholder="Total number of experiments/ computational projects" required>
+                                            placeholder="Total number of experiments/ computational projects" required readonly value="">
                                     </div>
 
                                 </div>
@@ -1908,7 +1912,7 @@
             // console.log(document.querySelectorAll('input[id="signDate"]'))
         });
 
-        
+
         var att = document.createAttribute("max")
         att.value=`${$('#signDate').val()}`
         // console.log(document.querySelector('#signDate').value)
@@ -1923,9 +1927,7 @@
         function dateOrgPaperFrom(e){
             console.log(e.target.value)
             e.target.parentElement.parentElement.children[3].children[0].min = e.target.value
-            // console.log(zxc)
-            // var from = new Date(document.getElementById("org1-from").value).toJSON().slice(0,10);
-            // console.log('hi')
+            
         }
 
         function dateResearchFrom(e){
@@ -1933,6 +1935,36 @@
             e.target.parentElement.parentElement.children[1].children[0]. min = e.target.value
     
 
+        }
+
+        function dateThesisAwardedFrom(e){
+            console.log(e.target)
+            e.target.parentElement.parentElement.children[5].children[0].min= e.target.value
+    
+
+        }
+        
+
+
+        function setValueSpoProject(event){
+            document.getElementById('total_projects').value = event.target.value
+            console.log('object')
+        }
+
+        function setValSpoOngoing(event){
+            document.getElementById('ongoing_projects').value = event.target.value
+            console.log('hiiii')
+
+        }
+        function setValCompProject(event){
+            document.getElementById('computational_projects').value = event.target.value
+            console.log('okkkkk')
+
+        }
+
+        function setDefDate(event){
+            document.getElementById('phd_defence_date').value = event.target.value
+            console.log('yarrrr')
         }
 
 
