@@ -47,20 +47,20 @@ function changeReservation2(e){
 
 
 /////////  when clicked yes! for whether phd awarded
-function phdTable(e){
-    document.querySelector('#phdongoing').checked=false;
-    document.querySelector('#phdthesissub').checked=false;
-    document.querySelector('#phdawarded').checked=false;
-    document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
-    document.querySelector(".phdTableBody").hidden=false;
-    document.querySelectorAll('.phdTableBody input[type="file"]').forEach( e =>{e.disabled=false} )
-}
+// function phdTable(e){
+//     document.querySelector('#phdongoing').checked=false;
+//     document.querySelector('#phdthesissub').checked=false;
+//     document.querySelector('#phdawarded').checked=false;
+//     document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
+//     document.querySelector(".phdTableBody").hidden=false;
+//     document.querySelectorAll('.phdTableBody input[type="file"]').forEach( e =>{e.disabled=false} )
+// }
 
 /////    when clicked no!
 function phdTable2(e){
-    document.querySelector('#phdongoing').checked=true;
-    document.querySelector('#phdthesissub').checked=true;
-    document.querySelector('#phdawarded').checked=true;
+    // document.querySelector('#phdongoing').checked=true;
+    // document.querySelector('#phdthesissub').checked=true;
+    // document.querySelector('#phdawarded').checked=true;
     document.querySelectorAll(".phdTableBody").forEach( e =>{e.hidden=true} )
     document.querySelectorAll(".phdTableBody input").forEach( e =>{e.value=""} )
     document.querySelectorAll('.phdTableBody input[type="file"]').forEach( e =>{e.disabled=true} )
