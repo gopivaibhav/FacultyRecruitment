@@ -302,19 +302,19 @@ $(document).ready(function() {
     ]
     var diploma
     for(var ii=0;ii<4;ii+=1){
-        var newIn = '<tr class="appliRow' + newAcademicsNo + '" id="field1"> <td class="col-1" style="text-align: center; padding: 0;">' +
-            '<input type="text" name="course' + newAcademicsNo + '" id="course' + newAcademicsNo + '" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" required></td>' +
+        var newIn = '<tr class="appliRows' + newAcademicsNo + '" id="field1"> <td class="col-1" style="text-align: center; padding: 0;">' +
+            '<input type="text" name="course' + newAcademicsNo + '" id="course' + newAcademicsNo + '" onchange="reqField(event)" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" required></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">'+
-            '<select name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
+            '<select onchange="reqField(event)" name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
                 // '<option value="" disabled selected>Select Any Options</option>'+
                 EquivalentOptions[3-ii] +
             '</select></td>'+
-            '<td class="col-1" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-2" style="text-align: center; padding: 0;">' +
-            '<select name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none; inline-size:auto;" placeholder="Select Mode" required><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
-            '<input type="number" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>'+
-            '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-1" style="text-align: center; padding: 0; font-size: xx-small;">' +
-            '<select style="inline-size: auto; " name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '" ></select></td><td class="col-2" style="display:flex;place-content:space-between">' +
-            '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>' +
+            '<td class="col-1" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-2" style="text-align: center; padding: 0;">' +
+            '<select onchange="reqField(event)" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none; inline-size:auto;" placeholder="Select Mode" required><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
+            '<input onchange="reqField(event)" type="number" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" value="" onchange="marksValidation(event)" style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>'+
+            '<td class="col-2" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-1" style="text-align: center; padding: 0; font-size: xx-small;">' +
+            '<select onchange="reqField(event)" style="inline-size: auto; " name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '" required ></select></td><td class="col-2" style="display:flex;place-content:space-between">' +
+            '<span style="overflow:hidden;align-self:center" ><input onchange="reqField(event)" required style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>' +
             '</td></tr>';
         $('.academic-tbody').append(newIn);
 
@@ -346,8 +346,8 @@ $(document).ready(function() {
         // var option = document.querySelectorAll('.academic-tbody option')[4*ii + ii];
         // var option = document.querySelectorAll(`#course${ii+1}-equivalent option`)[ii];
         // option.selected="true";
-        document.querySelectorAll(`.appliRow${ii+1} input`).forEach(i => {i.required=false});
-        document.querySelectorAll(`.appliRow${ii+1} select`).forEach(i => {i.required=false});
+        document.querySelectorAll(`.appliRows${ii+1} input`).forEach(i => {i.required=false});
+        document.querySelectorAll(`.appliRows${ii+1} select`).forEach(i => {i.required=false});
         // console.log(option);
     }
 });
@@ -370,7 +370,7 @@ $(document).ready(function() {
             '</select></td>'+
             '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td>'+'<td class="col-2" style="text-align: center; padding: 0;">' +
             '<select name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none;" placeholder="Select Mode" required><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
-            '<input type="text" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>' +
+            '<input type="text" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" onchange="marksValidation(event)" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;">' +
             '<select style="inline-size: auto;" name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '" ></select></td><td class="col-3" style="display:flex;place-content:space-between">' +
             '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>' +
