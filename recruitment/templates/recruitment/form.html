@@ -2060,20 +2060,32 @@ input[type=number] {
 
         function reqField(e){
             // console.log('heyyyy')
-            for(var i=0;i<8;i++){
-                var inputFields = (e.target.parentElement.parentElement.children[i].children[0])
-                // console.log(inputFields)
-                inputFields.required = true
-                if(i==7){
-                    inputFields.children[0].required = true
+            console.log(e.target.value);
+            if(e.target.value== ""){
+                for(var i=0;i<8;i++){
+                    var inputFields = (e.target.parentElement.parentElement.children[i].children[0]);
+                    // console.log(inputFields)
+                    inputFields.required = false;
+                    if(i==7){
+                        inputFields.children[0].required = false;
+                    }
+                }
+            }
+            else{
+                for(var i=0;i<8;i++){
+                    var inputFields = (e.target.parentElement.parentElement.children[i].children[0]);
+                    // console.log(inputFields)
+                    inputFields.required = true;
+                    if(i==7){
+                        inputFields.children[0].required = true;
+                    }
                 }
             }
         }
 
-
-
         function modeFirst(e){
             // console.log("okkkkk")
+            // console.log(e.target.parentElement.parentElement.children[4].children[0]);
             e.target.parentElement.parentElement.children[4].children[0].disabled = false
         }
 

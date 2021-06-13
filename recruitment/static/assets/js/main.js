@@ -300,17 +300,16 @@ $(document).ready(function() {
     '<option value="Class 12th">Class 12th</option><option value="Diploma">Diploma</option>',
     '<option value="Class 10th">Class 10th</option>'
     ]
-    var diploma
     for(var ii=0;ii<4;ii+=1){
         var newIn = '<tr class="appliRows' + newAcademicsNo + '" id="field1"> <td class="col-1" style="text-align: center; padding: 0;">' +
             '<input type="text" name="course' + newAcademicsNo + '" id="course' + newAcademicsNo + '" onchange="reqField(event)" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" required></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">'+
-            '<select onchange="reqField(event)" name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
+            '<select name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
                 // '<option value="" disabled selected>Select Any Options</option>'+
                 EquivalentOptions[3-ii] +
             '</select></td>'+
             '<td class="col-1" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-2" style="text-align: center; padding: 0;">' +
-            '<select onchange="reqField(event), modeFirst(event)" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none; inline-size:auto;" placeholder="Select Mode" required><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
+            '<select onchange="modeFirst(event)" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none; inline-size:auto;" placeholder="Select Mode" required><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
             '<input disabled onchange="reqField(event), marksValidation(event)" type="number" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" value=""  style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>'+
             '<td class="col-2" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-1" style="text-align: center; padding: 0; font-size: xx-small;">' +
             '<select onchange="reqField(event)" style="inline-size: auto; " name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '" required ></select></td><td class="col-2" style="display:flex;place-content:space-between">' +
