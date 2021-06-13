@@ -1957,6 +1957,7 @@ input[type=number] {
 
 
     <script>
+
         Date.prototype.toDateInputValue = (function () {
             var local = new Date(this);
             local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
@@ -1975,7 +1976,6 @@ input[type=number] {
 
         document.querySelectorAll('input[type="date"]').forEach(i =>{ 
             i.setAttribute("max",`${new Date().toDateInputValue()}`)
-            
         } )
 
 
@@ -1983,23 +1983,17 @@ input[type=number] {
         function dateOrgPaperFrom(e){
             // console.log(e.target.value)
             e.target.parentElement.parentElement.children[3].children[0].min = e.target.value
-            
         }
 
         function dateResearchFrom(e){
             // console.log(e.target)
             e.target.parentElement.parentElement.children[1].children[0]. min = e.target.value
-    
-
         }
 
         function dateThesisAwardedFrom(e){
             // console.log(e.target)
             e.target.parentElement.parentElement.children[5].children[0].min= e.target.value
-    
-
         }
-        
 
 
         function setValueSpoProject(event){
@@ -2024,54 +2018,62 @@ input[type=number] {
         }
 
 
-
         function marksValidation(e){
             // console.log(e.target.id[6])
-            console.log("hiiiii")
+            // .log("hiiiii")
             var id = document.getElementById(`course${e.target.id[6]}-obtained`)
             var mode = document.getElementById(`course${e.target.id[6]}-percentage`)
-            
-                if(mode.value=='Percentage'){
-                    // console.log("okayyy")
-                    if(id.value > 100 || id.value <0){
-                        alert("Percentage must be between 0 and 100 (both inclusive)")
-                        id.value= ""
-                    }
 
-                }
-                if(mode.value=='CGPA out of 10'){
-                    // console.log("okayyy")
-                    if(id.value > 10 || id.value <0){
-                        alert("CGPA must be between 0 and 10 (both inclusive)")
-                        id.value= ""
-                    }
-
+            if(mode.value=='Percentage'){
+                if(id.value > 100 || id.value <0){
+                    alert("Percentage must be between 0 and 100 (both inclusive)")
+                    id.value= ""
                 }
 
-                if(mode.value=='GPA out of 5'){
-                    // console.log("okayyy")
-                    if(id.value > 5 || id.value < 0){
-                        alert("GPA must be between 0 and 5 (both inclusive)")
-                        id.value= ""
-                    }
+            }
 
+            if(mode.value=='CGPA out of 10'){
+                if(id.value > 10 || id.value <0){
+                    alert("CGPA must be between 0 and 10 (both inclusive)")
+                    id.value= ""
                 }
+
+            }
+
+            if(mode.value=='GPA out of 5'){
+                if(id.value > 5 || id.value < 0){
+                    alert("GPA must be between 0 and 5 (both inclusive)")
+                    id.value= ""
+                }
+
+            }
+        }
+
+        function checkInput(e){
+            var temp = false;
+            var inputFields = (e.target.parentElement.parentElement);
+
+            if(inputFields.children[0].children[0].value != ""){
+                temp=true;
+            }
+            if(inputFields.children[2].children[0].value != ""){
+                temp=true;
+            }
+            if(inputFields.children[4].children[0].value != ""){
+                temp=true;
+            }
+            if(inputFields.children[5].children[0].value != ""){
+                temp=true;
+            }
+            // console.log("temp: ",temp);
+
+            return temp;
         }
 
         function reqField(e){
-            // console.log('heyyyy')
-            console.log(e.target.value);
-            if(e.target.value== ""){
-                for(var i=0;i<8;i++){
-                    var inputFields = (e.target.parentElement.parentElement.children[i].children[0]);
-                    // console.log(inputFields)
-                    inputFields.required = false;
-                    if(i==7){
-                        inputFields.children[0].required = false;
-                    }
-                }
-            }
-            else{
+            // console.log(e.target.value);
+
+            if(checkInput(e)){
                 for(var i=0;i<8;i++){
                     var inputFields = (e.target.parentElement.parentElement.children[i].children[0]);
                     // console.log(inputFields)
@@ -2081,12 +2083,22 @@ input[type=number] {
                     }
                 }
             }
+
+            else{
+                for(var i=0;i<8;i++){
+                    var inputFields = (e.target.parentElement.parentElement.children[i].children[0]);
+                    // console.log(inputFields)
+                    inputFields.required = false;
+                    if(i==7){
+                        inputFields.children[0].required = false;
+                    }
+                }
+            }
         }
 
         function modeFirst(e){
-            // console.log("okkkkk")
             // console.log(e.target.parentElement.parentElement.children[4].children[0]);
-            e.target.parentElement.parentElement.children[4].children[0].disabled = false
+            e.target.parentElement.parentElement.children[4].children[0].readOnly = false;
         }
 
 
