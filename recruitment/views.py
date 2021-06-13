@@ -75,22 +75,22 @@ def export_csv(request):
         heading_data.append('Supporting Documents of Awarded PhD- ' + str(i))
     heading_data += [
                         'Institute / University Name - Master\'s Degree or equivalent',
-                        'Percentage Marks / CGPA / CPI - Master\'s Degree or equivalent',
+                        'Percentage / CGPA(10) / GPA(5) - Master\'s Degree or equivalent',
                         'Subjects Taken - Master\'s Degree or equivalent',
                         'Year of Passing - Master\'s Degree or equivalent',
                         'Supporting Documents - Master\'s Degree or Equivalent',
                         'Institute / University Name - Bachelor\'s Degree or equivalent',
-                        'Percentage Marks / CGPA / CPI - Bachelor\'s Degree or equivalent',
+                        'Percentage / CGPA(10) / GPA(5) - Bachelor\'s Degree or equivalent',
                         'Subjects Taken - Bachelor\'s Degree or equivalent',
                         'Year of Passing - Bachelor\'s Degree or equivalent',
                         'Supporting Documents - Bachelor\'s Degree or Equivalent',
                         'Institute / University Name - XII or equivalent',
-                        'Percentage Marks / CGPA / CPI - XII or equivalent',
+                        'Percentage / CGPA(10) / GPA(5) - XII or equivalent',
                         'Subjects Taken - XII or equivalent',
                         'Year of Passing - XII or equivalent',
                         'Supporting Documents - XII or Equivalent',
                         'Institute / University Name - X or equivalent',
-                        'Percentage Marks / CGPA / CPI - X or equivalent',
+                        'Percentage / CGPA(10) / GPA(5) - X or equivalent',
                         'Subjects Taken - X or equivalent',
                         'Year of Passing - X or equivalent',
                         'Supporting Documents - X or Equivalent',
@@ -167,7 +167,7 @@ def export_csv(request):
                         'Other activities/Responsibilities',
                         'Any other relevant information',
                         'Academic Year Break',
-                        'Awards and Recoginition',
+                        'Awards and Recognitions',
                         'Have you been punished during your services or convicted by a court of law ?',
                         'Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed?',
                         'Details regarding First Reference',
@@ -285,25 +285,25 @@ def export_csv(request):
             print(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to)
             if(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Masters"):
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[j].marks + ')' )
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
             elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Bachelors"):
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[j].marks + ')')
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
             elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Class 12th"):
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[j].marks + ')')
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
             elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Class 10th"):
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[j].marks + ')')
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
