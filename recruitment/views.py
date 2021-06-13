@@ -75,25 +75,25 @@ def export_csv(request):
         heading_data.append('Supporting Documents of Awarded PhD- ' + str(i))
     heading_data += [
                         'Institute / University Name - Master\'s Degree or equivalent',
-                        'Percentage Marks / CGPA / CPI - Master\'s Degree or equivalent', 
-                        'Subjects Taken - Master\'s Degree or equivalent', 
-                        'Year of Passing - Master\'s Degree or equivalent', 
+                        'Percentage Marks / CGPA / CPI - Master\'s Degree or equivalent',
+                        'Subjects Taken - Master\'s Degree or equivalent',
+                        'Year of Passing - Master\'s Degree or equivalent',
                         'Supporting Documents - Master\'s Degree or Equivalent',
                         'Institute / University Name - Bachelor\'s Degree or equivalent',
-                        'Percentage Marks / CGPA / CPI - Bachelor\'s Degree or equivalent', 
-                        'Subjects Taken - Bachelor\'s Degree or equivalent', 
-                        'Year of Passing - Bachelor\'s Degree or equivalent', 
+                        'Percentage Marks / CGPA / CPI - Bachelor\'s Degree or equivalent',
+                        'Subjects Taken - Bachelor\'s Degree or equivalent',
+                        'Year of Passing - Bachelor\'s Degree or equivalent',
                         'Supporting Documents - Bachelor\'s Degree or Equivalent',
                         'Institute / University Name - XII or equivalent',
-                        'Percentage Marks / CGPA / CPI - XII or equivalent', 
-                        'Subjects Taken - XII or equivalent', 
-                        'Year of Passing - XII or equivalent', 
+                        'Percentage Marks / CGPA / CPI - XII or equivalent',
+                        'Subjects Taken - XII or equivalent',
+                        'Year of Passing - XII or equivalent',
                         'Supporting Documents - XII or Equivalent',
                         'Institute / University Name - X or equivalent',
-                        'Percentage Marks / CGPA / CPI - X or equivalent', 
-                        'Subjects Taken - X or equivalent', 
-                        'Year of Passing - X or equivalent', 
-                        'Supporting Documents - X or Equivalent',                               
+                        'Percentage Marks / CGPA / CPI - X or equivalent',
+                        'Subjects Taken - X or equivalent',
+                        'Year of Passing - X or equivalent',
+                        'Supporting Documents - X or Equivalent',
                     ]
     for i in range(1,6):
         heading_data.append('Name of Employer/Status of Institute/University- ' + str(i))
@@ -179,7 +179,7 @@ def export_csv(request):
                         'Resume of Candidate',
                         'View More of Candidate'
                     ]
-    writer.writerow(heading_data)  
+    writer.writerow(heading_data)
     for i in list(Applicant.objects.all()):
         applicant_data = []
         applicant_data += [i.application_no,
@@ -289,19 +289,19 @@ def export_csv(request):
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
-            elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Bachelors"): 
+            elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Bachelors"):
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
-            elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Class 12th"): 
+            elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Class 12th"):
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
-            elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Class 10th"): 
+            elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Class 10th"):
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].marks)
                     applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
@@ -355,7 +355,7 @@ def export_csv(request):
                         applicant_data.append(Books.objects.filter(applicant=i)[j].title)
                         applicant_data.append(Books.objects.filter(applicant=i)[j].author)
                         applicant_data.append(Books.objects.filter(applicant=i)[j].publisher)
-                        applicant_data.append(Books.objects.filter(applicant=i)[j].date_publish)                      
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].date_publish)
                         applicant_data.append(Books.objects.filter(applicant=i)[j].isbn)
                         applicant_data.append(Books.objects.filter(applicant=i)[j].supporting_documents.url)
                     for j in range(len(list(Books.objects.filter(applicant=i))),5):
@@ -370,7 +370,7 @@ def export_csv(request):
                         applicant_data.append(Books.objects.filter(applicant=i)[j].title)
                         applicant_data.append(Books.objects.filter(applicant=i)[j].author)
                         applicant_data.append(Books.objects.filter(applicant=i)[j].publisher)
-                        applicant_data.append(Books.objects.filter(applicant=i)[j].date_publish)                      
+                        applicant_data.append(Books.objects.filter(applicant=i)[j].date_publish)
                         applicant_data.append(Books.objects.filter(applicant=i)[j].isbn)
                         applicant_data.append(Books.objects.filter(applicant=i)[j].supporting_documents.url)
         if(len(list(Chapters.objects.filter(applicant=i)))<=5):
@@ -379,7 +379,7 @@ def export_csv(request):
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].chapter)
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].author)
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].publisher)
-                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].date_of_publisher)                      
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].date_of_publisher)
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].isbn_issn)
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].supporting_documents.url)
                     for j in range(len(list(Chapters.objects.filter(applicant=i))),5):
@@ -396,7 +396,7 @@ def export_csv(request):
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].chapter)
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].author)
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].publisher)
-                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].date_of_publisher)                      
+                        applicant_data.append(Chapters.objects.filter(applicant=i)[j].date_of_publisher)
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].isbn_issn)
                         applicant_data.append(Chapters.objects.filter(applicant=i)[j].supporting_documents.url)
         if(len(list(NewspaperArticle.objects.filter(applicant=i)))<=5):
@@ -405,7 +405,7 @@ def export_csv(request):
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].journal_name)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].author)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].date_published)
-                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].vol_no)                      
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].vol_no)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].referred)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].naas)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].supporting_documents.url)
@@ -424,7 +424,7 @@ def export_csv(request):
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].journal_name)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].author)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].date_published)
-                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].vol_no)                      
+                        applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].vol_no)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].referred)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].naas)
                         applicant_data.append(NewspaperArticle.objects.filter(applicant=i)[j].supporting_documents.url)
@@ -434,7 +434,7 @@ def export_csv(request):
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].seminar_subject)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].location)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].From)
-                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].to)                      
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].to)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].published)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].supporting_documents.url)
                     for j in range(len(list(SeminarArticles.objects.filter(applicant=i))),5):
@@ -451,7 +451,7 @@ def export_csv(request):
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].seminar_subject)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].location)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].From)
-                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].to)                      
+                        applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].to)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].published)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].supporting_documents.url)
         applicant_data += [
@@ -911,7 +911,7 @@ def submission_form(request):
         last_academic_record = num_of_academic_records[num_of_academic_records_length-1]
         number_academic_record = last_academic_record[6]
         for i in range(1,int(number_academic_record)+1):
-            if (data.get('course'+str(i),False) == False):
+            if (data.get('course'+str(i),False) == ""):
                 continue
             else:
                 academic_details = {}
@@ -919,6 +919,7 @@ def submission_form(request):
                 academic_details['equivalent_to'] = data.get('course' + str(i) + '-equivalent',False)
                 academic_details['name'] = data.get('course'+str(i)+'-name',False)
                 academic_details['marks'] = data.get('course'+str(i)+'-percentage',False)
+                academic_details['obtained'] = data.get('course'+str(i)+'-obtained',False)
                 academic_details['subjects'] = data.get('course'+str(i)+'-subject',False)
                 academic_details['year_of_passing'] = data.get('yearOfPassing'+str(i),False)
                 ans = 'course' + str(i) + '-file'
