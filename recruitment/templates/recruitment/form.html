@@ -90,16 +90,17 @@ input[type=number] {
                 <div><a href="#thesis" onclick="closeNav()">Thesis</a></div>
                 <div><a href="#other" onclick="closeNav()">Other</a></div>
                 <div><a href="#upload" onclick="closeNav()">Declaration</a></div>
-                <div><a>
-                        <form method="post" action="{% url 'account_logout' %}"
-                            onsubmit="return confirm('Do you really wish to Logout?');">
-                            {% csrf_token %}
-                            {% if redirect_field_value %}
-                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                            {% endif %}
-                            <button style="background-color : red !important;" type="submit">Logout</button>
-                        </form>
-                    </a></div>
+                <div>
+                    <form method="post" action="{% url 'account_logout' %}"
+                        onsubmit="return confirm('Do you really wish to Logout?');">
+                        {% csrf_token %}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <br>
+                        <button style="background-color : red !important;" type="submit">Logout</button>
+                    </form>
+                </div>
             </div>
         </div>
         <!-- Mobile Nav Ends here -->
@@ -1851,7 +1852,7 @@ input[type=number] {
                                     </div>
 
                                     <div class="col-12">
-                                        <div class="row gtr-uniform" style="align-items:center">
+                                        <div class="row gtr-uniform" style="align-items:center;overflow-x: hidden;">
                                             <div class="col-1 col-4-medium">
                                                 <h3>Resume<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
