@@ -1980,20 +1980,20 @@ input[type=number] {
 
 
         function dateOrgPaperFrom(e){
-            console.log(e.target.value)
+            // console.log(e.target.value)
             e.target.parentElement.parentElement.children[3].children[0].min = e.target.value
             
         }
 
         function dateResearchFrom(e){
-            console.log(e.target)
+            // console.log(e.target)
             e.target.parentElement.parentElement.children[1].children[0]. min = e.target.value
     
 
         }
 
         function dateThesisAwardedFrom(e){
-            console.log(e.target)
+            // console.log(e.target)
             e.target.parentElement.parentElement.children[5].children[0].min= e.target.value
     
 
@@ -2003,36 +2003,34 @@ input[type=number] {
 
         function setValueSpoProject(event){
             document.getElementById('total_projects').value = event.target.value
-            console.log('object')
+            // console.log('object')
         }
 
         function setValSpoOngoing(event){
             document.getElementById('ongoing_projects').value = event.target.value
-            console.log('hiiii')
+            // console.log('hiiii')
 
         }
         function setValCompProject(event){
             document.getElementById('computational_projects').value = event.target.value
-            console.log('okkkkk')
+            // console.log('okkkkk')
 
         }
 
         function setDefDate(event){
             document.getElementById('phd_defence_date').value = event.target.value
-            console.log('yarrrr')
+            // console.log('okkkk')
         }
 
 
 
         function marksValidation(e){
-            console.log(e.target.id[6])
+            // console.log(e.target.id[6])
             var id = document.getElementById(`course${e.target.id[6]}-obtained`)
             var mode = document.getElementById(`course${e.target.id[6]}-percentage`)
-            console.log(mode, "-----", id)
             
                 if(mode.value=='Percentage'){
                     // console.log("okayyy")
-                    // id.max = 100
                     if(id.value > 100 || id.value <0){
                         alert("Percentage must be between 0 and 100 (both inclusive)")
                         id.value= ""
@@ -2041,7 +2039,6 @@ input[type=number] {
                 }
                 if(mode.value=='CGPA out of 10'){
                     // console.log("okayyy")
-                    // id.max = 100
                     if(id.value > 10 || id.value <0){
                         alert("CGPA must be between 0 and 10 (both inclusive)")
                         id.value= ""
@@ -2051,7 +2048,6 @@ input[type=number] {
 
                 if(mode.value=='GPA out of 5'){
                     // console.log("okayyy")
-                    // id.max = 100
                     if(id.value > 5 || id.value < 0){
                         alert("GPA must be between 0 and 5 (both inclusive)")
                         id.value= ""
@@ -2060,6 +2056,17 @@ input[type=number] {
                 }
         }
 
+        function reqField(e){
+            // console.log('heyyyy')
+            for(var i=0;i<8;i++){
+                var inputFields = (e.target.parentElement.parentElement.children[i].children[0])
+                // console.log(inputFields)
+                inputFields.required = true
+                if(i==7){
+                    inputFields.children[0].required = true
+                }
+            }
+        }
 
 
 
