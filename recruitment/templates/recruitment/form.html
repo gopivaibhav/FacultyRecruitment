@@ -2027,6 +2027,7 @@ input[type=number] {
 
         function marksValidation(e){
             // console.log(e.target.id[6])
+            console.log("hiiiii")
             var id = document.getElementById(`course${e.target.id[6]}-obtained`)
             var mode = document.getElementById(`course${e.target.id[6]}-percentage`)
             
@@ -2067,6 +2068,13 @@ input[type=number] {
                     inputFields.children[0].required = true
                 }
             }
+        }
+
+
+
+        function modeFirst(e){
+            // console.log("okkkkk")
+            e.target.parentElement.parentElement.children[4].children[0].disabled = false
         }
 
 
