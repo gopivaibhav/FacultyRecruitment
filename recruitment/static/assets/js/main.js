@@ -149,36 +149,70 @@ $('form input').keydown(function (e) {
 
 $('input[type="file"]').on('change', function(input){
     // alert("file added");
-        console.log(input);
-            var fileSize = 100;
-            if(input.currentTarget)
-                fileSize = input.currentTarget.files[0].size / 1024 / 1024; // in MiB
-            // console.log(fileSize);
+    // console.log(input);
+    var fileSize = 100;
+    // console.log(input.currentTarget.files[0])
+    if(input.currentTarget.files[0] !== undefined){
+        var fileSize = input.currentTarget.files[0].size / 1024 / 1024; // in MiB
+        var type = input.currentTarget.files[0].type
+
         if (fileSize > 0.5) {
+
             alert('File size exceeds 450 KB');
             input.currentTarget.value=null;
-            // $(file).val(''); //for clearing with Jquery
+
+            if(input.currentTarget.id == "signUpload"){
+                $('#signImage').attr('src',null);
+            }
+            else if( input.currentTarget.id == "imageUpload" ){
+                $('#profileImage').attr('src',"/static/images/profilepic.png");
+            }
+
         }
-        else if(input.currentTarget.value && ( !(input.currentTarget.accept) || input.currentTarget.accept == ".pdf" )){
-            var type = input.currentTarget.files[0].type;
-            if( type !== "application/pdf" ){
+
+        // console.log(type)
+        // console.log(input.currentTarget.id)
+
+        else if (type !== "application/pdf" && input.currentTarget.id !== "signUpload" && input.currentTarget.id !== "imageUpload"){
+            // var type = input.currentTarget.files[0].type;
                 alert("Upload only .pdf file!")
                 input.currentTarget.value=null;
-            }
-        }else{
-            var type = input.currentTarget.files[0].type;
-            console.log(type)
+        }
+
+        else if(input.currentTarget.id == "signUpload" || input.currentTarget.id == "imageUpload"){
+            // var type = input.currentTarget.files[0].type;
             if( !(type === "image/jpeg" || type === "image/jpg" || type === "image/png") ){
+
                 alert("Upload only .jpeg/.jpg/.png image file!")
+
                 input.currentTarget.value = null;
-                console.log(input.currentTarget.id);
+                // console.log(input.currentTarget.id);
                 if(input.currentTarget.id == "signUpload"){
-                    document.querySelector("#signImage").src = "";
-                }else if( input.currentTarget.id == "imageUpload" ){
-                    document.querySelector("#profileImage").src = "/static/images/profilepic.png";
+                    // document.querySelector("#signImage").src = "";
+                    $('#signImage').attr('src',null);
+                }
+                else if( input.currentTarget.id == "imageUpload" ){
+                    // document.querySelector("#profileImage").src = '`/static/images/profilepic.png`"';
+                    $('#profileImage').attr('src',"/static/images/profilepic.png");
                 }
             }
         }
+    }
+
+    else{
+
+        alert("No File Chosen")
+
+        if(input.currentTarget.id == "signUpload"){
+            // document.querySelector("#signImage").src = "";
+            $('#signImage').attr('src',null);
+        }
+        else if( input.currentTarget.id == "imageUpload" ){
+            // document.querySelector("#profileImage").src = '`/static/images/profilepic.png`"';
+            $('#profileImage').attr('src',"/static/images/profilepic.png");
+        }
+    }
+
 });
 
 ////////phd table ongoing
@@ -208,7 +242,6 @@ $(document).ready(function() {
         });
         document.querySelectorAll('input[type="date"]').forEach(i =>{ 
             i.setAttribute("max",`${new Date().toDateInputValue()}`)
-            
         } )
 
 
@@ -244,7 +277,6 @@ $(document).ready(function() {
         });
         document.querySelectorAll('input[type="date"]').forEach(i =>{ 
             i.setAttribute("max",`${new Date().toDateInputValue()}`)
-            
         } )
 
 
@@ -279,7 +311,6 @@ $(document).ready(function() {
         });
         document.querySelectorAll('input[type="date"]').forEach(i =>{ 
             i.setAttribute("max",`${new Date().toDateInputValue()}`)
-            
         } )
 
 
@@ -300,18 +331,17 @@ $(document).ready(function() {
     '<option value="Class 12th">Class 12th</option><option value="Diploma">Diploma</option>',
     '<option value="Class 10th">Class 10th</option>'
     ]
-    var diploma
     for(var ii=0;ii<4;ii+=1){
         var newIn = '<tr class="appliRows' + newAcademicsNo + '" id="field1"> <td class="col-1" style="text-align: center; padding: 0;">' +
             '<input type="text" name="course' + newAcademicsNo + '" id="course' + newAcademicsNo + '" onchange="reqField(event)" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" required></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">'+
-            '<select onchange="reqField(event)" name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
+            '<select name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">'+
                 // '<option value="" disabled selected>Select Any Options</option>'+
                 EquivalentOptions[3-ii] +
             '</select></td>'+
             '<td class="col-1" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td><td class="col-2" style="text-align: center; padding: 0;">' +
-            '<select onchange="reqField(event), modeFirst(event)" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none; inline-size:auto;" placeholder="Select Mode" required><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
-            '<input disabled onchange="reqField(event), marksValidation(event)" type="number" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" value=""  style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>'+
+            '<select onchange="modeFirst(event)" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none; inline-size:auto;" placeholder="Select Mode" required><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
+            '<input readonly onchange="reqField(event), marksValidation(event)" type="number" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" value=""  style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>'+
             '<td class="col-2" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-1" style="text-align: center; padding: 0; font-size: xx-small;">' +
             '<select onchange="reqField(event)" style="inline-size: auto; " name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '" required ></select></td><td class="col-2" style="display:flex;place-content:space-between">' +
             '<span style="overflow:hidden;align-self:center" ><input onchange="reqField(event)" required style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>' +
@@ -370,7 +400,7 @@ $(document).ready(function() {
             '</select></td>'+
             '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td>'+'<td class="col-2" style="text-align: center; padding: 0;">' +
             '<select name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none;" placeholder="Select Mode" onchange="modeFirst(event)" required><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
-            '<input disabled type="text" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" onchange="marksValidation(event)" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>' +
+            '<input readonly type="text" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" onchange="marksValidation(event)" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;">' +
             '<select style="inline-size: auto;" name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '" ></select></td><td class="col-3" style="display:flex;place-content:space-between">' +
             '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>' +
@@ -438,7 +468,6 @@ $(document).ready(function() {
 
         document.querySelectorAll('input[type="date"]').forEach(i =>{ 
             i.setAttribute("max",`${new Date().toDateInputValue()}`)
-            
         } )
 
     });
@@ -470,10 +499,9 @@ $(document).ready(function() {
                 return false;
             }
         });
-        
+
         document.querySelectorAll('input[type="date"]').forEach(i =>{ 
             i.setAttribute("max",`${new Date().toDateInputValue()}`)
-            
         } )
 
     });
@@ -604,7 +632,6 @@ $(document).ready(function() {
 
         document.querySelectorAll('input[type="date"]').forEach(i =>{ 
             i.setAttribute("max",`${new Date().toDateInputValue()}`)
-            
         } )
 
     });
@@ -623,6 +650,7 @@ function closeNav() {
 
 /////   Profile Pic   /////
 $('#profileImage').click(function(e) {
+    // console.dir(e);
     $('#imageUpload').click();
 });
 
@@ -633,9 +661,13 @@ function fasterPreview(uploader) {
             window.URL.createObjectURL(uploader.files[0])
         );
     }
+    else{
+        $('#profileImage').attr('src',"/static/images/profilepic.png");
+    }
 }
 
 $('#imageUpload').change(function() {
+    console.dir(this.value);
     fasterPreview(this);
 });
 
