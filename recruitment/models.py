@@ -295,6 +295,7 @@ class Declaration(models.Model):
     date = models.CharField(max_length=20)
     signature = models.FileField(upload_to=handle_uploaded, null=True, blank=True)
     resume = models.FileField(upload_to=handle_uploaded, null=False, blank=False)
+    receipt = models.FileField(upload_to=handle_uploaded, null=False, blank=False)
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, related_name='declaration')
     def __str__(self):
         return str(self.applicant)

@@ -13,6 +13,9 @@
 		<link rel="stylesheet" href="{% static 'assets/css/noscript.css'%}">
 	</noscript>
 	<title>Faculty Recruitment | IIIT Lucknow</title>
+	<style>
+		
+	</style>
 </head>
 
 <body class="is-preload">
@@ -42,7 +45,7 @@
 					</div>
 				{% endif %}
 			</header>
-			
+
 			<!-- Nav -->
 			{% if user.is_authenticated and user.is_superuser != 1%}
 			<nav id="nav">
@@ -91,13 +94,16 @@
 
 			<!-- Advertisement Sections -->
 			<section id="advert" class="main special">
-				<div class="" style="text-transform: capitalize;">
+				<span style="display: inline-block;"><div class="" style="text-transform: capitalize;">
+					<!-- <div class="typewriter">
+						<h1>The cat and the hat.</h1>
+					  </div> -->
 					<!--	Change the content in the h3 tag to set the congratulatory message	-->
 					<!-- These messages are coming from venv/ Lib/ allauth/ templates/ account/ messages/ logged_in.txt and logged_out.txt  -->
 					{% if messages %}
 					{% for message in messages %}
 					    {% if message != 'You have signed out.' %}
-						    <br><div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" style="font-size: larger; font-weight: 500;" role="alert">{{ message }}</div>
+						    <br><div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
 					    {% endif %}
 					{% endfor %}
 				{% endif %}
@@ -111,7 +117,7 @@
 					})
 				</script>
 
-				</div>
+				</div></span>
 
 				<div class="spotlight">
 					<div class="content">
@@ -133,8 +139,8 @@
 									class="button">Download Full PDF</a></li>
 						</ul>
 					</div>
-					<a href="{% static 'assets/downloads/Newspaper_Advertisement.pdf'%}" target="#">
-						<span class="image" style="margin-top: 5em;">
+					<a href="{%static 'images/NewspaperAdvertisementWeb.jpg'%}" target="#">
+						<span class="image image_advertisement">
 							<img src="{%static 'images/NewspaperAdvertisementWeb.jpg'%}" alt="" />
 						</span>
 					</a>
