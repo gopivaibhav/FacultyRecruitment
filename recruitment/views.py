@@ -177,6 +177,7 @@ def export_csv(request):
                         'Date',
                         'Signature of Candidate',
                         'Resume of Candidate',
+                        'Payment Receipt',
                         'View More of Candidate'
                     ]
     writer.writerow(heading_data)
@@ -491,6 +492,7 @@ def export_csv(request):
                 Declaration.objects.filter(applicant=i)[0].date,
                 Declaration.objects.filter(applicant=i)[0].signature,
                 Declaration.objects.filter(applicant=i)[0].resume,
+                Declaration.objects.filter(applicant=i)[0].receipt,
                 'http://127.0.0.1:8000/admin/user/' + str(i),
             ]
         writer.writerow(applicant_data)
@@ -584,6 +586,7 @@ def viewMore(request, application_number):
             'date': Declaration.objects.filter(applicant=application_number)[0].date,
             'signature': Declaration.objects.filter(applicant=application_number)[0].signature,
             'resume': Declaration.objects.filter(applicant=application_number)[0].resume,
+            'receipt': Declaration.objects.filter(applicant=application_number)[0].receipt,
         },
         'thesis_data': {
             'ongoing_phd': Thesis.objects.filter(applicant=application_number)[0].ongoing_phd,
@@ -644,6 +647,7 @@ def viewMore(request, application_number):
 def submission_form(request):
     if request.method == 'POST':
         data = request.POST.copy()
+
         # Applicant
         applicant_data = {}
         number = len(Applicant.objects.filter(date=datetime.datetime.now().date()))
@@ -679,6 +683,7 @@ def submission_form(request):
             general_data['reservation_certificate'] = request.FILES['reservation_certificate']
         general_data['applicant'] = Applicant.objects.get(application_no=application_number) 
         General.objects.create(**general_data)
+
         # Other Information
         otherinformation_data = {}
         otherinformation_data['membership'] = data['miscTa1']
@@ -693,14 +698,17 @@ def submission_form(request):
         otherinformation_data['reference3'] = data['miscTa10']
         otherinformation_data['applicant'] = Applicant.objects.get(application_no=application_number) 
         OtherInfo.objects.create(**otherinformation_data)
-        # Signature 
+
+        # Signature
         signed_data= {}
         signed_data['place'] = data['signPlace']
         signed_data['date'] = datetime.datetime.now().date()
         signed_data['signature'] = request.FILES['signUpload']
         signed_data['resume'] = request.FILES['resumeUpload']
+        signed_data['receipt'] = request.FILES['receipt']
         signed_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Declaration.objects.create(**signed_data)
+
         # Page 4
         # Thesis
         thesis_data = {}
@@ -708,16 +716,19 @@ def submission_form(request):
         thesis_data['completed_phd'] = data['completed_phd']
         thesis_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Thesis.objects.create(**thesis_data)
+
         # Administrative Details
         administrative_details_data = {}
         administrative_details_data['administrative_details'] = data['administrative_details']
         administrative_details_data['applicant'] = Applicant.objects.get(application_no=application_number)
         AdministrativeDetails.objects.create(**administrative_details_data)
+
         # Patent
         patent_data = {}
         patent_data['patent_details'] = data['patent_details']
         patent_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Patent.objects.create(**patent_data)
+
         # Summary
         summary_data = {}
         if(data['phd_defence_date']==''):
@@ -757,6 +768,7 @@ def submission_form(request):
             experiments_data['exp_file'] = "N/A"
         experiments_data['applicant'] = Applicant.objects.get(application_no=application_number)
         Experiments.objects.create(**experiments_data)
+
         # Educational Qualifications
         phd_data = {}
         phd_data['PhD_awarded'] = data['awarded_phd']
@@ -791,11 +803,11 @@ def submission_form(request):
             awarded_data['Registration_Date'] = "N/A"
             awarded_data['Defense_Date'] = "N/A"
             awarded_data['supporting_documents'] = "N/A"
-            awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)    
+            awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)
             PhDAwarded.objects.create(**awarded_data)
         else:
             phd_data['PhD_details'] = data['phd']
-            phd_data['applicant'] = Applicant.objects.get(application_no=application_number)            
+            phd_data['applicant'] = Applicant.objects.get(application_no=application_number)
             PhD.objects.create(**phd_data)
             if(data['phd'] == "Ongoing"):
                 ongoing_data = {}
@@ -864,7 +876,7 @@ def submission_form(request):
                 awarded_data['Registration_Date'] = "N/A"
                 awarded_data['Defense_Date'] = "N/A"
                 awarded_data['supporting_documents'] = "N/A"
-                awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)    
+                awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)
                 PhDAwarded.objects.create(**awarded_data)
             elif(data['phd'] == "Awarded"):
                 ongoing_data = {}
@@ -874,7 +886,7 @@ def submission_form(request):
                 ongoing_data['University_Name'] = "N/A"
                 ongoing_data['Registration_Date'] = "N/A"
                 ongoing_data['supporting_documents'] = "N/A"
-                ongoing_data['applicant'] = Applicant.objects.get(application_no=application_number)    
+                ongoing_data['applicant'] = Applicant.objects.get(application_no=application_number)
                 PhDOngoing.objects.create(**ongoing_data)
                 submitted_data = {}
                 submitted_data['PhD_title'] = "N/A"
@@ -884,7 +896,7 @@ def submission_form(request):
                 submitted_data['Registration_Date'] = "N/A"
                 submitted_data['Submission_Date'] = "N/A"
                 submitted_data['supporting_documents'] = "N/A"
-                submitted_data['applicant'] = Applicant.objects.get(application_no=application_number)    
+                submitted_data['applicant'] = Applicant.objects.get(application_no=application_number)
                 ThesisSubmitted.objects.create(**submitted_data)
                 num_of_awarded_records = list(filter(lambda s: 'awarded' in s,list(data.keys())))
                 num_of_awarded_records_length = len(num_of_awarded_records)
@@ -903,8 +915,8 @@ def submission_form(request):
                         awarded_data['Defense_Date'] = data.get('awarded'+str(i)+'-defdate',False)
                         ans = 'awarded'+str(i)+'-file'
                         awarded_data['supporting_documents'] = request.FILES[ans]
-                        awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)  
-                        PhDAwarded.objects.create(**awarded_data)  
+                        awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)
+                        PhDAwarded.objects.create(**awarded_data)
         # Academic Details
         num_of_academic_records = list(filter(lambda s: 'course' in s,list(data.keys())))
         num_of_academic_records_length = len(num_of_academic_records)
@@ -980,8 +992,8 @@ def submission_form(request):
             else:
                 books_details = {}
                 books_details['title'] = data.get('books' + str(i) + '-title',False)
-                books_details['author'] = data.get('books' + str(i) + '-author',False)     
-                books_details['publisher'] = data.get('books' + str(i) + '-publisher',False) 
+                books_details['author'] = data.get('books' + str(i) + '-author',False)
+                books_details['publisher'] = data.get('books' + str(i) + '-publisher',False)
                 books_details['date_publish'] = data.get('books' + str(i) + '-date',False)
                 books_details['isbn'] = data.get('books' + str(i) + '-number',False)
                 ans = 'books' + str(i) + '-file'
@@ -991,7 +1003,7 @@ def submission_form(request):
         # Chapters
         num_of_chapters_records = list(filter(lambda s: 'chapters' in s, list(data.keys())))
         last_chapter_record = num_of_chapters_records[len(num_of_chapters_records)-1]
-        number_chapter_record = last_chapter_record[8]   
+        number_chapter_record = last_chapter_record[8]
         for i in range(1,int(number_chapter_record)+1):
             if(data.get('chapters' + str(i) + '-book_title') == ""):
                 chapter_details = {}
@@ -999,7 +1011,7 @@ def submission_form(request):
                 chapter_details['chapter'] = "N/A"
                 chapter_details['author'] = "N/A"
                 chapter_details['publisher'] = "N/A"
-                chapter_details['date_of_publisher'] = "N/A" 
+                chapter_details['date_of_publisher'] = "N/A"
                 chapter_details['isbn_issn'] = "N/A"
                 chapter_details['supporting_documents'] = "N/A"
                 chapter_details['applicant'] = Applicant.objects.get(application_no=application_number)
@@ -1007,7 +1019,7 @@ def submission_form(request):
             else:
                 chapter_details = {}
                 chapter_details['book_title'] = data.get('chapters' + str(i) + '-book_title',False)
-                chapter_details['chapter'] = data.get('chapters' + str(i) + '-chapter',False)    
+                chapter_details['chapter'] = data.get('chapters' + str(i) + '-chapter',False)
                 chapter_details['author'] = data.get('chapters' + str(i) + '-author',False)
                 chapter_details['publisher'] = data.get('chapters' + str(i) + '-publisher',False)
                 chapter_details['date_of_publisher'] = data.get('chapters' + str(i) + '-date_of_publisher',False)
@@ -1092,8 +1104,9 @@ def submission_form(request):
                 ans = 'exper' + str(i) + '-file'
                 research_exp_details['supporting_documents'] = request.FILES[ans]
                 research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
-                ResearchExp.objects.create(**research_exp_details)     
-            messages.success(request,'Congratulations, your application has been submitted successfully!')  
-            messages.success(request, 'Your application number is : ' + application_number + '. Note this for future reference. ')             
+                ResearchExp.objects.create(**research_exp_details)
+            messages.success(request,'Congratulations, your application has been submitted successfully!')
+            messages.success(request, 'Your application number is :  ' + application_number)
+            messages.success(request,'( Kindly note this for future reference )')
         return  HttpResponseRedirect('/accounts/profile/')
     return render(request, 'recruitment/form.html', {})
