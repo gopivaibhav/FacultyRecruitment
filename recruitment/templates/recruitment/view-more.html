@@ -73,17 +73,24 @@
 							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
 									<td colspan="24" style="font-weight: 500; font-size: 1.8rem; border-bottom: 1px solid #a6a6a6;">
-										<div class="row">
-											<div class="col-3"></div>
-											<div class="col-6" >Section A
-												<span style="display: block;  font-size: 1.2rem;" >(Applicant Details)</span>
+										<div class="row" style="margin: 0; align-items:center;">
+											<div class="col-3" style="padding: 0;">
+												<a href="{{signed_data.receipt.url}}" target="_blank" class="col-3" onmouseover="this.style.color='red'" onmouseout="this.style.color='rebeccapurple'"  style="color: rebeccapurple;">
+													Payment Receipt
+											    </a>
+										    </div>
+											<div class="col-6" style="padding: 0;"> Section A
+												<span style="display: block;  font-size: 1.2rem;">(Applicant Details)</span>
 											</div>
-											<a href="{{signed_data.resume.url}}" target="_blank" class="col-3" onmouseover="this.style.color='red'" onmouseout="this.style.color='rebeccapurple'"  style="display: flex; align-items: center; color: rebeccapurple;" >
-												Open Resume
-											</a>
+											<div class="col-3" style="padding: 0;">
+												<a href="{{signed_data.resume.url}}" target="_blank" class="col-3" onmouseover="this.style.color='red'" onmouseout="this.style.color='rebeccapurple'"  style="color: rebeccapurple;" >
+													Open Resume
+												</a>
+											</div>
 										</div>
 									</td>
 								</tr>
+
 								<tr>
 									<td class="headingfont" colspan="6">Application No.</td>
 									<td colspan="6">{{applicant_data.application_number}}</td>
@@ -175,7 +182,6 @@
 									<td colspan="6">Present Employer</td>
 									<td colspan="18">{{general_data.employer}}</td>
 								</tr> -->
-
 							</tbody>
 						</table>
 					</div>

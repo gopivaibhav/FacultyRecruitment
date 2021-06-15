@@ -2827,6 +2827,7 @@ table.alt tbody tr td {
 .spotlight .image {
   display: inline-block;
   padding: 0.65em;
+  margin-top: 5em;
   border-radius: 100%;
   border: solid 1px;
 }
@@ -2881,6 +2882,7 @@ span.selec.icon {
 @media screen and (max-width: 736px) {
   .spotlight .image {
     padding: 0.35em;
+    margin-top: 1em;
   }
   .spotlight .image img {
     width: 12em;
@@ -3923,4 +3925,61 @@ a {
 .image-upload-size{
   color:rgb(210, 0, 0);
   font-size: 0.8em;
+}
+
+/* Typewriter Effect CSS */
+.typewriter {
+  padding-top: 5em;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}
+.image_advertisement{
+  margin-top: 5em;
+}
+.alert{
+  font-size: larger;
+  font-weight: 800;
+  height: fit-content;
+}
+/* DEMO-SPECIFIC STYLES */
+.typewriter div {
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+  typing 3.5s steps(30, end),
+  blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+@media screen and (max-width: 650px) {
+  .alert{
+    font-size: 100%;
+    letter-spacing: 0 !important;
+  }
+  .typewriter{
+    padding: 0;
+  }
+  .image_advertisement{
+    margin-top: 2em;
+  }
+}
+@media screen and (max-width: 450px) {
+  .alert{
+    font-size: 80%;
+  }
 }
