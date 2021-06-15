@@ -286,14 +286,14 @@ input[type=number] {
                                                 <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" pattern="[0-9]{6}" maxlength="6" name="mailingpincode" id="mailingpincode" value=""
+                                                <input type="number" pattern="[0-9]{6}" minlength="6" maxlength="6" name="mailingpincode" id="mailingpincode" value=""
                                                     placeholder="Pin Code"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
                                             </div>
                                             <div class="col-5 col-12-small" style="text-align:center;">
                                                 <h3>Telephone No. (With STD Code)</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" pattern="[0-9]{11}" maxlength="11" name="mailingtelephone" id="mailingtelephone"
+                                                <input type="number" pattern="[0-9]{11}" minlength="11" maxlength="11" name="mailingtelephone" id="mailingtelephone"
                                                     value="" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Telephone No.">
                                             </div>
                                             <div class="col-12" style="text-align: center;padding-top: 10%;">
@@ -328,14 +328,14 @@ input[type=number] {
                                                     <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="text" pattern="[0-9]{6}" maxlength="6" name="permanentpincode" id="permanentpincode"
+                                                    <input type="text" pattern="[0-9]{6}" minlength="6" maxlength="6" name="permanentpincode" id="permanentpincode"
                                                         value="" placeholder="Pin Code" required>
                                                 </div>
                                                 <div class="col-5 col-12-small" style="text-align:center;">
                                                     <h3>Telephone No. (With STD Code)</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="number" name="permanenttelephone" id="permanenttelephone" pattern="[0-9]{11}" maxlength="11"
+                                                    <input type="number" name="permanenttelephone" id="permanenttelephone" pattern="[0-9]{11}" minlength="11" maxlength="11"
                                                         value="" placeholder="Telephone No." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                                 </div>
                                             </div>
@@ -366,7 +366,7 @@ input[type=number] {
                                             style="padding:0;text-align: center;" value="" placeholder="+91" required>
                                     </div>
                                     <div class="col-3 col-9-small" style="font-size:small;">
-                                        <input type="number" pattern="[0-9]{10}" maxlength="10" name="mobile" id="mobile" value="" placeholder="Mobile No."
+                                        <input type="number" pattern="[0-9]{10}" minlength="10" maxlength="10" name="mobile" id="mobile" value="" placeholder="Mobile No."
                                             required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                     </div>
                                     <div class="col-2 col-12-small" style="text-align:center;">
