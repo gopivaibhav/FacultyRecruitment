@@ -3929,7 +3929,7 @@ a {
 
 /* Typewriter Effect CSS */
 .typewriter {
-  padding: 5em 2em 0 2em;
+  padding-top: 5em;
   width: fit-content;
   display: flex;
   justify-content: center;
@@ -3969,6 +3969,7 @@ a {
 @media screen and (max-width: 650px) {
   .alert{
     font-size: 100%;
+    letter-spacing: 0 !important;
   }
   .typewriter{
     padding: 0;
