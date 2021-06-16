@@ -114,6 +114,10 @@
 						if(i.textContent == "You have signed out." ){
 						    i.remove();
 						}
+						if(i.textContent.substr(0,12) == "Successfully"){
+							// console.log('working')
+							i.parentElement.classList.add('typewriter');
+						}
 					})
 				</script>
 
