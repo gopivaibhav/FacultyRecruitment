@@ -37,11 +37,17 @@
                 <!--	Congratulatory Message	-->
                 <div class="spotlight">
                     <div class="content">
-                        
                         <form action='.', method="POST" style="margin-top: 5em;">
                             {% csrf_token %}
                             <div class="col-12" style="padding: 20px;">
                                 <img height="100px" src="{% static 'images/adminUser.svg' %}" alt="admin logo">
+                            </div>
+                            <div style="text-align: left;">
+                                Incorrect attempts:&nbsp;&nbsp;
+                                <span>
+                                    <input id="chances" name="chances" type="number" value="{{ abc }}" style="width: 5em; display:none;" hidden readonly>  <!--  data is going to the backend-->
+                                    <input id="front" type="number" value="" style="width: 5em; display:inline-block" readonly>  <!--  for front end only -->
+                                </span>
                             </div>
                             <div class="text-box">
                                 <h2 style="font-weight: 900;">Admin Login</h2>
@@ -63,6 +69,15 @@
                         </form>
                         {%if could_not_log_in %}
                         <p class="error">Either username or password is incorrect</p>
+                        <script>
+                            var tries = document.querySelector('#chances').value
+                            tries = `${parseInt(tries) + 1}`
+                            console.log(tries);
+                        </script>
+                        {% endif %}
+
+                        {% if three %}
+                        <p class="error" style="font-weight: 500;color:crimson"> Incorrect 3 times! </p>
                         {% endif %}
                     </div>
                 </div>
@@ -104,7 +119,6 @@
                     <!--	<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>	-->
                 </ul>
             </section>
-            
 <!-- <p class="copyright">© Copyright 2021 - <a href="http://127.0.0.1:5500/" >Data Analytics Research Lab </a>, IIIT Lucknow.<a href="https://iiitl.ac.in" target="###">IIIT Lucknow</a> All Rights Reserved.</p> -->
 <p class="copyright">© Copyright 2021 - <a href="https://iiitl-dev.github.io/ResearchGroup/" target="blank" style="font-weight:500;" >Data Analytics Research Lab</a>, <a href="https://iiitl.ac.in" target="blank" style="font-weight:500;" >IIIT Lucknow</a> All Rights Reserved.</p>
 </footer>
@@ -134,6 +148,17 @@
 
     <script>
         $.notify("Either Username or Password is incorrect", "error");
+    </script>
+    {% if abc == 0 %}
+        <script>
+            var tries = document.querySelector('#chances').value;
+            tries = `${parseInt(tries) + 1}`;
+            $('#chances').val(tries);
+            console.log(tries);
+        </script>
+    {% endif %}
+    <script>
+        $('#front').val(parseInt($('#chances').val()) - 1);
     </script>
 
 </body>

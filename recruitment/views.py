@@ -1,6 +1,5 @@
 from django.shortcuts import render
 import datetime
-import  re
 
 from django.utils.timezone import activate
 from recruitment.models import *
@@ -11,17 +10,38 @@ from django.template import RequestContext
 from django.contrib import messages
 import csv
 
+from django.core.mail import send_mail
+from django.conf import settings
+from django.core.mail import send_mail
+
+# def mail(request):
+#     subject = "Alert! Someone is trying to login as admin at Faculty Recruitment Portal"
+#     msg     = 'This is an auto generated message.\n\nIt is to inform you that someone is trying to login as admin at Faculty Recruitment Portal and failed three times!' + '\nkindly, secure your server!\n'
+#     to      = 'lcs2020014@iiitl.ac.in'
+#     res     = send_mail(subject, msg, settings.EMAIL_HOST_USER, [to])
+#     # if(res == 1):
+#     #     msg = "Mail Sent Successfully"
+#     # else:
+#     #     msg = "Mail could not sent"
+#     # return HttpResponse(msg)
+#     return HttpResponseRedirect('/admin/')
+
+
 def error404(request,exception):
     return render(request, 'recruitment/error404.html', {});
 
 def loginPage(request):
     return render(request, 'account/login.html', {});
 
+
 # def handler404(request):
 #     response = render_to_response('recruitment/error404.html', {},
 #                                   context_instance=RequestContext(request))
 #     response.status_code = 404
 #     return response
+
+
+
 
 def export_csv(request):
     response = HttpResponse(content_type='text/csv')
@@ -31,20 +51,20 @@ def export_csv(request):
     heading_data = ['Application_number',
                         'Post',
                         'Department',
-                        'Research Doamin',
+                        'Research Domain',
                         'Full Name',
                         'Date of Birth',
                         'Father\'s Name',
                         'Address',
                         'Pin Code',
                         'Telephone No.',
-                        'Mobile No.', 
-                        'Email ID', 
+                        'Mobile No.',
+                        'Email ID',
                         'Gender',
-                        'Marital Status', 
-                        'Nationality', 
-                        'Category', 
-                        'Reservation Claimed', 
+                        'Marital Status',
+                        'Nationality',
+                        'Category',
+                        'Reservation Claimed',
                         'Reservation Certificate',
                         'PhD Awarded',
                         'PhD Status',
@@ -55,7 +75,7 @@ def export_csv(request):
                         'Registration Date of Ongoing PhD',
                         'Supporting Documents of Ongoing PhD',
                     ]
-    heading_data.append('Total Number of Thesis\' Submitted')
+    heading_data.append('Total Number of Thesis Submitted')
     for i in range(1,6):
         heading_data.append('Title of Thesis Submitted- ' + str(i))
         heading_data.append('Research Domain of Thesis Submitted- ' + str(i))
@@ -64,6 +84,8 @@ def export_csv(request):
         heading_data.append('Registration Date of Thesis Submitted- ' + str(i))
         heading_data.append('Submission Date of Thesis Submitted- ' + str(i))
         heading_data.append('Supporting Documents of Thesis Submitted- ' + str(i))
+
+     #Awarded phd's columns
     heading_data.append('Total NUmber of PhD\'s Awarded')
     for i in range(1,6):
         heading_data.append('Title of Awarded PhD- ' + str(i))
@@ -73,28 +95,34 @@ def export_csv(request):
         heading_data.append('Registration Date of Awarded PhD- ' + str(i))
         heading_data.append('Defense Date of Awarded PhD- ' + str(i))
         heading_data.append('Supporting Documents of Awarded PhD- ' + str(i))
+
+    #Education Qualifications columns
     heading_data += [
-                        'Institute / University Name - Master\'s Degree or equivalent',
-                        'Percentage / CGPA(10) / GPA(5) - Master\'s Degree or equivalent',
-                        'Subjects Taken - Master\'s Degree or equivalent',
-                        'Year of Passing - Master\'s Degree or equivalent',
-                        'Supporting Documents - Master\'s Degree or Equivalent',
-                        'Institute / University Name - Bachelor\'s Degree or equivalent',
-                        'Percentage / CGPA(10) / GPA(5) - Bachelor\'s Degree or equivalent',
-                        'Subjects Taken - Bachelor\'s Degree or equivalent',
-                        'Year of Passing - Bachelor\'s Degree or equivalent',
-                        'Supporting Documents - Bachelor\'s Degree or Equivalent',
-                        'Institute / University Name - XII or equivalent',
-                        'Percentage / CGPA(10) / GPA(5) - XII or equivalent',
-                        'Subjects Taken - XII or equivalent',
-                        'Year of Passing - XII or equivalent',
-                        'Supporting Documents - XII or Equivalent',
                         'Institute / University Name - X or equivalent',
                         'Percentage / CGPA(10) / GPA(5) - X or equivalent',
                         'Subjects Taken - X or equivalent',
                         'Year of Passing - X or equivalent',
                         'Supporting Documents - X or Equivalent',
+
+                        'Institute / University Name - XII or equivalent',
+                        'Percentage / CGPA(10) / GPA(5) - XII or equivalent',
+                        'Subjects Taken - XII or equivalent',
+                        'Year of Passing - XII or equivalent',
+                        'Supporting Documents - XII or Equivalent',
+
+                        'Institute / University Name - Bachelor\'s Degree or equivalent',
+                        'Percentage / CGPA(10) / GPA(5) - Bachelor\'s Degree or equivalent',
+                        'Subjects Taken - Bachelor\'s Degree or equivalent',
+                        'Year of Passing - Bachelor\'s Degree or equivalent',
+                        'Supporting Documents - Bachelor\'s Degree or Equivalent',
+
+                        'Institute / University Name - Master\'s Degree or equivalent',
+                        'Percentage / CGPA(10) / GPA(5) - Master\'s Degree or equivalent',
+                        'Subjects Taken - Master\'s Degree or equivalent',
+                        'Year of Passing - Master\'s Degree or equivalent',
+                        'Supporting Documents - Master\'s Degree or Equivalent',
                     ]
+
     for i in range(1,6):
         heading_data.append('Name of Employer/Status of Institute/University- ' + str(i))
         heading_data.append('Post held/Designation- ' + str(i))
@@ -141,10 +169,10 @@ def export_csv(request):
         heading_data.append('Whether the proceedings published or not presented in Seminar- ' + str(i))
         heading_data.append('Supporting Documents presented in Seminar- ' + str(i))
     heading_data += [
-                        'Number of Ongoing PhDs', 
-                        'Number of Completed PhDs', 
-                        'Enter the details of Administrative Positions held in the past 5 years', 
-                        'Total number of sponsored projects', 
+                        'Number of Ongoing PhDs',
+                        'Number of Completed PhDs',
+                        'Enter the details of Administrative Positions held in the past 5 years',
+                        'Total number of sponsored projects',
                         'Number of ongoing sponsored projects',
                         'Number of completed sponsored projects',
                         'Supporting Documents of sponsored projects',
@@ -180,7 +208,10 @@ def export_csv(request):
                         'Payment Receipt',
                         'View More of Candidate'
                     ]
-    writer.writerow(heading_data)
+
+    writer.writerow(heading_data)    # adding all the headings
+
+
     for i in list(Applicant.objects.all()):
         applicant_data = []
         applicant_data += [i.application_no,
@@ -203,9 +234,13 @@ def export_csv(request):
                             General.objects.filter(applicant=i)[0].reservation,
                             PhD.objects.filter(applicant=i)[0].PhD_awarded,
                         ]
+
+        # phd tables : ongoing, thesis submitted, awarded and not awarded
+
         if(PhD.objects.filter(applicant=i)[0].PhD_awarded == "No"):
             for j in range(0,79):
                 applicant_data.append("N/A")
+
         else:
             applicant_data.append(PhD.objects.filter(applicant=i)[0].PhD_details)
             if(PhD.objects.filter(applicant=i)[0].PhD_details == "Ongoing"):
@@ -219,10 +254,11 @@ def export_csv(request):
                 ]
                 for j in range(0,72):
                     applicant_data.append("N/A")
+
             elif(PhD.objects.filter(applicant=i)[0].PhD_details == "Thesis Submitted"):
                 for j in range(0,6):
                     applicant_data.append("N/A")
-                applicant_data.append(len(list(ThesisSubmitted.objects.filter(applicant=i))))
+                applicant_data.append(len(list(ThesisSubmitted.objects.filter(applicant=i))))   # total no. of thesis submitted
                 if(len(list(ThesisSubmitted.objects.filter(applicant=i)))<=5):
                     for j in range(0,len(list(ThesisSubmitted.objects.filter(applicant=i)))):
                         applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].PhD_title)
@@ -251,10 +287,11 @@ def export_csv(request):
                         applicant_data.append(ThesisSubmitted.objects.filter(applicant=i)[j].supporting_documents.url)
                 for j in range(0,36):
                     applicant_data.append("N/A")
+
             elif(PhD.objects.filter(applicant=i)[0].PhD_details == "Awarded"):
                 for j in range(0,42):
                     applicant_data.append("N/A")
-                applicant_data.append(len(list(PhDAwarded.objects.filter(applicant=i))))
+                applicant_data.append(len(list(PhDAwarded.objects.filter(applicant=i))))   #total no. phd awarded
                 if(len(list(PhDAwarded.objects.filter(applicant=i)))<=5):
                     for j in range(0,len(list(PhDAwarded.objects.filter(applicant=i)))):
                         applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].PhD_title)
@@ -281,33 +318,75 @@ def export_csv(request):
                         applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Registration_Date)
                         applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].Submission_Date)
                         applicant_data.append(PhDAwarded.objects.filter(applicant=i)[j].supporting_documents.url)
-        print(EducationalQualifications.objects.filter(applicant=i))
-        for j in range(0,len(list(EducationalQualifications.objects.filter(applicant=i)))):
-            print(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to)
-            if(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Masters"):
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[j].marks + ')' )
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
-            elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Bachelors"):
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[j].marks + ')')
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
-            elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Class 12th"):
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[j].marks + ')')
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
-            elif(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to == "Class 10th"):
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].name)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[j].marks + ')')
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].subjects)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].year_of_passing)
-                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[j].supporting_documents.url)
+
+
+
+        # print(EducationalQualifications.objects.filter(applicant=i))
+        # for j in range(0,len(list(EducationalQualifications.objects.filter(applicant=i)))):
+            # print(EducationalQualifications.objects.filter(applicant=i)[j].equivalent_to)
+
+        if(len(list(EducationalQualifications.objects.filter(applicant=i))) == 0):
+            for j in range(0,20):
+                applicant_data.append("N/A")
+
+        else:
+            tableLength = len(list(EducationalQualifications.objects.filter(applicant=i)))
+            temp=0
+            condition = True
+            if(condition and EducationalQualifications.objects.filter(applicant=i)[temp].equivalent_to == "Class 10th"):   # class 10th
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].name)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[temp].marks + ')')
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].subjects)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].year_of_passing)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].supporting_documents.url)
+                    temp+=1
+                    if(temp==tableLength):
+                        condition=False
+
+            else:
+                    for j in range(0,5):
+                        applicant_data.append("N/A")
+
+            if(condition and (EducationalQualifications.objects.filter(applicant=i)[temp].equivalent_to == "Class 12th" or EducationalQualifications.objects.filter(applicant=i)[temp].equivalent_to == "Diploma")):       #  class 12th or Diploma
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].name)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[temp].marks + ')')
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].subjects)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].year_of_passing)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].supporting_documents.url)
+                    temp+=1
+                    if(temp==tableLength):
+                        condition=False
+            else:
+                    for j in range(0,5):
+                        applicant_data.append("N/A")
+
+            if(condition and EducationalQualifications.objects.filter(applicant=i)[temp].equivalent_to == "Bachelors"):      # Bachelors
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].name)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[temp].marks + ')')
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].subjects)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].year_of_passing)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].supporting_documents.url)
+                    temp+=1
+                    if(temp==tableLength):
+                        condition=False
+            else:
+                    for j in range(0,5):
+                        applicant_data.append("N/A")
+
+            if(condition and EducationalQualifications.objects.filter(applicant=i)[temp].equivalent_to == "Masters"):    # Masters
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].name)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].obtained + ' (' + EducationalQualifications.objects.filter(applicant=i)[temp].marks + ')' )
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].subjects)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].year_of_passing)
+                    applicant_data.append(EducationalQualifications.objects.filter(applicant=i)[temp].supporting_documents.url)
+                    temp+=1
+                    if(temp==tableLength):
+                        condition=False
+            else:
+                    for j in range(0,5):
+                        applicant_data.append("N/A")
+
+
         if(len(list(EmploymentExp.objects.filter(applicant=i)))<=5):
             for j in range(0,len(list(EmploymentExp.objects.filter(applicant=i)))):
                         applicant_data.append(EmploymentExp.objects.filter(applicant=i)[j].name)
@@ -455,6 +534,8 @@ def export_csv(request):
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].to)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].published)
                         applicant_data.append(SeminarArticles.objects.filter(applicant=i)[j].supporting_documents.url)
+
+
         applicant_data += [
                 Thesis.objects.filter(applicant=i)[0].ongoing_phd,
                 Thesis.objects.filter(applicant=i)[0].completed_phd,
@@ -495,23 +576,52 @@ def export_csv(request):
                 Declaration.objects.filter(applicant=i)[0].receipt,
                 'http://127.0.0.1:8000/admin/user/' + str(i),
             ]
-        writer.writerow(applicant_data)
+
+
+        writer.writerow(applicant_data)  #  adding data of particular applicant
+
     return response
+
+
+
+
+
 def adminLogin(request):
     context = {
         'could_not_log_in': False,
+        'abc': 1,
+        'three': False,
     }
     if(request.method == 'POST'):
+        tryme = int(request.POST.get('chances'))
         username = request.POST.get('Username')
         password = request.POST.get('Password')
         user = authenticate(request, username=username, password=password)
+
+        tryme = tryme + 1
+        tryme= tryme % 4
+
         if(user is not None and user.is_superuser == 1):
             login(request,user)
             return HttpResponseRedirect('profile/')
         else:
             context = {
                 'could_not_log_in': True,
+                'abc': tryme,
             }
+        if(tryme == 0):
+            subject = "Alert! Someone is trying to login as admin at Faculty Recruitment Portal"
+            msg     = 'This is an auto generated message.\n\nIt is to inform you that someone is trying to login as admin at Faculty Recruitment Portal and failed three times!' + '\nkindly, secure your server!\n'
+            to      = 'lcs2020014@iiitl.ac.in'
+            res     = send_mail(subject, msg, settings.EMAIL_HOST_USER, [to])
+            tryme   = 1
+            context = {
+                'could_not_log_in': True,
+                'abc': 1,
+                'three': True,
+            }
+        else:
+            print('tryme',tryme)
     return render(request,'recruitment/adminLogin.html',context)
 
 def profile(request):
@@ -521,6 +631,7 @@ def profile(request):
 
 def home(request):
     return render(request, 'recruitment/index.html',{})
+
 
 def admin(request):
     if(request.user.is_superuser != 1):
@@ -537,6 +648,9 @@ def admin(request):
         appli_data.append(presAppli)
     admin_data['allData'] = appli_data
     return render(request, 'recruitment/admin.html', {'data' :admin_data})
+
+
+
 
 def viewMore(request, application_number):
     # print (list(EmploymentExp.objects.filter(applicant=application_number)))
@@ -629,7 +743,7 @@ def viewMore(request, application_number):
         'PhDOngoing': {
             'PhD_title': PhDOngoing.objects.filter(applicant=application_number)[0].PhD_title,
             'Research_Domain': PhDOngoing.objects.filter(applicant=application_number)[0].Research_Domain,
-            'Institute_Name': PhDOngoing.objects.filter(applicant=application_number)[0].Institute_Name,                        
+            'Institute_Name': PhDOngoing.objects.filter(applicant=application_number)[0].Institute_Name,
             'University_Name': PhDOngoing.objects.filter(applicant=application_number)[0].University_Name,
             'Registration_Date': PhDOngoing.objects.filter(applicant=application_number)[0].Registration_Date,
         },
@@ -660,6 +774,8 @@ def submission_form(request):
         applicant_data['Research_Domain'] = data['research_domain']
         applicant_data['profile_picture'] = request.FILES['profile_photo']
         Applicant.objects.create(**applicant_data)
+
+
         # General
         general_data={}
         general_data['full_name'] = data['saluation'] + data['name'].strip()
@@ -671,7 +787,7 @@ def submission_form(request):
         general_data['address_mail'] = data['mailingaddress']
         general_data['telephone_mail'] = data['mailingtelephone']
         general_data['pin_mail'] = data['mailingpincode']
-        general_data['mobile_number'] = data['mobilecode'] + data['mobile']
+        general_data['mobile_number'] = str(data['mobilecode']) + str(data['mobile'])
         general_data['email'] = data['email']
         general_data['gender'] = data['gender']
         general_data['marital_status'] = data['maritalstatus']
@@ -917,6 +1033,8 @@ def submission_form(request):
                         awarded_data['supporting_documents'] = request.FILES[ans]
                         awarded_data['applicant'] = Applicant.objects.get(application_no=application_number)
                         PhDAwarded.objects.create(**awarded_data)
+
+
         # Academic Details
         num_of_academic_records = list(filter(lambda s: 'course' in s,list(data.keys())))
         num_of_academic_records_length = len(num_of_academic_records)
@@ -944,6 +1062,9 @@ def submission_form(request):
             #     academic_details['marks']  = data.get('course-'+str(i)+'-marks',False)
             # else:
             #     return render(request, 'recruitment/form.html',{'message':'Enter your percentage in Academic details a value between 0 to 100.'})
+
+
+
         # Professional
         num_of_professional_records = list(filter(lambda s: 'org' in s, list(data.keys())))
         last_professional_record = num_of_professional_records[len(num_of_professional_records)-1]
@@ -973,6 +1094,7 @@ def submission_form(request):
                 professional_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 EmploymentExp.objects.create(**professional_details)
 
+
         # Books
         num_of_books_records = list(filter(lambda s: 'books' in s, list(data.keys())))
         last_book_record = num_of_books_records[len(num_of_books_records)-1]
@@ -982,7 +1104,7 @@ def submission_form(request):
             if(data.get('books' + str(i) + '-title') == ""):
                 books_details = {}
                 books_details['title'] = "N/A"
-                books_details['author'] =  "N/A"   
+                books_details['author'] =  "N/A"
                 books_details['publisher'] = "N/A"
                 books_details['date_publish'] = "N/A"
                 books_details['isbn'] = "N/A"
@@ -1000,6 +1122,8 @@ def submission_form(request):
                 books_details['supporting_documents'] = request.FILES[ans]
                 books_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 Books.objects.create(**books_details)
+
+
         # Chapters
         num_of_chapters_records = list(filter(lambda s: 'chapters' in s, list(data.keys())))
         last_chapter_record = num_of_chapters_records[len(num_of_chapters_records)-1]
@@ -1027,6 +1151,8 @@ def submission_form(request):
                 chapter_details['supporting_documents'] = request.FILES['chapters'+str(i)+'-file']
                 chapter_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 Chapters.objects.create(**chapter_details)
+
+
         # Newspapers Articles
         num_of_news_articles_records = list(filter(lambda s: 'news_articles' in s, list(data.keys())))
         last_news_articles_record = num_of_news_articles_records[len(num_of_news_articles_records)-1]
@@ -1056,6 +1182,8 @@ def submission_form(request):
                 news_articles_details['supporting_documents'] = request.FILES['news_articles'+str(i)+'-file']
                 news_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 NewspaperArticle.objects.create(**news_articles_details)
+
+
         # Seminar Articles
         num_of_seminar_articles =  list(filter(lambda s: 'semi_articles' in s, list(data.keys())))
         last_semi_articles_record = num_of_seminar_articles[len(num_of_seminar_articles)-1]
@@ -1083,6 +1211,8 @@ def submission_form(request):
                 seminar_articles_details['supporting_documents'] = "N/A"
                 seminar_articles_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 SeminarArticles.objects.create(**seminar_articles_details)
+
+
         # Research Experience
         num_of_research_exp = list(filter(lambda s: 'exper' in s, list(data.keys())))
         last_research_exp_record = num_of_research_exp[len(num_of_research_exp) - 1]
@@ -1105,8 +1235,18 @@ def submission_form(request):
                 research_exp_details['supporting_documents'] = request.FILES[ans]
                 research_exp_details['applicant'] = Applicant.objects.get(application_no=application_number)
                 ResearchExp.objects.create(**research_exp_details)
-            messages.success(request,'Congratulations, your application has been submitted successfully!')
-            messages.success(request, 'Your application number is :  ' + application_number)
-            messages.success(request,'( Kindly note this for future reference )')
+
+        #  Messages!
+        messages.success(request,'Congratulations, your application has been submitted successfully!')
+        messages.success(request, 'Your application number is :  ' + application_number)
+        messages.success(request,'( Kindly note this for future reference )')
+
+        #Confirmation E-mail
+        confsubject = "Application Form Submitted Successfully || IIIT Lucknow"
+        confmsg     = 'Hello, ' + str(general_data["full_name"]) + '!\n\nIt is to inform you that your application has been successfully submitted at Faculty Recruitment Portal,IIIT Lucknow.\n' + 'Your application number is :  ' + application_number + '\n(Kindly note this application number for future reference)'+ '\n\nIf you have any query, feel free to contact us via contact@iiitl.ac.in'+ '\n\nThis is an auto generated message!\nDo not reply to this e-mail\n'+ '\nThanks and Regards\nFaculty Recruitment Team\nIIIT Lucknow'
+
+        confto      = general_data["email"]
+        confres     = send_mail(confsubject, confmsg, settings.EMAIL_HOST_USER, [confto])
+
         return  HttpResponseRedirect('/accounts/profile/')
     return render(request, 'recruitment/form.html', {})
