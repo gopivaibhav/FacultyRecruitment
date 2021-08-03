@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import django_heroku
+from dotenv import dotenv_values
 from django.core.mail import send_mail
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -22,17 +23,22 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'tcwkab1w6!h&gc+iu0v5yf)9kr6@fz*eyt=#1*$_zb&+s1pg0@'
+# SECRET_KEY = 'tcwkab1w6!h&gc+iu0v5yf)9kr6@fz*eyt=#1*$_zb&+s1pg0@'
+
+SECRET_KEY = dotenv_values(".env")["SECRET_KEY"]
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # for Deployment:
-DEBUG = False
-ALLOWED_HOSTS = ["*"]
 
-# for local
-# DEBUG = True
-# ALLOWED_HOSTS = []
+# DEBUG = False
+# ALLOWED_HOSTS = ["*"]
+
+# for Local
+
+DEBUG = True
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -156,23 +162,37 @@ USE_TZ = True
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'ayushjain.temp@gmail.com'
-EMAIL_HOST_PASSWORD = 'Idon\'tknow'
+EMAIL_HOST_USER = dotenv_values(".env")["EMAIL_HOST_USER"]
+EMAIL_HOST_PASSWORD = str(dotenv_values(".env")["EMAIL_HOST_PASSWORD"])
 
+# print(dotenv_values(".env")["EMAIL_HOST_PASSWORD"])
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_HOST = os.environ.get('DJANGO_STATIC_HOST', '')
-STATIC_URL = STATIC_HOST + '/static/'
+### for Heroku
+
+# STATIC_HOST = os.environ.get('DJANGO_STATIC_HOST', '')
+# STATIC_URL = STATIC_HOST + '/static/'
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'recruitment/static'), )
+
+# MEDIA_URL = STATIC_HOST + '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# django_heroku.settings(locals())
+
+
+### For Python Anywhere and local Systems
+
+STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'recruitment/static'), )
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = STATIC_HOST + '/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_heroku.settings(locals())
