@@ -23,22 +23,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'tcwkab1w6!h&gc+iu0v5yf)9kr6@fz*eyt=#1*$_zb&+s1pg0@'
 
-SECRET_KEY = dotenv_values(".env")["SECRET_KEY"]
-
-
-# SECURITY WARNING: don't run with debug turned on in production!
+# for local System:
+SECRET_KEY =  str(dotenv_values(".env")["SECRET_KEY"])
 
 # for Deployment:
+# SECRET_KEY = str(os.getenv("SECRET_KET"))
 
-# DEBUG = False
-# ALLOWED_HOSTS = ["*"]
 
 # for Local
-
 DEBUG = True
 ALLOWED_HOSTS = []
+
+# for Deployment:
+# DEBUG = False
+# ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -162,27 +161,20 @@ USE_TZ = True
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = dotenv_values(".env")["EMAIL_HOST_USER"]
+
+# for Deployment:
+# EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
+# EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
+
+# for Local:
+EMAIL_HOST_USER = str(dotenv_values(".env")["EMAIL_HOST_USER"])
 EMAIL_HOST_PASSWORD = str(dotenv_values(".env")["EMAIL_HOST_PASSWORD"])
 
-# print(dotenv_values(".env")["EMAIL_HOST_PASSWORD"])
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-### for Heroku
-
-# STATIC_HOST = os.environ.get('DJANGO_STATIC_HOST', '')
-# STATIC_URL = STATIC_HOST + '/static/'
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'recruitment/static'), )
-
-# MEDIA_URL = STATIC_HOST + '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# django_heroku.settings(locals())
 
 
 ### For Python Anywhere and local Systems
