@@ -113,8 +113,6 @@ function awardedRadio(){
 
 
 function sameAddress(e){
-    // document.getElementById("permanentaddress").nodeValue = document.getElementById("mailingaddress").nodeValue;
-    //console.log("dsfsdas");
 
     if(document.getElementById("sameaddress").checked==true){
     $('#permanentaddress').val($('#mailingaddress').val());
@@ -147,6 +145,9 @@ $('form input').keydown(function (e) {
     }
 });
 
+
+///////// Code for upload file size limit ...
+
 $('input[type="file"]').on('change', function(input){
     // alert("file added");
     // console.log(input);
@@ -154,11 +155,13 @@ $('input[type="file"]').on('change', function(input){
     // console.log(input.currentTarget.files[0])
     if(input.currentTarget.files[0] !== undefined){
         var fileSize = input.currentTarget.files[0].size / 1024 / 1024; // in MiB
-        var type = input.currentTarget.files[0].type
+        var type = input.currentTarget.files[0].type;
 
-        if (fileSize > 0.5) {
+        var sizeLimit = 0.25;   // Set File Size Limit from here (in MegaBytes)
 
-            alert('File size exceeds 450 KB');
+        if (fileSize > sizeLimit) {
+
+            alert('File size exceeds 250 KB');
             input.currentTarget.value=null;
 
             if(input.currentTarget.id == "signUpload"){
@@ -174,30 +177,30 @@ $('input[type="file"]').on('change', function(input){
         // console.log(input.currentTarget.id)
 
         else if (type !== "application/pdf" && input.currentTarget.id !== "signUpload" && input.currentTarget.id !== "imageUpload"){
-            // var type = input.currentTarget.files[0].type;
-                alert("Upload only .pdf file!")
-                input.currentTarget.value=null;
+            alert("Upload only .pdf file!")
+            input.currentTarget.value=null;
         }
 
         else if(input.currentTarget.id == "signUpload" || input.currentTarget.id == "imageUpload"){
-            // var type = input.currentTarget.files[0].type;
+
             if( !(type === "image/jpeg" || type === "image/jpg" || type === "image/png") ){
 
                 alert("Upload only .jpeg/.jpg/.png image file!")
 
                 input.currentTarget.value = null;
-                // console.log(input.currentTarget.id);
+
                 if(input.currentTarget.id == "signUpload"){
-                    // document.querySelector("#signImage").src = "";
                     $('#signImage').attr('src',null);
                 }
                 else if( input.currentTarget.id == "imageUpload" ){
-                    // document.querySelector("#profileImage").src = '`/static/images/profilepic.png`"';
                     $('#profileImage').attr('src',"/static/images/profilepic.png");
                 }
+
             }
         }
     }
+
+    //  If Input file is not defined or user haven't input any file then ...
 
     else{
 
@@ -214,6 +217,11 @@ $('input[type="file"]').on('change', function(input){
     }
 
 });
+
+
+
+///// Code for add-more button functionality in various tables
+
 
 ////////phd table ongoing
 $(document).ready(function() {
@@ -321,7 +329,7 @@ $(document).ready(function() {
 
 
 
-////////////////   table 1  section B   ///////////////
+////////////////   table 1  section B   (Other Educational Qualifications)  ///////////////
 
 $(document).ready(function() {
     var newAcademicsNo = 1;
@@ -431,7 +439,7 @@ $(document).ready(function() {
 });
 
 
-/////////////////////// table 2  section C /////////////////
+/////////////////////// table 2  section C  (Details of Employment Experience) /////////////////
 
 $(document).ready(function() {
     var newAcademicsNo = 2;
@@ -476,7 +484,7 @@ $(document).ready(function() {
 
 
 
-/////////////////////// table 2B  section C /////////////////
+/////////////////////// table 2B  section C  (Research Experience) /////////////////
 
 $(document).ready(function() {
     var newAcademicsNo = 2;
@@ -508,7 +516,7 @@ $(document).ready(function() {
 });
 
 
-/////////////  table 3  Section D  ///////////////
+/////////////  table 3  Section D (Books)  ///////////////
 
 $(document).ready(function() {
     var newAcademicsNo = 2;
@@ -538,7 +546,7 @@ $(document).ready(function() {
 });
 
 
-//////////////////  table 4  section d    ////////////////////
+//////////////////  table 4  section d (Chapters)   ////////////////////
 
 $(document).ready(function() {
     var newAcademicsNo = 2;
@@ -567,7 +575,7 @@ $(document).ready(function() {
 });
 
 
-////////////////////////     table 5  section d  ////////////
+////////////////////////     table 5  section d  (Research/Articles/Papers published in Journals)  ////////////
 
 $(document).ready(function() {
     var newAcademicsNo = 2;
@@ -600,7 +608,7 @@ $(document).ready(function() {
 
 
 
-///////////////////////////    table 6  section d   //////////////////
+///////////////////////////    table 6  section d  (Papers presented)  //////////////////
 
 $(document).ready(function() {
     var newAcademicsNo = 2;
@@ -648,7 +656,8 @@ function closeNav() {
 
 
 
-/////   Profile Pic   /////
+/////   Profile Pic Preview   /////
+
 $('#profileImage').click(function(e) {
     // console.dir(e);
     $('#imageUpload').click();
@@ -672,27 +681,8 @@ $('#imageUpload').change(function() {
 });
 
 
-////   Upload Resume   //////
-$('#resumeFile').click(function(e) {
-    $('#resumeUpload').click();
-});
+////   Upload Signatures Preview   //////
 
-function fasterPreview3(uploader) {
-    if (uploader.files && uploader.files[0]) {
-        $('#resumeFile').attr(
-            'src',
-            window.URL.createObjectURL(uploader.files[0])
-        );
-    }
-}
-
-$('#resumeUpload').change(function() {
-    fasterPreview3(this);
-});
-
-
-
-////   Upload Signatures   //////
 $('#signImage').click(function(e) {
     $('#signUpload').click();
 });
