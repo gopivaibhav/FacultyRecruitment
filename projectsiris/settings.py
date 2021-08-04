@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # chutiye ne env hi nhi diya
-SECRET_KEY = 'tcwkab1w6!h&gc+iu0v5yf)9kr6@fz*eyt=#1*$_zb&+s1pg0@'
+# SECRET_KEY = 'tcwkab1w6!h&gc+iu0v5yf)9kr6@fz*eyt=#1*$_zb&+s1pg0@'
 # for local System:
 # SECRET_KEY =  str(dotenv_values(".env")["SECRET_KEY"])
 
@@ -46,7 +46,6 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -168,9 +167,9 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
 EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
 
-# chutiye ne env hi nhi diya hai
-EMAIL_HOST_USER = "noreply@iiitl.ac.in"
-EMAIL_HOST_PASSWORD = "adminrecruitment@123"
+# # chutiye ne env hi nhi diya hai
+# EMAIL_HOST_USER = "noreply@iiitl.ac.in"
+# EMAIL_HOST_PASSWORD = "adminrecruitment@123"
 
 
 # for Local:
