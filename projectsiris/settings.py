@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # for local System:
-# SECRET_KEY =  str(dotenv_values(".env")["SECRET_KEY"])
+SECRET_KEY =  str(dotenv_values(".env")["SECRET_KEY"])
 
 # for Deployment:
 # SECRET_KEY = str(os.getenv("SECRET_KET"))
@@ -95,7 +95,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SITE_ID = 3
+SITE_ID = 4
+
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -167,8 +168,8 @@ EMAIL_PORT = 587
 # EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
 
 # for Local:
-# EMAIL_HOST_USER = str(dotenv_values(".env")["EMAIL_HOST_USER"])
-# EMAIL_HOST_PASSWORD = str(dotenv_values(".env")["EMAIL_HOST_PASSWORD"])
+EMAIL_HOST_USER = str(dotenv_values(".env")["EMAIL_HOST_USER"])
+EMAIL_HOST_PASSWORD = str(dotenv_values(".env")["EMAIL_HOST_PASSWORD"])
 
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
