@@ -14,7 +14,7 @@
 	</noscript>
 	<title>Faculty Recruitment | IIIT Lucknow</title>
 	<style>
-		
+
 	</style>
 </head>
 
@@ -31,33 +31,43 @@
 			<h1>Indian Institute of Information Technology, Lucknow</h1>
 			<p>IIIT Lucknow, Chak Ganjaria, C. G. City, Lucknow – 226002<br />
 				Contact: <a
-				href="mailto:recruitment_faculty@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">recruitment_faculty@iiitl.ac.in</a> for
+					href="mailto:recruitment_faculty@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">recruitment_faculty@iiitl.ac.in</a>
+				for
 				more information.</p>
-				{% if user.is_authenticated %}
-				<h2>Rolling Advertisement for Faculty Recruitment</h2>
-				{% else %}
-					<div id="main" >
-						<div class="content" style="padding: 2rem;">
-							<h2 style="margin-bottom: 2rem;">
-								You are not logged in</h2>
-								<a class="btn" style="border-radius: .3rem; padding: .5rem; padding-left: 1rem; padding-right: 1rem; color: white; background-color: #005F9A;" href="{% provider_login_url 'google' %}" >Login </a>
-						</div>
-					</div>
-				{% endif %}
-			</header>
+			{% if user.is_authenticated %}
+			<h2>Rolling Advertisement for Faculty Recruitment</h2>
+			{% else %}
+			<div id="main">
+				<div class="content" style="padding: 2rem;">
+					<h2 style="margin-bottom: 2rem;">
+						You are not logged in</h2>
+					<a class="btn"
+						style="border-radius: .3rem; padding: .5rem; padding-left: 1rem; padding-right: 1rem; color: white; background-color: #005F9A;"
+						href="{% provider_login_url 'google' %}">Login </a>
+				</div>
+			</div>
+			{% endif %}
+		</header>
 
-			<!-- Nav -->
-			{% if user.is_authenticated and user.is_superuser != 1%}
-			<nav id="nav">
-				<ul id="profile-nav-list">
-				<li><a href="#advert" class="active" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Advertisement</a></li>
-				<li><a href="#spec" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Area of Specialization</a></li>
-				<li><a href="#selec" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Selection Procedure</a></li>
-				<li><a href="#guide" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Guidelines</a></li>
-				<li><a href="#reserve" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Reservation</a></li>
-				<li><a href="#apply" onclick="profNavActivation(event)" style="padding-right: 0.8em;padding-left: 0.8em;">Apply</a></li>
+		<!-- Nav -->
+		{% if user.is_authenticated and user.is_superuser != 1%}
+		<nav id="nav">
+			<ul id="profile-nav-list">
+				<li><a href="#advert" class="active" onclick="profNavActivation(event)"
+						style="padding-right: 0.8em;padding-left: 0.8em;">Advertisement</a></li>
+				<li><a href="#spec" onclick="profNavActivation(event)"
+						style="padding-right: 0.8em;padding-left: 0.8em;">Area of Specialization</a></li>
+				<li><a href="#selec" onclick="profNavActivation(event)"
+						style="padding-right: 0.8em;padding-left: 0.8em;">Selection Procedure</a></li>
+				<li><a href="#guide" onclick="profNavActivation(event)"
+						style="padding-right: 0.8em;padding-left: 0.8em;">Guidelines</a></li>
+				<li><a href="#reserve" onclick="profNavActivation(event)"
+						style="padding-right: 0.8em;padding-left: 0.8em;">Reservation</a></li>
+				<li><a href="#apply" onclick="profNavActivation(event)"
+						style="padding-right: 0.8em;padding-left: 0.8em;">Apply</a></li>
 				<li><a style="padding: 0;padding-right: 0.2em;padding-left: 0.4em;">
-						<form method="post" action="{% url 'account_logout' %}" onsubmit="return confirm('Do you really wish to Logout?');">
+						<form method="post" action="{% url 'account_logout' %}"
+							onsubmit="return confirm('Do you really wish to Logout?');">
 							{% csrf_token %}
 							{% if redirect_field_value %}
 							<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
@@ -78,7 +88,8 @@
 				<div><a href="#reserve" onclick="closeNav()">Reservation</a></div>
 				<div><a href="#apply" onclick="closeNav()">Apply</a></div>
 				<div><a>
-						<form method="post" action="{% url 'account_logout' %}"  onsubmit="return confirm('Do you really wish to Logout?');">
+						<form method="post" action="{% url 'account_logout' %}"
+							onsubmit="return confirm('Do you really wish to Logout?');">
 							{% csrf_token %}
 							{% if redirect_field_value %}
 							<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
@@ -94,51 +105,63 @@
 
 			<!-- Advertisement Sections -->
 			<section id="advert" class="main special">
-				<span style="display: inline-block;"><div class="" style="text-transform: capitalize;">
-					<!-- <div class="typewriter">
+				<span style="display: inline-block;">
+					<div class="" style="text-transform: capitalize;">
+						<!-- <div class="typewriter">
 						<h1>The cat and the hat.</h1>
 					  </div> -->
-					<!--	Change the content in the h3 tag to set the congratulatory message	-->
-					<!-- These messages are coming from venv/ Lib/ allauth/ templates/ account/ messages/ logged_in.txt and logged_out.txt  -->
-					{% if messages %}
-					{% for message in messages %}
-					    {% if message != 'You have signed out.' %}
-						    <br><div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
-					    {% endif %}
-					{% endfor %}
-				{% endif %}
+						<!--	Change the content in the h3 tag to set the congratulatory message	-->
+						<!-- These messages are coming from venv/ Lib/ allauth/ templates/ account/ messages/ logged_in.txt and logged_out.txt  -->
+						{% if messages %}
+						{% for message in messages %}
+						{% if message != 'You have signed out.' %}
+						<br>
+						<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{
+							message }}</div>
+						{% endif %}
+						{% endfor %}
+						{% endif %}
 
-				<script>
-					var alert = document.querySelectorAll('#advert .alert')
-					alert.forEach(i => {
-						if(i.textContent == "You have signed out." ){
-						    i.remove();
-						}
-						if(i.textContent.substr(0,12) == "Successfully"){
-							// console.log('working')
-							i.parentElement.classList.add('typewriter');
-						}
-					})
-				</script>
+						<script>
+							var alert = document.querySelectorAll('#advert .alert')
+							alert.forEach(i => {
+								if (i.textContent == "You have signed out.") {
+									i.remove();
+								}
+								if (i.textContent.substr(0, 12) == "Successfully") {
+									// console.log('working')
+									i.parentElement.classList.add('typewriter');
+								}
+							})
+						</script>
 
-				</div></span>
+					</div>
+				</span>
 
 				<div class="spotlight">
 					<div class="content">
 						<header class="major">
 							<h2>Advertisement Number:</h2>
 						</header>
-						<p> Indian Institute of Information Technology Lucknow (IIIT- Lucknow) is an Institute of National 
-							Importance established by an Act of Parliament in Public Private Partnership (PPP) Model under the 
-							Ministry of Education, Government of India. The Institute offers B.Tech., PG Diploma, M.Tech., M.B.A.
-							and Ph.D. Programmes. The Institute invites online applications from meritorious and highly qualified 
-							Indian nationals including the Persons of Indian Origin (PIOs) and Overseas Citizens of India (OCIs) for 
-							the faculty positions (under Four-Tier-Faculty-Structure) in the Departments of Computer Science (CS), 
-							Information Technology (IT), Management & Humanities (M&H) and Mathematics. Guidelines for 
+						<p> Indian Institute of Information Technology Lucknow (IIIT- Lucknow) is an Institute of
+							National
+							Importance established by an Act of Parliament in Public Private Partnership (PPP) Model
+							under the
+							Ministry of Education, Government of India. The Institute offers B.Tech., PG Diploma,
+							M.Tech., M.B.A.
+							and Ph.D. Programmes. The Institute invites online applications from meritorious and highly
+							qualified
+							Indian nationals including the Persons of Indian Origin (PIOs) and Overseas Citizens of
+							India (OCIs) for
+							the faculty positions (under Four-Tier-Faculty-Structure) in the Departments of Computer
+							Science (CS),
+							Information Technology (IT), Management & Humanities (M&H) and Mathematics. Guidelines for
 							reservations as per Government of India Norms will be followed. <br> <br>
 							Post-Doctoral Experience in reputed institutions in India and abroad will be an added
-							advantage for faculty positions. Industry professionals having substantial professional and R&D 
-							experience with good number of quality publications in leading Journals or patents in relevant field
+							advantage for faculty positions. Industry professionals having substantial professional and
+							R&D
+							experience with good number of quality publications in leading Journals or patents in
+							relevant field
 							can also apply.
 							Roster as per government of India is given in the pdf below:
 						</p>
@@ -161,47 +184,47 @@
 					<h2>Department Specific Areas of specialization sought:</h2>
 				</header>
 				<div class="row gtr-uniform features">
-                    <div class="col-4 col-5-medium col-12-small">
-                        <span class="icon solid major style1 fa-laptop-code"></span>
-                        <h3><b>Computer Science / Information Technology</b></h3>
-                    </div>
-                    <div class="col-8 col-7-medium col-12-small">
-                        <p style="text-align: justify;"><br>
-                            Advanced Computer Algorithm and Analysis, Artificial Intelligence, Big Data Analytics, Block
-                            Chain, Cloud Computing, Computer Architecture, Data Science, Graphic & Visual Computing,
-                            Image Processing and Computer Vision, Internet of Things, Modelling and Simulation, Network
-                            Security, Operating Systems, Pattern Recognition, Software Product Development, Programming
-                            Languages (Object Oriented, Python, R), Quantum Computing, Quantum Communications, Quantum
-                            Cryptography, Software Engineering, Social Networking, Virtual Reality, Wireless
-                            Communications.
-                        </p>
-                    </div>
+					<div class="col-4 col-5-medium col-12-small">
+						<span class="icon solid major style1 fa-laptop-code"></span>
+						<h3><b>Computer Science / Information Technology</b></h3>
+					</div>
+					<div class="col-8 col-7-medium col-12-small">
+						<p style="text-align: justify;"><br>
+							Advanced Computer Algorithm and Analysis, Artificial Intelligence, Big Data Analytics, Block
+							Chain, Cloud Computing, Computer Architecture, Data Science, Graphic & Visual Computing,
+							Image Processing and Computer Vision, Internet of Things, Modelling and Simulation, Network
+							Security, Operating Systems, Pattern Recognition, Software Product Development, Programming
+							Languages (Object Oriented, Python, R), Quantum Computing, Quantum Communications, Quantum
+							Cryptography, Software Engineering, Social Networking, Virtual Reality, Wireless
+							Communications.
+						</p>
+					</div>
 
-                    <div class="col-4 col-5-medium col-12-small">
-                        <span class="icon solid major style1 fa-laptop-code"></span>
-                        <h3><b>Mathematics</b></h3>
-                    </div>
-                    <div class="col-8 col-7-medium col-12-small">
-                        <p style="text-align: justify;"><br>
-                            Applied Mathematics, Computational Finance, Data Science, Fractal Geometry, Game Theory,
-                            Graph Theory, Machine Learning, Mathematical Analysis, Modelling and Simulation,
-                            Optimization Techniques, PostQuantum Cryptography, Probability and Statistics for Machine
-                            Learning and Data Science, Topology for Data Mining.
-                        </p>
-                    </div>
+					<div class="col-4 col-5-medium col-12-small">
+						<span class="icon solid major style1 fa-laptop-code"></span>
+						<h3><b>Mathematics</b></h3>
+					</div>
+					<div class="col-8 col-7-medium col-12-small">
+						<p style="text-align: justify;"><br>
+							Applied Mathematics, Computational Finance, Data Science, Fractal Geometry, Game Theory,
+							Graph Theory, Machine Learning, Mathematical Analysis, Modelling and Simulation,
+							Optimization Techniques, PostQuantum Cryptography, Probability and Statistics for Machine
+							Learning and Data Science, Topology for Data Mining.
+						</p>
+					</div>
 
-                    <div class="col-4 col-5-medium col-12-small">
-                        <span class="icon solid major style1 fa-laptop-code"></span>
-                        <h3><b>Management & Humanities</b></h3>
-                    </div>
-                    <div class="col-8 col-7-medium col-12-small">
-                        <p style="text-align: justify;"><br>
-                            Algorithmic Trading, Business Analytics, Digital Banking and Financial Technologies,
-                            Economics, Innovation and Design Thinking, Product Development and Management, Quantitative
-                            Finance, Strategy and Entrepreneurship.
-                        </p>
-                    </div>
-                </div>
+					<div class="col-4 col-5-medium col-12-small">
+						<span class="icon solid major style1 fa-laptop-code"></span>
+						<h3><b>Management & Humanities</b></h3>
+					</div>
+					<div class="col-8 col-7-medium col-12-small">
+						<p style="text-align: justify;"><br>
+							Algorithmic Trading, Business Analytics, Digital Banking and Financial Technologies,
+							Economics, Innovation and Design Thinking, Product Development and Management, Quantitative
+							Finance, Strategy and Entrepreneurship.
+						</p>
+					</div>
+				</div>
 
 			</section>
 
@@ -214,15 +237,17 @@
 						</header>
 						<p>
 						<ol>
-							<li>The candidates as recommended by the shortlisting committee shall be invited for the interview 
+							<li>The candidates as recommended by the shortlisting committee shall be invited for the
+								interview
 								before the Statutory Selection Committee.</li>
 							<br>
-							<li>All the invited candidates should present their own PhD thesis and the PhD thesis 
+							<li>All the invited candidates should present their own PhD thesis and the PhD thesis
 								supervised/guided by him/her before the committee for the perusal by the committee.</li>
 							<br>
-							<li>Based on the recommendations of the statutory Selection Committee and approval of Board of 
+							<li>Based on the recommendations of the statutory Selection Committee and approval of Board
+								of
 								Governors the appointment letters shall be issued.
-								</li>
+							</li>
 							</ul>
 							</p>
 					</div>
@@ -241,90 +266,139 @@
 						<ol style="text-align: justify;">
 							<li><strong>Only</strong> applications received through the <strong>ONLINE RECRUITMNET
 									PORTAL</strong>, will be
-								considered. For 
-								submission of application through online mode, please visit link provided on the website<br></li>
+								considered. For
+								submission of application through online mode, please visit link provided on the
+								website<br></li>
 							<br>
-							<li>Candidates applying for more than one post/department have to submit separate application form for 
+							<li>Candidates applying for more than one post/department have to submit separate
+								application form for
 								each post.</li>
 							<br>
-							<li>For each of the qualifications, professional experiences, achievements, etc., documentary proof in the 
+							<li>For each of the qualifications, professional experiences, achievements, etc.,
+								documentary proof in the
 								form of self-attested photo-copies is to be produced, if called for interview.<br></li>
 							<br>
 							<li>The originals must be produced at the time of interview and at the time of joining.</li>
 							<br>
-							<li>Incomplete application(s) / application(s) without necessary enclosures may not be accepted.<br></li>
+							<li>Incomplete application(s) / application(s) without necessary enclosures may not be
+								accepted.<br></li>
 							<br>
-							<li>Copy of the category certificate (OBC / SC / ST/ PwD), issued by the competent authority, not below
-								the rank of a Tahsildar must be attached. In case of OBC candidates, the certificate indicating the 
-								status regarding creamy layer must be issued on or after 01.01.2021. PWD certificate must have been 
+							<li>Copy of the category certificate (OBC / SC / ST/ PwD), issued by the competent
+								authority, not below
+								the rank of a Tahsildar must be attached. In case of OBC candidates, the certificate
+								indicating the
+								status regarding creamy layer must be issued on or after 01.01.2021. PWD certificate
+								must have been
 								issued by the competent authority as per Government of India norms.<br></li>
 							<br>
-							<li>The vacancies under EWS Category would be filled as per the instructions issued by DoPT, Ministry of 
-								Personnel, Public Grievances & Pension, Govt. of India, vide OM. No. 36039/1/2019-Estt (Res), dated 
-								31.01.2019. EWS vacancies are tentative and subject to further directives of Gol and outcome of any 
-								litigation. The appointment against EWS category shall be provisional and is subject to the Income and 
-								Asset certificate being verified through the proper channels and if the verification reveals that the 
-								claim of belonging to EWS is fake/false, the services will be terminated forthwith without assigning 
-								any further reasons and without prejudice to such further action as may be taken under the 
-								provisions of the Indian Penal Code for production of fake/false certificate. The Income and Asset 
-								Certificate issued by any of the authorities mentioned in the prescribed format shall only be accepted 
+							<li>The vacancies under EWS Category would be filled as per the instructions issued by DoPT,
+								Ministry of
+								Personnel, Public Grievances & Pension, Govt. of India, vide OM. No. 36039/1/2019-Estt
+								(Res), dated
+								31.01.2019. EWS vacancies are tentative and subject to further directives of Gol and
+								outcome of any
+								litigation. The appointment against EWS category shall be provisional and is subject to
+								the Income and
+								Asset certificate being verified through the proper channels and if the verification
+								reveals that the
+								claim of belonging to EWS is fake/false, the services will be terminated forthwith
+								without assigning
+								any further reasons and without prejudice to such further action as may be taken under
+								the
+								provisions of the Indian Penal Code for production of fake/false certificate. The Income
+								and Asset
+								Certificate issued by any of the authorities mentioned in the prescribed format shall
+								only be accepted
 								as proof of candidate’s claim as belonging to EWS.<br></li>
 							<br>
-							<li>The eligibility, qualification, experience and requirements for the posts notified shall be governed by 
-								the guidelines issued by MHRD letter no. F.No.27-11/2011- TS.I, dated 23.04.2014<br></li>
+							<li>The eligibility, qualification, experience and requirements for the posts notified shall
+								be governed by
+								the guidelines issued by MHRD letter no. F.No.27-11/2011- TS.I, dated 23.04.2014<br>
+							</li>
 							<br>
-							<li>The vacancies advertised are indicative and subject to variation at the time of interview. The Institute 
-								reserves the right to fill or not to fill any of the vacancies advertised. The Institute reserves the right to 
+							<li>The vacancies advertised are indicative and subject to variation at the time of
+								interview. The Institute
+								reserves the right to fill or not to fill any of the vacancies advertised. The Institute
+								reserves the right to
 								reject any or all applications without assigning any reason.<br></li>
 							<br>
-							<li>The Screening committee shall short-list the eligible and desirable candidates, to be called for interview from amongst the applicants, based on specialization, availability of candidates, and 
-								requirements of the departments. In doing so it shall not be bound by the options exercised by the 
+							<li>The Screening committee shall short-list the eligible and desirable candidates, to be
+								called for interview from amongst the applicants, based on specialization, availability
+								of candidates, and
+								requirements of the departments. In doing so it shall not be bound by the options
+								exercised by the
 								applicants<br></li>
 							<br>
-							<li>Any misleading wrong information supplied by the candidates may lead to summarily rejection of the 
+							<li>Any misleading wrong information supplied by the candidates may lead to summarily
+								rejection of the
 								application, if found subsequently, also the appointment will be cancelled.<br></li>
 							<br>
-							<li>Mere fulfillment of minimum qualification and experience requirements for the post does not entitle 
-								the candidate to be called for an interview. The Institute reserves the right to restrict the number of 
-								candidates for interview to reasonable limit, on the basis of qualification and experience higher than 
+							<li>Mere fulfillment of minimum qualification and experience requirements for the post does
+								not entitle
+								the candidate to be called for an interview. The Institute reserves the right to
+								restrict the number of
+								candidates for interview to reasonable limit, on the basis of qualification and
+								experience higher than
 								those prescribed in this advertisement.<br>
 							</li>
 							<br>
-							<li>The Institute reserves the right not to fill up the posts, cancel the Advt. in whole or in part without 
+							<li>The Institute reserves the right not to fill up the posts, cancel the Advt. in whole or
+								in part without
 								assigning any reason and its decision in this regard shall be final.<br></li>
 							<br>
 							<li>No interim queries regarding interview / selection process will be entertained.<br></li>
 							<br>
 							<li>Canvassing in any form will lead to rejection of application form.<br></li>
 							<br>
-							<li>Decision of the Selection Committee and the Board of Governors of IIIT Lucknow with respect to the 
+							<li>Decision of the Selection Committee and the Board of Governors of IIIT Lucknow with
+								respect to the
 								selection process is final.<br></li>
 							<br>
-							<li>Legal disputes, if any with IIIT Lucknow are restricted to the jurisdiction of Lucknow Court only.<br></li>
+							<li>Legal disputes, if any with IIIT Lucknow are restricted to the jurisdiction of Lucknow
+								Court only.<br></li>
 							<br>
-							<li>The maximum age limit will be considered on the last date of receipt of applications. The relaxation 
-								05 years for SC/ST candidates and 03 years for OBC candidates with additional 10 years age relaxation 
-								to persons with disabilities will be given in accordance with the Government of India Rules. Relaxation 
-								in upper age limit for those applicants, who are in Central Government or central Government 
-								Autonomous body, Ex-Servicemen, shall be admissible as per the Government of India rules. Further, 
-								the institute may consider relaxation in upper age limit in case of highly experienced and deserving 
+							<li>The maximum age limit will be considered on the last date of receipt of applications.
+								The relaxation
+								05 years for SC/ST candidates and 03 years for OBC candidates with additional 10 years
+								age relaxation
+								to persons with disabilities will be given in accordance with the Government of India
+								Rules. Relaxation
+								in upper age limit for those applicants, who are in Central Government or central
+								Government
+								Autonomous body, Ex-Servicemen, shall be admissible as per the Government of India
+								rules. Further,
+								the institute may consider relaxation in upper age limit in case of highly experienced
+								and deserving
 								candidate.<br></li>
 							<br>
-							<li>Person employed in Govt./Semi-Govt./Autonomous/PSU should also apply online and send the print 
-								out of completed application form along with all the relevant supporting documents and transaction 
-								slip with date, duly self-attested, THROUGH PROPER CHANNEL. Candidate may produce the NOC from 
-								their organization at the time of interview with an unambiguous certificate that (i) no vigilance case is 
-								pending/being contemplated against him/her. (ii) the applicant will be relieved within one month of 
-								receipt of appointment offer, if he selected. List of Major/Minor penalties, if any, imposed during the 
-								last 10 years may be asked to submit at any time. Such persons are also advised to send an advance 
+							<li>Person employed in Govt./Semi-Govt./Autonomous/PSU should also apply online and send the
+								print
+								out of completed application form along with all the relevant supporting documents and
+								transaction
+								slip with date, duly self-attested, THROUGH PROPER CHANNEL. Candidate may produce the
+								NOC from
+								their organization at the time of interview with an unambiguous certificate that (i) no
+								vigilance case is
+								pending/being contemplated against him/her. (ii) the applicant will be relieved within
+								one month of
+								receipt of appointment offer, if he selected. List of Major/Minor penalties, if any,
+								imposed during the
+								last 10 years may be asked to submit at any time. Such persons are also advised to send
+								an advance
 								copy of their application, if applicable.<br></li>
 							<br>
-							<li>Candidates must ensure before applying that they are eligible according to the criteria stipulated in 
-								the advertisement. The date of submission of the application form, shall be considered to calculate 
-								the relevant experience and other eligibility. If the candidate is found ineligible at any stage of 
-								recruitment process, he/she will be disqualified and their candidature will be cancelled. Hiding of 
-								information or submitting false information will lead to cancellation of candidature at any stage of 
-								recruitment. The Institute reserves the right to reject any application without assigning any reason 
+							<li>Candidates must ensure before applying that they are eligible according to the criteria
+								stipulated in
+								the advertisement. The date of submission of the application form, shall be considered
+								to calculate
+								the relevant experience and other eligibility. If the candidate is found ineligible at
+								any stage of
+								recruitment process, he/she will be disqualified and their candidature will be
+								cancelled. Hiding of
+								information or submitting false information will lead to cancellation of candidature at
+								any stage of
+								recruitment. The Institute reserves the right to reject any application without
+								assigning any reason
 								whatsoever.</li>
 						</ol>
 						</p>
@@ -349,7 +423,7 @@
 							<br>
 
 							<strong>In case of any difficulty, please email at: <a
-								href="mailto:recruitment_faculty@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">recruitment_faculty@iiitl.ac.inh</a></strong>
+									href="mailto:recruitment_faculty@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">recruitment_faculty@iiitl.ac.inh</a></strong>
 						</p>
 					</div>
 				</div>
@@ -397,17 +471,19 @@
 					</dd>
 				</dl>
 				<ul class="icons" style="font-size: small;">
-                    <li><a href="https://www.linkedin.com/school/iiitl/" target="#4"
-                            class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
-                    <li><a href="https://twitter.com/iiitlucknow" target="#5" class="icon brands fa-twitter alt"><span
-                                class="label">Twitter</span></a></li>
-                    <li><a href="https://www.facebook.com/iiitlucknow/" target="#6"
-                            class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
-                    <!--	<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>	-->
-                </ul>
+					<li><a href="https://www.linkedin.com/school/iiitl/" target="#4"
+							class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://twitter.com/iiitlucknow" target="#5" class="icon brands fa-twitter alt"><span
+								class="label">Twitter</span></a></li>
+					<li><a href="https://www.facebook.com/iiitlucknow/" target="#6"
+							class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+					<!--	<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>	-->
+				</ul>
 			</section>
 			<!-- <p class="copyright">&copy; 2020 <a href="https://iiitl.ac.in" target="###">IIIT Lucknow</a>.</p> -->
-			<p class="copyright">© Copyright 2021 - <a href="https://darl.iiitl.ac.in" target="blank" style="font-weight:500;" >Data Analytics Research Lab</a>, <a href="https://iiitl.ac.in" target="blank" style="font-weight:500;" >IIIT Lucknow</a> All Rights Reserved.</p>
+			<p class="copyright">© Copyright 2021 - <a href="https://darl.iiitl.ac.in" target="blank"
+					style="font-weight:500;">Data Analytics Research Lab</a>, <a href="https://iiitl.ac.in"
+					target="blank" style="font-weight:500;">IIIT Lucknow</a> All Rights Reserved.</p>
 		</footer>
 
 	</div>
@@ -421,20 +497,20 @@
 	<script src="{% static 'assets/js/main.js' %}"></script>
 
 	<script>
-		function profNavActivation(event){
-            
+		function profNavActivation(event) {
+
 			var profNavList = Array.from(document.getElementById('profile-nav-list').children);
 			var targetList = [];
-			profNavList.forEach(elem =>{
+			profNavList.forEach(elem => {
 				// console.log(elem)
-				if(elem.children.item(0).className==='active'){
+				if (elem.children.item(0).className === 'active') {
 					elem.children.item(0).classList.toggle('active');
 				}
 			})
 			// console.log(event.target);
 			event.target.classList.toggle('active');
-	
-			}
+
+		}
 	</script>
 </body>
 

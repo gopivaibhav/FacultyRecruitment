@@ -16,25 +16,30 @@
 	<title>Login | Faculty Recruitment | IIIT Lucknow</title>
 
 	<style>
-		#all-content{
+		#all-content {
 			display: flex;
 			justify-content: space-between;
 		}
-		#all-content header{
-			width:50%;
+
+		#all-content header {
+			width: 50%;
 		}
-		#all-content #main{
-			width:22em;
-			height:25em;
+
+		#all-content #main {
+			width: 22em;
+			height: 25em;
 			margin-top: 5em;
 			padding: 0.5em;
 		}
+
 		.yahoo:hover {
 			background-color: #54197d !important;
 		}
+
 		.outlook:hover {
 			background-color: #27272e !important;
 		}
+
 		.rediff:hover {
 			background-color: #630c0c !important;
 		}
@@ -48,7 +53,8 @@
 		}
 
 		/* style inputs and link buttons */
-		input, .btn {
+		input,
+		.btn {
 			width: 100%;
 			padding: 12px;
 			border: none;
@@ -58,29 +64,32 @@
 			display: inline-block;
 			font-size: 17px;
 			line-height: 20px;
-			text-decoration: none; /* remove underline from anchors */
+			text-decoration: none;
+			/* remove underline from anchors */
 		}
 
 		@media screen and (max-width: 738px) {
-  			#all-content {
-    			text-align: -webkit-center;
+			#all-content {
+				text-align: -webkit-center;
 				display: block;
-  			}
-			  #all-content header{
-			    width:100%;
+			}
+
+			#all-content header {
+				width: 100%;
 				padding-top: 2em !important;
-		    }
-			#all-content #main{
-				width:60%;
+			}
+
+			#all-content #main {
+				width: 60%;
 				margin-top: 0;
-		    }
-		}
-		@media screen and (max-width: 500px) {
-			#all-content #main{
-				width: 85vw;
-		    }
+			}
 		}
 
+		@media screen and (max-width: 500px) {
+			#all-content #main {
+				width: 85vw;
+			}
+		}
 	</style>
 
 
@@ -92,66 +101,79 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
-	<div id="all-content">
+		<div id="all-content">
 
-		<!-- Header -->
-		<header id="header" class="alt">
-			<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
-			<h1 style="font-size: xx-large;">Indian Institute of Information Technology, Lucknow</h1>
-			<p>IIIT Lucknow, Chak Ganjaria, C. G. City, Lucknow – 226002<br />
-				Contact: <a href="mailto:contact@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">contact@iiitl.ac.in</a> for
-				more information.</p>
-		</header>
+			<!-- Header -->
+			<header id="header" class="alt">
+				<span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
+				<h1 style="font-size: xx-large;">Indian Institute of Information Technology, Lucknow</h1>
+				<p>IIIT Lucknow, Chak Ganjaria, C. G. City, Lucknow – 226002<br />
+					Contact: <a
+						href="mailto:contact@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">contact@iiitl.ac.in</a>
+					for
+					more information.</p>
+			</header>
 
-		<!-- Main -->
-		<div id="main">
-			<section>
+			<!-- Main -->
+			<div id="main">
+				<section>
 
-				<div class="row" style="padding: 1em;">
-					<br>
-					<div class="col">
-					  <a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
-						<div class="flex-item-left outlook" style="display: flex; justify-content: space-between;background-color: #666676;color: white;">
-							<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/outlooklogo.png" width="10%" >
-							<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center;">
-								Login with Outlook
-							</span>
-						</div>
-					  </a>
-					  <a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
-						<div class="flex-item-right yahoo" style="display: flex; justify-content: space-between;background-color: #9447c9; ">
-							<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/yahoologo.png" width="10%" height=auto; >
-							<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center; color: white;">
-								Login with Yahoo!
-							</span>
-						</div>
-						</a>
+					<div class="row" style="padding: 1em;">
 						<br>
-						<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
-							<div class="flex-item-left rediff" style="display: flex; justify-content: space-between;color:white;background-color: #d54b4b; ">
-								<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/redifflogo.png" width="10%" >
-								<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center;">
-									Login with Rediff
-								</span>
-							</div>
-						</a>
+						<div class="col">
+							<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
+								<div class="flex-item-left outlook"
+									style="display: flex; justify-content: space-between;background-color: #666676;color: white;">
+									<img style="vertical-align:middle; border-radius: 3px;  "
+										src="../../static/images/outlooklogo.png" width="10%">
+									<span
+										style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center;">
+										Login with Outlook
+									</span>
+								</div>
+							</a>
+							<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
+								<div class="flex-item-right yahoo"
+									style="display: flex; justify-content: space-between;background-color: #9447c9; ">
+									<img style="vertical-align:middle; border-radius: 3px;  "
+										src="../../static/images/yahoologo.png" width="10%" height=auto;>
+									<span
+										style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center; color: white;">
+										Login with Yahoo!
+									</span>
+								</div>
+							</a>
+							<br>
+							<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
+								<div class="flex-item-left rediff"
+									style="display: flex; justify-content: space-between;color:white;background-color: #d54b4b; ">
+									<img style="vertical-align:middle; border-radius: 3px;  "
+										src="../../static/images/redifflogo.png" width="10%">
+									<span
+										style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center;">
+										Login with Rediff
+									</span>
+								</div>
+							</a>
 
-						<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
-							<div class="flex-item-right" style="display: flex; justify-content: space-between; ">
-								<img  style="vertical-align:middle; border-radius: 3px;  " src="../../static/images/google_logo2.png" width="10%" height=auto; >
-								<span style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center; color: white;">
-									Login with Google
-								</span>
-							</div>
-						</a>
+							<a href="{% provider_login_url 'google' %}" class="col-6 col-12-small">
+								<div class="flex-item-right" style="display: flex; justify-content: space-between; ">
+									<img style="vertical-align:middle; border-radius: 3px;  "
+										src="../../static/images/google_logo2.png" width="10%" height=auto;>
+									<span
+										style="width: 85%; font-size: larger; display: flex; align-items: center; justify-content: center; color: white;">
+										Login with Google
+									</span>
+								</div>
+							</a>
+						</div>
 					</div>
-				</div>
 
-			</section>
+				</section>
+
+			</div>
 
 		</div>
-
-	</div>
 
 		<!-- Footer -->
 		<footer id="footer" style="padding-bottom: 1em;">
@@ -177,17 +199,19 @@
 					</dd>
 				</dl>
 				<ul class="icons" style="font-size: small;">
-                    <li><a href="https://www.linkedin.com/school/iiitl/" target="#4"
-                            class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
-                    <li><a href="https://twitter.com/iiitlucknow" target="#5" class="icon brands fa-twitter alt"><span
-                                class="label">Twitter</span></a></li>
-                    <li><a href="https://www.facebook.com/iiitlucknow/" target="#6"
-                            class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
-                    <!--	<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>	-->
-                </ul>
+					<li><a href="https://www.linkedin.com/school/iiitl/" target="#4"
+							class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://twitter.com/iiitlucknow" target="#5" class="icon brands fa-twitter alt"><span
+								class="label">Twitter</span></a></li>
+					<li><a href="https://www.facebook.com/iiitlucknow/" target="#6"
+							class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+					<!--	<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>	-->
+				</ul>
 			</section>
 			<!-- <p class="copyright" style="margin:0;">&copy; 2020 <a href="https://iiitl.ac.in" target="###">IIIT Lucknow</a>.</p> -->
-			<p class="copyright">© Copyright 2021 - <a href="https://darl.iiitl.ac.in/" target="blank" style="font-weight:500;" >Data Analytics Research Lab</a>, <a href="https://iiitl.ac.in" target="blank" style="font-weight:500;" >IIIT Lucknow</a> All Rights Reserved.</p>
+			<p class="copyright">© Copyright 2021 - <a href="https://darl.iiitl.ac.in/" target="blank"
+					style="font-weight:500;">Data Analytics Research Lab</a>, <a href="https://iiitl.ac.in"
+					target="blank" style="font-weight:500;">IIIT Lucknow</a> All Rights Reserved.</p>
 		</footer>
 
 	</div>

@@ -13,16 +13,16 @@
     </noscript>
     <style>
         /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
     </style>
 </head>
 
@@ -201,7 +201,10 @@ input[type=number] {
                                         <div><input id="imageUpload" type="file" style="font-size: small;"
                                                 name="profile_photo" accept=".png, .jpeg, .jpg" required>
                                             <label for="imageUpload" style="text-align:center">
-                                                <font class="asterisk">*</font>&nbsp;(Upload Profile Picture)<font class="image-upload-size"><br>Size Limit: 250KB<br>Format: JPG, JPEG, PNG</font></label>
+                                                <font class="asterisk">*</font>&nbsp;(Upload Profile Picture)<font
+                                                    class="image-upload-size"><br>Size Limit: 250KB<br>Format: JPG,
+                                                    JPEG, PNG</font>
+                                            </label>
                                             <label for="imageUpload" style="text-align:center"></label>
                                         </div>
                                     </div>
@@ -227,10 +230,14 @@ input[type=number] {
                                         <select name="saluation" id="saluation"
                                             style="padding:0;text-align-last:center;padding-right:50%"
                                             placeholder="Gender" title="Gender" required>
-                                            <option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.</option>
-                                            <option value="Mr. " style="text-align-last: center;">&nbsp;&nbsp; Mr.</option>
-                                            <option value="Mrs. " style="text-align-last: center;">&nbsp;&nbsp; Mrs.</option>
-                                            <option value="Miss " style="text-align-last: center;">&nbsp;&nbsp; Miss</option>
+                                            <option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.
+                                            </option>
+                                            <option value="Mr. " style="text-align-last: center;">&nbsp;&nbsp; Mr.
+                                            </option>
+                                            <option value="Mrs. " style="text-align-last: center;">&nbsp;&nbsp; Mrs.
+                                            </option>
+                                            <option value="Miss " style="text-align-last: center;">&nbsp;&nbsp; Miss
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="col-4 col-8-small">
@@ -286,15 +293,20 @@ input[type=number] {
                                                 <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" pattern="[0-9]{6}" minlength="6" maxlength="6" name="mailingpincode" id="mailingpincode" value=""
-                                                    placeholder="Pin Code"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
+                                                <input type="number" pattern="[0-9]{6}" minlength="6" maxlength="6"
+                                                    name="mailingpincode" id="mailingpincode" value=""
+                                                    placeholder="Pin Code"
+                                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                    required>
                                             </div>
                                             <div class="col-5 col-12-small" style="text-align:center;">
                                                 <h3>Telephone No. (With STD Code)</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" pattern="[0-9]{11}" minlength="11" maxlength="11" name="mailingtelephone" id="mailingtelephone"
-                                                    value="" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Telephone No.">
+                                                <input type="number" pattern="[0-9]{11}" minlength="11" maxlength="11"
+                                                    name="mailingtelephone" id="mailingtelephone" value=""
+                                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                    placeholder="Telephone No.">
                                             </div>
                                             <div class="col-12" style="text-align: center;padding-top: 10%;">
                                                 <input type="checkbox" onclick="sameAddress(event)"
@@ -328,15 +340,18 @@ input[type=number] {
                                                     <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="text" pattern="[0-9]{6}" minlength="6" maxlength="6" name="permanentpincode" id="permanentpincode"
-                                                        value="" placeholder="Pin Code" required>
+                                                    <input type="text" pattern="[0-9]{6}" minlength="6" maxlength="6"
+                                                        name="permanentpincode" id="permanentpincode" value=""
+                                                        placeholder="Pin Code" required>
                                                 </div>
                                                 <div class="col-5 col-12-small" style="text-align:center;">
                                                     <h3>Telephone No. (With STD Code)</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="number" name="permanenttelephone" id="permanenttelephone" pattern="[0-9]{11}" minlength="11" maxlength="11"
-                                                        value="" placeholder="Telephone No." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                                                    <input type="number" name="permanenttelephone"
+                                                        id="permanenttelephone" pattern="[0-9]{11}" minlength="11"
+                                                        maxlength="11" value="" placeholder="Telephone No."
+                                                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                                 </div>
                                             </div>
                                         </div>
@@ -366,8 +381,9 @@ input[type=number] {
                                             style="padding:0;text-align: center;" value="" placeholder="+91" required>
                                     </div>
                                     <div class="col-3 col-9-small" style="font-size:small;">
-                                        <input type="number" pattern="[0-9]{10}" minlength="10" maxlength="10" name="mobile" id="mobile" value="" placeholder="Mobile No."
-                                            required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                                        <input type="number" pattern="[0-9]{10}" minlength="10" maxlength="10"
+                                            name="mobile" id="mobile" value="" placeholder="Mobile No." required
+                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                     </div>
                                     <div class="col-2 col-12-small" style="text-align:center;">
                                         <h3>Email ID<font class="asterisk">*</font>&nbsp;:</h3>
@@ -427,7 +443,8 @@ input[type=number] {
                                             title="Category" required>
                                             <option value="" selected disabled>Select State</option>
                                             <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands
+                                            </option>
                                             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                             <option value="Assam">Assam</option>
                                             <option value="Bihar">Bihar</option>
@@ -506,7 +523,8 @@ input[type=number] {
                                         style="align-self: center;text-align: center;font-size: small;overflow: hidden;padding-left: 1.8em;">
                                         <input id="reservation_certificate" type="file" style="font-size: small;"
                                             name="reservation_certificate" disabled>
-                                        <label for="reservation_certificate">(If Yes, Upload Certificate)<br>Size Limit: 250KB</label>
+                                        <label for="reservation_certificate">(If Yes, Upload Certificate)<br>Size Limit:
+                                            250KB</label>
                                     </div>
                                 </div>
                             </div>
@@ -541,18 +559,19 @@ input[type=number] {
                                     <!-- <br> -->
                                     <div class="col-12" style="text-align: center;">
                                         <h2 style="margin: 0;">Ph.D Details</h2>
-                                        <div style="margin-bottom: 2rem;" >
-                                            (<span style="color:red; font-size: larger; font-weight: 500;"> Note: </span>
-                                            One should fill details in only 
+                                        <div style="margin-bottom: 2rem;">
+                                            (<span style="color:red; font-size: larger; font-weight: 500;"> Note:
+                                            </span>
+                                            One should fill details in only
                                             <span style="color:red; font-weight: 500;">
                                                 one</span> of the following fields,
-                                                <div style="display: block;">
-                                                i.e., in <span style="font-weight: 500;">either</span> Ongoing 
-                                                <span style="font-weight: 500;">or</span> 
+                                            <div style="display: block;">
+                                                i.e., in <span style="font-weight: 500;">either</span> Ongoing
+                                                <span style="font-weight: 500;">or</span>
                                                 Thesis Submitted
-                                                <span style="font-weight: 500;"> or </span> 
+                                                <span style="font-weight: 500;"> or </span>
                                                 Awarded )
-                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="col-5 col-7-small">
@@ -568,7 +587,7 @@ input[type=number] {
                                                 value="Awarded" onclick="awardedRadio(event)">
                                             <label class="form-check-label" for="phdawarded">Awarded</label>
                                             <input class="form-check-input" type="radio" name="phd" id="phdNo"
-                                            value="No" onclick="phdTable2(event)">
+                                                value="No" onclick="phdTable2(event)">
                                             <label class="form-check-label" for="phdNo">No Ph.D awarded</label>
                                         </div>
                                     </div>
@@ -592,8 +611,12 @@ input[type=number] {
                                                     University Name</th>
                                                 <th class="col-3" style="text-align: center;vertical-align: middle;">
                                                     Ph.D Registration Date</th>
-                                                <th class="col-3 supp-doc" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents <font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></th>
+                                                <th class="col-3 supp-doc"
+                                                    style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents <font class="size-limit">Size Limit: 250KB
+                                                    </font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </th>
                                             </tr>
 
 
@@ -619,7 +642,8 @@ input[type=number] {
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="ongoing1-university" id="ongoing1-university"
+                                                    <input type="text" name="ongoing1-university"
+                                                        id="ongoing1-university"
                                                         style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none"
                                                         placeholder="University Name">
                                                 </td>
@@ -629,15 +653,17 @@ input[type=number] {
                                                         style="border: 0; background: transparent;">
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
-                                                    <div class="tooltip"><input type="file" name="ongoing1-file" id="ongoing1-file"
-                                                        style="border: 0; background: transparent; font-size: x-small;">
+                                                    <div class="tooltip"><input type="file" name="ongoing1-file"
+                                                            id="ongoing1-file"
+                                                            style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
                                             </tr>
 
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="" class="but add-more-phd1" type="button" style="padding: 0;">Add More</button>
+                                        <button id="" class="but add-more-phd1" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                     <br>
                                 </div>
@@ -662,8 +688,12 @@ input[type=number] {
                                                     Ph.D Registration Date</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Ph.D Submission Date</th>
-                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents <font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></th>
+                                                <th class="col-2 supp-doc"
+                                                    style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents <font class="size-limit">Size Limit: 250KB
+                                                    </font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </th>
                                             </tr>
 
                                             <tr id="thesis1">
@@ -695,7 +725,8 @@ input[type=number] {
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <input type="date" name="thesis1-regdate" id="thesis1-regdate"
-                                                        style="border: 0; background: transparent;" onchange="dateThesisAwardedFrom(event)">
+                                                        style="border: 0; background: transparent;"
+                                                        onchange="dateThesisAwardedFrom(event)">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
@@ -710,7 +741,8 @@ input[type=number] {
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="" class="but add-more-phd2" type="button" style="padding: 0;">Add More</button>
+                                        <button id="" class="but add-more-phd2" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                     <br>
                                 </div>
@@ -736,8 +768,12 @@ input[type=number] {
                                                     Ph.D Registration Date</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Ph.D Defence Date</th>
-                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></th>
+                                                <th class="col-2 supp-doc"
+                                                    style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB
+                                                    </font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </th>
                                             </tr>
 
 
@@ -770,12 +806,14 @@ input[type=number] {
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <input type="date" name="awarded1-regdate" id="awarded1-regdate"
-                                                        style="border: 0; background: transparent;" onchange="dateThesisAwardedFrom(event)">
+                                                        style="border: 0; background: transparent;"
+                                                        onchange="dateThesisAwardedFrom(event)">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <input type="date" name="awarded1-defdate" id="awarded1-defdate"
-                                                        style="border: 0; background: transparent;" onchange="setDefDate(event)">
+                                                        style="border: 0; background: transparent;"
+                                                        onchange="setDefDate(event)">
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="awarded1-file" id="awarded1-file"
@@ -793,7 +831,7 @@ input[type=number] {
                                 </div>
 
 
-                                <div class="table-wrapper" style="margin-top: 2rem;" >
+                                <div class="table-wrapper" style="margin-top: 2rem;">
                                     <div class="col-12" style="text-align: center;">
                                         <h2 style="margin: 0;">Other Educational Qualifications<font class="asterisk">*
                                             </font>
@@ -818,15 +856,20 @@ input[type=number] {
                                                     Subject(s)</th>
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
                                                     Year of Passing</th>
-                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></th>
+                                                <th class="col-2 supp-doc"
+                                                    style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB
+                                                    </font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </th>
                                             </tr>
                                             <!-- Table rows are appended Dynamically (check main.js) -->
-                                            
+
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
-                                        <button id="b1" class="but add-more" type="button" style="padding: 0;">Add More</button>
+                                        <button id="b1" class="but add-more" type="button" style="padding: 0;">Add
+                                            More</button>
                                     </div>
                                 </div>
                                 <br>
@@ -869,8 +912,12 @@ input[type=number] {
                                                     Basic Salary</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Nature of Duty</th>
-                                                <th class="col-3 supp-doc" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></th>
+                                                <th class="col-3 supp-doc"
+                                                    style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB
+                                                    </font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
@@ -892,14 +939,14 @@ input[type=number] {
                                                         style="inline-size: 14.2em;padding: 0.3em;">
                                                         <div class="col-2">From:</div>
                                                         <div class="col-10">
-                                                            <input type="date" name="org1-from"
-                                                                id="org1-from" value="" onchange="dateOrgPaperFrom(event)"
+                                                            <input type="date" name="org1-from" id="org1-from" value=""
+                                                                onchange="dateOrgPaperFrom(event)"
                                                                 style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
-                                                                placeholder="From"></div>
+                                                                placeholder="From">
+                                                        </div>
                                                         <div class="col-2" style="padding-top: 0;">To:</div>
                                                         <div class="col-10" style="padding-top: 0;">
-                                                            <input type="date"
-                                                                name="org1-to" id="org1-to" value=""
+                                                            <input type="date" name="org1-to" id="org1-to" value=""
                                                                 style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
                                                                 placeholder="To">
                                                         </div>
@@ -955,8 +1002,12 @@ input[type=number] {
                                                 </th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Numbers of Months</th>
-                                                <th class="col-4 supp-doc" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></th>
+                                                <th class="col-4 supp-doc"
+                                                    style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB
+                                                    </font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </th>
                                             </tr>
                                             <tr style="align-items:center;">
                                                 <td class="col-2" style="text-align: center;vertical-align: middle;">
@@ -1020,8 +1071,12 @@ input[type=number] {
                                                     Month & year<br>of publication</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     ISBN/ISSN No.</th>
-                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></th>
+                                                <th class="col-2 supp-doc"
+                                                    style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB
+                                                    </font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
@@ -1094,8 +1149,12 @@ input[type=number] {
                                                     Month and Year of publication</th>
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
                                                     ISBN/ISSN No.</th>
-                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></th>
+                                                <th class="col-2 supp-doc"
+                                                    style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB
+                                                    </font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
@@ -1115,7 +1174,7 @@ input[type=number] {
                                                 <td class="col-2"
                                                     style="text-align: center;vertical-align: middle;padding:0;">
                                                     <select name="chapters1-author" id="chapters1-author"
-                                                        style="background-color: transparent; border:none;inline-size: auto;" >
+                                                        style="background-color: transparent; border:none;inline-size: auto;">
                                                         <option value="" disabled selected>Select Any Options</option>
                                                         <option value="First author">First Author</option>
                                                         <option value="Co-author">Co-author</option>
@@ -1177,8 +1236,12 @@ input[type=number] {
                                                     Whether Referred/Non-referred</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Impact Factor</th>
-                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></th>
+                                                <th class="col-2 supp-doc"
+                                                    style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB
+                                                    </font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
@@ -1273,8 +1336,12 @@ input[type=number] {
                                                     Duration (From and To)</th>
                                                 <th class="col-2" style="text-align: center;vertical-align: middle;">
                                                     Whether the proceedings published Yes/No</th>
-                                                <th class="col-2 supp-doc" style="text-align: center;vertical-align: middle;">
-                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></th>
+                                                <th class="col-2 supp-doc"
+                                                    style="text-align: center;vertical-align: middle;">
+                                                    Supporting Documents<font class="size-limit">Size Limit: 250KB
+                                                    </font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </th>
                                             </tr>
                                             <!-- Input Starts Here -->
                                             <tr id="field1">
@@ -1308,7 +1375,8 @@ input[type=number] {
                                                                 name="semi_articles1-from" id="semi_articles1-from"
                                                                 value=""
                                                                 style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
-                                                                placeholder="From" onchange="dateOrgPaperFrom(event)"></div>
+                                                                placeholder="From" onchange="dateOrgPaperFrom(event)">
+                                                        </div>
                                                         <div class="col-2" style="padding-top: 0;">To:</div>
                                                         <div class="col-10" style="padding-top: 0;"><input type="date"
                                                                 name="semi_articles1-to" id="semi_articles1-to" value=""
@@ -1427,8 +1495,9 @@ input[type=number] {
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" onchange="sponsored_input(), setValueSpoProject(event)" value=""
-                                                    name="spo_tot_number" id="spo_tot_number" required >
+                                                <input type="number"
+                                                    onchange="sponsored_input(), setValueSpoProject(event)" value=""
+                                                    name="spo_tot_number" id="spo_tot_number" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1441,7 +1510,8 @@ input[type=number] {
                                                         class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_ongoing" id="spo_ongoing" required onchange="setValSpoOngoing(event)">
+                                                <input type="number" name="spo_ongoing" id="spo_ongoing" required
+                                                    onchange="setValSpoOngoing(event)">
                                             </div>
                                         </div>
                                     </div>
@@ -1456,7 +1526,7 @@ input[type=number] {
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_completed" id="spo_completed" required >
+                                                <input type="number" name="spo_completed" id="spo_completed" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1470,7 +1540,10 @@ input[type=number] {
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="file" name="spofile" id="spofile" disabled><br>
-                                                <label for="spofile"><font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></label>
+                                                <label for="spofile">
+                                                    <font class="size-limit">Size Limit: 250KB</font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -1492,8 +1565,9 @@ input[type=number] {
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" onchange="experiments_input(event), setValCompProject(event)" value=""
-                                                    name="exp_tot_number" id="exp_tot_number" required>
+                                                <input type="number"
+                                                    onchange="experiments_input(event), setValCompProject(event)"
+                                                    value="" name="exp_tot_number" id="exp_tot_number" required>
                                             </div>
                                         </div>
 
@@ -1535,7 +1609,10 @@ input[type=number] {
 
                                             <div class="col-8 col-12-medium">
                                                 <input type="file" name="expfile" id="expfile" disabled><br>
-                                                <label for="expfile"><font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></label>
+                                                <label for="expfile">
+                                                    <font class="size-limit">Size Limit: 250KB</font>
+                                                    <font class="document-format">(File Format: PDF)</font>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -1576,7 +1653,8 @@ input[type=number] {
                                                 <h5>1. Ph.D Defence Date<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="date" name="phd_defence_date" id="phd_defence_date" value="" readonly>
+                                                <input type="date" name="phd_defence_date" id="phd_defence_date"
+                                                    value="" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -1641,10 +1719,10 @@ input[type=number] {
                                             (Ongoing + Completed)</h5>
                                     </div>
 
-                                    <div class="col-8 col-12-medium"> 
+                                    <div class="col-8 col-12-medium">
                                         <input type="text" name="total_projects" id="total_projects"
                                             placeholder="Total number of sponsored projects (Ongoing + Completed)"
-                                            required value="" readonly >
+                                            required value="" readonly>
                                     </div>
 
                                 </div><br>
@@ -1656,7 +1734,8 @@ input[type=number] {
 
                                     <div class="col-8 col-12-medium">
                                         <input type="text" name="ongoing_projects" id="ongoing_projects"
-                                            placeholder="Number of ongoing sponsored projects" required value="" readonly>
+                                            placeholder="Number of ongoing sponsored projects" required value=""
+                                            readonly>
                                     </div>
 
                                 </div>
@@ -1670,7 +1749,8 @@ input[type=number] {
 
                                     <div class="col-8 col-12-medium">
                                         <input type="text" name="computational_projects" id="computational_projects"
-                                            placeholder="Total number of experiments/ computational projects" required readonly value="">
+                                            placeholder="Total number of experiments/ computational projects" required
+                                            readonly value="">
                                     </div>
 
                                 </div>
@@ -1813,12 +1893,20 @@ input[type=number] {
                                     <!-- PAYMENT RECEIPT -->
                                     <div class="col-12"><br><br></div>
                                     <div class="col-4 col-5-medium" style="padding: 0;">
-                                        <h4 style="margin-bottom: 0;">Upload Payment Receipt<font class="asterisk">*</font>&nbsp; :</h4>
-                                        <h5><a style="font-size: 1em;color:rebeccapurple" href="https://www.onlinesbi.com/sbicollect/icollecthome.htm?corpID=956936" target="_blank"> (Pay from Here) </a></h5>
+                                        <h4 style="margin-bottom: 0;">Upload Payment Receipt<font class="asterisk">*
+                                            </font>&nbsp; :</h4>
+                                        <h5><a style="font-size: 1em;color:rebeccapurple"
+                                                href="https://www.onlinesbi.com/sbicollect/icollecthome.htm?corpID=956936"
+                                                target="_blank"> (Pay from Here) </a></h5>
                                     </div>
-                                    <div class="col-4 col-6-medium col-7-small" style="align-self: center;overflow-x:hidden;padding-top:0;">
-                                        <input type="file" name="receipt" id="receipt" style="font-size: small;" required><br>
-                                        <label style="margin-top: 0.5em;" for="receipt"><font class="size-limit">Size Limit: 250KB</font><font class="document-format">(File Format: PDF)</font></label>
+                                    <div class="col-4 col-6-medium col-7-small"
+                                        style="align-self: center;overflow-x:hidden;padding-top:0;">
+                                        <input type="file" name="receipt" id="receipt" style="font-size: small;"
+                                            required><br>
+                                        <label style="margin-top: 0.5em;" for="receipt">
+                                            <font class="size-limit">Size Limit: 250KB</font>
+                                            <font class="document-format">(File Format: PDF)</font>
+                                        </label>
                                     </div>
 
                                     <hr width="100%">
@@ -1869,7 +1957,9 @@ input[type=number] {
                                             <div class="col-4 col-6-medium col-7-small">
                                                 <input id="resumeUpload" type="file" style="font-size: small;"
                                                     name="resumeUpload" placeholder="Resume" accept=".pdf" required>
-                                                <label for="resumeUpload" style="text-align:center">(Upload Resume)<font class="image-upload-size"><br>Size Limit: 250KB<br>File Format: PDF</font></label>
+                                                <label for="resumeUpload" style="text-align:center">(Upload Resume)<font
+                                                        class="image-upload-size"><br>Size Limit: 250KB<br>File Format:
+                                                        PDF</font></label>
                                             </div>
                                             <div class="col-2 col-1-small"></div>
                                             <div class="col-1 col-4-medium">
@@ -1878,12 +1968,15 @@ input[type=number] {
 
                                             <div class="col-4 col-6-medium col-7-small">
                                                 <image id="signImage" src=""
-                                                style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;" />
+                                                    style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;" />
 
-                                                <input id="signUpload" type="file" style="font-size: small;display:block;margin-left:2.5em;"
-                                                    name="signUpload" placeholder="Signature" accept=".png, .jpeg, .jpg" required>
+                                                <input id="signUpload" type="file"
+                                                    style="font-size: small;display:block;margin-left:2.5em;"
+                                                    name="signUpload" placeholder="Signature" accept=".png, .jpeg, .jpg"
+                                                    required>
                                                 <label for="signUpload" style="text-align:center">(Upload
-                                                    Signatures)<font class="image-upload-size"><br>Size Limit: 250KB<br>Format: JPG, JPEG, PNG</font></label>
+                                                    Signatures)<font class="image-upload-size"><br>Size Limit:
+                                                        250KB<br>Format: JPG, JPEG, PNG</font></label>
                                             </div>
                                         </div>
                                     </div>
@@ -1898,7 +1991,8 @@ input[type=number] {
                 {% elif user.is_superuser == 1 %}
                 <section id="main" style="padding: 2em;">
                     <h2>You are a super user!</h2>
-                    <a href="/admin/profile" style="color: rebeccapurple;text-decoration: underline;"> Back to Dashboard </a>
+                    <a href="/admin/profile" style="color: rebeccapurple;text-decoration: underline;"> Back to Dashboard
+                    </a>
                 </section>
                 {% else %}
                 <section id="apply" class="main special">
@@ -1953,7 +2047,9 @@ input[type=number] {
                 </ul>
             </section>
             <!-- <p class="copyright">&copy; 2020 <a href="https://iiitl.ac.in" target="#2">IIIT Lucknow</a>.</p> -->
-            <p class="copyright">© Copyright 2021 - <a href="https://darl.iiitl.ac.in" target="blank" style="font-weight:500;" >Data Analytics Research Lab</a>, <a href="https://iiitl.ac.in" target="blank" style="font-weight:500;" >IIIT Lucknow</a> All Rights Reserved.</p>
+            <p class="copyright">© Copyright 2021 - <a href="https://darl.iiitl.ac.in" target="blank"
+                    style="font-weight:500;">Data Analytics Research Lab</a>, <a href="https://iiitl.ac.in"
+                    target="blank" style="font-weight:500;">IIIT Lucknow</a> All Rights Reserved.</p>
         </footer>
     </div>
 
@@ -1975,139 +2071,139 @@ input[type=number] {
             return local.toJSON().slice(0, 10);
         });
 
-        $(document).ready(function () { 
+        $(document).ready(function () {
             $('#signDate').val(new Date().toDateInputValue());
             // console.log(document.querySelectorAll('input[id="signDate"]'))
         });
 
 
         var att = document.createAttribute("max")
-        att.value=`${$('#signDate').val()}`
+        att.value = `${$('#signDate').val()}`
         // console.log(document.querySelector('#signDate').value)
 
-        document.querySelectorAll('input[type="date"]').forEach(i =>{ 
-            i.setAttribute("max",`${new Date().toDateInputValue()}`)
-        } )
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("max", `${new Date().toDateInputValue()}`)
+        })
 
 
 
-        function dateOrgPaperFrom(e){
+        function dateOrgPaperFrom(e) {
             // console.log(e.target.value)
             e.target.parentElement.parentElement.children[3].children[0].min = e.target.value
         }
 
-        function dateResearchFrom(e){
+        function dateResearchFrom(e) {
             // console.log(e.target)
-            e.target.parentElement.parentElement.children[1].children[0]. min = e.target.value
+            e.target.parentElement.parentElement.children[1].children[0].min = e.target.value
         }
 
-        function dateThesisAwardedFrom(e){
+        function dateThesisAwardedFrom(e) {
             // console.log(e.target)
-            e.target.parentElement.parentElement.children[5].children[0].min= e.target.value
+            e.target.parentElement.parentElement.children[5].children[0].min = e.target.value
         }
 
 
-        function setValueSpoProject(event){
+        function setValueSpoProject(event) {
             document.getElementById('total_projects').value = event.target.value
             // console.log('object')
         }
 
-        function setValSpoOngoing(event){
+        function setValSpoOngoing(event) {
             document.getElementById('ongoing_projects').value = event.target.value
             // console.log('hiiii')
 
         }
-        function setValCompProject(event){
+        function setValCompProject(event) {
             document.getElementById('computational_projects').value = event.target.value
             // console.log('okkkkk')
 
         }
 
-        function setDefDate(event){
+        function setDefDate(event) {
             document.getElementById('phd_defence_date').value = event.target.value
             // console.log('okkkk')
         }
 
 
-        function marksValidation(e){
+        function marksValidation(e) {
             // console.log(e.target.id[6])
             // .log("hiiiii")
             var id = document.getElementById(`course${e.target.id[6]}-obtained`)
             var mode = document.getElementById(`course${e.target.id[6]}-percentage`)
 
-            if(mode.value=='Percentage'){
-                if(id.value > 100 || id.value <0){
+            if (mode.value == 'Percentage') {
+                if (id.value > 100 || id.value < 0) {
                     alert("Percentage must be between 0 and 100 (both inclusive)")
-                    id.value= ""
+                    id.value = ""
                 }
 
             }
 
-            if(mode.value=='CGPA out of 10'){
-                if(id.value > 10 || id.value <0){
+            if (mode.value == 'CGPA out of 10') {
+                if (id.value > 10 || id.value < 0) {
                     alert("CGPA must be between 0 and 10 (both inclusive)")
-                    id.value= ""
+                    id.value = ""
                 }
 
             }
 
-            if(mode.value=='GPA out of 5'){
-                if(id.value > 5 || id.value < 0){
+            if (mode.value == 'GPA out of 5') {
+                if (id.value > 5 || id.value < 0) {
                     alert("GPA must be between 0 and 5 (both inclusive)")
-                    id.value= ""
+                    id.value = ""
                 }
 
             }
         }
 
-        function checkInput(e){
+        function checkInput(e) {
             var temp = false;
             var inputFields = (e.target.parentElement.parentElement);
 
-            if(inputFields.children[0].children[0].value != ""){
-                temp=true;
+            if (inputFields.children[0].children[0].value != "") {
+                temp = true;
             }
-            if(inputFields.children[2].children[0].value != ""){
-                temp=true;
+            if (inputFields.children[2].children[0].value != "") {
+                temp = true;
             }
-            if(inputFields.children[4].children[0].value != ""){
-                temp=true;
+            if (inputFields.children[4].children[0].value != "") {
+                temp = true;
             }
-            if(inputFields.children[5].children[0].value != ""){
-                temp=true;
+            if (inputFields.children[5].children[0].value != "") {
+                temp = true;
             }
             // console.log("temp: ",temp);
 
             return temp;
         }
 
-        function reqField(e){
+        function reqField(e) {
             // console.log(e.target.value);
 
-            if(checkInput(e)){
-                for(var i=0;i<8;i++){
+            if (checkInput(e)) {
+                for (var i = 0; i < 8; i++) {
                     var inputFields = (e.target.parentElement.parentElement.children[i].children[0]);
                     // console.log(inputFields)
                     inputFields.required = true;
-                    if(i==7){
+                    if (i == 7) {
                         inputFields.children[0].required = true;
                     }
                 }
             }
 
-            else{
-                for(var i=0;i<8;i++){
+            else {
+                for (var i = 0; i < 8; i++) {
                     var inputFields = (e.target.parentElement.parentElement.children[i].children[0]);
                     // console.log(inputFields)
                     inputFields.required = false;
-                    if(i==7){
+                    if (i == 7) {
                         inputFields.children[0].required = false;
                     }
                 }
             }
         }
 
-        function modeFirst(e){
+        function modeFirst(e) {
             // console.log(e.target.parentElement.parentElement.children[4].children[0]);
             e.target.parentElement.parentElement.children[4].children[0].readOnly = false;
         }

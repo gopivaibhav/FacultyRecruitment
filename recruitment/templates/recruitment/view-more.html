@@ -12,25 +12,30 @@
 		<link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" />
 	</noscript>
 	<style>
-		.application-row td{
+		.application-row td {
 			vertical-align: middle;
 		}
-		.application-row th{
+
+		.application-row th {
 			text-align: -webkit-match-parent;
 			vertical-align: middle;
 		}
-		h2{
+
+		h2 {
 			font-weight: 500;
 			text-align: center;
 		}
-		.headingfont{
+
+		.headingfont {
 			font-weight: 400;
 		}
-		.document_link{
-			color:rebeccapurple;
+
+		.document_link {
+			color: rebeccapurple;
 			font-weight: 400;
 		}
-		.document_link:hover::after{
+
+		.document_link:hover::after {
 			content: "→";
 			display: inline-block;
 		}
@@ -69,21 +74,30 @@
 					{% csrf_token %}
 					<br>
 					<div class="table-wrapper section_a" style="padding: 2px;">
-						<table	style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
-									<td colspan="24" style="font-weight: 500; font-size: 1.8rem; border-bottom: 1px solid #a6a6a6;">
+									<td colspan="24"
+										style="font-weight: 500; font-size: 1.8rem; border-bottom: 1px solid #a6a6a6;">
 										<div class="row" style="margin: 0; align-items:center;">
 											<div class="col-3" style="padding: 0;">
-												<a href="{{signed_data.receipt.url}}" target="_blank" class="col-3" onmouseover="this.style.color='red'" onmouseout="this.style.color='rebeccapurple'"  style="color: rebeccapurple;">
+												<a href="{{signed_data.receipt.url}}" target="_blank" class="col-3"
+													onmouseover="this.style.color='red'"
+													onmouseout="this.style.color='rebeccapurple'"
+													style="color: rebeccapurple;">
 													Payment Receipt
-											    </a>
-										    </div>
+												</a>
+											</div>
 											<div class="col-6" style="padding: 0;"> Section A
-												<span style="display: block;  font-size: 1.2rem;">(Applicant Details)</span>
+												<span style="display: block;  font-size: 1.2rem;">(Applicant
+													Details)</span>
 											</div>
 											<div class="col-3" style="padding: 0;">
-												<a href="{{signed_data.resume.url}}" target="_blank" class="col-3" onmouseover="this.style.color='red'" onmouseout="this.style.color='rebeccapurple'"  style="color: rebeccapurple;" >
+												<a href="{{signed_data.resume.url}}" target="_blank" class="col-3"
+													onmouseover="this.style.color='red'"
+													onmouseout="this.style.color='rebeccapurple'"
+													style="color: rebeccapurple;">
 													Open Resume
 												</a>
 											</div>
@@ -171,11 +185,13 @@
 									<td class="headingfont" colspan="6">Reservation Status<br>(with Certificate)</td>
 									<td colspan="4" style="vertical-align: middle;">{{general_data.reservation}}</td>
 									{% if general_data.reservation == "No" %}
-										<td colspan="14">{{general_data.certificate}}</td>
+									<td colspan="14">{{general_data.certificate}}</td>
 									{% else %}
-										<td colspan="14">
-											<a href="{{ general_data.certificate.url  }}" target="_blank"><font class="document_link">Link</font></a>
-										</td>
+									<td colspan="14">
+										<a href="{{ general_data.certificate.url  }}" target="_blank">
+											<font class="document_link">Link</font>
+										</a>
+									</td>
 									{% endif %}
 								</tr>
 								<!-- <tr>
@@ -198,13 +214,14 @@
 							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="text-align: center;">
 								<tr id="app-thead">
-									<td colspan="24" style="font-weight: 500; font-size: 1.8rem;  border-bottom: 1px solid #a6a6a6;">
+									<td colspan="24"
+										style="font-weight: 500; font-size: 1.8rem;  border-bottom: 1px solid #a6a6a6;">
 										Section B
-										<span style="display: block;  font-size: 1.2rem;" >(Academic Details)</span>
+										<span style="display: block;  font-size: 1.2rem;">(Academic Details)</span>
 									</td>
 								</tr>
 								<tr>
-									<td colspan="16"  class="headingfont" >Whether Ph.D awarded</td>
+									<td colspan="16" class="headingfont">Whether Ph.D awarded</td>
 									<td colspan="8" style="min-inline-size: 5rem; ">{{PhD.PhD_awarded}}</td>
 								</tr>
 
@@ -266,17 +283,17 @@
 									<th colspan="4" class="col-2" style="text-align: center;vertical-align: middle;">
 										Ph.D Registration Date</th>
 									<th colspan="4" class="col-2" style="text-align: center;vertical-align: middle;  ">
-											Ph.D Submission Date</th>
+										Ph.D Submission Date</th>
 								</tr>
 
 								{% for item in ThesisSubmitted %}
 								<tr>
-									<td colspan="4" >{{item.PhD_title}}</td>
-									<td colspan="4" >{{item.Research_Domain}}</td>
-									<td colspan="4" >{{item.Institute_Name}}</td>
-									<td colspan="4" >{{item.University_Name}}</td>
-									<td colspan="4" >{{item.Registration_Date}}</td>
-									<td colspan="4" >{{item.Submission_Date}}</td>
+									<td colspan="4">{{item.PhD_title}}</td>
+									<td colspan="4">{{item.Research_Domain}}</td>
+									<td colspan="4">{{item.Institute_Name}}</td>
+									<td colspan="4">{{item.University_Name}}</td>
+									<td colspan="4">{{item.Registration_Date}}</td>
+									<td colspan="4">{{item.Submission_Date}}</td>
 								</tr>
 								{% endfor %}
 
@@ -309,12 +326,12 @@
 
 								{% for item in PhDAwarded %}
 								<tr>
-									<td colspan="4" >{{item.PhD_title}}</td>
-									<td colspan="4" >{{item.Research_Domain}}</td>
-									<td colspan="4" >{{item.Institute_Name}}</td>
-									<td colspan="4" >{{item.University_Name}}</td>
-									<td colspan="4" >{{item.Registration_Date}}</td>
-									<td colspan="4" >{{item.Defense_Date}}</td>
+									<td colspan="4">{{item.PhD_title}}</td>
+									<td colspan="4">{{item.Research_Domain}}</td>
+									<td colspan="4">{{item.Institute_Name}}</td>
+									<td colspan="4">{{item.University_Name}}</td>
+									<td colspan="4">{{item.Registration_Date}}</td>
+									<td colspan="4">{{item.Defense_Date}}</td>
 								</tr>
 								{% endfor %}
 
@@ -358,7 +375,9 @@
 										{{item.year_of_passing}}
 									</td>
 									<td colspan="4">
-										<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
+										<a href={{item.supporting_documents.url}} target="_blank">
+											<font class="document_link">Link</font>
+										</a>
 									</td>
 								</tr>
 								{% endfor %}
@@ -371,13 +390,15 @@
 					<!-- Professional Details / SECTION - C	 -->
 					<!-- Details of Employment Experience -->
 					<div class="table-wrapper section_c" style="padding: 2px;">
-						<table	style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;">
 							<tbody class="application-row" style="font-size: 0.92em;text-align: center;">
 
 								<tr id="app-thead">
-									<td colspan="24" style="font-weight: 500; font-size: 1.8rem;  border-bottom: 1px solid #a6a6a6;">
+									<td colspan="24"
+										style="font-weight: 500; font-size: 1.8rem;  border-bottom: 1px solid #a6a6a6;">
 										Section C
-										<span style="display: block;  font-size: 1.2rem;" >(Professional Details)</span>
+										<span style="display: block;  font-size: 1.2rem;">(Professional Details)</span>
 									</td>
 								</tr>
 								<tr id="app-thead">
@@ -388,8 +409,7 @@
 
 
 								<tr>
-									<th colspan="4"
-										style=" max-inline-size: 40vh;font-size: 0.9em;">
+									<th colspan="4" style=" max-inline-size: 40vh;font-size: 0.9em;">
 										Name of Employer/ Status of Institute/ University<br>
 										<font style="font-size: x-small;">( Govt./ Quasi Govt./ Autonomous etc. )</font>
 									</th>
@@ -409,11 +429,13 @@
 									<td colspan="2">{{item.salary}}</td>
 									<td colspan="2">{{item.nature}}</td>
 									{% if item.name == "N/A" %}
-										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
-										<td colspan="4" style="overflow-wrap: anywhere;">
-											<a href={{item.supporting_documents.url}}  target="_blank"><font class="document_link">Link</font></a>
-										</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">
+										<a href={{item.supporting_documents.url}} target="_blank">
+											<font class="document_link">Link</font>
+										</a>
+									</td>
 									{% endif %}
 								</tr>
 								{% endfor %}
@@ -446,11 +468,13 @@
 									<td colspan="6">{{item.to}}</td>
 									<td colspan="6">{{item.number_of_months}}</td>
 									{% if item.From == "N/A" %}
-										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
-										<td colspan="4" style="overflow-wrap: anywhere;">
-											<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
-										</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">
+										<a href={{item.supporting_documents.url}} target="_blank">
+											<font class="document_link">Link</font>
+										</a>
+									</td>
 									{% endif %}
 								</tr>
 								{% endfor %}
@@ -471,9 +495,11 @@
 							<tbody class="application-row" style="text-align: center;">
 
 								<tr id="app-thead">
-									<td colspan="24" style="font-weight: 500; font-size: 1.8rem;  border-bottom: 1px solid #a6a6a6;">
+									<td colspan="24"
+										style="font-weight: 500; font-size: 1.8rem;  border-bottom: 1px solid #a6a6a6;">
 										Section D
-										<span style="display: block;  font-size: 1.2rem;" >(Research and Academic Contributions Research Publications)</span>
+										<span style="display: block;  font-size: 1.2rem;">(Research and Academic
+											Contributions Research Publications)</span>
 									</td>
 								</tr>
 								<tr id="app-thead">
@@ -489,7 +515,7 @@
 									</th>
 									<th colspan="4">Month & year of publication</th>
 									<th colspan="4">ISBN/ISSN No.</th>
-									<th colspan="4" >Supporting Documents</th>
+									<th colspan="4">Supporting Documents</th>
 								</tr>
 
 								{% for item in BooksDetails %}
@@ -500,11 +526,13 @@
 									<td colspan="4" style="min-inline-size: 5em;">{{item.date_publish}}</td>
 									<td colspan="4">{{item.isbn}}</td>
 									{% if item.title == "N/A" %}
-										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
-										<td colspan="4" style="overflow-wrap: anywhere;">
-											<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
-										</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">
+										<a href={{item.supporting_documents.url}} target="_blank">
+											<font class="document_link">Link</font>
+										</a>
+									</td>
 									{% endif %}
 
 								</tr>
@@ -544,11 +572,13 @@
 									<td colspan="4" style="min-inline-size: 5em;">{{item.date_of_publisher}}</td>
 									<td colspan="2">{{item.isbn_issn}}</td>
 									{% if item.book_title == "N/A" %}
-										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
-										<td colspan="4" style="overflow-wrap: anywhere;">
-											<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
-										</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">
+										<a href={{item.supporting_documents.url}} target="_blank">
+											<font class="document_link">Link</font>
+										</a>
+									</td>
 									{% endif %}
 
 								</tr>
@@ -566,7 +596,8 @@
 
 								<tr id="app-thead">
 									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
-										Research/Articles/Papers published in Journals/Periodicals/Conference proceedings/Newspapers
+										Research/Articles/Papers published in Journals/Periodicals/Conference
+										proceedings/Newspapers
 									</td>
 								</tr>
 
@@ -592,11 +623,13 @@
 									<td colspan="3">{{item.referred}}</td>
 									<td colspan="2">{{item.naas}}</td>
 									{% if item.article_title == "N/A" %}
-										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
-										<td colspan="4" style="overflow-wrap: anywhere;">
-											<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
-										</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">
+										<a href={{item.supporting_documents.url}} target="_blank">
+											<font class="document_link">Link</font>
+										</a>
+									</td>
 									{% endif %}
 								</tr>
 								{% endfor %}
@@ -606,7 +639,8 @@
 
 								<tr id="app-thead">
 									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
-										Papers presented in Regional/National and International Seminars/ Conferences/ Workshop/
+										Papers presented in Regional/National and International Seminars/ Conferences/
+										Workshop/
 										Symposium. Indicate whether the Conference Proceedings are published.
 									</td>
 								</tr>
@@ -631,11 +665,13 @@
 									<td colspan="4">{{item.From}}</td>
 									<td colspan="4">{{item.published}}</td>
 									{% if item.article_title == "N/A" %}
-										<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
 									{% else %}
-										<td colspan="4" style="overflow-wrap: anywhere;">
-											<a href={{item.supporting_documents.url}} target="_blank"><font class="document_link">Link</font></a>
-										</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">
+										<a href={{item.supporting_documents.url}} target="_blank">
+											<font class="document_link">Link</font>
+										</a>
+									</td>
 									{% endif %}
 								</tr>
 								{% endfor %}
@@ -654,14 +690,16 @@
 
 
 								<tr id="app-thead">
-									<td colspan="24" style="font-weight: 500; font-size: 1.8rem;  border-bottom: 1px solid #a6a6a6;">
+									<td colspan="24"
+										style="font-weight: 500; font-size: 1.8rem;  border-bottom: 1px solid #a6a6a6;">
 										Section E
-										<span style="display: block;  font-size: 1.2rem;" >(Thesis and Experiment Details)</span>
+										<span style="display: block;  font-size: 1.2rem;">(Thesis and Experiment
+											Details)</span>
 
 									</td>
 								</tr>
 								<tr id="app-thead">
-									<td  class="headingfont" colspan="24" style=" border-bottom: 1px solid #a6a6a6;">
+									<td class="headingfont" colspan="24" style=" border-bottom: 1px solid #a6a6a6;">
 										1. Thesis Supervision
 									</td>
 								</tr>
@@ -708,7 +746,7 @@
 								</tr>
 
 								<tr>
-									<td  class="headingfont" colspan="4" style=" inline-size: 30%;">Total number
+									<td class="headingfont" colspan="4" style=" inline-size: 30%;">Total number
 										of sponsored projects</td>
 									<td colspan="8" style="inline-size: 20%;">{{SponsoredProjects.spo_tot_number}}</td>
 									<td class="headingfont" colspan="4">Number of ongoing sponsored projects</td>
@@ -718,13 +756,16 @@
 								<tr>
 									<td class="headingfont" colspan="4">Number of completed sponsored projects</td>
 									<td colspan="8">{{SponsoredProjects.spo_completed}}</td>
-									<td class="headingfont" colspan="4">File containing the list of sponsored projects</td>
+									<td class="headingfont" colspan="4">File containing the list of sponsored projects
+									</td>
 									{% if SponsoredProjects.spo_tot_number == "0" %}
-										<td colspan="4" style="overflow-wrap: anywhere;">{{SponsoredProjects.spo_file}}</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">{{SponsoredProjects.spo_file}}</td>
 									{% else %}
-										<td colspan="4" style="overflow-wrap: anywhere;">
-											<a href={{SponsoredProjects.spo_file.url}} target="_blank"><font class="document_link">Link</font></a>
-										</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">
+										<a href={{SponsoredProjects.spo_file.url}} target="_blank">
+											<font class="document_link">Link</font>
+										</a>
+									</td>
 									{% endif %}
 								</tr>
 
@@ -746,20 +787,25 @@
 									<td class="headingfont" colspan="4" style=" inline-size: 30%;">Total number
 										of experiments/ computational projects</td>
 									<td colspan="8" style="inline-size: 20%;">{{Experiments.exp_tot_number}}</td>
-									<td class="headingfont" colspan="4">Number of ongoing experiments/ computational projects</td>
+									<td class="headingfont" colspan="4">Number of ongoing experiments/ computational
+										projects</td>
 									<td colspan="8" style=" inline-size: 20%;">
 										{{Experiments.exp_ongoing}}</td>
 								</tr>
 								<tr>
-									<td class="headingfont" colspan="4">Number of completed experiments/ computational projects</td>
+									<td class="headingfont" colspan="4">Number of completed experiments/ computational
+										projects</td>
 									<td colspan="8">{{Experiments.exp_completed}}</td>
-									<td class="headingfont" colspan="4">File containing the list of experiments/ computational projects</td>
+									<td class="headingfont" colspan="4">File containing the list of experiments/
+										computational projects</td>
 									{% if Experiments.exp_tot_number == "0" %}
-										<td colspan="4" style="overflow-wrap: anywhere;">{{Experiments.exp_file}}</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">{{Experiments.exp_file}}</td>
 									{% else %}
-										<td colspan="4" style="overflow-wrap: anywhere;">
-											<a href={{Experiments.exp_file.url}} target="_blank"><font class="document_link">Link</font></a>
-										</td>
+									<td colspan="4" style="overflow-wrap: anywhere;">
+										<a href={{Experiments.exp_file.url}} target="_blank">
+											<font class="document_link">Link</font>
+										</a>
+									</td>
 									{% endif %}
 								</tr>
 
@@ -794,7 +840,8 @@
 									<td class="headingfont" colspan="4" style="inline-size: 30%; ">Ph.D Defence
 										Date</td>
 									<td colspan="4" style="inline-size: 20%;">{{Summary.defence_date}}</td>
-									<td class="headingfont" colspan="8" style="inline-size: 30%;">Total Experience (in years)</td>
+									<td class="headingfont" colspan="8" style="inline-size: 30%;">Total Experience (in
+										years)</td>
 									<td colspan="8" style=" ">{{Summary.total_exp}}</td>
 								</tr>
 								<tr>
@@ -802,7 +849,8 @@
 									<td colspan="16">{{Summary.exp_post_phd}}</td>
 								</tr>
 								<tr>
-									<td class="headingfont" colspan="8">Total Ph.D Students Supervised (Degree Awarded)</td>
+									<td class="headingfont" colspan="8">Total Ph.D Students Supervised (Degree Awarded)
+									</td>
 									<td colspan="16">{{Summary.total_phd_students}}</td>
 								</tr>
 								<tr>
@@ -810,7 +858,8 @@
 									<td colspan="16">{{Summary.ongoing_phd_supervision}}</td>
 								</tr>
 								<tr>
-									<td class="headingfont" colspan="8">Total number of sponsored projects (Ongoing + Completed)</td>
+									<td class="headingfont" colspan="8">Total number of sponsored projects (Ongoing +
+										Completed)</td>
 									<td colspan="16">{{Summary.total_projects}}</td>
 								</tr>
 								<tr>
@@ -818,15 +867,18 @@
 									<td colspan="16">{{Summary.ongoing_projects}}</td>
 								</tr>
 								<tr>
-									<td class="headingfont" colspan="8">Total number of experiments/ computational projects</td>
+									<td class="headingfont" colspan="8">Total number of experiments/ computational
+										projects</td>
 									<td colspan="16">{{Summary.computational_projects}}</td>
 								</tr>
 								<tr>
-									<td class="headingfont" colspan="8">Total Number of Publications in SCI / ABDC Journals</td>
+									<td class="headingfont" colspan="8">Total Number of Publications in SCI / ABDC
+										Journals</td>
 									<td colspan="16">{{Summary.SCI_journal}}</td>
 								</tr>
 								<tr>
-									<td class="headingfont" colspan="8">Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
+									<td class="headingfont" colspan="8">Total Number of Publications in SCI / ABDC
+										Journals (Post PhD)</td>
 									<td colspan="16">{{Summary.SCI_journal_post_phd}}</td>
 								</tr>
 
@@ -838,7 +890,9 @@
 					</div>
 
 					<div class="table-wrapper section_f" style="padding: 2px;">
-						<table style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;" id="mainTable">
+						<table
+							style="text-align: center;border:1.5px solid #a6a6a6;border-collapse: separate; min-width: 50vh;"
+							id="mainTable">
 							<tbody class="application-row">
 								<tr id="app-thead">
 									<td colspan="24"
@@ -848,7 +902,8 @@
 								</tr>
 
 								<tr>
-									<td class="headingfont" colspan="8">Membership/Fellowship of other institutions/professionals societies:
+									<td class="headingfont" colspan="8">Membership/Fellowship of other
+										institutions/professionals societies:
 									</td>
 									<td colspan="16" style="inline-size: 50%;">{{otherinformation_data.membership}}</td>
 								</tr>
@@ -858,16 +913,19 @@
 									<td colspan="16">{{otherinformation_data.responsibilities}}</td>
 								</tr>
 								<tr>
-									<td class="headingfont" colspan="8">Any other relevant information, if not given above </td>
+									<td class="headingfont" colspan="8">Any other relevant information, if not given
+										above </td>
 									<td colspan="16">{{otherinformation_data.Any_other_relevant_information}}</td>
 								</tr>
 								<tr>
-									<td class="headingfont" colspan="8">Has there been any break in your academic career ? If so, give
+									<td class="headingfont" colspan="8">Has there been any break in your academic career
+										? If so, give
 										details</td>
 									<td colspan="16">{{otherinformation_data.academic_year_break}}</td>
 								</tr>
 								<tr>
-									<td class="headingfont" colspan="8">Were you at any time declared medically unfit or asked to submit
+									<td class="headingfont" colspan="8">Were you at any time declared medically unfit or
+										asked to submit
 										your resignation or discharged or dismissed?<br>
 										<font style="font-size: small;">If yes, give details in a separate sheet.</font>
 									</td>
@@ -896,8 +954,7 @@
 							id="mainTable">
 							<tbody class="application-row">
 								<tr id="app-thead">
-									<td colspan="24"
-										style="    border-bottom: 1px solid #a6a6a6;">
+									<td colspan="24" style="    border-bottom: 1px solid #a6a6a6;">
 										Declaration
 									</td>
 								</tr>
@@ -961,7 +1018,9 @@
 			</ul>
 		</section>
 		<!-- <p class="copyright">&copy; 2020 <a href="https://iiitl.ac.in" target="#2">IIIT Lucknow</a>.</p> -->
-		<p class="copyright">© Copyright 2021 - <a href="https://iiitl-dev.github.io/ResearchGroup/" target="blank" style="font-weight:500;" >Data Analytics Research Lab</a>, <a href="https://iiitl.ac.in" target="blank" style="font-weight:500;" >IIIT Lucknow</a> All Rights Reserved.</p>
+		<p class="copyright">© Copyright 2021 - <a href="https://iiitl-dev.github.io/ResearchGroup/" target="blank"
+				style="font-weight:500;">Data Analytics Research Lab</a>, <a href="https://iiitl.ac.in" target="blank"
+				style="font-weight:500;">IIIT Lucknow</a> All Rights Reserved.</p>
 	</footer>
 
 	<!-- Scripts -->
