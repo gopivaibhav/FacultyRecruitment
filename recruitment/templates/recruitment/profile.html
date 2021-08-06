@@ -116,8 +116,7 @@
 						{% for message in messages %}
 						{% if message != 'You have signed out.' %}
 						<br>
-						<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{
-							message }}</div>
+						<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{message}}</div>
 						{% endif %}
 						{% endfor %}
 						{% endif %}
@@ -125,10 +124,11 @@
 						<script>
 							var alert = document.querySelectorAll('#advert .alert')
 							alert.forEach(i => {
+								console.log(i.textContent);
 								if (i.textContent == "You have signed out.") {
 									i.remove();
 								}
-								if (i.textContent.substr(0, 12) == "Successfully") {
+								if(i.textContent.substr(0, 12) == "Successfully") {
 									// console.log('working')
 									i.parentElement.classList.add('typewriter');
 								}
