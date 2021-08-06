@@ -116,8 +116,7 @@
 						{% for message in messages %}
 						{% if message != 'You have signed out.' %}
 						<br>
-						<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{
-							message }}</div>
+						<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{message}}</div>
 						{% endif %}
 						{% endfor %}
 						{% endif %}
@@ -125,10 +124,11 @@
 						<script>
 							var alert = document.querySelectorAll('#advert .alert')
 							alert.forEach(i => {
+								console.log(i.textContent);
 								if (i.textContent == "You have signed out.") {
 									i.remove();
 								}
-								if (i.textContent.substr(0, 12) == "Successfully") {
+								if(i.textContent.substr(0, 12) == "Successfully") {
 									// console.log('working')
 									i.parentElement.classList.add('typewriter');
 								}
@@ -141,9 +141,9 @@
 				<div class="spotlight">
 					<div class="content">
 						<header class="major">
-							<h2>Advertisement Number:</h2>
+							<h2>Advertisement Number: IIITL/Recruitment/RA-02/2021 </h2>
 						</header>
-						<p> Indian Institute of Information Technology Lucknow (IIIT- Lucknow) is an Institute of
+						<p style="text-align:justify"> Indian Institute of Information Technology Lucknow (IIIT- Lucknow) is an Institute of
 							National
 							Importance established by an Act of Parliament in Public Private Partnership (PPP) Model
 							under the
@@ -230,7 +230,7 @@
 							<h2>Selection Procedure:</h2>
 						</header>
 						<p>
-						<ol>
+						<ol style="text-align: justify">
 							<li>The candidates as recommended by the shortlisting committee shall be invited for the
 								interview
 								before the Statutory Selection Committee.</li>
@@ -407,12 +407,8 @@
 						<header class="major">
 							<h2>Reservation</h2>
 						</header>
-						<p style="text-align: justify;"> Reservation as per Government of India Policy. The candidates belonging to SC/ST/OBC/EWS, Women 
-and PwD are highly encouraged to apply for the above posts.
-							<br>
-
-							<strong>In case of any difficulty, please email at: <a
-									href="mailto:recruitment_faculty@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">recruitment_faculty@iiitl.ac.inh</a></strong>
+						<p style="text-align: justify;"> Reservation as per Government of India Policy. The candidates belonging to SC/ST/OBC/EWS, Women
+							and PwD are highly encouraged to apply for the above posts.
 						</p>
 					</div>
 				</div>
@@ -428,6 +424,9 @@ and PwD are highly encouraged to apply for the above posts.
 					<ul class="actions special">
 						<li><a href="/submit/" class="button small primary">Apply Online</a></li>
 					</ul>
+					<div style="text-align: right;">In case of any difficulty, <br>Drop a mail: <strong><a
+						href="mailto:recruitment_faculty@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">recruitment_faculty@iiitl.ac.in</a></strong>
+						</div>
 				</footer>
 			</section>
 
