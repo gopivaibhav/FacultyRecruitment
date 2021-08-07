@@ -22,7 +22,7 @@ var abc = $('#spo_ongoing').val();
 var xyz= $('#spo_completed').val();
 
 // // console.log(abc);
-    if (abc > 0) {
+    if (abc > 0 && xyz>0) {
         document.getElementById('spofile').disabled = false;
         document.getElementById('spofile').required = true;
     }
@@ -43,7 +43,7 @@ var xyz= $('#spo_completed').val();
 function experiments_input(e) {
     var abc = $('#exp_ongoing').val();
     var xyz = $('#exp_completed').val();
-    if (abc > 0) {
+    if (abc > 0 && xyz>0) {
         document.getElementById("expfile").disabled = false;
         document.getElementById("expfile").required = true;
 
