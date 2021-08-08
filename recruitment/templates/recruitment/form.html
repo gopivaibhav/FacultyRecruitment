@@ -2207,6 +2207,17 @@
                     }
                 }
             }
+            var yopPresId = parseInt(e.target.id.slice(-1));
+            var presYearVal = parseInt(e.target.value);
+            var yearLimit = new Date().getFullYear();
+            for(var presId = yopPresId+1;presId <= 4; presId++ ){
+                var presSelect = document.getElementById(`yearOfPassing${presId}`);
+                presSelect.innerHTML = null;
+                for (let i = yearLimit; i >= presYearVal; i--) {
+                    if (document.getElementById("yearOfPassing" + presId) !== null)
+                        document.getElementById("yearOfPassing" + presId).innerHTML += "<option value='" + i + "'>" + i + "</option>\n"
+                }
+            }
         }
 
         function modeFirst(e) {
