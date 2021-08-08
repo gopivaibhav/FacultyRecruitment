@@ -49,7 +49,7 @@ function experiments_input(e) {
         document.getElementById("expfile").required = false;
     }
     document.getElementById('exp_tot_number').value= parseInt(abc) + parseInt(xyz);
-    
+
     document.getElementById('computational_projects').value= parseInt(abc) + parseInt(xyz);
 }
 

@@ -612,7 +612,7 @@ def adminLogin(request):
         if(tryme == 0):
             subject = "Alert! Someone is trying to login as admin at Faculty Recruitment Portal"
             msg     = 'This is an auto generated message.\n\nIt is to inform you that someone is trying to login as admin at Faculty Recruitment Portal and failed three times!' + '\nkindly, secure your server!\n'
-            to      = ['lit2019058@iiitl.ac.in', 'recruitment_faculty@iiitl.ac.in', 'lcs2019006@iiitl.ac.in', 'lcs2020014@iiitl.ac.in']
+            to      = ['lit2019058@iiitl.ac.in', 'recruitment_faculty@iiitl.ac.in']
             res     = send_mail(subject, msg, settings.EMAIL_HOST_USER, to)
             tryme   = 1
             context = {
