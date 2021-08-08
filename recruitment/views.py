@@ -1041,7 +1041,7 @@ def submission_form(request):
         last_academic_record = num_of_academic_records[num_of_academic_records_length-1]
         number_academic_record = last_academic_record[6]
         for i in range(1,int(number_academic_record)+1):
-            if (data.get('course'+str(i),False) == ""):
+            if (data.get('course'+str(i),False) == ""  or data.get('course'+str(i),False) == False):
                 continue
             else:
                 academic_details = {}
