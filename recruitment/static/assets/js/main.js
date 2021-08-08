@@ -30,14 +30,9 @@ var xyz= $('#spo_completed').val();
         document.getElementById('spofile').disabled = true;
         document.getElementById('spofile').required = false;
     }
-    
-    
-    
-    
+
     document.getElementById('spo_tot_number').value= parseInt(abc) + parseInt(xyz);
     document.getElementById('total_projects').value= parseInt(abc) + parseInt(xyz);
-    
- 
 
 
 }
@@ -87,6 +82,7 @@ function phdTable2(e) {
     document.querySelectorAll(".phdTableBody input").forEach(e => { e.value = "" })
     document.querySelectorAll('.phdTableBody input[type="date"]').forEach(e => { e.min = '1950,01,01' })
     document.querySelectorAll('.phdTableBody input[type="file"]').forEach(e => { e.disabled = true })
+    document.querySelectorAll('.phdTableBody input').forEach(e => { e.required = false })
     document.querySelector('#awarded_phd').value = 'No'
 }
 
@@ -102,6 +98,12 @@ function ongoingRadio(e) {
     document.querySelectorAll('#ongoingTable input[type="file"]').forEach(e => { e.disabled = false })
     document.querySelectorAll('#thesisTable input[type="file"]').forEach(e => { e.disabled = true })
     document.querySelectorAll('#awardedTable input[type="file"]').forEach(e => { e.disabled = true })
+
+    document.querySelectorAll('#ongoingTable input').forEach(e => { e.required = true })
+    document.querySelectorAll('#thesisTable input').forEach(e => { e.required = false })
+    document.querySelectorAll('#awardedTable input').forEach(e => { e.required = false })
+
+
     document.querySelector('#awarded_phd').value = 'Ongoing'
 }
 
@@ -116,6 +118,13 @@ function thesisRadio() {
     document.querySelectorAll('#ongoingTable input[type="file"]').forEach(e => { e.disabled = true })
     document.querySelectorAll('#thesisTable input[type="file"]').forEach(e => { e.disabled = false })
     document.querySelectorAll('#awardedTable input[type="file"]').forEach(e => { e.disabled = true })
+
+    document.querySelectorAll('#ongoingTable input').forEach(e => { e.required = false })
+    document.querySelectorAll('#thesisTable input').forEach(e => { e.required = true })
+    document.querySelectorAll('#awardedTable input').forEach(e => { e.required = false })
+
+
+
     document.querySelector('#awarded_phd').value = 'Thesis Submitted'
 }
 
@@ -130,6 +139,11 @@ function awardedRadio() {
     document.querySelectorAll('#ongoingTable input[type="file"]').forEach(e => { e.disabled = true })
     document.querySelectorAll('#thesisTable input[type="file"]').forEach(e => { e.disabled = true })
     document.querySelectorAll('#awardedTable input[type="file"]').forEach(e => { e.disabled = false })
+
+    document.querySelectorAll('#ongoingTable input').forEach(e => { e.required = false })
+    document.querySelectorAll('#thesisTable input').forEach(e => { e.required = false })
+    document.querySelectorAll('#awardedTable input').forEach(e => { e.required = true })
+
     document.querySelector('#awarded_phd').value = 'Yes'
 }
 
@@ -275,6 +289,9 @@ $(document).ready(function () {
         })
 
 
+        document.querySelectorAll('#ongoingTable input').forEach(e => { e.required = true })
+
+
     });
 });
 
@@ -309,6 +326,8 @@ $(document).ready(function () {
             i.setAttribute("max", `${new Date().toDateInputValue()}`)
         })
 
+        document.querySelectorAll('#thesisTable input').forEach(e => { e.required = true })
+
 
     });
 });
@@ -342,6 +361,8 @@ $(document).ready(function () {
         document.querySelectorAll('input[type="date"]').forEach(i => {
             i.setAttribute("max", `${new Date().toDateInputValue()}`)
         })
+
+        document.querySelectorAll('#awardedTable input').forEach(e => { e.required = true })
 
 
     });
@@ -430,7 +451,7 @@ $(document).ready(function () {
             '</select></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  required></td>' + '<td class="col-2" style="text-align: center; padding: 0;">' +
             '<select name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none;" placeholder="Select Mode" onchange="modeFirst(event)" required><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
-            '<input readonly type="text" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" onchange="marksValidation(event)" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>' +
+            '<input readonly type="number" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" onchange="marksValidation(event)" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" required></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;"><input type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" required></td><td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;">' +
             '<select style="inline-size: auto;" name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '" ></select></td><td class="col-3" style="display:flex;place-content:space-between">' +
             '<span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" name="course' + newAcademicsNo + '-file"></span>' +
