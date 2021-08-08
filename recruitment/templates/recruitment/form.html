@@ -404,7 +404,7 @@
                                     </div>
                                     <div class="col-4 col-8-small" style="align-self: center;font-size: small;">
                                         <input class="form-check-input" type="radio" name="gender" id="inlineRadio1"
-                                            value="Male">
+                                            value="Male" required>
                                         <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                             for="inlineRadio1"> Male</label>
                                         <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
@@ -513,7 +513,7 @@
                                     </div>
                                     <div class="col-1 col-2-small" style="align-self: center;font-size: small;">
                                         <input class="form-check-input" type="radio" onclick="changeReservation(event)"
-                                            name="reservation" id="Radio1" value="Yes">
+                                            name="reservation" id="Radio1" value="Yes" required>
                                         <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                             for="Radio1">Yes</label>
                                         <input class="form-check-input" type="radio" onclick="changeReservation2(event)"
@@ -578,7 +578,7 @@
 
                                         <div class="col-5 col-7-small">
                                             <input class="form-check-input" type="radio" name="phd" id="phdongoing"
-                                                value="Ongoing" onclick="ongoingRadio(event)">
+                                                value="Ongoing" onclick="ongoingRadio(event)" required>
                                             <label class="form-check-label" for="phdongoing"
                                                 style="margin-right: 1rem;">Ongoing &nbsp;</label>
                                             <input class="form-check-input" type="radio" name="phd" id="phdthesissub"
@@ -1755,8 +1755,9 @@
 
                                     <div class="col-8 col-12-medium">
                                         <input type="text" name="computational_projects" id="computational_projects"
+                                        
                                             placeholder="Total number of experiments/ computational projects" required
-                                            readonly value="">
+                                            readonly="true" value="">
                                     </div>
 
                                 </div>
@@ -2119,11 +2120,11 @@
             // console.log('hiiii')
 
         }
-        function setValCompProject(event) {
-            document.getElementById('computational_projects').value = event.target.value
-            // console.log('okkkkk')
+        // function setValCompProject(event) {
+        //     document.getElementById('computational_projects').value = event.target.value
+        //     // console.log('okkkkk')
 
-        }
+        // }
 
         function setDefDate(event) {
             document.getElementById('phd_defence_date').value = event.target.value
