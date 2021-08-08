@@ -339,8 +339,9 @@
                                                     <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="text" pattern="[0-9]{6}" minlength="6" maxlength="6"
+                                                    <input type="number" pattern="[0-9]{6}" minlength="6" maxlength="6"
                                                         name="permanentpincode" id="permanentpincode" value=""
+                                                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                         placeholder="Pin Code" required>
                                                 </div>
                                                 <div class="col-5 col-12-small" style="text-align:center;">
@@ -376,8 +377,10 @@
                                         <h3>Mobile No.<font class="asterisk">*</font>&nbsp;</h3>
                                     </div>
                                     <div class="col-1 col-3-small" style="font-size:small;">
-                                        <input type="text" name="mobilecode" id="mobilecode"
-                                            style="padding:0;text-align: center;" value="" placeholder="+91" required>
+                                        <input type="number"  minlength="3" maxlength="3" name="mobilecode" id="mobilecode"
+
+                                            style="padding:0;text-align: center;" value="" placeholder="+91" required
+                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                     </div>
                                     <div class="col-3 col-9-small" style="font-size:small;">
                                         <input type="number" pattern="[0-9]{10}" minlength="10" maxlength="10"
@@ -1020,7 +1023,7 @@
                                                         placeholder="To">
                                                 </td>
                                                 <td class="col-3" style="text-align: center;vertical-align: middle;">
-                                                    <input type="text" name="exper1-months" id="exp1-months"
+                                                    <input type="number" name="exper1-months" id="exp1-months"
                                                         style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
                                                         placeholder="Number of Months">
                                                 </td>
@@ -1275,7 +1278,7 @@
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="text" name="news_articles1-page"
+                                                    <input type="number" name="news_articles1-page"
                                                         id="news_articles1-page"
                                                         style="border: 0; background: transparent;"
                                                         placeholder="Volume no. & Page nos.">
@@ -1439,7 +1442,7 @@
                                                         class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="text" name="ongoing_phd" id="ongoing_phd" required>
+                                                <input type="number" name="ongoing_phd" id="ongoing_phd" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1495,7 +1498,8 @@
 
                                             <div class="col-8 col-12-medium">
                                                 <input type="number"
-                                                    onchange="sponsored_input(), setValueSpoProject(event)" value=""
+                                                    onchange="sponsored_input(), setValueSpoProject(event)" value="" readonly="true"
+                                                    
                                                     name="spo_tot_number" id="spo_tot_number" required>
                                             </div>
                                         </div>
@@ -1510,7 +1514,7 @@
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="number" name="spo_ongoing" id="spo_ongoing" required
-                                                    onchange="setValSpoOngoing(event)">
+                                                    onchange=" sponsored_input() , setValSpoOngoing(event)">
                                             </div>
                                         </div>
                                     </div>
@@ -1525,7 +1529,8 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_completed" id="spo_completed" required>
+                                                <input type="number" name="spo_completed" id="spo_completed" required
+                                                onchange= "sponsored_input() , setValSpoOngoing(event)">
                                             </div>
                                         </div>
                                     </div>
@@ -1566,7 +1571,7 @@
                                             <div class="col-8 col-12-medium">
                                                 <input type="number"
                                                     onchange="experiments_input(event), setValCompProject(event)"
-                                                    value="" name="exp_tot_number" id="exp_tot_number" required>
+                                                    value="" name="exp_tot_number" id="exp_tot_number" readonly="true" required>
                                             </div>
                                         </div>
 
@@ -1580,7 +1585,8 @@
                                                     computational projects<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="exp_ongoing" id="exp_ongoing" required>
+                                                <input type="number" name="exp_ongoing" id="exp_ongoing" 
+                                                onchange="experiments_input(event), setValCompProject(event)" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1594,7 +1600,8 @@
                                                     computational projects<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="exp_completed" id="exp_completed" required>
+                                                <input type="number" name="exp_completed" id="exp_completed"
+                                                onchange="experiments_input(event), setValCompProject(event)" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1649,7 +1656,7 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium" style="align-self: center;">
-                                                <h5>1. Ph.D Defence Date<font class="asterisk">*</font>&nbsp;</h5>
+                                                <h5>i. Ph.D Defence Date<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="date" name="phd_defence_date" id="phd_defence_date"
@@ -1661,12 +1668,12 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5>2. Total Experience<font class="asterisk">*</font>&nbsp; (in years)
+                                                <h5>ii. Total Experience<font class="asterisk">*</font>&nbsp; (in years)
                                                 </h5>
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="text" name="tot_exp" id="tot_exp"
+                                                <input type="number" name="tot_exp" id="tot_exp"
                                                     placeholder="Total Experience (eg: 3.5)" required>
                                             </div>
                                         </div>
@@ -1678,10 +1685,10 @@
                                     <div class="col-12 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5>3. Experience<font class="asterisk">*</font>&nbsp; (Post PhD)</h5>
+                                                <h5>iii. Experience<font class="asterisk">*</font>&nbsp; (Post PhD)</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="text" name="exp_post_phd" id="exp_post_phd"
+                                                <input type="number" name="exp_post_phd" id="exp_post_phd"
                                                     placeholder="Experience (Post PhD) in Years (eg: 3.5)" required>
                                             </div>
                                         </div>
@@ -1690,12 +1697,12 @@
                                 <br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>4. Total Ph.D Students Supervised <font class="asterisk">*</font>
+                                        <h5>iv. Total Ph.D Students Supervised <font class="asterisk">*</font>
                                             &nbsp;(Degree Awarded)</h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="total_phd_students" id="total_phd_students"
+                                        <input type="number" name="total_phd_students" id="total_phd_students"
                                             placeholder="Total Ph.D Students Supervised (Degree Awarded)" required>
                                     </div>
 
@@ -1703,23 +1710,23 @@
 
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>5. Total Ongoing Ph.D Supervision<font class="asterisk">*</font>&nbsp;</h5>
+                                        <h5>v. Total Ongoing Ph.D Supervision<font class="asterisk">*</font>&nbsp;</h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="ongoing_phd_supervision" id="ongoing_phd_supervision"
+                                        <input type="number" name="ongoing_phd_supervision" id="ongoing_phd_supervision"
                                             placeholder="Total Ongoing Ph.D Supervision" required>
                                     </div>
 
                                 </div><br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>6. Total number of sponsored projects<font class="asterisk">*</font>&nbsp;
+                                        <h5>vi. Total number of sponsored projects<font class="asterisk">*</font>&nbsp;
                                             (Ongoing + Completed)</h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="total_projects" id="total_projects"
+                                        <input type="number" name="total_projects" id="total_projects"
                                             placeholder="Total number of sponsored projects (Ongoing + Completed)"
                                             required value="" readonly>
                                     </div>
@@ -1727,7 +1734,7 @@
                                 </div><br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>7. Number of ongoing sponsored projects<font class="asterisk">*</font>&nbsp;
+                                        <h5>vii. Number of ongoing sponsored projects<font class="asterisk">*</font>&nbsp;
                                         </h5>
                                     </div>
 
@@ -1742,7 +1749,7 @@
                                 <br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>8. Total number of experiments/ computational projects<font
+                                        <h5>viii. Total number of experiments/ computational projects<font
                                                 class="asterisk">*</font>&nbsp;</h5>
                                     </div>
 
@@ -1757,12 +1764,12 @@
                                 <br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>9.Total Number of Publications in SCI / ABDC Journals<font class="asterisk">
+                                        <h5>ix.Total Number of Publications in SCI / ABDC Journals<font class="asterisk">
                                                 *</font>&nbsp;</h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="SCI_journal" id="SCI_journal"
+                                        <input type="number" name="SCI_journal" id="SCI_journal"
                                             placeholder="Total Number of Publications in SCI / ABDC Journals" required>
                                     </div>
 
@@ -1771,12 +1778,12 @@
                                 <br>
                                 <div class="row gtr-uniform">
                                     <div class="col-4 col-12-medium">
-                                        <h5>10. Total Number of Publications in SCI / ABDC Journals (Post PhD)<font
+                                        <h5>x. Total Number of Publications in SCI / ABDC Journals (Post PhD)<font
                                                 class="asterisk">*</font>&nbsp;</h5>
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="SCI_journal_post_phd" id="SCI_journal_post_phd"
+                                        <input type="number" name="SCI_journal_post_phd" id="SCI_journal_post_phd"
                                             placeholder="Total Number of Publications in SCI / ABDC Journals (Post PhD)"
                                             required>
                                     </div>
@@ -2198,6 +2205,17 @@
                     if (i == 7) {
                         inputFields.children[0].required = false;
                     }
+                }
+            }
+            var yopPresId = parseInt(e.target.id.slice(-1));
+            var presYearVal = parseInt(e.target.value);
+            var yearLimit = new Date().getFullYear();
+            for(var presId = yopPresId+1;presId <= 4; presId++ ){
+                var presSelect = document.getElementById(`yearOfPassing${presId}`);
+                presSelect.innerHTML = null;
+                for (let i = yearLimit; i >= presYearVal; i--) {
+                    if (document.getElementById("yearOfPassing" + presId) !== null)
+                        document.getElementById("yearOfPassing" + presId).innerHTML += "<option value='" + i + "'>" + i + "</option>\n"
                 }
             }
         }
