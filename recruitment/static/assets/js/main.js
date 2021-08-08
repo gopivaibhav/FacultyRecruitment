@@ -60,9 +60,11 @@ function experiments_input(e) {
 
 function changeReservation(e) {
     document.getElementById("reservation_certificate").disabled = false;
+    document.getElementById("reservation_certificate").required = true;
 }
 function changeReservation2(e) {
     document.getElementById("reservation_certificate").disabled = true;
+    document.getElementById("reservation_certificate").required = false;
 }
 
 
