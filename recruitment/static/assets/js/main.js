@@ -35,6 +35,7 @@ var xyz= $('#spo_completed').val();
     
     
     document.getElementById('spo_tot_number').value= parseInt(abc) + parseInt(xyz);
+    document.getElementById('total_projects').value= parseInt(abc) + parseInt(xyz);
     
  
 
@@ -53,6 +54,8 @@ function experiments_input(e) {
         document.getElementById("expfile").required = false;
     }
     document.getElementById('exp_tot_number').value= parseInt(abc) + parseInt(xyz);
+    
+    document.getElementById('computational_projects').value= parseInt(abc) + parseInt(xyz);
 }
 
 function changeReservation(e) {
