@@ -574,7 +574,7 @@ def export_csv(request):
                 Declaration.objects.filter(applicant=i)[0].signature,
                 Declaration.objects.filter(applicant=i)[0].resume,
                 Declaration.objects.filter(applicant=i)[0].receipt,
-                'http://127.0.0.1:8000/admin/user/' + str(i),
+                'https://iiitl.pythonanywhere.com/admin/user/' + str(i),
             ]
 
 
