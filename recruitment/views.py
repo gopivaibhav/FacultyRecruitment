@@ -795,7 +795,7 @@ def submission_form(request):
         general_data['state'] = data['domicile_state']
         general_data['category'] = data['category']
         general_data['reservation'] = data['reservation']
-        if(data.get('reservation') == 'YES'):
+        if(data.get('reservation') == 'Yes'):
             general_data['reservation_certificate'] = request.FILES['reservation_certificate']
         general_data['applicant'] = Applicant.objects.get(application_no=application_number)
         General.objects.create(**general_data)
