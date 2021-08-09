@@ -32,12 +32,12 @@ SECRET_KEY = str(os.getenv("SECRET_KET"))
 
 
 # for Local
-# DEBUG = True
-# ALLOWED_HOSTS = []
+DEBUG = True
+ALLOWED_HOSTS = []
 
 # for Deployment:
-DEBUG = False
-ALLOWED_HOSTS = ["*"]
+# DEBUG = False
+# ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -163,12 +163,12 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 
 # for Deployment:
-EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
-EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
+# EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
+# EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
 
 # # for Local:
-# EMAIL_HOST_USER = str(dotenv_values(".env")["EMAIL_HOST_USER"])
-# EMAIL_HOST_PASSWORD = str(dotenv_values(".env")["EMAIL_HOST_PASSWORD"])
+EMAIL_HOST_USER = str(dotenv_values(".env")["EMAIL_HOST_USER"])
+EMAIL_HOST_PASSWORD = str(dotenv_values(".env")["EMAIL_HOST_PASSWORD"])
 
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
