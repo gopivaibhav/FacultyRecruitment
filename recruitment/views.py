@@ -612,8 +612,8 @@ def adminLogin(request):
         if(tryme == 0):
             subject = "Alert! Someone is trying to login as admin at Faculty Recruitment Portal"
             msg     = 'This is an auto generated message.\n\nIt is to inform you that someone is trying to login as admin at Faculty Recruitment Portal and failed three times!' + '\nkindly, secure your server!\n'
-            to      = 'lcs2020014@iiitl.ac.in'
-            res     = send_mail(subject, msg, settings.EMAIL_HOST_USER, [to])
+            to      = ['lit2019058@iiitl.ac.in', 'recruitment_faculty@iiitl.ac.in']
+            res     = send_mail(subject, msg, settings.EMAIL_HOST_USER, to)
             tryme   = 1
             context = {
                 'could_not_log_in': True,
@@ -765,7 +765,7 @@ def submission_form(request):
         # Applicant
         applicant_data = {}
         number = len(Applicant.objects.filter(date=datetime.datetime.now().date()))
-        application_number = str(datetime.datetime.now().date())+str(number+1).zfill(3) 
+        application_number = str(datetime.datetime.now().date())+str(number+1).zfill(3)
         applicant_data['application_no'] = application_number
         applicant_data['date'] = datetime.datetime.now().date()
         applicant_data['advertisement_no'] = 'Rolling Advertisement No.1'
@@ -797,7 +797,7 @@ def submission_form(request):
         general_data['reservation'] = data['reservation']
         if(data.get('reservation') == 'Yes'):
             general_data['reservation_certificate'] = request.FILES['reservation_certificate']
-        general_data['applicant'] = Applicant.objects.get(application_no=application_number) 
+        general_data['applicant'] = Applicant.objects.get(application_no=application_number)
         General.objects.create(**general_data)
 
         # Other Information
@@ -812,7 +812,7 @@ def submission_form(request):
         otherinformation_data['reference1'] = data['miscTa8']
         otherinformation_data['reference2'] = data['miscTa9']
         otherinformation_data['reference3'] = data['miscTa10']
-        otherinformation_data['applicant'] = Applicant.objects.get(application_no=application_number) 
+        otherinformation_data['applicant'] = Applicant.objects.get(application_no=application_number)
         OtherInfo.objects.create(**otherinformation_data)
 
         # Signature
