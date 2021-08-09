@@ -182,77 +182,6 @@ $('form input').keydown(function (e) {
 });
 
 
-///////// Code for upload file size limit ...
-
-$('input[type="file"]').on('change', function (input) {
-    // alert("file added");
-    // console.log(input);
-    var fileSize = 100;
-    // console.log(input.currentTarget.files[0])
-    if (input.currentTarget.files[0] !== undefined) {
-        var fileSize = input.currentTarget.files[0].size / 1024 / 1024; // in MiB
-        var type = input.currentTarget.files[0].type;
-
-        var sizeLimit = 0.25;   // Set File Size Limit from here (in MegaBytes)
-
-        if (fileSize > sizeLimit) {
-
-            alert('File size exceeds 250 KB');
-            input.currentTarget.value = null;
-
-            if (input.currentTarget.id == "signUpload") {
-                $('#signImage').attr('src', null);
-            }
-            else if (input.currentTarget.id == "imageUpload") {
-                $('#profileImage').attr('src', "/static/images/profilepic.png");
-            }
-
-        }
-
-        // console.log(type)
-        // console.log(input.currentTarget.id)
-
-        else if (type !== "application/pdf" && input.currentTarget.id !== "signUpload" && input.currentTarget.id !== "imageUpload") {
-            alert("Upload only .pdf file!")
-            input.currentTarget.value = null;
-        }
-
-        else if (input.currentTarget.id == "signUpload" || input.currentTarget.id == "imageUpload") {
-
-            if (!(type === "image/jpeg" || type === "image/jpg" || type === "image/png")) {
-
-                alert("Upload only .jpeg/.jpg/.png image file!")
-
-                input.currentTarget.value = null;
-
-                if (input.currentTarget.id == "signUpload") {
-                    $('#signImage').attr('src', null);
-                }
-                else if (input.currentTarget.id == "imageUpload") {
-                    $('#profileImage').attr('src', "/static/images/profilepic.png");
-                }
-
-            }
-        }
-    }
-
-    //  If Input file is not defined or user haven't input any file then ...
-
-    else {
-
-        alert("No File Chosen")
-
-        if (input.currentTarget.id == "signUpload") {
-            // document.querySelector("#signImage").src = "";
-            $('#signImage').attr('src', null);
-        }
-        else if (input.currentTarget.id == "imageUpload") {
-            // document.querySelector("#profileImage").src = '`/static/images/profilepic.png`"';
-            $('#profileImage').attr('src', "/static/images/profilepic.png");
-        }
-    }
-
-});
 
 
 
@@ -744,6 +673,77 @@ $('#signUpload').change(function () {
 });
 
 
+///////// Code for upload file size limit ...
+
+$('input[type="file"]').on('change', function (input) {
+    // alert("file added");
+    // console.log(input);
+    var fileSize = 100;
+    // console.log(input.currentTarget.files[0])
+    if (input.currentTarget.files[0] !== undefined) {
+        var fileSize = input.currentTarget.files[0].size / 1024 / 1024; // in MiB
+        var type = input.currentTarget.files[0].type;
+
+        var sizeLimit = 0.25;   // Set File Size Limit from here (in MegaBytes)
+
+        if (fileSize > sizeLimit) {
+
+            alert('File size exceeds 250 KB');
+            input.currentTarget.value = null;
+
+            if (input.currentTarget.id == "signUpload") {
+                $('#signImage').attr('src', null);
+            }
+            else if (input.currentTarget.id == "imageUpload") {
+                $('#profileImage').attr('src', "/static/images/profilepic.png");
+            }
+
+        }
+
+        // console.log(type)
+        // console.log(input.currentTarget.id)
+
+        else if (type !== "application/pdf" && input.currentTarget.id !== "signUpload" && input.currentTarget.id !== "imageUpload") {
+            alert("Upload only .pdf file!")
+            input.currentTarget.value = null;
+        }
+
+        else if (input.currentTarget.id == "signUpload" || input.currentTarget.id == "imageUpload") {
+
+            if (!(type === "image/jpeg" || type === "image/jpg" || type === "image/png")) {
+
+                alert("Upload only .jpeg/.jpg/.png image file!")
+
+                input.currentTarget.value = null;
+
+                if (input.currentTarget.id == "signUpload") {
+                    $('#signImage').attr('src', null);
+                }
+                else if (input.currentTarget.id == "imageUpload") {
+                    $('#profileImage').attr('src', "/static/images/profilepic.png");
+                }
+
+            }
+        }
+    }
+
+    //  If Input file is not defined or user haven't input any file then ...
+
+    else {
+
+        alert("No File Chosen")
+
+        if (input.currentTarget.id == "signUpload") {
+            // document.querySelector("#signImage").src = "";
+            $('#signImage').attr('src', null);
+        }
+        else if (input.currentTarget.id == "imageUpload") {
+            // document.querySelector("#profileImage").src = '`/static/images/profilepic.png`"';
+            $('#profileImage').attr('src', "/static/images/profilepic.png");
+        }
+    }
+
+});
 
 
 
@@ -839,9 +839,12 @@ $('#signUpload').change(function () {
             });
     }
 
+
     // Scrolly.
     $('.scrolly').scrolly({
         speed: 1000,
     });
+
+
 })(jQuery);
 
