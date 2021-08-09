@@ -523,7 +523,7 @@
                                     </div>
                                     <div class="col-3 col-6-small"
                                         style="align-self: center;text-align: center;font-size: small;overflow: hidden;padding-left: 1.8em;">
-                                        <input id="reservation_certificate" type="file" style="font-size: small;"
+                                        <input id="reservation_certificate" type="file" accept=".pdf" style="font-size: small;"
                                             name="reservation_certificate" disabled>
                                         <label for="reservation_certificate">(If Yes, Upload Certificate)<br>Size Limit:
                                             250KB</label>
@@ -657,7 +657,7 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <div class="tooltip"><input type="file" name="ongoing1-file"
                                                             id="ongoing1-file"
-                                                            style="border: 0; background: transparent; font-size: x-small;">
+                                                            accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
                                             </tr>
 
@@ -737,7 +737,7 @@
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="thesis1-file" id="thesis1-file"
-                                                        style="border: 0; background: transparent; font-size: x-small;">
+                                                    accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -819,7 +819,7 @@
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="awarded1-file" id="awarded1-file"
-                                                        style="border: 0; background: transparent; font-size: x-small;">
+                                                    accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
                                             </tr>
 
@@ -890,7 +890,7 @@
                                     <h2 class="alt">Professional Details</h2>
                                 </header>
 
-                                <!-- Details of Research Experience -->
+                                <!-- Details of Employment Experience -->
                                 <div class="col-12" style="text-align: center;">
                                     <h2 style="margin: 0;">Details of Employment Experience</h2>
                                     <h4>(In chronological order starting with the most recent)</h4>
@@ -968,7 +968,7 @@
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="org1-file" id="org1-file"
-                                                        style="border: 0; background: transparent; font-size: x-small;">
+                                                    accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1029,7 +1029,7 @@
                                                 </td>
                                                 <td class="col-3"
                                                     style="text-align: center;vertical-align: middle; padding: 0;">
-                                                    <input type="file" style="font-size:x-small;" id="filebox"
+                                                    <input type="file" style="font-size:x-small;" id="exper1-file" accept=".pdf"
                                                         name="exper1-file">
                                                 </td>
                                             </tr>
@@ -1115,7 +1115,7 @@
                                                 </td>
                                                 <td class="col-3" style="text-align: center;vertical-align: middle;">
                                                     <input id="books1-file" type="file"
-                                                        style="font-size: x-small;text-align-last: left;"
+                                                        style="font-size: x-small;text-align-last: left;" accept=".pdf"
                                                         name="books1-file">
                                                 </td>
                                             </tr>
@@ -1203,7 +1203,7 @@
                                                 <td class="col-3"
                                                     style="text-align-last: center; padding: 0;vertical-align: middle;">
                                                     <input type="file" name="chapters1-file" id="chapters1-file"
-                                                        style="border: 0; background: transparent;font-size: x-small; ">
+                                                    accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1303,7 +1303,7 @@
                                                     style="text-align-last: center; padding: 0;vertical-align: middle;">
                                                     <input type="file" name="news_articles1-file"
                                                         id="news_articles1-file"
-                                                        style="border: 0; background: transparent;font-size: x-small; ">
+                                                        accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1396,7 +1396,7 @@
                                                 </td>
                                                 <td class="col-3"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input id="semi_article1-file" type="file"
+                                                    <input id="semi_article1-file" type="file" accept=".pdf"
                                                         style="font-size: x-small;" name="semi_articles1-file">
                                                 </td>
                                             </tr>
@@ -1499,7 +1499,6 @@
                                             <div class="col-8 col-12-medium">
                                                 <input type="number"
                                                     onchange="sponsored_input(), setValueSpoProject(event)" value="" readonly="true"
-                                                    
                                                     name="spo_tot_number" id="spo_tot_number" required>
                                             </div>
                                         </div>
@@ -1543,7 +1542,7 @@
                                                 </h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="file" name="spofile" id="spofile" disabled><br>
+                                                <input type="file" name="spofile" id="spofile" accept=".pdf" disabled><br>
                                                 <label for="spofile">
                                                     <font class="size-limit">Size Limit: 250KB</font>
                                                     <font class="document-format">(File Format: PDF)</font>
@@ -1614,7 +1613,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="file" name="expfile" id="expfile" disabled><br>
+                                                <input type="file" name="expfile" id="expfile" accept=".pdf" disabled><br>
                                                 <label for="expfile">
                                                     <font class="size-limit">Size Limit: 250KB</font>
                                                     <font class="document-format">(File Format: PDF)</font>
@@ -1755,7 +1754,6 @@
 
                                     <div class="col-8 col-12-medium">
                                         <input type="text" name="computational_projects" id="computational_projects"
-                                        
                                             placeholder="Total number of experiments/ computational projects" required
                                             readonly="true" value="">
                                     </div>
@@ -1908,7 +1906,7 @@
                                     </div>
                                     <div class="col-4 col-6-medium col-7-small"
                                         style="align-self: center;overflow-x:hidden;padding-top:0;">
-                                        <input type="file" name="receipt" id="receipt" style="font-size: small;"
+                                        <input type="file" name="receipt" id="receipt" accept=".pdf" style="font-size: small;"
                                             required><br>
                                         <label style="margin-top: 0.5em;" for="receipt">
                                             <font class="size-limit">Size Limit: 250KB</font>
