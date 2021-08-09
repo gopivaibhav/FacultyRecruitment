@@ -13,3 +13,4 @@ local_settings.py
 media/
 .env
 staticfiles/
+CNAME
