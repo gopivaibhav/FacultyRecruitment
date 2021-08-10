@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import django_heroku
+from dotenv import dotenv_values
 from django.core.mail import send_mail
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -22,24 +23,27 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'tcwkab1w6!h&gc+iu0v5yf)9kr6@fz*eyt=#1*$_zb&+s1pg0@'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# for deployment
-# DEBUG = False
+# # for local System:
+# SECRET_KEY =  str(dotenv_values(".env")["SECRET_KEY"])
 
-# ALLOWED_HOSTS = ["*"]
+# for Deployment:
+SECRET_KEY = str(os.getenv("SECRET_KET"))
 
-# for local
+
+# for Local
 DEBUG = True
-
 ALLOWED_HOSTS = []
+
+# for Deployment:
+# DEBUG = False
+# ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'whitenoise.runserver_nostatic',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -55,6 +59,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -89,7 +94,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SITE_ID = 3
+SITE_ID = 4
+
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -155,17 +161,30 @@ USE_TZ = True
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'ayushjain.temp@gmail.com'
-EMAIL_HOST_PASSWORD = 'Idon\'tknow'
+
+# for Deployment:
+# EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
+# EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
+
+# # for Local:
+EMAIL_HOST_USER = str(dotenv_values(".env")["EMAIL_HOST_USER"])
+EMAIL_HOST_PASSWORD = str(dotenv_values(".env")["EMAIL_HOST_PASSWORD"])
 
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
+
+### For Python Anywhere and local Systems
+
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'recruitment/static'), )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
