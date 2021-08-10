@@ -1242,8 +1242,8 @@ def submission_form(request):
         messages.success(request,'( Kindly note this for future reference )')
 
         #Confirmation E-mail
-        confsubject = "Application Form Submitted Successfully || IIIT Lucknow"
-        confmsg     = 'Hello, ' + str(general_data["full_name"]) + '!\n\nIt is to inform you that your application has been successfully submitted at Faculty Recruitment Portal,IIIT Lucknow.\n' + 'Your application number is :  ' + application_number + '\n(Kindly note this application number for future reference)'+ '\n\nIf you have any query, feel free to contact us via contact@iiitl.ac.in'+ '\n\nThis is an auto generated message!\nDo not reply to this e-mail\n'+ '\nThanks and Regards\nFaculty Recruitment Team\nIIIT Lucknow'
+        confsubject = "Thanks for applying to IIIT Lucknow!"
+        confmsg     = 'Hi ' + str(general_data["full_name"]) + ',\nThanks for applying to IIIT Lucknow, we have received your application. Your application number is ' + application_number + ', save this for future reference.\n'+ 'Due to high volumes of applications we receive, it may take some time to respond you back, but we encourage you to continue exploring our culture and stories at iiitl.ac.in'+ '\nFor more information or queries related to the recruitment process drop an mail to recruitment_faculty@iiitl.ac.in.'+ '\n\nBest Regards,\nIIIT Lucknow'
 
         confto      = general_data["email"]
         confres     = send_mail(confsubject, confmsg, settings.EMAIL_HOST_USER, [confto])
