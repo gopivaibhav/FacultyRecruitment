@@ -1455,7 +1455,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="text" name="completed_phd" id="completed_phd" required>
+                                                <input type="number" name="completed_phd" id="completed_phd" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1492,14 +1492,13 @@
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Total number of sponsored projects<font
+                                                <h5 style="text-align: end;">Number of completed sponsored projects<font
                                                         class="asterisk">*</font>&nbsp;</h5>
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number"
-                                                    onchange="sponsored_input(), setValueSpoProject(event)" value="" readonly="true"
-                                                    name="spo_tot_number" id="spo_tot_number" required>
+                                                <input type="number" name="spo_completed" id="spo_completed" required
+                                                onchange= "sponsored_input() , setValSpoOngoing(event)">
                                             </div>
                                         </div>
                                     </div>
@@ -1522,14 +1521,16 @@
                                 <div class="row gtr-uniform" style="text-align: left;">
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
+
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Number of completed sponsored projects<font
+                                                <h5 style="text-align: end;">Total number of sponsored projects<font
                                                         class="asterisk">*</font>&nbsp;</h5>
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_completed" id="spo_completed" required
-                                                onchange= "sponsored_input() , setValSpoOngoing(event)">
+                                                <input type="number"
+                                                    onchange="sponsored_input(), setValueSpoProject(event)" value="" readonly="true"
+                                                    name="spo_tot_number" id="spo_tot_number" required>
                                             </div>
                                         </div>
                                     </div>
@@ -1563,14 +1564,12 @@
                                     <div class="col-6 col-12-medium" style="margin-bottom: 2rem;">
                                         <div class="row gtr-uniform">
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Total number of experiments/ computational
-                                                    projects<font class="asterisk">*</font>&nbsp;</h5>
+                                                <h5 style="text-align: end;">Number of completed experiments/
+                                                    computational projects<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
-
                                             <div class="col-8 col-12-medium">
-                                                <input type="number"
-                                                    onchange="experiments_input(event), setValCompProject(event)"
-                                                    value="" name="exp_tot_number" id="exp_tot_number" readonly="true" required>
+                                                <input type="number" name="exp_completed" id="exp_completed"
+                                                onchange="experiments_input(event), setValCompProject(event)" required>
                                             </div>
                                         </div>
 
@@ -1594,13 +1593,16 @@
                                 <div class="row gtr-uniform" style="text-align: left;">
                                     <div class="col-6 col-12-medium">
                                         <div class="row gtr-uniform">
+                                            
                                             <div class="col-4 col-12-medium">
-                                                <h5 style="text-align: end;">Number of completed experiments/
-                                                    computational projects<font class="asterisk">*</font>&nbsp;</h5>
+                                                <h5 style="text-align: end;">Total number of experiments/ computational
+                                                    projects<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
+
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="exp_completed" id="exp_completed"
-                                                onchange="experiments_input(event), setValCompProject(event)" required>
+                                                <input type="number"
+                                                    onchange="experiments_input(event), setValCompProject(event)"
+                                                    value="" name="exp_tot_number" id="exp_tot_number" readonly="true" required>
                                             </div>
                                         </div>
                                     </div>
