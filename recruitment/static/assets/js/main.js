@@ -21,8 +21,7 @@ function sponsored_input(e) {
 var abc = $('#spo_ongoing').val();
 var xyz= $('#spo_completed').val();
 
-const realval = document.getElementById('spo_tot_number').value= parseInt(abc) + parseInt(xyz);
-    if (realval > 0) {
+    if (abc > 0 || xyz > 0) {
         document.getElementById('spofile').disabled = false;
         document.getElementById('spofile').required = true;
     }
@@ -30,6 +29,8 @@ const realval = document.getElementById('spo_tot_number').value= parseInt(abc) +
         document.getElementById('spofile').disabled = true;
         document.getElementById('spofile').required = false;
     }
+
+    document.getElementById('spo_tot_number').value= parseInt(abc) + parseInt(xyz);
     document.getElementById('total_projects').value= parseInt(abc) + parseInt(xyz);
 
 
@@ -37,7 +38,7 @@ const realval = document.getElementById('spo_tot_number').value= parseInt(abc) +
 function experiments_input(e) {
     var abc = $('#exp_ongoing').val();
     var xyz = $('#exp_completed').val();
-    if (abc > 0 && xyz>0) {
+    if (abc > 0 || xyz>0) {
         document.getElementById("expfile").disabled = false;
         document.getElementById("expfile").required = true;
 
