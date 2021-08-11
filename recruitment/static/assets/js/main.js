@@ -215,6 +215,10 @@ $(document).ready(function () {
         document.querySelectorAll('input[type="date"]').forEach(i => {
             i.setAttribute("max", `${new Date().toDateInputValue()}`)
         })
+        var dob = document.getElementById('dateofbirth').value
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("min", dob)
+        })
 
 
         document.querySelectorAll('#ongoingTable input').forEach(e => { e.required = true })
@@ -253,6 +257,10 @@ $(document).ready(function () {
         document.querySelectorAll('input[type="date"]').forEach(i => {
             i.setAttribute("max", `${new Date().toDateInputValue()}`)
         })
+        var dob = document.getElementById('dateofbirth').value
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("min", dob)
+        })
 
         document.querySelectorAll('#thesisTable input').forEach(e => { e.required = true })
 
@@ -288,6 +296,10 @@ $(document).ready(function () {
         });
         document.querySelectorAll('input[type="date"]').forEach(i => {
             i.setAttribute("max", `${new Date().toDateInputValue()}`)
+        })
+        var dob = document.getElementById('dateofbirth').value
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("min", dob)
         })
 
         document.querySelectorAll('#awardedTable input').forEach(e => { e.required = true })
@@ -449,6 +461,10 @@ $(document).ready(function () {
         document.querySelectorAll('input[type="date"]').forEach(i => {
             i.setAttribute("max", `${new Date().toDateInputValue()}`)
         })
+        var dob = document.getElementById('dateofbirth').value
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("min", dob)
+        })
 
     });
 });
@@ -483,6 +499,10 @@ $(document).ready(function () {
         document.querySelectorAll('input[type="date"]').forEach(i => {
             i.setAttribute("max", `${new Date().toDateInputValue()}`)
         })
+        var dob = document.getElementById('dateofbirth').value
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("min", dob)
+        })
 
     });
 });
@@ -514,6 +534,12 @@ $(document).ready(function () {
             }
         });
 
+
+        var dob = document.getElementById('dateofbirth').value
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("min", dob)
+        })
+
     });
 });
 
@@ -542,6 +568,12 @@ $(document).ready(function () {
                 return false;
             }
         });
+
+
+        var dob = document.getElementById('dateofbirth').value
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("min", dob)
+        })
 
     });
 });
@@ -574,6 +606,12 @@ $(document).ready(function () {
                 return false;
             }
         });
+
+
+        var dob = document.getElementById('dateofbirth').value
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("min", dob)
+        })
 
     });
 });
@@ -612,6 +650,11 @@ $(document).ready(function () {
 
         document.querySelectorAll('input[type="date"]').forEach(i => {
             i.setAttribute("max", `${new Date().toDateInputValue()}`)
+        })
+
+        var dob = document.getElementById('dateofbirth').value
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("min", dob)
         })
 
     });
