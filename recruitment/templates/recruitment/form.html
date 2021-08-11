@@ -247,7 +247,7 @@
                                         <h3>Date of Birth<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-5 col-12-small">
-                                        <input type="date" name="dateofbirth" id="dateofbirth" class="dateofbirth"
+                                        <input type="date" onchange="setYOP(event)" name="dateofbirth" id="dateofbirth" class="dateofbirth"
                                             required>
                                     </div>
 
@@ -2212,7 +2212,20 @@
             for(var presId = yopPresId+1;presId <= 4; presId++ ){
                 var presSelect = document.getElementById(`yearOfPassing${presId}`);
                 presSelect.innerHTML = null;
-                for (let i = yearLimit; i >= presYearVal; i--) {
+                for (let i = yearLimit; i > presYearVal; i--) {
+                    if (document.getElementById("yearOfPassing" + presId) !== null)
+                        document.getElementById("yearOfPassing" + presId).innerHTML += "<option value='" + i + "'>" + i + "</option>\n"
+                }
+            }
+        }
+
+        function setYOP(e){
+            var startYear = parseInt(e.target.value.substr(0,4));
+            var yearLimit = new Date().getFullYear();
+            for(var presId = 1;presId <= 4; presId++ ){
+                var presSelect = document.getElementById(`yearOfPassing${presId}`);
+                presSelect.innerHTML = null;
+                for (let i = yearLimit; i > startYear; i--) {
                     if (document.getElementById("yearOfPassing" + presId) !== null)
                         document.getElementById("yearOfPassing" + presId).innerHTML += "<option value='" + i + "'>" + i + "</option>\n"
                 }
@@ -2224,7 +2237,7 @@
             e.target.parentElement.parentElement.children[4].children[0].readOnly = false;
         }
 
-
+        
 
     </script>
 
