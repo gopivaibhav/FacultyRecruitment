@@ -2232,6 +2232,12 @@
                         document.getElementById("yearOfPassing" + presId).innerHTML += "<option value='" + i + "'>" + i + "</option>\n"
                 }
             }
+
+
+            var dob = document.getElementById('dateofbirth').value
+        document.querySelectorAll('input[type="date"]').forEach(i => {
+            i.setAttribute("min", dob)
+        })
         }
 
         function modeFirst(e) {
