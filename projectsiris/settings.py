@@ -45,6 +45,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -94,7 +95,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SITE_ID = 4
+SITE_ID = 5
 
 
 SOCIALACCOUNT_PROVIDERS = {
