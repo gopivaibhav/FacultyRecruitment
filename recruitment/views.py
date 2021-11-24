@@ -1243,7 +1243,7 @@ def submission_form(request):
 
         #Confirmation E-mail
         confsubject = "Thanks for applying to IIIT Lucknow!"
-        confmsg     = 'Hi ' + str(general_data["full_name"]) + ',\nThanks for applying to IIIT Lucknow, we have received your application. Your application number is ' + application_number + ', save this for future reference.\n'+ 'Due to high volumes of applications we receive, it may take some time to respond you back, but we encourage you to continue exploring our culture and stories at iiitl.ac.in'+ '\nFor more information or queries related to the recruitment process drop an mail to recruitment_faculty@iiitl.ac.in.'+ '\n\nBest Regards,\nIIIT Lucknow'
+        confmsg     = 'Hi ' + str(general_data["full_name"]) + ',\nThanks for applying to IIIT Lucknow, we have received your application. Your application number is ' + application_number + ', save this for future reference.\n'+ 'Due to high volumes of applications we receive, it may take some time to respond you back, but we encourage you to continue exploring our culture and stories at iiitl.ac.in'+ '\nFor more information or queries related to the recruitment process drop an mail to rectt.faculty@iiitl.ac.in.'+ '\n\nBest Regards,\nIIIT Lucknow'
 
         confto      = general_data["email"]
         confres     = send_mail(confsubject, confmsg, settings.EMAIL_HOST_USER, [confto])
