@@ -1,170 +1,170 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Title</title>
     <style type="text/css">
-      #customers {
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-      #customers td,
-      #customers th {
-        border: 1px solid #ddd;
-        padding: 8px;
-      }
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
 
-     
 
-      #customers th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #dbd9d99c;
-        color: #636363;
-        height: 50px;
-      }
 
-      .header {
-        width: 100%;
-        text-align: center;
-        border: 1px solid #ddd;
-        border-bottom: none;
-        height: 50px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        font-size: 18px;
-      }
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #dbd9d99c;
+            color: #636363;
+            height: 50px;
+        }
 
-      .grey_cells td
-      {
-          background-color: #e7e7e7;
-      }
+        .header {
+            width: 100%;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            height: 50px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: 18px;
+        }
 
-       #alternate_grey_cells td:nth-child(odd)
-      {
-          background-color: #e7e7e7;
-      }
+        .grey_cells td {
+            background-color: #e7e7e7;
+        }
 
-      .header-sub{
-                width: 100%;
-                text-align:center;
-                border: 1px solid #ddd;
-                height: 35px;
-                padding-top:20px ;
-                padding-bottom: 20px;
-                font-size: 13px;
-            }
+        #alternate_grey_cells td:nth-child(odd) {
+            background-color: #e7e7e7;
+        }
+
+        .header-sub {
+            width: 100%;
+            text-align: center;
+            border: 1px solid #ddd;
+            height: 35px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: 13px;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="header">Section A (Applicant Details)</div>
     <table id="customers">
-      <tr >
-        <td style="background-color: #e7e7e7;">Application no</td>
-        <td>{{applicant_data.application_number}}</td>
-        <td style="background-color: #e7e7e7;">Post</td>
-        <td>{{applicant_data.post}}</td>
-      </tr>
-      <tr class="alternate_grey_cells">
-        <td style="background-color: #e7e7e7;">Department/School</td>
-        <td>{{applicant_data.department}}</td>
-        <td style="background-color: #e7e7e7;">Research Domain</td>
-        <td>{{applicant_data.reserach_domain}}</td>
-      </tr>
-      <tr class="alternate_grey_cells">
-        <td style="background-color: #e7e7e7;">Full Name</td>
-        <td>{{general_data.full_name}}</td>
-        <td style="background-color: #e7e7e7;">Date of Birth</td>
-        <td>{{general_data.DOB}}</td>
-      </tr>
-      <tr class="alternate_grey_cells">
-        <td style="background-color: #e7e7e7;">Father's Name</td>
-        <td>{{general_data.father_name}}</td>
-        <td style="background-color: #e7e7e7;">Mailing Address</td>
-        <td>{{general_data.address_mail}}</td>
-      </tr>
-      <tr class="alternate_grey_cells">
-        <td style="background-color: #e7e7e7;">Permanent Address</td>
-        <td>{{general_data.address_perm}}</td>
-        <td style="background-color: #e7e7e7;">Mailing Pincode</td>
-        <td>{{general_data.pin_mail}}</td>
-      </tr>
-      <tr class="alternate_grey_cells">
-        <td style="background-color: #e7e7e7;">Permanent Pincode</td>
-        <td>{{general_data.pin_perm}}</td>
-        <td style="background-color: #e7e7e7;">Mailing Telephone</td>
-        <td>{{general_data.telephone_mail}}</td>
-      </tr>
-      <tr class="alternate_grey_cells">
-        <td style="background-color: #e7e7e7;">Permanent Telephone</td>
-        <td>{{general_data.telephone_perm}}</td>
-        <td style="background-color: #e7e7e7;">State of Domicile</td>
-        <td>{{general_data.state}}</td>
-      </tr>
-      <tr class="alternate_grey_cells">
-        <td style="background-color: #e7e7e7;">Nationality</td>
-        <td>{{general_data.nationality}}</td>
-        <td style="background-color: #e7e7e7;">Mobile No.</td>
-        <td>{{general_data.mobile_number}}</td>
-      </tr>
-      <tr class="alternate_grey_cells">
-        <td style="background-color: #e7e7e7;">Gender</td>
-        <td>{{general_data.gender}}</td>
-        <td style="background-color: #e7e7e7;">Email ID</td>
-        <td>{{general_data.email}}</td>
-      </tr>
-      <tr class="alternate_grey_cells">
-        <td style="background-color: #e7e7e7;">Reservation Status (with Certificate)</td>
-        <td>{{general_data.reservation}}</td>
-      </tr>
+        <tr>
+            <td style="background-color: #e7e7e7;">Application no</td>
+            <td>{{applicant_data.application_number}}</td>
+            <td style="background-color: #e7e7e7;">Post</td>
+            <td>{{applicant_data.post}}</td>
+        </tr>
+        <tr class="alternate_grey_cells">
+            <td style="background-color: #e7e7e7;">Department/School</td>
+            <td>{{applicant_data.department}}</td>
+            <td style="background-color: #e7e7e7;">Research Domain</td>
+            <td>{{applicant_data.reserach_domain}}</td>
+        </tr>
+        <tr class="alternate_grey_cells">
+            <td style="background-color: #e7e7e7;">Full Name</td>
+            <td>{{general_data.full_name}}</td>
+            <td style="background-color: #e7e7e7;">Date of Birth</td>
+            <td>{{general_data.DOB}}</td>
+        </tr>
+        <tr class="alternate_grey_cells">
+            <td style="background-color: #e7e7e7;">Father's Name</td>
+            <td>{{general_data.father_name}}</td>
+            <td style="background-color: #e7e7e7;">Mailing Address</td>
+            <td>{{general_data.address_mail}}</td>
+        </tr>
+        <tr class="alternate_grey_cells">
+            <td style="background-color: #e7e7e7;">Permanent Address</td>
+            <td>{{general_data.address_perm}}</td>
+            <td style="background-color: #e7e7e7;">Mailing Pincode</td>
+            <td>{{general_data.pin_mail}}</td>
+        </tr>
+        <tr class="alternate_grey_cells">
+            <td style="background-color: #e7e7e7;">Permanent Pincode</td>
+            <td>{{general_data.pin_perm}}</td>
+            <td style="background-color: #e7e7e7;">Mailing Telephone</td>
+            <td>{{general_data.telephone_mail}}</td>
+        </tr>
+        <tr class="alternate_grey_cells">
+            <td style="background-color: #e7e7e7;">Permanent Telephone</td>
+            <td>{{general_data.telephone_perm}}</td>
+            <td style="background-color: #e7e7e7;">State of Domicile</td>
+            <td>{{general_data.state}}</td>
+        </tr>
+        <tr class="alternate_grey_cells">
+            <td style="background-color: #e7e7e7;">Nationality</td>
+            <td>{{general_data.nationality}}</td>
+            <td style="background-color: #e7e7e7;">Mobile No.</td>
+            <td>{{general_data.mobile_number}}</td>
+        </tr>
+        <tr class="alternate_grey_cells">
+            <td style="background-color: #e7e7e7;">Gender</td>
+            <td>{{general_data.gender}}</td>
+            <td style="background-color: #e7e7e7;">Email ID</td>
+            <td>{{general_data.email}}</td>
+        </tr>
+        <tr class="alternate_grey_cells">
+            <td style="background-color: #e7e7e7;">Reservation Status (with Certificate)</td>
+            <td>{{general_data.reservation}}</td>
+        </tr>
     </table>
     <br />
     <br />
 
     <!-- // SECTION B TABLE -->
     <table id="customers">
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 18px">
-          Section B (Academic Details)
-        </td>
-      </tr>
-      <tr>
-        <td colspan="12">Whether Ph.D awarded</td>
-        <td colspan="12">{{PhD.PhD_awarded}}</td>
-      </tr>
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 13px;">Ongoing Ph.D</td>
-      </tr>
-      <tr class="grey_cells">
-        <td colspan="4">Ph.D title</td>
-        <td colspan="5">Broad Research Domain of Ph.D</td>
-        <td colspan="5">Institute Name</td>
-        <td colspan="5">University Name</td>
-        <td colspan="5">Ph.D Registration Date</td>
-      </tr>
-      <tr>
-        <td colspan="4">{{PhDOngoing.PhD_title}}</td>
-        <td colspan="5">{{PhDOngoing.Research_Domain}}</td>
-        <td colspan="5">{{PhDOngoing.Institute_Name}}</td>
-        <td colspan="5">{{PhDOngoing.University_Name}}</td>
-        <td colspan="5">{{PhDOngoing.Registration_Date}}</td>
-      </tr>
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 13px;">Thesis Submitted</td>
-      </tr>
-      <tr class="grey_cells">
-        <td colspan="4">Ph.D title</td>
-        <td colspan="4">Broad Research Domain of Ph.D</td>
-        <td colspan="4">Institute Name</td>
-        <td colspan="4">University Name</td>
-        <td colspan="4">Ph.D Registration Date</td>
-        <td colspan="4">Ph.D Submission Date</td>
-      </tr>
-      <tr>
-       
-        {% for item in ThesisSubmitted %}
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 18px">
+                Section B (Academic Details)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12">Whether Ph.D awarded</td>
+            <td colspan="12">{{PhD.PhD_awarded}}</td>
+        </tr>
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 13px;">Ongoing Ph.D</td>
+        </tr>
+        <tr class="grey_cells">
+            <td colspan="4">Ph.D title</td>
+            <td colspan="5">Broad Research Domain of Ph.D</td>
+            <td colspan="5">Institute Name</td>
+            <td colspan="5">University Name</td>
+            <td colspan="5">Ph.D Registration Date</td>
+        </tr>
+        <tr>
+            <td colspan="4">{{PhDOngoing.PhD_title}}</td>
+            <td colspan="5">{{PhDOngoing.Research_Domain}}</td>
+            <td colspan="5">{{PhDOngoing.Institute_Name}}</td>
+            <td colspan="5">{{PhDOngoing.University_Name}}</td>
+            <td colspan="5">{{PhDOngoing.Registration_Date}}</td>
+        </tr>
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 13px;">Thesis Submitted</td>
+        </tr>
+        <tr class="grey_cells">
+            <td colspan="4">Ph.D title</td>
+            <td colspan="4">Broad Research Domain of Ph.D</td>
+            <td colspan="4">Institute Name</td>
+            <td colspan="4">University Name</td>
+            <td colspan="4">Ph.D Registration Date</td>
+            <td colspan="4">Ph.D Submission Date</td>
+        </tr>
+        <tr>
+
+            {% for item in ThesisSubmitted %}
         <tr>
             <td colspan="4">{{item.PhD_title}}</td>
             <td colspan="4">{{item.Research_Domain}}</td>
@@ -175,66 +175,66 @@
         </tr>
         {% endfor %}
 
-      </tr>
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 13px;">Ph.D Awarded</td>
-      </tr>
-      <tr class="grey_cells">
-        <td colspan="4">Ph.D title</td>
-        <td colspan="4">Broad Research Domain of Ph.D</td>
-        <td colspan="4">Institute Name</td>
-        <td colspan="4">University Name</td>
-        <td colspan="4">Ph.D Registration Date</td>
-        <td colspan="4">Ph.D Defence Date</td>
-      </tr>
-      {% for item in PhDAwarded %}
-								<tr>
-									<td colspan="4">{{item.PhD_title}}</td>
-									<td colspan="4">{{item.Research_Domain}}</td>
-									<td colspan="4">{{item.Institute_Name}}</td>
-									<td colspan="4">{{item.University_Name}}</td>
-									<td colspan="4">{{item.Registration_Date}}</td>
-									<td colspan="4">{{item.Defense_Date}}</td>
-								</tr>
-								{% endfor %}
+        </tr>
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 13px;">Ph.D Awarded</td>
+        </tr>
+        <tr class="grey_cells">
+            <td colspan="4">Ph.D title</td>
+            <td colspan="4">Broad Research Domain of Ph.D</td>
+            <td colspan="4">Institute Name</td>
+            <td colspan="4">University Name</td>
+            <td colspan="4">Ph.D Registration Date</td>
+            <td colspan="4">Ph.D Defence Date</td>
+        </tr>
+        {% for item in PhDAwarded %}
+        <tr>
+            <td colspan="4">{{item.PhD_title}}</td>
+            <td colspan="4">{{item.Research_Domain}}</td>
+            <td colspan="4">{{item.Institute_Name}}</td>
+            <td colspan="4">{{item.University_Name}}</td>
+            <td colspan="4">{{item.Registration_Date}}</td>
+            <td colspan="4">{{item.Defense_Date}}</td>
+        </tr>
+        {% endfor %}
 
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 13px;">
-          Details of Educational Qualifications
-        </td>
-      </tr>
-      <tr class="grey_cells">
-        <td colspan="4">Exam/Degree</td>
-        <td colspan="4">Name of Board / College</td>
-        <td colspan="4">Grade/ Marks</td>
-        <td colspan="4">Subjects</td>
-        <td colspan="4">Year of Passing</td>
-        <td colspan="4">Supporting Document</td>
-      </tr>
-      {% for item in AcademicDetails %}
-								<tr>
-									<td colspan="4">
-										{{item.degree}}
-									</td>
-									<td colspan="4">
-										{{item.name}}
-									</td>
-									<td colspan="4">
-										{{item.obtained}} ({{item.marks}})
-									</td>
-									<td colspan="4">
-										{{item.subjects}}
-									</td>
-									<td colspan="4">
-										{{item.year_of_passing}}
-									</td>
-									<td colspan="4">
-										<a href={{item.supporting_documents.url}} target="_blank">
-											<font class="document_link">Link</font>
-										</a>
-									</td>
-								</tr>
-								{% endfor %}
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 13px;">
+                Details of Educational Qualifications
+            </td>
+        </tr>
+        <tr class="grey_cells">
+            <td colspan="4">Exam/Degree</td>
+            <td colspan="4">Name of Board / College</td>
+            <td colspan="4">Grade/ Marks</td>
+            <td colspan="4">Subjects</td>
+            <td colspan="4">Year of Passing</td>
+            <td colspan="4">Supporting Document</td>
+        </tr>
+        {% for item in AcademicDetails %}
+        <tr>
+            <td colspan="4">
+                {{item.degree}}
+            </td>
+            <td colspan="4">
+                {{item.name}}
+            </td>
+            <td colspan="4">
+                {{item.obtained}} ({{item.marks}})
+            </td>
+            <td colspan="4">
+                {{item.subjects}}
+            </td>
+            <td colspan="4">
+                {{item.year_of_passing}}
+            </td>
+            <td colspan="4">
+                <a href={{item.supporting_documents.url}} target="_blank">
+                    <font class="document_link">Link</font>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
     </table>
     <br />
     <br />
@@ -242,73 +242,73 @@
     <!-- //SECTION C TABLE -->
 
     <table id="customers">
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 18px">
-          Section C (Professional Details)
-        </td>
-      </tr>
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 13px;">
-          Details of Employment Experience
-        </td>
-      </tr>
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 18px">
+                Section C (Professional Details)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 13px;">
+                Details of Employment Experience
+            </td>
+        </tr>
 
-      <tr class="grey_cells">
-        <td colspan="4" style="font-size: 13px;">
-          Name of Employer/ Status of Institute/ University ( Govt./ Quasi
-          Govt./ Autonomous etc. )
-        </td>
-        <td colspan="4">Post held/ Designation</td>
-        <td colspan="4">Period Of Employment (From and To)</td>
-        <td colspan="4">Basic Salary</td>
-        <td colspan="4">Nature of Duty</td>
-        <td colspan="4">Supporting Documents</td>
-      </tr>
-      {% for item in ProfessionalDetails %}
-								<tr>
-									<td colspan="4">{{item.name}}</td>
-									<td colspan="4">{{item.post}}</td>
-									<td colspan="4">{{item.from_year}}</td>
-									<td colspan="4">{{item.to_year}}</td>
-									<td colspan="2">{{item.salary}}</td>
-									<td colspan="2">{{item.nature}}</td>
-									{% if item.name == "N/A" %}
-									<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
-									{% else %}
-									<td colspan="4" style="overflow-wrap: anywhere;">
-										<a href={{item.supporting_documents.url}} target="_blank">
-											<font class="document_link">Link</font>
-										</a>
-									</td>
-									{% endif %}
-								</tr>
-								{% endfor %}
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 13px;">Research Experience</td>
-      </tr>
+        <tr class="grey_cells">
+            <td colspan="4" style="font-size: 13px;">
+                Name of Employer/ Status of Institute/ University ( Govt./ Quasi
+                Govt./ Autonomous etc. )
+            </td>
+            <td colspan="4">Post held/ Designation</td>
+            <td colspan="4">Period Of Employment (From and To)</td>
+            <td colspan="4">Basic Salary</td>
+            <td colspan="4">Nature of Duty</td>
+            <td colspan="4">Supporting Documents</td>
+        </tr>
+        {% for item in ProfessionalDetails %}
+        <tr>
+            <td colspan="4">{{item.name}}</td>
+            <td colspan="4">{{item.post}}</td>
+            <td colspan="4">{{item.from_year}}</td>
+            <td colspan="4">{{item.to_year}}</td>
+            <td colspan="2">{{item.salary}}</td>
+            <td colspan="2">{{item.nature}}</td>
+            {% if item.name == "N/A" %}
+            <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+            {% else %}
+            <td colspan="4" style="overflow-wrap: anywhere;">
+                <a href={{item.supporting_documents.url}} target="_blank">
+                    <font class="document_link">Link</font>
+                </a>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 13px;">Research Experience</td>
+        </tr>
 
-      <tr class="grey_cells">
-        <td colspan="6">From</td>
-        <td colspan="6">To</td>
-        <td colspan="6">Numbers of Months</td>
-        <td colspan="6">Supporting Documents</td>
-      </tr>
-      {% for item in ResearchExperienceDetails %}
-      <tr>
-          <td colspan="6">{{item.From}}</td>
-          <td colspan="6">{{item.to}}</td>
-          <td colspan="6">{{item.number_of_months}}</td>
-          {% if item.From == "N/A" %}
-          <td colspan="6">{{item.supporting_documents}}</td>
-          {% else %}
-          <td colspan="6">
-              <a href={{item.supporting_documents.url}} target="_blank">
-                  <font class="document_link">Link</font>
-              </a>
-          </td>
-          {% endif %}
-      </tr>
-      {% endfor %}
+        <tr class="grey_cells">
+            <td colspan="6">From</td>
+            <td colspan="6">To</td>
+            <td colspan="6">Numbers of Months</td>
+            <td colspan="6">Supporting Documents</td>
+        </tr>
+        {% for item in ResearchExperienceDetails %}
+        <tr>
+            <td colspan="6">{{item.From}}</td>
+            <td colspan="6">{{item.to}}</td>
+            <td colspan="6">{{item.number_of_months}}</td>
+            {% if item.From == "N/A" %}
+            <td colspan="6">{{item.supporting_documents}}</td>
+            {% else %}
+            <td colspan="6">
+                <a href={{item.supporting_documents.url}} target="_blank">
+                    <font class="document_link">Link</font>
+                </a>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
     </table>
     <br />
     <br />
@@ -316,345 +316,347 @@
     <!-- SECTION D TABLE -->
 
     <table id="customers">
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 18px">
-          Section D (Research and Academic Contributions Research Publications)
-        </td>
-      </tr>
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 13px;">
-          Books- Self authored /co-authored/ edited
-        </td>
-      </tr>
-
-      <tr class="grey_cells">
-        <td colspan="4">Title of the Book(s)</td>
-        <td colspan="4">Whether First Author or Co-author</td>
-        <td colspan="4">Name of Publisher (with city/ country)</td>
-        <td colspan="4">Month & year of publication</td>
-        <td colspan="4">ISBN/ISSN No.</td>
-        <td colspan="4">Supporting Documents</td>
-      </tr>
-
-      {% for item in BooksDetails %}
-      <tr>
-          <td colspan="4">{{item.title}}</td>
-          <td colspan="4">{{item.author}}</td>
-          <td colspan="4">{{item.publisher}}</td>
-          <td colspan="4" style="min-inline-size: 5em;">{{item.date_publish}}</td>
-          <td colspan="4">{{item.isbn}}</td>
-          {% if item.title == "N/A" %}
-          <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
-          {% else %}
-          <td colspan="4" style="overflow-wrap: anywhere;">
-              <a href={{item.supporting_documents.url}} target="_blank">
-                  <font class="document_link">Link</font>
-              </a>
-          </td>
-          {% endif %}
-
-      </tr>
-      {% endfor %}
-
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 13px;">
-          Chapters contributed in edited books
-        </td>
-      </tr>
-
-      <tr class="grey_cells">
-        <td colspan="6">Title of the Chapter(s)</td>
-        <td colspan="6">Title of the Book(s)</td>
-        <td colspan="6">Whether First Author or Co-author</td>
-        <td colspan="6">Name of Publisher (with city/ country)</td>
-      </tr>
-
-      {% for item in ChaptersDetails %}
-								<tr>
-									<td colspan="6">{{item.book_title}}</td>
-									<td colspan="6">{{item.chapter}}</td>
-									<td colspan="6">{{item.author}}</td>
-									<td colspan="6">{{item.publisher}}</td>
-                                </tr>
-								{% endfor %}
-
-      <tr class="grey_cells">
-        <td colspan="8">Month & year of publication</td>
-        <td colspan="8">ISBN/ ISSN No.</td>
-        <td colspan="8">Supporting Documents</td>
-      </tr>
-
-      {% for item in ChaptersDetails %}
-								<tr>
-                                    <td colspan="8" style="min-inline-size: 5em;">{{item.date_of_publisher}}</td>
-									<td colspan="8">{{item.isbn_issn}}</td>
-									{% if item.book_title == "N/A" %}
-									<td colspan="8" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
-									{% else %}
-									<td colspan="8" style="overflow-wrap: anywhere;">
-										<a href={{item.supporting_documents.url}} target="_blank">
-											<font class="document_link">Link</font>
-										</a>
-									</td>
-									{% endif %}
-
-								</tr>
-								{% endfor %}
-      <tr>
-        <td colspan="24" style="text-align: center; font-size: 13px;">
-          Research/Articles/Papers published in Journals/Periodicals/Conference
-          proceedings/Newspapers
-        </td>
-      </tr>
-
-      <tr class="grey_cells">
-        <td colspan="6">Title of research article/paper(s)</td>
-        <td colspan="6">Name of journal</td>
-        <td colspan="6">Whether First Author or Co-author</td>
-        <td colspan="6">Date Of Issue</td>
-      </tr>
-      {% for item in NewspapersArticlesDetails %}
-      <tr>
-          <td colspan="6">{{item.article_title}}</td>
-          <td colspan="6">{{item.journal_name}}</td>
-          <td colspan="6">{{item.author}}</td>
-          <td colspan="6">{{item.date_published}}</td>
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 18px">
+                Section D (Research and Academic Contributions Research Publications)
+            </td>
         </tr>
-        {% endfor %}  
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 13px;">
+                Books- Self authored /co-authored/ edited
+            </td>
+        </tr>
 
-      <tr class="grey_cells">
-        <td colspan="6">Volume no. & Page nos.</td>
-        <td colspan="6">Whether Referred/Non-referred</td>
-        <td colspan="6">Impact Factor</td>
-        <td colspan="6">Supporting Documents</td>
-      </tr>
+        <tr class="grey_cells">
+            <td colspan="4">Title of the Book(s)</td>
+            <td colspan="4">Whether First Author or Co-author</td>
+            <td colspan="4">Name of Publisher (with city/ country)</td>
+            <td colspan="4">Month & year of publication</td>
+            <td colspan="4">ISBN/ISSN No.</td>
+            <td colspan="4">Supporting Documents</td>
+        </tr>
 
-      {% for item in NewspapersArticlesDetails %}
-								<tr>
-                                    <td colspan="6">{{item.vol_no}}</td>
-									<td colspan="6">{{item.referred}}</td>
-									<td colspan="6">{{item.naas}}</td>
-									{% if item.article_title == "N/A" %}
-									<td colspan="6" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
-									{% else %}
-									<td colspan="6" style="overflow-wrap: anywhere;">
-										<a href={{item.supporting_documents.url}} target="_blank">
-											<font class="document_link">Link</font>
-										</a>
-									</td>
-									{% endif %}
-								</tr>
-								{% endfor %}
+        {% for item in BooksDetails %}
+        <tr>
+            <td colspan="4">{{item.title}}</td>
+            <td colspan="4">{{item.author}}</td>
+            <td colspan="4">{{item.publisher}}</td>
+            <td colspan="4" style="min-inline-size: 5em;">{{item.date_publish}}</td>
+            <td colspan="4">{{item.isbn}}</td>
+            {% if item.title == "N/A" %}
+            <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+            {% else %}
+            <td colspan="4" style="overflow-wrap: anywhere;">
+                <a href={{item.supporting_documents.url}} target="_blank">
+                    <font class="document_link">Link</font>
+                </a>
+            </td>
+            {% endif %}
 
-      <tr>
-        <td colspan="24" style="text-align: center ; font-size: 13px;">
-          Papers presented in Regional/National and International Seminars/
-          Conferences/ Workshop/ Symposium. Indicate whether the Conference
-          Proceedings are published.
-        </td>
-      </tr>
+        </tr>
+        {% endfor %}
 
-      <tr class="grey_cells">
-        <td colspan="4">Title/Subject of paper presented</td>
-        <td colspan="4">Subject of Conference /Seminar/Symposium/ Workshop</td>
-        <td colspan="4">Organizing Institution & Name of City/Country</td>
-        <td colspan="4">Duration (From and To)</td>
-        <td colspan="4">Whether the proceedings published</td>
-        <td colspan="4">Supporting Documents</td>
-      </tr>
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 13px;">
+                Chapters contributed in edited books
+            </td>
+        </tr>
 
-      {% for item in SeminarArticles %}
-								<tr>
-									<td colspan="4">{{item.article_title}}</td>
-									<td colspan="4">{{item.seminar_subject}}</td>
-									<td colspan="4">{{item.location}}</td>
-									<td colspan="4">{{item.From}}</td>
-									<td colspan="4">{{item.published}}</td>
-									{% if item.article_title == "N/A" %}
-									<td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
-									{% else %}
-									<td colspan="4" style="overflow-wrap: anywhere;">
-										<a href={{item.supporting_documents.url}} target="_blank">
-											<font class="document_link">Link</font>
-										</a>
-									</td>
-									{% endif %}
-								</tr>
-								{% endfor %}
+        <tr class="grey_cells">
+            <td colspan="6">Title of the Chapter(s)</td>
+            <td colspan="6">Title of the Book(s)</td>
+            <td colspan="6">Whether First Author or Co-author</td>
+            <td colspan="6">Name of Publisher (with city/ country)</td>
+        </tr>
+
+        {% for item in ChaptersDetails %}
+        <tr>
+            <td colspan="6">{{item.book_title}}</td>
+            <td colspan="6">{{item.chapter}}</td>
+            <td colspan="6">{{item.author}}</td>
+            <td colspan="6">{{item.publisher}}</td>
+        </tr>
+        {% endfor %}
+
+        <tr class="grey_cells">
+            <td colspan="8">Month & year of publication</td>
+            <td colspan="8">ISBN/ ISSN No.</td>
+            <td colspan="8">Supporting Documents</td>
+        </tr>
+
+        {% for item in ChaptersDetails %}
+        <tr>
+            <td colspan="8" style="min-inline-size: 5em;">{{item.date_of_publisher}}</td>
+            <td colspan="8">{{item.isbn_issn}}</td>
+            {% if item.book_title == "N/A" %}
+            <td colspan="8" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+            {% else %}
+            <td colspan="8" style="overflow-wrap: anywhere;">
+                <a href={{item.supporting_documents.url}} target="_blank">
+                    <font class="document_link">Link</font>
+                </a>
+            </td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="24" style="text-align: center; font-size: 13px;">
+                Research/Articles/Papers published in Journals/Periodicals/Conference
+                proceedings/Newspapers
+            </td>
+        </tr>
+
+        <tr class="grey_cells">
+            <td colspan="6">Title of research article/paper(s)</td>
+            <td colspan="6">Name of journal</td>
+            <td colspan="6">Whether First Author or Co-author</td>
+            <td colspan="6">Date Of Issue</td>
+        </tr>
+        {% for item in NewspapersArticlesDetails %}
+        <tr>
+            <td colspan="6">{{item.article_title}}</td>
+            <td colspan="6">{{item.journal_name}}</td>
+            <td colspan="6">{{item.author}}</td>
+            <td colspan="6">{{item.date_published}}</td>
+        </tr>
+        {% endfor %}
+
+        <tr class="grey_cells">
+            <td colspan="6">Volume no. & Page nos.</td>
+            <td colspan="6">Whether Referred/Non-referred</td>
+            <td colspan="6">Impact Factor</td>
+            <td colspan="6">Supporting Documents</td>
+        </tr>
+
+        {% for item in NewspapersArticlesDetails %}
+        <tr>
+            <td colspan="6">{{item.vol_no}}</td>
+            <td colspan="6">{{item.referred}}</td>
+            <td colspan="6">{{item.naas}}</td>
+            {% if item.article_title == "N/A" %}
+            <td colspan="6" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+            {% else %}
+            <td colspan="6" style="overflow-wrap: anywhere;">
+                <a href={{item.supporting_documents.url}} target="_blank">
+                    <font class="document_link">Link</font>
+                </a>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+
+        <tr>
+            <td colspan="24" style="text-align: center ; font-size: 13px;">
+                Papers presented in Regional/National and International Seminars/
+                Conferences/ Workshop/ Symposium. Indicate whether the Conference
+                Proceedings are published.
+            </td>
+        </tr>
+
+        <tr class="grey_cells">
+            <td colspan="4">Title/Subject of paper presented</td>
+            <td colspan="4">Subject of Conference /Seminar/Symposium/ Workshop</td>
+            <td colspan="4">Organizing Institution & Name of City/Country</td>
+            <td colspan="4">Duration (From and To)</td>
+            <td colspan="4">Whether the proceedings published</td>
+            <td colspan="4">Supporting Documents</td>
+        </tr>
+
+        {% for item in SeminarArticles %}
+        <tr>
+            <td colspan="4">{{item.article_title}}</td>
+            <td colspan="4">{{item.seminar_subject}}</td>
+            <td colspan="4">{{item.location}}</td>
+            <td colspan="4">{{item.From}}</td>
+            <td colspan="4">{{item.published}}</td>
+            {% if item.article_title == "N/A" %}
+            <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
+            {% else %}
+            <td colspan="4" style="overflow-wrap: anywhere;">
+                <a href={{item.supporting_documents.url}} target="_blank">
+                    <font class="document_link">Link</font>
+                </a>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
     </table>
-              <!--Section E-->
-              <div class="header" style="margin-top: 50px;">
-                Section E (Thesis and Experiment Details)
-              </div>
-              <div class="header-sub">
-                1. Thesis Supervision
-              </div>
-              <table id="customers">
-                <tr>
-                    <td>Number of Ongoing PhDs</td>
-                    <td>{{thesis_data.ongoing_phd}}</td> 
-                </tr>
-                <tr>
-                    <td>Number of Completed PhDs</td>
-                    <td>{{thesis_data.completed_phd}}</td> 
-                  </tr>
-              </table>
-              <div class="header-sub">
-                2. Administrative Details
-              </div>
-              <table id="customers">
-                <tr>
-                    <td>Enter the details of Administrative Positions held in the past 5 years</td>
-                    <td>{{administrative_details_data.administrative_details}}</td> 
-                </tr>
-              </table>
-              <div class="header-sub">
-                3. Sponsored Projects
-              </div>
-              <table id="customers">
-                <tr>
-                    <td>Total number of sponsored projects</td>
-                    <td>{{SponsoredProjects.spo_tot_number}}</td> 
-                    <td>Number of ongoing sponsored projects</td>
-                    <td>{{SponsoredProjects.spo_ongoing}}</td>
-                </tr>
-                <tr>
-                    <td>Number of completed sponsored projects</td>
-                    <td>{{SponsoredProjects.spo_completed}}</td> 
-                    <td>File containing the list of sponsored projects</td>
-                    <td>{{SponsoredProjects.spo_file}}</td>
-                </tr>
-              </table>
-              <div class="header-sub">
-                4. Experiments and Computational Project Details
-              </div>
-              <table id="customers">
-                <tr>
-                    <td>Total number of experiments/ computational projects</td>
-                    <td>{{Experiments.exp_tot_number}}</td> 
-                    <td>Number of ongoing experiments/ computational projects</td>
-                    <td>{{Experiments.exp_ongoing}}</td>
-                </tr>
-                <tr>
-                    <td>Number of completed experiments/ computational projects</td>
-                    <td>{{Experiments.exp_completed}}</td> 
-                    <td>File containing the list of experiments/ computational projects</td>
-                    <td>{{Experiments.exp_file}}</td>
-                </tr>
-              </table>
-              <div class="header-sub">
-                5. Patent Details
-              </div>
-              <table id="customers">
-                <tr>
-                    <td>Please enter patent details, if any:</td>
-                    <td>{{Patent.patent_details}}</td> 
-                </tr>
-              </table>
-              <div class="header-sub">
-                6. Summary
-              </div>
-              <table id="customers">
-                <tr>
-                    <td>Ph.D Defence Date</td>
-                    <td>{{Summary.defence_date}}</td> 
-                    <td>Total Experience (in years)</td>
-                    <td>{{Summary.total_exp}}</td>
-                </tr>
-              </table>
-              <table id="customers" style="margin-bottom: 50px;">
-                <tr>
-                  <td>Experience (Post PhD)</td>
-                  <td>{{Summary.exp_post_phd}}</td> 
-                </tr>
-                <tr>
-                  <td>Total Ph.D Students Supervised (Degree Awarded)</td>
-                  <td>{{Summary.total_phd_students}}</td>
-                  
-                </tr>
-                <tr>
-                  <td>Total Ongoing Ph.D Supervision</td>
-                  <td>{{Summary.ongoing_phd_supervision}}</td>
-                  
-                </tr>
-                <tr>
-                  <td>Total number of sponsored projects (Ongoing + Completed)</td>
-                  <td>{{Summary.total_projects}}</td>
-                  
-                </tr>
-                <tr>
-                  <td>Number of ongoing sponsored projects</td>
-                  <td>{{Summary.ongoing_projects}}</td>
-                </tr>
-                <tr>
-                  <td>Total number of experiments/ computational projects</td>
-                  <td>{{Summary.computational_projects}}</td>
-                </tr>
-                <tr>
-                  <td>Total Number of Publications in SCI / ABDC Journals</td>
-                  <td>{{Summary.SCI_journal}}</td>
-                </tr>
-                <tr>
-                  <td>Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
-                  <td>{{Summary.SCI_journal_post_phd}}</td>
-                </tr>
-              </table>
-              <!--Section F-->
-              <div class="header">
-                Section F
-            </div>
-            <table id="customers">
-                <tr>
-                  <td>Membership/Fellowship of other institutions/professionals societies:</td>
-                  <td>{{otherinformation_data.membership}}</td> 
-                </tr>
-                <tr>
-                  <td>Other activities/Responsibilities</td>
-                  <td>{{otherinformation_data.responsibilities}}</td>
-                  
-                </tr>
-                <tr>
-                  <td>Any other relevant information, if not given above</td>
-                  <td>{{otherinformation_data.Any_other_relevant_information}}</td>
-                  
-                </tr>
-                <tr>
-                  <td>Has there been any break in your academic career ? If so, give details</td>
-                  <td>{{otherinformation_data.academic_year_break}}</td>
-                  
-                </tr>
-                <tr>
-                  <td>Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed?
-                    If yes, give details in a separate sheet.</td>
-                  <td>{{otherinformation_data.unfit_for_position}}</td>
-                </tr>
-                <tr>
-                  <td>Name and Address of First Reference</td>
-                  <td>{{otherinformation_data.reference1}}</td>
-                </tr>
-                <tr>
-                  <td>Name and Address of Second Reference</td>
-                  <td>{{otherinformation_data.reference2}}</td>
-                </tr>
-                <tr>
-                  <td>Name and Address of Third Reference</td>
-                  <td>{{otherinformation_data.reference3}}</td>
-                </tr>
-              </table>
-              <!--Declaration-->
-              <div class="header-sub" style="margin-top: 50px;">
-                Declaration
-              </div>
-              <table id="customers">
-                <tr>
-                    <td>Place</td>
-                    <td>{{signed_data.place}}</td> 
-                    <td rowspan="2">Signature</td>
-                </tr>
-                <tr>
-                    <td>Date</td>
-                    <td>{{signed_data.date}}</td>
-                </tr>
-              </table>
-  </body>
+    <!--Section E-->
+    <div class="header" style="margin-top: 50px;">
+        Section E (Thesis and Experiment Details)
+    </div>
+    <div class="header-sub">
+        1. Thesis Supervision
+    </div>
+    <table id="customers">
+        <tr>
+            <td>Number of Ongoing PhDs</td>
+            <td>{{thesis_data.ongoing_phd}}</td>
+        </tr>
+        <tr>
+            <td>Number of Completed PhDs</td>
+            <td>{{thesis_data.completed_phd}}</td>
+        </tr>
+    </table>
+    <div class="header-sub">
+        2. Administrative Details
+    </div>
+    <table id="customers">
+        <tr>
+            <td>Enter the details of Administrative Positions held in the past 5 years</td>
+            <td>{{administrative_details_data.administrative_details}}</td>
+        </tr>
+    </table>
+    <div class="header-sub">
+        3. Sponsored Projects
+    </div>
+    <table id="customers">
+        <tr>
+            <td>Total number of sponsored projects</td>
+            <td>{{SponsoredProjects.spo_tot_number}}</td>
+            <td>Number of ongoing sponsored projects</td>
+            <td>{{SponsoredProjects.spo_ongoing}}</td>
+        </tr>
+        <tr>
+            <td>Number of completed sponsored projects</td>
+            <td>{{SponsoredProjects.spo_completed}}</td>
+            <td>File containing the list of sponsored projects</td>
+            <td>{{SponsoredProjects.spo_file}}</td>
+        </tr>
+    </table>
+    <div class="header-sub">
+        4. Experiments and Computational Project Details
+    </div>
+    <table id="customers">
+        <tr>
+            <td>Total number of experiments/ computational projects</td>
+            <td>{{Experiments.exp_tot_number}}</td>
+            <td>Number of ongoing experiments/ computational projects</td>
+            <td>{{Experiments.exp_ongoing}}</td>
+        </tr>
+        <tr>
+            <td>Number of completed experiments/ computational projects</td>
+            <td>{{Experiments.exp_completed}}</td>
+            <td>File containing the list of experiments/ computational projects</td>
+            <td>{{Experiments.exp_file}}</td>
+        </tr>
+    </table>
+    <div class="header-sub">
+        5. Patent Details
+    </div>
+    <table id="customers">
+        <tr>
+            <td>Please enter patent details, if any:</td>
+            <td>{{Patent.patent_details}}</td>
+        </tr>
+    </table>
+    <div class="header-sub">
+        6. Summary
+    </div>
+    <table id="customers">
+        <tr>
+            <td>Ph.D Defence Date</td>
+            <td>{{Summary.defence_date}}</td>
+            <td>Total Experience (in years)</td>
+            <td>{{Summary.total_exp}}</td>
+        </tr>
+    </table>
+    <table id="customers" style="margin-bottom: 50px;">
+        <tr>
+            <td>Experience (Post PhD)</td>
+            <td>{{Summary.exp_post_phd}}</td>
+        </tr>
+        <tr>
+            <td>Total Ph.D Students Supervised (Degree Awarded)</td>
+            <td>{{Summary.total_phd_students}}</td>
+
+        </tr>
+        <tr>
+            <td>Total Ongoing Ph.D Supervision</td>
+            <td>{{Summary.ongoing_phd_supervision}}</td>
+
+        </tr>
+        <tr>
+            <td>Total number of sponsored projects (Ongoing + Completed)</td>
+            <td>{{Summary.total_projects}}</td>
+
+        </tr>
+        <tr>
+            <td>Number of ongoing sponsored projects</td>
+            <td>{{Summary.ongoing_projects}}</td>
+        </tr>
+        <tr>
+            <td>Total number of experiments/ computational projects</td>
+            <td>{{Summary.computational_projects}}</td>
+        </tr>
+        <tr>
+            <td>Total Number of Publications in SCI / ABDC Journals</td>
+            <td>{{Summary.SCI_journal}}</td>
+        </tr>
+        <tr>
+            <td>Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
+            <td>{{Summary.SCI_journal_post_phd}}</td>
+        </tr>
+    </table>
+    <!--Section F-->
+    <div class="header">
+        Section F
+    </div>
+    <table id="customers">
+        <tr>
+            <td>Membership/Fellowship of other institutions/professionals societies:</td>
+            <td>{{otherinformation_data.membership}}</td>
+        </tr>
+        <tr>
+            <td>Other activities/Responsibilities</td>
+            <td>{{otherinformation_data.responsibilities}}</td>
+
+        </tr>
+        <tr>
+            <td>Any other relevant information, if not given above</td>
+            <td>{{otherinformation_data.Any_other_relevant_information}}</td>
+
+        </tr>
+        <tr>
+            <td>Has there been any break in your academic career ? If so, give details</td>
+            <td>{{otherinformation_data.academic_year_break}}</td>
+
+        </tr>
+        <tr>
+            <td>Were you at any time declared medically unfit or asked to submit your resignation or discharged or
+                dismissed?
+                If yes, give details in a separate sheet.</td>
+            <td>{{otherinformation_data.unfit_for_position}}</td>
+        </tr>
+        <tr>
+            <td>Name and Address of First Reference</td>
+            <td>{{otherinformation_data.reference1}}</td>
+        </tr>
+        <tr>
+            <td>Name and Address of Second Reference</td>
+            <td>{{otherinformation_data.reference2}}</td>
+        </tr>
+        <tr>
+            <td>Name and Address of Third Reference</td>
+            <td>{{otherinformation_data.reference3}}</td>
+        </tr>
+    </table>
+    <!--Declaration-->
+    <div class="header-sub" style="margin-top: 50px;">
+        Declaration
+    </div>
+    <table id="customers">
+        <tr>
+            <td>Place</td>
+            <td>{{signed_data.place}}</td>
+            <td rowspan="2">Signature</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>{{signed_data.date}}</td>
+        </tr>
+    </table>
+</body>
+
 </html>
