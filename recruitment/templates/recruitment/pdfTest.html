@@ -39,12 +39,13 @@
     <body>
         <div class='wrapper'>
             <div class='header'>
-                <p class='title'>Invoice #  {{ order_id }} </p>
+                <p class='title'>Invoice Number #  {{ order_id }} </p>
             </div>
         <div>
         <div class='details'>
             Bill to: {{ customer_name }} <br/>
             Amount:  {{ amount }} <br/>
+            appliNo:  {{ applicant_data.application_number }} <br/>
             Date:  {{ date }}
             <hr class='hrItem' />
         </div>
