@@ -143,6 +143,10 @@
             <td style="background-color: #e7e7e7;">Reservation Status (with Certificate)</td>
             <td>{{general_data.reservation}}</td>
         </tr>
+        <tr class="alternate_grey_cells">
+            <td style="background-color: #e7e7e7;">Profile photo</td>
+            <td><img src="{{applicant_data.profile_photo.path}}" >  </td>
+        </tr>
     </table>
     <br />
     <br />
@@ -675,6 +679,7 @@
             <td>Place</td>
             <td>{{signed_data.place}}</td>
             <td rowspan="2">Signature</td>
+            <img src="{{signed_data.signature.path}}" >
         </tr>
         <tr>
             <td>Date</td>
