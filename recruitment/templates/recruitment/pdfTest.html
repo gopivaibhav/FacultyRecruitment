@@ -1,52 +1,108 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
     <head>
         <title>Title</title>
         <style type="text/css">
-            body {
-                font-weight: 200;
-                font-size: 14px;
+            #customers {
+                font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
             }
-            .header {
-                font-size: 20px;
-                font-weight: 100;
-                text-align: center;
-                color: #007cae;
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
             }
-            .title {
-                font-size: 22px;
-                font-weight: 100;
-               /* text-align: right;*/
-               padding: 10px 20px 0px 20px;  
+
+            #customers tr:nth-child(even){
+                background-color: #f2f2f2;
             }
-            .title span {
-                color: #007cae;
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #dbd9d99c;
+                color: #636363;
+                height: 50px;
             }
-            .details {
-                padding: 10px 20px 0px 20px;
-                text-align: left !important;
-                /*margin-left: 40%;*/
-            }
-            .hrItem {
-                border: none;
-                height: 1px;
-                /* Set the hr color */
-                color: #333; /* old IE */
-                background-color: #fff; /* Modern Browsers */
+
+            .header{
+                width: 100%;
+                text-align:center;
+                border: 1px solid #ddd;
+                border-bottom: none;
+                height: 50px;
+                padding-top:20px ;
+                padding-bottom: 20px;
+                font-size: 15px;
             }
         </style>
     </head>
     <body>
-        <div class='wrapper'>
-            <div class='header'>
-                <p class='title'>Heading</p>
-            </div>
-        <div>
-        <div class='details'>
-            appliNo:  {{ applicant_data.application_number }} <br/>
-            Date:  {{ applicant_data.date }}
-            <hr class='hrItem' />
+        <div class="header">
+            Section A
         </div>
-    </div>
+        <table id="customers">
+            <tr>
+              <td>Application no</td>
+              <td>{{applicant_data.application_number}}</td>
+              <td>Post</td>
+              <td>{{applicant_data.post}}</td>
+            </tr>
+            <tr>
+              <td>Department/School</td>
+              <td>{{applicant_data.department}}</td>
+              <td>Research Domain</td>
+              <td>{{applicant_data.reserach_domain}}</td>
+            </tr>
+            <tr>
+              <td>Full Name</td>
+              <td>{{general_data.full_name}}</td>
+              <td>Date of Birth</td>
+              <td>{{general_data.DOB}}</td>
+            </tr>
+            <tr>
+              <td>Father's Name</td>
+              <td>{{general_data.father_name}}</td>
+              <td>Mailing Address</td>
+              <td>{{general_data.address_mail}}</td>
+            </tr>
+            <tr>
+              <td>Permanent Address</td>
+              <td>{{general_data.address_perm}}</td>
+              <td>Mailing Pincode</td>
+              <td>{{general_data.pin_mail}}</td>
+            </tr>
+            <tr>
+              <td>Permanent Pincode</td>
+              <td>{{general_data.pin_perm}}</td>
+              <td>Mailing Telephone</td>
+              <td>{{general_data.telephone_mail}}</td>
+            </tr>
+            <tr>
+              <td>Permanent Telephone</td>
+              <td>{{general_data.telephone_perm}}</td>
+              <td>State of Domicile</td>
+              <td>{{general_data.state}}</td>
+            </tr>
+            <tr>
+              <td>Nationality</td>
+              <td>{{general_data.nationality}}</td>
+              <td>Mobile No.</td>
+              <td>{{general_data.mobile_number}}</td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td>{{general_data.gender}}</td>
+              <td>Email ID</td>
+              <td>{{general_data.email}}</td>
+            </tr>
+            <tr>
+              <td>Reservation Status
+                (with Certificate)</td>
+              <td>{{general_data.reservation}}</td>
+            </tr>
+          </table>
     </body>
 </html>
