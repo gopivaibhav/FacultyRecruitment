@@ -46,6 +46,16 @@
       {
           background-color: #e7e7e7;
       }
+
+      .header-sub{
+                width: 100%;
+                text-align:center;
+                border: 1px solid #ddd;
+                height: 35px;
+                padding-top:20px ;
+                padding-bottom: 20px;
+                font-size: 13px;
+            }
     </style>
   </head>
   <body>
@@ -472,5 +482,179 @@
 								</tr>
 								{% endfor %}
     </table>
+              <!--Section E-->
+              <div class="header" style="margin-top: 50px;">
+                Section E (Thesis and Experiment Details)
+              </div>
+              <div class="header-sub">
+                1. Thesis Supervision
+              </div>
+              <table id="customers">
+                <tr>
+                    <td>Number of Ongoing PhDs</td>
+                    <td>{{thesis_data.ongoing_phd}}</td> 
+                </tr>
+                <tr>
+                    <td>Number of Completed PhDs</td>
+                    <td>{{thesis_data.completed_phd}}</td> 
+                  </tr>
+              </table>
+              <div class="header-sub">
+                2. Administrative Details
+              </div>
+              <table id="customers">
+                <tr>
+                    <td>Enter the details of Administrative Positions held in the past 5 years</td>
+                    <td>{{administrative_details_data.administrative_details}}</td> 
+                </tr>
+              </table>
+              <div class="header-sub">
+                3. Sponsored Projects
+              </div>
+              <table id="customers">
+                <tr>
+                    <td>Total number of sponsored projects</td>
+                    <td>{{SponsoredProjects.spo_tot_number}}</td> 
+                    <td>Number of ongoing sponsored projects</td>
+                    <td>{{SponsoredProjects.spo_ongoing}}</td>
+                </tr>
+                <tr>
+                    <td>Number of completed sponsored projects</td>
+                    <td>{{SponsoredProjects.spo_completed}}</td> 
+                    <td>File containing the list of sponsored projects</td>
+                    <td>{{SponsoredProjects.spo_file}}</td>
+                </tr>
+              </table>
+              <div class="header-sub">
+                4. Experiments and Computational Project Details
+              </div>
+              <table id="customers">
+                <tr>
+                    <td>Total number of experiments/ computational projects</td>
+                    <td>{{Experiments.exp_tot_number}}</td> 
+                    <td>Number of ongoing experiments/ computational projects</td>
+                    <td>{{Experiments.exp_ongoing}}</td>
+                </tr>
+                <tr>
+                    <td>Number of completed experiments/ computational projects</td>
+                    <td>{{Experiments.exp_completed}}</td> 
+                    <td>File containing the list of experiments/ computational projects</td>
+                    <td>{{Experiments.exp_file}}</td>
+                </tr>
+              </table>
+              <div class="header-sub">
+                5. Patent Details
+              </div>
+              <table id="customers">
+                <tr>
+                    <td>Please enter patent details, if any:</td>
+                    <td>{{Patent.patent_details}}</td> 
+                </tr>
+              </table>
+              <div class="header-sub">
+                6. Summary
+              </div>
+              <table id="customers">
+                <tr>
+                    <td>Ph.D Defence Date</td>
+                    <td>{{Summary.defence_date}}</td> 
+                    <td>Total Experience (in years)</td>
+                    <td>{{Summary.total_exp}}</td>
+                </tr>
+              </table>
+              <table id="customers" style="margin-bottom: 50px;">
+                <tr>
+                  <td>Experience (Post PhD)</td>
+                  <td>{{Summary.exp_post_phd}}</td> 
+                </tr>
+                <tr>
+                  <td>Total Ph.D Students Supervised (Degree Awarded)</td>
+                  <td>{{Summary.total_phd_students}}</td>
+                  
+                </tr>
+                <tr>
+                  <td>Total Ongoing Ph.D Supervision</td>
+                  <td>{{Summary.ongoing_phd_supervision}}</td>
+                  
+                </tr>
+                <tr>
+                  <td>Total number of sponsored projects (Ongoing + Completed)</td>
+                  <td>{{Summary.total_projects}}</td>
+                  
+                </tr>
+                <tr>
+                  <td>Number of ongoing sponsored projects</td>
+                  <td>{{Summary.ongoing_projects}}</td>
+                </tr>
+                <tr>
+                  <td>Total number of experiments/ computational projects</td>
+                  <td>{{Summary.computational_projects}}</td>
+                </tr>
+                <tr>
+                  <td>Total Number of Publications in SCI / ABDC Journals</td>
+                  <td>{{Summary.SCI_journal}}</td>
+                </tr>
+                <tr>
+                  <td>Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
+                  <td>{{Summary.SCI_journal_post_phd}}</td>
+                </tr>
+              </table>
+              <!--Section F-->
+              <div class="header">
+                Section F
+            </div>
+            <table id="customers">
+                <tr>
+                  <td>Membership/Fellowship of other institutions/professionals societies:</td>
+                  <td>{{otherinformation_data.membership}}</td> 
+                </tr>
+                <tr>
+                  <td>Other activities/Responsibilities</td>
+                  <td>{{otherinformation_data.responsibilities}}</td>
+                  
+                </tr>
+                <tr>
+                  <td>Any other relevant information, if not given above</td>
+                  <td>{{otherinformation_data.Any_other_relevant_information}}</td>
+                  
+                </tr>
+                <tr>
+                  <td>Has there been any break in your academic career ? If so, give details</td>
+                  <td>{{otherinformation_data.academic_year_break}}</td>
+                  
+                </tr>
+                <tr>
+                  <td>Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed?
+                    If yes, give details in a separate sheet.</td>
+                  <td>{{otherinformation_data.unfit_for_position}}</td>
+                </tr>
+                <tr>
+                  <td>Name and Address of First Reference</td>
+                  <td>{{otherinformation_data.reference1}}</td>
+                </tr>
+                <tr>
+                  <td>Name and Address of Second Reference</td>
+                  <td>{{otherinformation_data.reference2}}</td>
+                </tr>
+                <tr>
+                  <td>Name and Address of Third Reference</td>
+                  <td>{{otherinformation_data.reference3}}</td>
+                </tr>
+              </table>
+              <!--Declaration-->
+              <div class="header-sub" style="margin-top: 50px;">
+                Declaration
+              </div>
+              <table id="customers">
+                <tr>
+                    <td>Place</td>
+                    <td>{{signed_data.place}}</td> 
+                    <td rowspan="2">Signature</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>{{signed_data.date}}</td>
+                </tr>
+              </table>
   </body>
 </html>
