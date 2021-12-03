@@ -346,7 +346,13 @@ def export_csv(request):
 
     for i in list(Applicant.objects.all()):
         applicant_data = []
-        applicant_data += [i.application_no,
+        print()
+        if(General.objects.filter(applicant=i).exists() == False or PhD.objects.filter(applicant=i).exists() == False or PhDOngoing.objects.filter(applicant=i).exists()== False or ThesisSubmitted.objects.filter(applicant=i).exists()== False):
+            continue
+        elif(PhDAwarded.objects.filter(applicant=i) == False):
+            continue
+        else:
+            applicant_data += [i.application_no,
                            Applicant.objects.filter(application_no=i)[0].post,
                            Applicant.objects.filter(application_no=i)[
                                0].department,
