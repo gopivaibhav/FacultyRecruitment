@@ -11,6 +11,7 @@ urlpatterns = [
                 path('admin/user/<str:application_number>',views.viewMore,name="View More"),
                 path('accounts/login/', views.loginPage, name="login-user"),
                 path('export_csv', views.export_csv, name="export-csv"),
+                path('testingpdf',views.generate_pdf, name="pdfTest")
                 # path('mail_admin/', views.mail, name="mail"),
             ]
 handler404 = views.error404
