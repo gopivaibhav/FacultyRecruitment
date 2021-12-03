@@ -15,9 +15,7 @@
         padding: 8px;
       }
 
-      #customers tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
+     
 
       #customers th {
         padding-top: 12px;
@@ -36,69 +34,79 @@
         height: 50px;
         padding-top: 20px;
         padding-bottom: 20px;
-        font-size: 15px;
+        font-size: 18px;
+      }
+
+      .grey_cells td
+      {
+          background-color: #e7e7e7;
+      }
+
+       #alternate_grey_cells td:nth-child(odd)
+      {
+          background-color: #e7e7e7;
       }
     </style>
   </head>
   <body>
-    <div class="header">Section A</div>
+    <div class="header">Section A (Applicant Details)</div>
     <table id="customers">
-      <tr>
-        <td>Application no</td>
+      <tr >
+        <td style="background-color: #e7e7e7;">Application no</td>
         <td>{{applicant_data.application_number}}</td>
-        <td>Post</td>
+        <td style="background-color: #e7e7e7;">Post</td>
         <td>{{applicant_data.post}}</td>
       </tr>
-      <tr>
-        <td>Department/School</td>
+      <tr class="alternate_grey_cells">
+        <td style="background-color: #e7e7e7;">Department/School</td>
         <td>{{applicant_data.department}}</td>
-        <td>Research Domain</td>
+        <td style="background-color: #e7e7e7;">Research Domain</td>
         <td>{{applicant_data.reserach_domain}}</td>
       </tr>
-      <tr>
-        <td>Full Name</td>
+      <tr class="alternate_grey_cells">
+        <td style="background-color: #e7e7e7;">Full Name</td>
         <td>{{general_data.full_name}}</td>
-        <td>Date of Birth</td>
+        <td style="background-color: #e7e7e7;">Date of Birth</td>
         <td>{{general_data.DOB}}</td>
       </tr>
-      <tr>
-        <td>Father's Name</td>
+      <tr class="alternate_grey_cells">
+        <td style="background-color: #e7e7e7;">Father's Name</td>
         <td>{{general_data.father_name}}</td>
-        <td>Mailing Address</td>
+        <td style="background-color: #e7e7e7;">Mailing Address</td>
         <td>{{general_data.address_mail}}</td>
       </tr>
-      <tr>
-        <td>Permanent Address</td>
+      <tr class="alternate_grey_cells">
+        <td style="background-color: #e7e7e7;">Permanent Address</td>
         <td>{{general_data.address_perm}}</td>
-        <td>Mailing Pincode</td>
+        <td style="background-color: #e7e7e7;">Mailing Pincode</td>
         <td>{{general_data.pin_mail}}</td>
       </tr>
-      <tr>
-        <td>Permanent Pincode</td>
+      <tr class="alternate_grey_cells">
+        <td style="background-color: #e7e7e7;">Permanent Pincode</td>
         <td>{{general_data.pin_perm}}</td>
-        <td>Mailing Telephone</td>
+        <td style="background-color: #e7e7e7;">Mailing Telephone</td>
         <td>{{general_data.telephone_mail}}</td>
       </tr>
-      <tr>
-        <td>Permanent Telephone</td>
+      <tr class="alternate_grey_cells">
+        <td style="background-color: #e7e7e7;">Permanent Telephone</td>
         <td>{{general_data.telephone_perm}}</td>
-        <td>State of Domicile</td>
+        <td style="background-color: #e7e7e7;">State of Domicile</td>
         <td>{{general_data.state}}</td>
       </tr>
-      <tr>
-        <td>Nationality</td>
+      <tr class="alternate_grey_cells">
+        <td style="background-color: #e7e7e7;">Nationality</td>
         <td>{{general_data.nationality}}</td>
-        <td>Mobile No.</td>
+        <td style="background-color: #e7e7e7;">Mobile No.</td>
         <td>{{general_data.mobile_number}}</td>
       </tr>
-      <tr>
-        <td>Gender</td>
+      <tr class="alternate_grey_cells">
+        <td style="background-color: #e7e7e7;">Gender</td>
         <td>{{general_data.gender}}</td>
-        <td>Email ID</td>
+        <td style="background-color: #e7e7e7;">Email ID</td>
         <td>{{general_data.email}}</td>
       </tr>
-      <tr>
-        <td>Reservation Status (with Certificate)</td>
+      <tr class="alternate_grey_cells">
+        <td style="background-color: #e7e7e7;">Reservation Status (with Certificate)</td>
         <td>{{general_data.reservation}}</td>
       </tr>
     </table>
@@ -108,8 +116,8 @@
     <!-- // SECTION B TABLE -->
     <table id="customers">
       <tr>
-        <td colspan="24" style="text-align: center; font-size: 15px">
-          Section B
+        <td colspan="24" style="text-align: center; font-size: 18px">
+          Section B (Academic Details)
         </td>
       </tr>
       <tr>
@@ -117,9 +125,9 @@
         <td colspan="12">{{PhD.PhD_awarded}}</td>
       </tr>
       <tr>
-        <td colspan="24" style="text-align: center">Ongoing Ph.D</td>
+        <td colspan="24" style="text-align: center; font-size: 13px;">Ongoing Ph.D</td>
       </tr>
-      <tr>
+      <tr class="grey_cells">
         <td colspan="4">Ph.D title</td>
         <td colspan="5">Broad Research Domain of Ph.D</td>
         <td colspan="5">Institute Name</td>
@@ -134,9 +142,9 @@
         <td colspan="5">{{PhDOngoing.Registration_Date}}</td>
       </tr>
       <tr>
-        <td colspan="24" style="text-align: center">Thesis Submitted</td>
+        <td colspan="24" style="text-align: center; font-size: 13px;">Thesis Submitted</td>
       </tr>
-      <tr>
+      <tr class="grey_cells">
         <td colspan="4">Ph.D title</td>
         <td colspan="4">Broad Research Domain of Ph.D</td>
         <td colspan="4">Institute Name</td>
@@ -159,9 +167,9 @@
 
       </tr>
       <tr>
-        <td colspan="24" style="text-align: center">Ph.D Awarded</td>
+        <td colspan="24" style="text-align: center; font-size: 13px;">Ph.D Awarded</td>
       </tr>
-      <tr>
+      <tr class="grey_cells">
         <td colspan="4">Ph.D title</td>
         <td colspan="4">Broad Research Domain of Ph.D</td>
         <td colspan="4">Institute Name</td>
@@ -181,11 +189,11 @@
 								{% endfor %}
 
       <tr>
-        <td colspan="24" style="text-align: center">
+        <td colspan="24" style="text-align: center; font-size: 13px;">
           Details of Educational Qualifications
         </td>
       </tr>
-      <tr>
+      <tr class="grey_cells">
         <td colspan="4">Exam/Degree</td>
         <td colspan="4">Name of Board / College</td>
         <td colspan="4">Grade/ Marks</td>
@@ -225,18 +233,18 @@
 
     <table id="customers">
       <tr>
-        <td colspan="24" style="text-align: center; font-size: 15px">
-          Section C
+        <td colspan="24" style="text-align: center; font-size: 18px">
+          Section C (Professional Details)
         </td>
       </tr>
       <tr>
-        <td colspan="24" style="text-align: center">
+        <td colspan="24" style="text-align: center; font-size: 13px;">
           Details of Employment Experience
         </td>
       </tr>
 
-      <tr>
-        <td colspan="4">
+      <tr class="grey_cells">
+        <td colspan="4" style="font-size: 13px;">
           Name of Employer/ Status of Institute/ University ( Govt./ Quasi
           Govt./ Autonomous etc. )
         </td>
@@ -266,10 +274,10 @@
 								</tr>
 								{% endfor %}
       <tr>
-        <td colspan="24" style="text-align: center">Research Experience</td>
+        <td colspan="24" style="text-align: center; font-size: 13px;">Research Experience</td>
       </tr>
 
-      <tr>
+      <tr class="grey_cells">
         <td colspan="6">From</td>
         <td colspan="6">To</td>
         <td colspan="6">Numbers of Months</td>
@@ -299,17 +307,17 @@
 
     <table id="customers">
       <tr>
-        <td colspan="24" style="text-align: center; font-size: 15px">
+        <td colspan="24" style="text-align: center; font-size: 18px">
           Section D (Research and Academic Contributions Research Publications)
         </td>
       </tr>
       <tr>
-        <td colspan="24" style="text-align: center">
+        <td colspan="24" style="text-align: center; font-size: 13px;">
           Books- Self authored /co-authored/ edited
         </td>
       </tr>
 
-      <tr>
+      <tr class="grey_cells">
         <td colspan="4">Title of the Book(s)</td>
         <td colspan="4">Whether First Author or Co-author</td>
         <td colspan="4">Name of Publisher (with city/ country)</td>
@@ -339,12 +347,12 @@
       {% endfor %}
 
       <tr>
-        <td colspan="24" style="text-align: center">
+        <td colspan="24" style="text-align: center; font-size: 13px;">
           Chapters contributed in edited books
         </td>
       </tr>
 
-      <tr>
+      <tr class="grey_cells">
         <td colspan="6">Title of the Chapter(s)</td>
         <td colspan="6">Title of the Book(s)</td>
         <td colspan="6">Whether First Author or Co-author</td>
@@ -360,7 +368,7 @@
                                 </tr>
 								{% endfor %}
 
-      <tr>
+      <tr class="grey_cells">
         <td colspan="8">Month & year of publication</td>
         <td colspan="8">ISBN/ ISSN No.</td>
         <td colspan="8">Supporting Documents</td>
@@ -383,13 +391,13 @@
 								</tr>
 								{% endfor %}
       <tr>
-        <td colspan="24" style="text-align: center">
+        <td colspan="24" style="text-align: center; font-size: 13px;">
           Research/Articles/Papers published in Journals/Periodicals/Conference
           proceedings/Newspapers
         </td>
       </tr>
 
-      <tr>
+      <tr class="grey_cells">
         <td colspan="6">Title of research article/paper(s)</td>
         <td colspan="6">Name of journal</td>
         <td colspan="6">Whether First Author or Co-author</td>
@@ -404,7 +412,7 @@
         </tr>
         {% endfor %}  
 
-      <tr>
+      <tr class="grey_cells">
         <td colspan="6">Volume no. & Page nos.</td>
         <td colspan="6">Whether Referred/Non-referred</td>
         <td colspan="6">Impact Factor</td>
@@ -429,14 +437,14 @@
 								{% endfor %}
 
       <tr>
-        <td colspan="24" style="text-align: center">
+        <td colspan="24" style="text-align: center ; font-size: 13px;">
           Papers presented in Regional/National and International Seminars/
           Conferences/ Workshop/ Symposium. Indicate whether the Conference
           Proceedings are published.
         </td>
       </tr>
 
-      <tr>
+      <tr class="grey_cells">
         <td colspan="4">Title/Subject of paper presented</td>
         <td colspan="4">Subject of Conference /Seminar/Symposium/ Workshop</td>
         <td colspan="4">Organizing Institution & Name of City/Country</td>
