@@ -22,10 +22,6 @@ from .utils import render_to_pdf  # created in step 4
 def generate_pdf(request, *args, **kwargs):
     application_number = "2021-11-24001"; # for testing purpose
     data = {
-        'date': datetime.date.today(),
-        'amount': 39.99,
-        'customer_name': 'Cooper Mann',
-        'order_id': 1233434,
         'applicant_data': {
             'application_number': application_number,
             'date': Applicant.objects.filter(application_no=application_number)[0].date,
