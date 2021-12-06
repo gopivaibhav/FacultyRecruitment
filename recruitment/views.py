@@ -919,15 +919,14 @@ def viewApplications(request):
     if request.user.is_anonymous:
         return HttpResponseRedirect('/')
     else:
-        idList=[]
+        userApplications=[]
         for i in General.objects.all():
             if(i.email==request.user.email):
-                print(i.email,'testing')
-                idList.append(i.applicant_id)
+                userApplications.append(i)
         isEmpty = 1
-        if len(idList):
+        if len(userApplications):
             isEmpty = 0
-        return render(request, 'recruitment/userApplications.html', {'isEmpty' : isEmpty, 'applications':idList})
+        return render(request, 'recruitment/userApplications.html', {'isEmpty' : isEmpty, 'applications':userApplications})
 
 def admin(request):
     if(request.user.is_superuser != 1):
