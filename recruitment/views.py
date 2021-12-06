@@ -916,15 +916,18 @@ def home(request):
     return render(request, 'recruitment/index.html', {})
 
 def viewApplications(request):
-    idList=[]
-    for i in General.objects.all():
-        if(i.email==request.user.email):
-            print(i.email,'testing')
-            idList.append(i.applicant_id)
-    isEmpty = 1
-    if len(idList):
-        isEmpty = 0
-    return render(request, 'recruitment/userApplications.html', {'isEmpty' : isEmpty, 'applications':idList})
+    if request.user.is_anonymous:
+        return HttpResponseRedirect('/')
+    else:
+        idList=[]
+        for i in General.objects.all():
+            if(i.email==request.user.email):
+                print(i.email,'testing')
+                idList.append(i.applicant_id)
+        isEmpty = 1
+        if len(idList):
+            isEmpty = 0
+        return render(request, 'recruitment/userApplications.html', {'isEmpty' : isEmpty, 'applications':idList})
 
 def admin(request):
     if(request.user.is_superuser != 1):
