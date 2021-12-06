@@ -1,6 +1,6 @@
 {% load socialaccount %}
-
 <!DOCTYPE HTML>
+
 {% load static %}
 <html>
 
@@ -13,12 +13,156 @@
         <link rel="stylesheet" href="{% static 'assets/css/noscript.css'%}">
     </noscript>
     <title>Faculty Recruitment | IIIT Lucknow</title>
+    <style>
+
+    </style>
 </head>
 
-<body>
-    <br>
-    <br>
-    <br>
-    {{abcd}}
-    
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- hamburger- for mobile view -->
+        <span class="menu_btn" onclick="openNav()">&#9776;</span>
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <span class="logo"><img src="{% static 'images/final_logo_web_extended_lq.png' %}" alt="" /></span>
+            <h1>Indian Institute of Information Technology, Lucknow</h1>
+            <p>IIIT Lucknow, Chak Ganjaria, C. G. City, Lucknow – 226002<br />
+                Contact: <a href="mailto: rectt.faculty@iiitl.ac.in ?subject=Faculty%20Recruitment%20Query">
+                    rectt.faculty@iiitl.ac.in </a>
+                for
+                more information.</p>
+            {% if user.is_authenticated %}
+            <h2>Rolling Advertisement for Faculty Recruitment</h2>
+            {% else %}
+            <div id="main">
+                <div class="content" style="padding: 2rem;">
+                    <h2 style="margin-bottom: 2rem;">
+                        You are not logged in</h2>
+                    <a class="btn"
+                        style="border-radius: .3rem; padding: .5rem; padding-left: 1rem; padding-right: 1rem; color: white; background-color: #005F9A;"
+                        href="{% provider_login_url 'google' %}">Login </a>
+                </div>
+            </div>
+            {% endif %}
+        </header>
+
+        <!-- Nav -->
+        {% if user.is_authenticated and user.is_superuser != 1%}
+        <nav id="nav" >
+            <ul id="profile-nav-list">
+                <li><a href="#advert" class="active" onclick="profNavActivation(event)"
+                        style="padding-right: 0.8em;padding-left: 0.8em;">Advertisement</a></li>
+                <li><a href="#spec" onclick="profNavActivation(event)"
+                        style="padding-right: 0.8em;padding-left: 0.8em;">Area of Specialization</a></li>
+                <li><a href="#selec" onclick="profNavActivation(event)"
+                        style="padding-right: 0.8em;padding-left: 0.8em;">Selection Procedure</a></li>
+                <li><a href="#guide" onclick="profNavActivation(event)"
+                        style="padding-right: 0.8em;padding-left: 0.8em;">Guidelines</a></li>
+                <li><a href="#reserve" onclick="profNavActivation(event)"
+                        style="padding-right: 0.8em;padding-left: 0.8em;">Reservation</a></li>
+                <li><a href="#apply" onclick="profNavActivation(event)"
+                        style="padding-right: 0.8em;padding-left: 0.8em;">Apply</a></li>
+                <li><a style="padding: 0;padding-right: 0.2em;padding-left: 0.4em;">
+                        <form method="post" action="{% url 'account_logout' %}"
+                            onsubmit="return confirm('Do you really wish to Logout?');">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <button style="background-color : red !important;" type="submit">Logout</button>
+                        </form>
+                    </a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Nav Bar -->
+        <div id="myNav" class=" nav overlay col-0 col-12-medium">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <div><a href="#advert" class="active" onclick="closeNav()">Advertisement</a></div>
+                <div><a href="#spec" onclick="closeNav()">Area of Specialization</a></div>
+                <div><a href="#selec" onclick="closeNav()">Selection Procedure</a></div>
+                <div><a href="#guide" onclick="closeNav()">Guidelines</a></div>
+                <div><a href="#reserve" onclick="closeNav()">Reservation</a></div>
+                <div><a href="#apply" onclick="closeNav()">Apply</a></div>
+                <div><a>
+                        <form method="post" action="{% url 'account_logout' %}"
+                            onsubmit="return confirm('Do you really wish to Logout?');">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <button style="background-color : red !important;" type="submit">Logout</button>
+                        </form>
+                    </a></div>
+            </div>
+        </div>
+        <!-- Mobile Nav Ends here -->
+        <!-- Main -->
+        <div id="main">
+
+            <div style="height: 100px;" ></div>
+            <div class="spotlight">
+                <div class="content">
+                    Work Here
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+
+        <!-- Footer -->
+        <footer id="footer">
+            <section>
+                <h2 style="font-size: x-large;">How to Reach Us</h2>
+                <p style="font-size: smaller;">The IIIT Lucknow campus is located at Chak Ganjeria City (C.G. City,
+                    Sultanpur Road), Lucknow . It is 23 km from the airport(CCSI Airport)
+                    and 14 km from the main railway station (Charbagh Junction).</p>
+                <ul class="actions">
+                    <li><a href="https://goo.gl/maps/NufsSCj5hg7rFvaTA" target="####" class="button small"><i
+                                class="fas fa-map-marked-alt"></i><span> View Map </span></a></a></li>
+                </ul>
+            </section>
+            <section>
+                <h2 style="font-size: x-large;">Contact Details</h2>
+                <dl class="alt" style="font-size: smaller;">
+                    <dt>Address</dt>
+                    <dd>IIIT Lucknow &bull; Chak Ganjaria, C.G. City &bull; Lucknow &bull; Uttar Pradesh – 226002 &bull;
+                        India</dd>
+                    <!--	<dt>Phone</dt>
+						<dd>(000) 000-0000 x 0000</dd>	-->
+                    <dt>Email</dt>
+                    <dd><a href="mailto: rectt.faculty@iiitl.ac.in?subject=Faculty%20Recruitment%20Query">
+                            rectt.faculty@iiitl.ac.in</a>
+                    </dd>
+                </dl>
+                <ul class="icons" style="font-size: small;">
+                    <li><a href="https://www.linkedin.com/school/iiitl/" target="#4"
+                            class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://twitter.com/iiitlucknow" target="#5" class="icon brands fa-twitter alt"><span
+                                class="label">Twitter</span></a></li>
+                    <li><a href="https://www.facebook.com/iiitlucknow/" target="#6"
+                            class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+                    <!--	<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>	-->
+                </ul>
+            </section>
+            <!-- <p class="copyright">&copy; 2020 <a href="https://iiitl.ac.in" target="###">IIIT Lucknow</a>.</p> -->
+            <p class="copyright">© Copyright 2021 - <a href="https://darl.iiitl.ac.in" target="blank"
+                    style="font-weight:500;">Data Analytics Research Lab</a>, <a href="https://iiitl.ac.in"
+                    target="blank" style="font-weight:500;">IIIT Lucknow</a> All Rights Reserved.</p>
+        </footer>
+
+    </div>
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.scrolly.min.js'%}"></script>
+    <script src="{% static 'assets/js/browser.min.js'%}"></script>
+    <script src="{% static 'assets/js/breakpoints.min.js'%}"></script>
+    <script src="{% static 'assets/js/util.js'%}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
 </body>
+
+</html>
