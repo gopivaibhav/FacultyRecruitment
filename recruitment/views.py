@@ -921,7 +921,10 @@ def viewApplications(request):
         if(i.email==request.user.email):
             print(i.email,'testing')
             idList.append(i.applicant_id)
-    return render(request, 'recruitment/userApplications.html', {'abcd':idList})
+    isEmpty = 1
+    if len(idList):
+        isEmpty = 0
+    return render(request, 'recruitment/userApplications.html', {'isEmpty' : isEmpty, 'applications':idList})
 
 def admin(request):
     if(request.user.is_superuser != 1):

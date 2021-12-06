@@ -96,7 +96,12 @@
             <div style="height: 100px;" ></div>
             <div class="spotlight">
                 <div class="content">
-                    Work Here
+                    {% if isEmpty %}
+                        No applications. 
+                    {% else %}
+
+                        Work Here   
+                    {% endif %}
                 </div>
             </div>
         </div>
