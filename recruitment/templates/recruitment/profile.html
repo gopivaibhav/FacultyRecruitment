@@ -65,6 +65,9 @@
 						style="padding-right: 0.8em;padding-left: 0.8em;">Reservation</a></li>
 				<li><a href="#apply" onclick="profNavActivation(event)"
 						style="padding-right: 0.8em;padding-left: 0.8em;">Apply</a></li>
+				<li><a href="/applications" onclick="profNavActivation(event)"
+							style="padding-right: 0.8em;padding-left: 0.8em;">View Applications</a></li>
+						
 				<li><a style="padding: 0;padding-right: 0.2em;padding-left: 0.4em;">
 						<form method="post" action="{% url 'account_logout' %}"
 							onsubmit="return confirm('Do you really wish to Logout?');">
@@ -87,6 +90,7 @@
 				<div><a href="#guide" onclick="closeNav()">Guidelines</a></div>
 				<div><a href="#reserve" onclick="closeNav()">Reservation</a></div>
 				<div><a href="#apply" onclick="closeNav()">Apply</a></div>
+				<div><a href="/applications" onclick="closeNav()">View Applications</a></div>
 				<div><a>
 						<form method="post" action="{% url 'account_logout' %}"
 							onsubmit="return confirm('Do you really wish to Logout?');">
