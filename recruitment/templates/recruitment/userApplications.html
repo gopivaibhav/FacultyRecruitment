@@ -115,7 +115,7 @@
                                 <td style="border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6 "
                                     scope="col">Subject Proficiency</td>
                                 <td style="border-top-right-radius: 1rem;border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6 "
-                                    scope="col">View More</td>
+                                    scope="col">View Application</td>
                             </thead>
                             <tbody id="admin-tbody" class="application-row">
                                 {% for item in applications %}
@@ -124,7 +124,9 @@
 						          <td>{{item.applied_post}}</td>
 						          <td>{{item.applied_date}}</td>
 						          <td>{{item.applied_department}}</td>
-                                  <td></td>
+                                  <td><a href=""> <i
+                                    class="fas fa-arrow-right" style="color: cornflowerblue;"></i>
+                            </a></td>
                                  </tr>
 					            {% endfor %}
                                 <!-- <tr>

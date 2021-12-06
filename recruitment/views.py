@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import datetime
 
 from django.utils.timezone import activate
@@ -15,12 +15,13 @@ from django.conf import settings
 from django.core.mail import send_mail
 
 from django.http import HttpResponse
+from django.urls import reverse
 
 from .utils import render_to_pdf  # created in step 4
 
 
 def generate_pdf(request, *args, **kwargs):
-    application_number = "2021-11-24001"; # for testing purpose
+    application_number = "2021-12-06009"; # for testing purpose
     data = {
         'applicant_data': {
             'application_number': application_number,
@@ -921,7 +922,7 @@ def viewApplications(request):
     else:
         userApplications=[]
         for i in General.objects.all():
-            if(i.email==request.user.email):
+            if(i.email== "manishreddy6305@gmail.com"):
                 presAppli = {}
                 presAppli['application_no'] = (i.applicant)
                 presAppli['applied_post'] = Applicant.objects.filter(
