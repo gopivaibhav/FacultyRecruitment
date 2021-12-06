@@ -35,7 +35,7 @@
                 for
                 more information.</p>
             {% if user.is_authenticated %}
-            <h2>Rolling Advertisement for Faculty Recruitment</h2>
+            <h2>My Applications</h2>
             {% else %}
             <div id="main">
                 <div class="content" style="padding: 2rem;">
@@ -53,26 +53,16 @@
         {% if user.is_authenticated and user.is_superuser != 1%}
         <nav id="nav" >
             <ul id="profile-nav-list">
-                <li><a href="#advert" class="active" onclick="profNavActivation(event)"
-                        style="padding-right: 0.8em;padding-left: 0.8em;">Advertisement</a></li>
-                <li><a href="#spec" onclick="profNavActivation(event)"
-                        style="padding-right: 0.8em;padding-left: 0.8em;">Area of Specialization</a></li>
-                <li><a href="#selec" onclick="profNavActivation(event)"
-                        style="padding-right: 0.8em;padding-left: 0.8em;">Selection Procedure</a></li>
-                <li><a href="#guide" onclick="profNavActivation(event)"
-                        style="padding-right: 0.8em;padding-left: 0.8em;">Guidelines</a></li>
-                <li><a href="#reserve" onclick="profNavActivation(event)"
-                        style="padding-right: 0.8em;padding-left: 0.8em;">Reservation</a></li>
-                <li><a href="#apply" onclick="profNavActivation(event)"
-                        style="padding-right: 0.8em;padding-left: 0.8em;">Apply</a></li>
-                <li><a style="padding: 0;padding-right: 0.2em;padding-left: 0.4em;">
+                <li><a href="/accounts/profile/" onclick="profNavActivation(event)"
+                        style="padding-right: 0.8em;padding-left: 0.8em;">Back to Profile</a></li>
+                <li><a style="float: right;">
                         <form method="post" action="{% url 'account_logout' %}"
                             onsubmit="return confirm('Do you really wish to Logout?');">
                             {% csrf_token %}
                             {% if redirect_field_value %}
                             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                             {% endif %}
-                            <button style="background-color : red !important;" type="submit">Logout</button>
+                            <button style="background-color : red !important; " type="submit">Logout</button>
                         </form>
                     </a></li>
             </ul>
