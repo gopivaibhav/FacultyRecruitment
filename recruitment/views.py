@@ -922,7 +922,15 @@ def viewApplications(request):
         userApplications=[]
         for i in General.objects.all():
             if(i.email==request.user.email):
-                userApplications.append(i)
+                presAppli = {}
+                presAppli['application_no'] = (i.applicant)
+                presAppli['applied_post'] = Applicant.objects.filter(
+                    application_no=i.applicant)[0].post
+                presAppli['applied_department'] = Applicant.objects.filter(
+                    application_no=i.applicant)[0].department
+                presAppli['applied_date'] = Applicant.objects.filter(
+                    application_no=i.applicant)[0].date
+                userApplications.append(presAppli)
         isEmpty = 1
         if len(userApplications):
             isEmpty = 0

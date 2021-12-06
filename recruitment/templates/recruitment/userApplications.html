@@ -99,8 +99,45 @@
                     {% if isEmpty %}
                         No applications. 
                     {% else %}
-
-                        Work Here   
+                    <div style="padding: 4em ;">
+                    <div class="table-wrapper" style="padding: 2px;">
+                        <table class="rounded"
+                            style="text-align-last: center;border:1.5px solid #a6a6a6;border-collapse: separate;border-radius: 1rem 1rem 0 0;">
+                            <thead id="app-thead">
+                                <td style="border-top-left-radius: 1rem; border-bottom: 1px solid #a6a6a6;"
+                                    scope="col">Application Number</td>
+                                <td scope="col"
+                                    style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">
+                                    Applied for Position</td>
+                                <td scope="col"
+                                    style=" border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6">
+                                    Application Date</td>
+                                <td style="border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6 "
+                                    scope="col">Subject Proficiency</td>
+                                <td style="border-top-right-radius: 1rem;border-bottom: 1px solid #a6a6a6;border-left: 1px solid #a6a6a6 "
+                                    scope="col">View More</td>
+                            </thead>
+                            <tbody id="admin-tbody" class="application-row">
+                                {% for item in applications %}
+					             <tr>
+						          <td>{{item.application_no}}</td>
+						          <td>{{item.applied_post}}</td>
+						          <td>{{item.applied_date}}</td>
+						          <td>{{item.applied_department}}</td>
+                                  <td></td>
+                                 </tr>
+					            {% endfor %}
+                                <!-- <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>hi</td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
                     {% endif %}
                 </div>
             </div>
