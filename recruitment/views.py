@@ -134,7 +134,10 @@ def generate_pdf(request,application_number, *args, **kwargs):
             pdf = render_to_pdf('recruitment/pdfTest.html', data)
             return HttpResponse(pdf, content_type='application/pdf')
     except:
-        return HttpResponseRedirect('/')
+        if request.user.is_anonymous:
+            return HttpResponseRedirect('/')
+        else: 
+            return HttpResponseRedirect('/accounts/profile')
     
 
 # def mail(request):
