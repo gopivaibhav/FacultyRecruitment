@@ -130,12 +130,12 @@ from .utils import render_to_pdf  # created in step 4
 
 def generate_pdf(request,application_number, *args, **kwargs):
     # application_number = "2021-12-06009"; # for testing purpose
-    # try:
-    #     if request.user.is_anonymous:
-    #         return HttpResponseRedirect('/')
-    #     elif General.objects.filter(applicant=application_number)[0].email != request.user.email:
-    #         return HttpResponseRedirect('/accounts/profile')
-    #     else:
+    try:
+        if request.user.is_anonymous:
+            return HttpResponseRedirect('/')
+        elif General.objects.filter(applicant=application_number)[0].email != request.user.email:
+            return HttpResponseRedirect('/accounts/profile')
+        else:
             data = {
                 'applicant_data': {
                     'application_number': (application_number).strip(),
@@ -242,11 +242,11 @@ def generate_pdf(request,application_number, *args, **kwargs):
 
             pdf = render_to_pdf('recruitment/pdfTest.html', data)
             return HttpResponse(pdf, content_type='application/pdf')
-    # except:
-    #     if request.user.is_anonymous:
-    #         return HttpResponseRedirect('/')
-    #     else: 
-    #         return HttpResponseRedirect('/accounts/profile')
+    except:
+        if request.user.is_anonymous:
+            return HttpResponseRedirect('/')
+        else: 
+            return HttpResponseRedirect('/accounts/profile')
     
 
 # def mail(request):
