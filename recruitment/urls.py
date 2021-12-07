@@ -12,6 +12,7 @@ urlpatterns = [
                 path('accounts/login/', views.loginPage, name="login-user"),
                 path('export_csv', views.export_csv, name="export-csv"),
                 path('viewApplication/<str:application_number>',views.generate_pdf, name="viewApplication"),
+                # path('testAppli/<str:application_number>',views.checkPdf, name="testAppli"), #for development
                 path('applications',views.viewApplications, name="applications"),
                 # path('mail_admin/', views.mail, name="mail"),
             ]
