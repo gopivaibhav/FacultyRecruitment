@@ -11,7 +11,7 @@ urlpatterns = [
                 path('admin/user/<str:application_number>',views.viewMore,name="View More"),
                 path('accounts/login/', views.loginPage, name="login-user"),
                 path('export_csv', views.export_csv, name="export-csv"),
-                path('viewApplication',views.generate_pdf, name="viewApplication"),
+                path('viewApplication/<str:application_number>',views.generate_pdf, name="viewApplication"),
                 path('applications',views.viewApplications, name="applications"),
                 # path('mail_admin/', views.mail, name="mail"),
             ]
