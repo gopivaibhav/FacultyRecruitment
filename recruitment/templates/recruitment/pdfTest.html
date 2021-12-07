@@ -232,35 +232,35 @@
             </td>
         </tr>
         <tr class="grey_cells">
-            <td colspan="4">Exam/Degree</td>
-            <td colspan="4">Name of Board / College</td>
+            <td colspan="5">Exam/Degree</td>
+            <td colspan="5">Name of Board / College</td>
             <td colspan="4">Grade/ Marks</td>
-            <td colspan="4">Subjects</td>
-            <td colspan="4">Year of Passing</td>
-            <td colspan="4">Supporting Document</td>
+            <td colspan="5">Subjects</td>
+            <td colspan="5">Year of Passing</td>
+            <!-- <td colspan="4">Supporting Document</td> -->
         </tr>
         {% for item in AcademicDetails %}
         <tr>
-            <td colspan="4">
+            <td colspan="5">
                 {{item.degree}}
             </td>
-            <td colspan="4">
+            <td colspan="5">
                 {{item.name}}
             </td>
             <td colspan="4">
                 {{item.obtained}} ({{item.marks}})
             </td>
-            <td colspan="4">
+            <td colspan="5">
                 {{item.subjects}}
             </td>
-            <td colspan="4">
+            <td colspan="5">
                 {{item.year_of_passing}}
             </td>
-            <td colspan="4">
+            <!-- <td colspan="4">
                 <a href={{item.supporting_documents.url}} target="_blank">
                     <font class="document_link">Link</font>
                 </a>
-            </td>
+            </td> -->
         </tr>
         {% endfor %}
     </table>
@@ -282,25 +282,25 @@
         </tr>
 
         <tr class="grey_cells">
-            <td colspan="4" style="font-size: 13px;">
+            <td colspan="6" style="font-size: 13px;">
                 Name of Employer/ Status of Institute/ University ( Govt./ Quasi
                 Govt./ Autonomous etc. )
             </td>
-            <td colspan="4">Post held/ Designation</td>
+            <td colspan="6">Post held/ Designation</td>
             <td colspan="4">Period Of Employment (From and To)</td>
             <td colspan="4">Basic Salary</td>
             <td colspan="4">Nature of Duty</td>
-            <td colspan="4">Supporting Documents</td>
+            <!-- <td colspan="4">Supporting Documents</td> -->
         </tr>
         {% for item in ProfessionalDetails %}
         <tr>
-            <td colspan="4">{{item.name}}</td>
-            <td colspan="4">{{item.post}}</td>
-            <td colspan="4">{{item.from_year}}</td>
-            <td colspan="4">{{item.to_year}}</td>
-            <td colspan="2">{{item.salary}}</td>
-            <td colspan="2">{{item.nature}}</td>
-            {% if item.name == "N/A" %}
+            <td colspan="6">{{item.name}}</td>
+            <td colspan="6">{{item.post}}</td>
+            <td colspan="2">{{item.from_year}}</td>
+            <td colspan="2">{{item.to_year}}</td>
+            <td colspan="4">{{item.salary}}</td>
+            <td colspan="4">{{item.nature}}</td>
+            <!-- {% if item.name == "N/A" %}
             <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
             {% else %}
             <td colspan="4" style="overflow-wrap: anywhere;">
@@ -308,7 +308,7 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %}
+            {% endif %} -->
         </tr>
         {% endfor %}
         <tr>
@@ -316,17 +316,17 @@
         </tr>
 
         <tr class="grey_cells">
-            <td colspan="6">From</td>
-            <td colspan="6">To</td>
-            <td colspan="6">Numbers of Months</td>
-            <td colspan="6">Supporting Documents</td>
+            <td colspan="8">From</td>
+            <td colspan="8">To</td>
+            <td colspan="8">Numbers of Months</td>
+            <!-- <td colspan="6">Supporting Documents</td> -->
         </tr>
         {% for item in ResearchExperienceDetails %}
         <tr>
-            <td colspan="6">{{item.From}}</td>
-            <td colspan="6">{{item.to}}</td>
-            <td colspan="6">{{item.number_of_months}}</td>
-            {% if item.From == "N/A" %}
+            <td colspan="8">{{item.From}}</td>
+            <td colspan="8">{{item.to}}</td>
+            <td colspan="8">{{item.number_of_months}}</td>
+            <!-- {% if item.From == "N/A" %}
             <td colspan="6">{{item.supporting_documents}}</td>
             {% else %}
             <td colspan="6">
@@ -334,7 +334,7 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %}
+            {% endif %} -->
         </tr>
         {% endfor %}
     </table>
@@ -356,22 +356,22 @@
         </tr>
 
         <tr class="grey_cells">
-            <td colspan="4">Title of the Book(s)</td>
-            <td colspan="4">Whether First Author or Co-author</td>
-            <td colspan="4">Name of Publisher (with city/ country)</td>
-            <td colspan="4">Month & year of publication</td>
+            <td colspan="5">Title of the Book(s)</td>
+            <td colspan="5">Whether First Author or Co-author</td>
+            <td colspan="5">Name of Publisher (with city/ country)</td>
+            <td colspan="5">Month & year of publication</td>
             <td colspan="4">ISBN/ISSN No.</td>
-            <td colspan="4">Supporting Documents</td>
+            <!-- <td colspan="4">Supporting Documents</td> -->
         </tr>
 
         {% for item in BooksDetails %}
         <tr>
-            <td colspan="4">{{item.title}}</td>
-            <td colspan="4">{{item.author}}</td>
-            <td colspan="4">{{item.publisher}}</td>
-            <td colspan="4" style="min-inline-size: 5em;">{{item.date_publish}}</td>
+            <td colspan="5">{{item.title}}</td>
+            <td colspan="5">{{item.author}}</td>
+            <td colspan="5">{{item.publisher}}</td>
+            <td colspan="5" style="min-inline-size: 5em;">{{item.date_publish}}</td>
             <td colspan="4">{{item.isbn}}</td>
-            {% if item.title == "N/A" %}
+            <!-- {% if item.title == "N/A" %}
             <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
             {% else %}
             <td colspan="4" style="overflow-wrap: anywhere;">
@@ -379,7 +379,7 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %}
+            {% endif %} -->
 
         </tr>
         {% endfor %}
@@ -391,32 +391,32 @@
         </tr>
 
         <tr class="grey_cells">
-            <td colspan="6">Title of the Chapter(s)</td>
-            <td colspan="6">Title of the Book(s)</td>
-            <td colspan="6">Whether First Author or Co-author</td>
-            <td colspan="6">Name of Publisher (with city/ country)</td>
+            <td colspan="8">Title of the Chapter(s)</td>
+            <td colspan="8">Title of the Book(s)</td>
+            <td colspan="8">Whether First Author or Co-author</td>
         </tr>
 
         {% for item in ChaptersDetails %}
         <tr>
-            <td colspan="6">{{item.book_title}}</td>
-            <td colspan="6">{{item.chapter}}</td>
-            <td colspan="6">{{item.author}}</td>
-            <td colspan="6">{{item.publisher}}</td>
+            <td colspan="8">{{item.chapter}}</td>
+            <td colspan="8">{{item.book_title}}</td>
+            <td colspan="8">{{item.author}}</td>
         </tr>
         {% endfor %}
 
         <tr class="grey_cells">
+            <td colspan="8">Name of Publisher (with city/ country)</td>
             <td colspan="8">Month & year of publication</td>
             <td colspan="8">ISBN/ ISSN No.</td>
-            <td colspan="8">Supporting Documents</td>
+            <!-- <td colspan="8">Supporting Documents</td> -->
         </tr>
 
         {% for item in ChaptersDetails %}
         <tr>
+            <td colspan="8">{{item.publisher}}</td>
             <td colspan="8" style="min-inline-size: 5em;">{{item.date_of_publisher}}</td>
             <td colspan="8">{{item.isbn_issn}}</td>
-            {% if item.book_title == "N/A" %}
+            <!-- {% if item.book_title == "N/A" %}
             <td colspan="8" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
             {% else %}
             <td colspan="8" style="overflow-wrap: anywhere;">
@@ -424,7 +424,7 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %}
+            {% endif %} -->
 
         </tr>
         {% endfor %}
@@ -451,18 +451,18 @@
         {% endfor %}
 
         <tr class="grey_cells">
-            <td colspan="6">Volume no. & Page nos.</td>
-            <td colspan="6">Whether Referred/Non-referred</td>
-            <td colspan="6">Impact Factor</td>
-            <td colspan="6">Supporting Documents</td>
+            <td colspan="8">Volume no. & Page nos.</td>
+            <td colspan="8">Whether Referred/Non-referred</td>
+            <td colspan="8">Impact Factor</td>
+            <!-- <td colspan="6">Supporting Documents</td> -->
         </tr>
 
         {% for item in NewspapersArticlesDetails %}
         <tr>
-            <td colspan="6">{{item.vol_no}}</td>
-            <td colspan="6">{{item.referred}}</td>
-            <td colspan="6">{{item.naas}}</td>
-            {% if item.article_title == "N/A" %}
+            <td colspan="8">{{item.vol_no}}</td>
+            <td colspan="8">{{item.referred}}</td>
+            <td colspan="8">{{item.naas}}</td>
+            <!-- {% if item.article_title == "N/A" %}
             <td colspan="6" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
             {% else %}
             <td colspan="6" style="overflow-wrap: anywhere;">
@@ -470,7 +470,7 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %}
+            {% endif %} -->
         </tr>
         {% endfor %}
 
@@ -483,22 +483,22 @@
         </tr>
 
         <tr class="grey_cells">
-            <td colspan="4">Title/Subject of paper presented</td>
-            <td colspan="4">Subject of Conference /Seminar/Symposium/ Workshop</td>
-            <td colspan="4">Organizing Institution & Name of City/Country</td>
-            <td colspan="4">Duration (From and To)</td>
+            <td colspan="5">Title/Subject of paper presented</td>
+            <td colspan="5">Subject of Conference /Seminar/Symposium/ Workshop</td>
+            <td colspan="5">Organizing Institution & Name of City/Country</td>
+            <td colspan="5">Duration (From and To)</td>
             <td colspan="4">Whether the proceedings published</td>
-            <td colspan="4">Supporting Documents</td>
+            <!-- <td colspan="4">Supporting Documents</td> -->
         </tr>
 
         {% for item in SeminarArticles %}
         <tr>
-            <td colspan="4">{{item.article_title}}</td>
-            <td colspan="4">{{item.seminar_subject}}</td>
-            <td colspan="4">{{item.location}}</td>
-            <td colspan="4">{{item.From}}</td>
+            <td colspan="5">{{item.article_title}}</td>
+            <td colspan="5">{{item.seminar_subject}}</td>
+            <td colspan="5">{{item.location}}</td>
+            <td colspan="5">{{item.From}}</td>
             <td colspan="4">{{item.published}}</td>
-            {% if item.article_title == "N/A" %}
+            <!-- {% if item.article_title == "N/A" %}
             <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
             {% else %}
             <td colspan="4" style="overflow-wrap: anywhere;">
@@ -506,7 +506,7 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %}
+            {% endif %} -->
         </tr>
         {% endfor %}
     </table>
@@ -549,8 +549,8 @@
         <tr>
             <td>Number of completed sponsored projects</td>
             <td>{{SponsoredProjects.spo_completed}}</td>
-            <td>File containing the list of sponsored projects</td>
-            <td>{{SponsoredProjects.spo_file}}</td>
+            <!-- <td>File containing the list of sponsored projects</td> -->
+            <!-- <td>{{SponsoredProjects.spo_file}}</td> -->
         </tr>
     </table>
     <div class="header-sub">
@@ -566,8 +566,8 @@
         <tr>
             <td>Number of completed experiments/ computational projects</td>
             <td>{{Experiments.exp_completed}}</td>
-            <td>File containing the list of experiments/ computational projects</td>
-            <td>{{Experiments.exp_file}}</td>
+            <!-- <td>File containing the list of experiments/ computational projects</td>
+            <td>{{Experiments.exp_file}}</td> -->
         </tr>
     </table>
     <div class="header-sub">
@@ -679,7 +679,7 @@
             <td>Place</td>
             <td>{{signed_data.place}}</td>
             <td rowspan="2">Signature</td>
-            <img src="{{signed_data.signature.path}}" >
+            <td rowspan="2"><img src="{{signed_data.signature.path}}" ></td>
         </tr>
         <tr>
             <td>Date</td>
