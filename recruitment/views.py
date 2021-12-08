@@ -246,7 +246,7 @@ def generate_pdf(request,application_number, *args, **kwargs):
         if request.user.is_anonymous:
             return HttpResponseRedirect('/')
         else: 
-            return HttpResponseRedirect('/accounts/profile')
+            return render(request, 'recruitment/profile.html', {"messages":["No access to view other applications"]})
     
 
 # def mail(request):
