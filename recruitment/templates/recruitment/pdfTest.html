@@ -66,86 +66,91 @@
     </style>
 </head>
 
-<body>
+<body">
     <table>
         <tr>
             <td colspan="4" style="padding-bottom: 5px;"><img class="image-size"
                     src="https://iiitl.ac.in/wp-content/uploads/2019/10/Final_Logo_IIITL.png" alt="IIITL_LOGO"
                     srcset=""></td>
-            <td colspan="8" style=" font-family: 'Poppins';color: gray; text-align: right;"><span
+            <td colspan="8" style=" font-family: 'Poppins';color: black; text-align: right;"><span
                     style="font-size: 18px;">Indian Institute of Information Technology, Lucknow</span>
                 <br><span style="font-size: 10px;">(An Institute of National Importance by the Act of
                     Parliament)</span>
             </td>
         </tr>
     </table>
-    <table>
+    <table style="margin-top: 40px;">
 
         <tr style="padding-bottom: 5px;"><td style="text-align: center;font-size: 18px; " >Application Form</td></tr>
     </table>
     <div class="header">Section A (Applicant Details)</div>
     <table id="customers">
         <tr>
-            <td style="background-color: #e7e7e7;">Application no</td>
-            <td>{{applicant_data.application_number}}</td>
-            <td style="background-color: #e7e7e7;">Post</td>
-            <td>{{applicant_data.post}}</td>
+            <td style="background-color: #e7e7e7;" colspan="4">Application no</td>
+            <td colspan="4">{{applicant_data.application_number}}</td>
+            <td colspan="8" rowspan="3" style="text-align: center;"><img src="{{applicant_data.profile_photo.path}}"></td>
         </tr>
         <tr class="alternate_grey_cells">
-            <td style="background-color: #e7e7e7;">Department/School</td>
-            <td>{{applicant_data.department}}</td>
-            <td style="background-color: #e7e7e7;">Research Domain</td>
-            <td>{{applicant_data.reserach_domain}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Full Name</td>
+            <td colspan="4">{{general_data.full_name}}</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: #e7e7e7;">Email ID</td>
+            <td  colspan="4">{{general_data.email}}</td>
         </tr>
         <tr class="alternate_grey_cells">
-            <td style="background-color: #e7e7e7;">Full Name</td>
-            <td>{{general_data.full_name}}</td>
-            <td style="background-color: #e7e7e7;">Date of Birth</td>
-            <td>{{general_data.DOB}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Department/School</td>
+            <td colspan="4">{{applicant_data.department}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Research Domain</td>
+            <td colspan="4">{{applicant_data.reserach_domain}}</td>
         </tr>
         <tr class="alternate_grey_cells">
-            <td style="background-color: #e7e7e7;">Father's Name</td>
-            <td>{{general_data.father_name}}</td>
-            <td style="background-color: #e7e7e7;">Mailing Address</td>
-            <td>{{general_data.address_mail}}</td>
+            <td style="background-color: #e7e7e7;" colspan="4">Post</td>
+            <td colspan="4">{{applicant_data.post}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Date of Birth</td>
+            <td colspan="4">{{general_data.DOB}}</td>
+            
         </tr>
         <tr class="alternate_grey_cells">
-            <td style="background-color: #e7e7e7;">Permanent Address</td>
-            <td>{{general_data.address_perm}}</td>
-            <td style="background-color: #e7e7e7;">Mailing Pincode</td>
-            <td>{{general_data.pin_mail}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Father's Name</td>
+            <td colspan="4">{{general_data.father_name}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Mailing Pincode</td>
+            <td colspan="4">{{general_data.pin_mail}}</td>
+            
         </tr>
         <tr class="alternate_grey_cells">
-            <td style="background-color: #e7e7e7;">Permanent Pincode</td>
-            <td>{{general_data.pin_perm}}</td>
-            <td style="background-color: #e7e7e7;">Mailing Telephone</td>
-            <td>{{general_data.telephone_mail}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Permanent Address</td>
+            <td colspan="4">{{general_data.address_perm}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Mailing Address</td>
+            <td colspan="4">{{general_data.address_mail}}</td>
+            
         </tr>
         <tr class="alternate_grey_cells">
-            <td style="background-color: #e7e7e7;">Permanent Telephone</td>
-            <td>{{general_data.telephone_perm}}</td>
-            <td style="background-color: #e7e7e7;">State of Domicile</td>
-            <td>{{general_data.state}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Permanent Pincode</td>
+            <td colspan="4">{{general_data.pin_perm}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Mailing Telephone</td>
+            <td colspan="4">{{general_data.telephone_mail}}</td>
+            
         </tr>
         <tr class="alternate_grey_cells">
-            <td style="background-color: #e7e7e7;">Nationality</td>
-            <td>{{general_data.nationality}}</td>
-            <td style="background-color: #e7e7e7;">Mobile No.</td>
-            <td>{{general_data.mobile_number}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Permanent Telephone</td>
+            <td colspan="4">{{general_data.telephone_perm}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">State of Domicile</td>
+            <td colspan="4">{{general_data.state}}</td>
+            
         </tr>
         <tr class="alternate_grey_cells">
-            <td style="background-color: #e7e7e7;">Gender</td>
-            <td>{{general_data.gender}}</td>
-            <td style="background-color: #e7e7e7;">Email ID</td>
-            <td>{{general_data.email}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Nationality</td>
+            <td colspan="4">{{general_data.nationality}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Mobile No.</td>
+            <td colspan="4">{{general_data.mobile_number}}</td>
+            
         </tr>
         <tr class="alternate_grey_cells">
-            <td style="background-color: #e7e7e7;">Reservation Status (with Certificate)</td>
-            <td>{{general_data.reservation}}</td>
-        </tr>
-        <tr class="alternate_grey_cells">
-            <td style="background-color: #e7e7e7;">Profile photo</td>
-            <td><img src="{{applicant_data.profile_photo.path}}" >  </td>
+            <td colspan="4" style="background-color: #e7e7e7;">Gender</td>
+            <td colspan="4">{{general_data.gender}}</td>
+            <td colspan="4" style="background-color: #e7e7e7;">Reservation Status (with Certificate)</td>
+            <td colspan="4">{{general_data.reservation}}</td>
         </tr>
     </table>
     <br />
@@ -286,8 +291,8 @@
                 Name of Employer/ Status of Institute/ University ( Govt./ Quasi
                 Govt./ Autonomous etc. )
             </td>
-            <td colspan="6">Post held/ Designation</td>
-            <td colspan="4">Period Of Employment (From and To)</td>
+            <td colspan="4">Post held/ Designation</td>
+            <td colspan="6">Period Of Employment (From and To)</td>
             <td colspan="4">Basic Salary</td>
             <td colspan="4">Nature of Duty</td>
             <!-- <td colspan="4">Supporting Documents</td> -->
@@ -295,9 +300,9 @@
         {% for item in ProfessionalDetails %}
         <tr>
             <td colspan="6">{{item.name}}</td>
-            <td colspan="6">{{item.post}}</td>
-            <td colspan="2">{{item.from_year}}</td>
-            <td colspan="2">{{item.to_year}}</td>
+            <td colspan="4">{{item.post}}</td>
+            <td colspan="3">{{item.from_year}}</td>
+            <td colspan="3">{{item.to_year}}</td>
             <td colspan="4">{{item.salary}}</td>
             <td colspan="4">{{item.nature}}</td>
             <!-- {% if item.name == "N/A" %}
@@ -519,11 +524,11 @@
     </div>
     <table id="customers">
         <tr>
-            <td>Number of Ongoing PhDs</td>
+            <td style="background-color: #e7e7e7;">Number of Ongoing PhDs</td>
             <td>{{thesis_data.ongoing_phd}}</td>
         </tr>
         <tr>
-            <td>Number of Completed PhDs</td>
+            <td style="background-color: #e7e7e7;">Number of Completed PhDs</td>
             <td>{{thesis_data.completed_phd}}</td>
         </tr>
     </table>
@@ -532,7 +537,7 @@
     </div>
     <table id="customers">
         <tr>
-            <td>Enter the details of Administrative Positions held in the past 5 years</td>
+            <td style="background-color: #e7e7e7;">Enter the details of Administrative Positions held in the past 5 years</td>
             <td>{{administrative_details_data.administrative_details}}</td>
         </tr>
     </table>
@@ -541,13 +546,13 @@
     </div>
     <table id="customers">
         <tr>
-            <td>Total number of sponsored projects</td>
+            <td style="background-color: #e7e7e7;">Total number of sponsored projects</td>
             <td>{{SponsoredProjects.spo_tot_number}}</td>
-            <td>Number of ongoing sponsored projects</td>
+            <td style="background-color: #e7e7e7;">Number of ongoing sponsored projects</td>
             <td>{{SponsoredProjects.spo_ongoing}}</td>
         </tr>
         <tr>
-            <td>Number of completed sponsored projects</td>
+            <td style="background-color: #e7e7e7;">Number of completed sponsored projects</td>
             <td>{{SponsoredProjects.spo_completed}}</td>
             <!-- <td>File containing the list of sponsored projects</td> -->
             <!-- <td>{{SponsoredProjects.spo_file}}</td> -->
@@ -558,13 +563,13 @@
     </div>
     <table id="customers">
         <tr>
-            <td>Total number of experiments/ computational projects</td>
+            <td  style="background-color: #e7e7e7;">Total number of experiments/ computational projects</td>
             <td>{{Experiments.exp_tot_number}}</td>
-            <td>Number of ongoing experiments/ computational projects</td>
+            <td  style="background-color: #e7e7e7;">Number of ongoing experiments/ computational projects</td>
             <td>{{Experiments.exp_ongoing}}</td>
         </tr>
         <tr>
-            <td>Number of completed experiments/ computational projects</td>
+            <td  style="background-color: #e7e7e7;">Number of completed experiments/ computational projects</td>
             <td>{{Experiments.exp_completed}}</td>
             <!-- <td>File containing the list of experiments/ computational projects</td>
             <td>{{Experiments.exp_file}}</td> -->
@@ -575,7 +580,7 @@
     </div>
     <table id="customers">
         <tr>
-            <td>Please enter patent details, if any:</td>
+            <td  style="background-color: #e7e7e7;">Please enter patent details, if any:</td>
             <td>{{Patent.patent_details}}</td>
         </tr>
     </table>
@@ -584,46 +589,49 @@
     </div>
     <table id="customers">
         <tr>
-            <td>Ph.D Defence Date</td>
+            <td  style="background-color: #e7e7e7;">Ph.D Defence Date</td>
             <td>{{Summary.defence_date}}</td>
-            <td>Total Experience (in years)</td>
+            
+        </tr>
+        <tr>
+            <td  style="background-color: #e7e7e7;">Total Experience (in years)</td>
             <td>{{Summary.total_exp}}</td>
         </tr>
     </table>
     <table id="customers" style="margin-bottom: 50px;">
         <tr>
-            <td>Experience (Post PhD)</td>
+            <td  style="background-color: #e7e7e7;">Experience (Post PhD)</td>
             <td>{{Summary.exp_post_phd}}</td>
         </tr>
         <tr>
-            <td>Total Ph.D Students Supervised (Degree Awarded)</td>
+            <td  style="background-color: #e7e7e7;">Total Ph.D Students Supervised (Degree Awarded)</td>
             <td>{{Summary.total_phd_students}}</td>
 
         </tr>
         <tr>
-            <td>Total Ongoing Ph.D Supervision</td>
+            <td  style="background-color: #e7e7e7;">Total Ongoing Ph.D Supervision</td>
             <td>{{Summary.ongoing_phd_supervision}}</td>
 
         </tr>
         <tr>
-            <td>Total number of sponsored projects (Ongoing + Completed)</td>
+            <td  style="background-color: #e7e7e7;">Total number of sponsored projects (Ongoing + Completed)</td>
             <td>{{Summary.total_projects}}</td>
 
         </tr>
         <tr>
-            <td>Number of ongoing sponsored projects</td>
+            <td  style="background-color: #e7e7e7;">Number of ongoing sponsored projects</td>
             <td>{{Summary.ongoing_projects}}</td>
         </tr>
         <tr>
-            <td>Total number of experiments/ computational projects</td>
+            <td  style="background-color: #e7e7e7;">Total number of experiments/ computational projects</td>
             <td>{{Summary.computational_projects}}</td>
         </tr>
         <tr>
-            <td>Total Number of Publications in SCI / ABDC Journals</td>
+            <td  style="background-color: #e7e7e7;">Total Number of Publications in SCI / ABDC Journals</td>
             <td>{{Summary.SCI_journal}}</td>
         </tr>
         <tr>
-            <td>Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
+            <td  style="background-color: #e7e7e7;">Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
             <td>{{Summary.SCI_journal_post_phd}}</td>
         </tr>
     </table>
@@ -633,40 +641,40 @@
     </div>
     <table id="customers">
         <tr>
-            <td>Membership/Fellowship of other institutions/professionals societies:</td>
+            <td  style="background-color: #e7e7e7;">Membership/Fellowship of other institutions/professionals societies:</td>
             <td>{{otherinformation_data.membership}}</td>
         </tr>
         <tr>
-            <td>Other activities/Responsibilities</td>
+            <td  style="background-color: #e7e7e7;">Other activities/Responsibilities</td>
             <td>{{otherinformation_data.responsibilities}}</td>
 
         </tr>
         <tr>
-            <td>Any other relevant information, if not given above</td>
+            <td  style="background-color: #e7e7e7;">Any other relevant information, if not given above</td>
             <td>{{otherinformation_data.Any_other_relevant_information}}</td>
 
         </tr>
         <tr>
-            <td>Has there been any break in your academic career ? If so, give details</td>
+            <td  style="background-color: #e7e7e7;">Has there been any break in your academic career ? If so, give details</td>
             <td>{{otherinformation_data.academic_year_break}}</td>
 
         </tr>
         <tr>
-            <td>Were you at any time declared medically unfit or asked to submit your resignation or discharged or
+            <td  style="background-color: #e7e7e7;">Were you at any time declared medically unfit or asked to submit your resignation or discharged or
                 dismissed?
                 If yes, give details in a separate sheet.</td>
             <td>{{otherinformation_data.unfit_for_position}}</td>
         </tr>
         <tr>
-            <td>Name and Address of First Reference</td>
+            <td  style="background-color: #e7e7e7;">Name and Address of First Reference</td>
             <td>{{otherinformation_data.reference1}}</td>
         </tr>
         <tr>
-            <td>Name and Address of Second Reference</td>
+            <td  style="background-color: #e7e7e7;">Name and Address of Second Reference</td>
             <td>{{otherinformation_data.reference2}}</td>
         </tr>
         <tr>
-            <td>Name and Address of Third Reference</td>
+            <td  style="background-color: #e7e7e7;">Name and Address of Third Reference</td>
             <td>{{otherinformation_data.reference3}}</td>
         </tr>
     </table>
@@ -676,13 +684,13 @@
     </div>
     <table id="customers">
         <tr>
-            <td>Place</td>
+            <td  style="background-color: #e7e7e7;">Place</td>
             <td>{{signed_data.place}}</td>
-            <td rowspan="2">Signature</td>
+            <td rowspan="2"  style="background-color: #e7e7e7;">Signature</td>
             <td rowspan="2"><img src="{{signed_data.signature.path}}" ></td>
         </tr>
         <tr>
-            <td>Date</td>
+            <td  style="background-color: #e7e7e7;">Date</td>
             <td>{{signed_data.date}}</td>
         </tr>
     </table>
