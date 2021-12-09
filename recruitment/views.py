@@ -361,15 +361,7 @@ def export_csv(request):
     for i in list(Applicant.objects.all()):
         applicant_data = []
         print()
-        if(General.objects.filter(applicant=i).exists() == False or PhD.objects.filter(applicant=i).exists() == False or PhDOngoing.objects.filter(applicant=i).exists()== False or ThesisSubmitted.objects.filter(applicant=i).exists()== False):
-            continue
-        elif(PhDAwarded.objects.filter(applicant=i) == False or EducationalQualifications.objects.filter(applicant=i).exists() == False or EmploymentExp.objects.filter(applicant=i) == False):
-            continue
-        elif(ResearchExp.objects.filter(applicant=i).exists() == False or Books.objects.filter(applicant=i).exists() == False or Chapters.objects.filter(applicant=i).exists() == False):
-            continue
-        elif(NewspaperArticle.objects.filter(applicant=i).exists() == False or SeminarArticles.objects.filter(applicant=i).exists() == False or Thesis.objects.filter(applicant=i).exists() == False or AdministrativeDetails.objects.filter(applicant=i).exists() == False):
-            continue
-        elif(SponsoredProject.objects.filter(applicant=i).exists() == False or Experiments.objects.filter(applicant=i).exists() == False or Patent.objects.filter(applicant=i).exists() == False or Summary.objects.filter(applicant=i).exists() == False or OtherInfo.objects.filter(applicant=i).exists() == False or Declaration.objects.filter(applicant=i).exists() == False):
+        if(General.objects.filter(applicant=i).exists() == False or SponsoredProject.objects.filter(applicant=i).exists() == False):
             continue
         else:
             applicant_data += [i.application_no,
