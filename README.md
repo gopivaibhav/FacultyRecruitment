@@ -10,3 +10,4 @@ python3 -m venv venv # Creating the virtual environment
 pip install -r requirements.txt # Install the requirements
 python manage.py runserver # To run the development server 
 ```
+https://apply.iiitl.ac.in
