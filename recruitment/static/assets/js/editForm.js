@@ -192,6 +192,7 @@ $(document).ready(function () {
     var newAcademicsNo = 2;
     $('.add-more-phd1').on('click touchstart', function (e) {
         e.preventDefault();
+        
         var newIn3 = '<tr id="ongoing1">' +
             '<td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-title" id="ongoing' + newAcademicsNo + '-title" style="margin: 0; background-color: transparent; border:none;"placeholder="Ph.D Title"></td>' +
             '<td class="col-3"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="ongoing' + newAcademicsNo + '-domain" id="ongoing' + newAcademicsNo + '-domain" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Broad Research Domain of Ph.D"></td>' +
@@ -314,64 +315,55 @@ $(document).ready(function () {
 
 ////////////////   table 1  section B   (Other Educational Qualifications)  ///////////////
 
-$(document).ready(function () {
-    var newAcademicsNo = 1;
-    var EquivalentOptions = [
-        '<option value="Masters">Masters</option>',
-        '<option value="Bachelors">Bachelors</option>',
-        '<option value="Class 12th">Class 12th</option><option value="Diploma">Diploma</option>',
-        '<option value="Class 10th">Class 10th</option>'
-    ]
-    for (var ii = 0; ii < 4; ii += 1) {
-        var newIn = '<tr class="appliRows' + newAcademicsNo + '" id="field1"> <td class="col-1" style="text-align: center; padding: 0;">' +
-            '<input type="text" name="course' + newAcademicsNo + '" id="course' + newAcademicsNo + '" onchange="reqField(event)" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" ></td>' +
-            '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">' +
-            '<select name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">' +
-            // '<option value="" disabled selected>Select Any Options</option>'+
-            EquivalentOptions[3 - ii] +
-            '</select></td>' +
-            '<td class="col-1" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  ></td><td class="col-2" style="text-align: center; padding: 0;">' +
-            '<select onchange="modeFirst(event)" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none; inline-size:auto;" placeholder="Select Mode" ><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
-            '<input readonly onchange="reqField(event), marksValidation(event)" type="number" step=".01" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" value=""  style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" ></td>' +
-            '<td class="col-2" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" ></td><td class="col-1" style="text-align: center; padding: 0; font-size: xx-small;">' +
-            '<select onchange="reqField(event)" style="inline-size: auto; " name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '"  ></select></td><td class="col-2" style="display:flex;place-content:space-between">' +
-            '<span style="overflow:hidden;align-self:center" ><input onchange="reqField(event)"  style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" accept=".pdf"  name="course' + newAcademicsNo + '-file"></span>' +
-            '</td></tr>';
-        $('.academic-tbody').append(newIn);
+// $(document).ready(function () {
+//     var newAcademicsNo = 1;
+//     var EquivalentOptions = [
+//         '<option value="Masters">Masters</option>',
+//         '<option value="Bachelors">Bachelors</option>',
+//         '<option value="Class 12th">Class 12th</option><option value="Diploma">Diploma</option>',
+//         '<option value="Class 10th">Class 10th</option>'
+//     ]
+//     for (var ii = 0; ii < 4; ii += 1) {
+//         var newIn = '<tr class="appliRows' + newAcademicsNo + '" id="field1"> <td class="col-1" style="text-align: center; padding: 0;">' +
+//             '<input type="text" name="course' + newAcademicsNo + '" id="course' + newAcademicsNo + '" onchange="reqField(event)" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Enter Course" ></td>' +
+//             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;">' +
+//             '<select name="course' + newAcademicsNo + '-equivalent" id="course' + newAcademicsNo + '-equivalent" style="inline-size: auto;">' +
+//             // '<option value="" disabled selected>Select Any Options</option>'+
+//             EquivalentOptions[3 - ii] +
+//             '</select></td>' +
+//             '<td class="col-1" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course' + newAcademicsNo + '-name" id="course' + newAcademicsNo + '-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University"  ></td><td class="col-2" style="text-align: center; padding: 0;">' +
+//             '<select onchange="modeFirst(event)" name="course' + newAcademicsNo + '-percentage" id="course' + newAcademicsNo + '-percentage" style="margin: 0; background-color: transparent; border:none; inline-size:auto;" placeholder="Select Mode" ><option value="" selected disabled>Select Mode</option><option value="Percentage"> Percentage </option><option value="CGPA out of 10"> CGPA out of 10 </option><option value="GPA out of 5"> GPA out of 5 </option></select></td><td class="col-1" style="text-align: center; padding: 0;">' +
+//             '<input readonly onchange="reqField(event), marksValidation(event)" type="number" step=".01" name="course' + newAcademicsNo + '-obtained" id="course' + newAcademicsNo + '-obtained" value=""  style="margin: 0; background-color: transparent; border:none;" placeholder="Obtained" ></td>' +
+//             '<td class="col-2" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course' + newAcademicsNo + '-subject" id="course' + newAcademicsNo + '-subject" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Subject(s)" ></td><td class="col-1" style="text-align: center; padding: 0; font-size: xx-small;">' +
+//             '<select onchange="reqField(event)" style="inline-size: auto; " name="yearOfPassing' + newAcademicsNo + '" id="yearOfPassing' + newAcademicsNo + '"  ></select></td><td class="col-2" style="display:flex;place-content:space-between">' +
+//             '<span style="overflow:hidden;align-self:center" ><input onchange="reqField(event)"  style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" accept=".pdf"  name="course' + newAcademicsNo + '-file"></span>' +
+//             '</td></tr>';
+//         $('.academic-tbody').append(newIn);
 
-        $("form input").keydown(function (e) {
-            if (e.keyCode === 13) {
-                e.preventDefault();
-                return false;
-            }
-        });
+//         $("form input").keydown(function (e) {
+//             if (e.keyCode === 13) {
+//                 e.preventDefault();
+//                 return false;
+//             }
+//         });
 
-        // console.log("hvgvcvdgcvdvcgdvc");
-        var yearId = 'yearOfPassing' + parseInt(newAcademicsNo);
-        var ele = document.getElementById(yearId);
-        // console.log(ele);
-        var presYear = new Date();
-        for (let i = presYear.getFullYear(); i >= 1950; i--) {
-            // console.log(i);
-            var op = document.createElement('option');
-            op.value = i;
-            op.textContent = i;
-            op.disabled
-            ele.appendChild(op);
-            // ele.innerHTML += '<option value=' + i + '>' + i + '</option>\n'
-        }
-        newAcademicsNo += 1;
-    }
-
-    for (var ii = 1; ii < 4; ii++) {
-        // var option = document.querySelectorAll('.academic-tbody option')[4*ii + ii];
-        // var option = document.querySelectorAll(`#course${ii+1}-equivalent option`)[ii];
-        // option.selected="true";
-        // document.querySelectorAll(`.appliRows${ii + 1} input`).forEach(i => { i.required = false });
-        // document.querySelectorAll(`.appliRows${ii + 1} select`).forEach(i => { i.required = false });
-        // console.log(option);
-    }
-});
+//         // console.log("hvgvcvdgcvdvcgdvc");
+//         var yearId = 'yearOfPassing' + parseInt(newAcademicsNo);
+//         var ele = document.getElementById(yearId);
+//         // console.log(ele);
+//         var presYear = new Date();
+//         for (let i = presYear.getFullYear(); i >= 1950; i--) {
+//             // console.log(i);
+//             var op = document.createElement('option');
+//             op.value = i;
+//             op.textContent = i;
+//             op.disabled
+//             ele.appendChild(op);
+//             // ele.innerHTML += '<option value=' + i + '>' + i + '</option>\n'
+//         }
+//         newAcademicsNo += 1;
+//     }
+// });
 
 
 $(document).ready(function () {

@@ -114,7 +114,7 @@
                 <!--	Congratulatory Message	-->
                 <!--	Start of form	-->
                 <form method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data"
-                    onsubmit="return confirm('Do you really want to Submit?');">
+                onsubmit="handleformsubmit(event)">
                     {% csrf_token %}
 
                     <!--	Initial Data	-->
@@ -152,7 +152,7 @@
                                                 <h3>Post Applied for<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium">
-                                                <select name="AppPost" id="AppPost" required>
+                                                <select name="AppPost" id="AppPost" >
                                                     <option value="" selected disabled> - None - </option>
                                                     <option value="Professor">Professor</option>
                                                     <option value="Associate Professor">Associate Professor</option>
@@ -175,7 +175,7 @@
                                                 <h3>Department/School<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium" style="margin-bottom: 4%;">
-                                                <select name="Dept" id="Dept" required>
+                                                <select name="Dept" id="Dept" >
                                                     <option value="" selected disabled> - None - </option>
                                                     <option value="CSE / IT">CSE / IT</option>
                                                     <option value="Mathematics">Mathematics</option>
@@ -191,7 +191,7 @@
                                             <div class="col-6 col-12-medium">
                                                 <textarea name="research_domain" id="research_domain"
                                                     placeholder="Specific Subject Area's Description" rows="3"
-                                                    required></textarea>
+                                                    ></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -203,7 +203,7 @@
                                             src="{% static 'images/profilepic.png' %}"
                                             style="max-width: 100%; max-height: 100%; border-radius: 5vh;" />
                                         <div><input id="imageUpload" type="file" style="font-size: small;"
-                                                name="profile_photo" accept=".png, .jpeg, .jpg" required>
+                                                name="profile_photo" accept=".png, .jpeg, .jpg" >
                                             <label for="imageUpload" style="text-align:center">
                                                 <font class="asterisk">*</font>&nbsp;(Upload Profile Picture)<font
                                                     class="image-upload-size"><br>Size Limit: 250KB<br>Format: JPG,
@@ -233,7 +233,7 @@
                                     <div class="col-2 col-4-small">
                                         <select name="saluation" id="saluation"
                                             style="padding:0;text-align-last:center;padding-right:50%"
-                                            placeholder="Gender" title="Gender" required>
+                                            placeholder="Gender" title="Gender" >
                                             <option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.
                                             </option>
                                             <option value="Mr. " style="text-align-last: center;">&nbsp;&nbsp; Mr.
@@ -246,14 +246,14 @@
                                     </div>
                                     <div class="col-4 col-8-small">
                                         <input style="text-transform: uppercase;" type="text" name="name" id="name"
-                                            value="" placeholder="Full Name" required>
+                                            value="" placeholder="Full Name" >
                                     </div>
                                     <div class="col-4 col-12-small" style="align-self:left;">
                                         <h3>Date of Birth<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-5 col-12-small">
                                         <input type="date" onchange="setYOP(event)" name="dateofbirth" id="dateofbirth" class="dateofbirth"
-                                            required>
+                                            >
                                     </div>
 
                                     <div class="col-4 col-12-small" style="align-self:left;">
@@ -261,7 +261,7 @@
                                     </div>
                                     <div class="col-5 col-12-small">
                                         <input style="text-transform: uppercase;" type="text" name="fathername"
-                                            id="fathername" value="" placeholder="Father's Name" required>
+                                            id="fathername" value="" placeholder="Father's Name" >
                                     </div>
                                 </div>
                             </div>
@@ -290,7 +290,7 @@
                                             <div class="col-7 col-12-small">
                                                 <textarea name="mailingaddress" id="mailingaddress"
                                                     placeholder="Enter Your Address For Mailing" rows="3"
-                                                    required></textarea>
+                                                    ></textarea>
                                             </div>
                                             <div class="col-5 col-12-small"
                                                 style="text-align:center;padding-top: 2rem;">
@@ -301,7 +301,7 @@
                                                     name="mailingpincode" id="mailingpincode" value=""
                                                     placeholder="Pin Code"
                                                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                    required>
+                                                    >
                                             </div>
                                             <div class="col-5 col-12-small" style="text-align:center;">
                                                 <h3>Telephone No. (With STD Code)</h3>
@@ -337,7 +337,7 @@
                                                 <div class="col-7 col-12-small">
                                                     <textarea name="permanentaddress" id="permanentaddress"
                                                         placeholder="Enter Your Permanent Address" rows="3"
-                                                        required></textarea>
+                                                        ></textarea>
                                                 </div>
                                                 <div class="col-5 col-12-small"
                                                     style="text-align:center;padding-top: 2rem;">
@@ -347,7 +347,7 @@
                                                     <input type="number" pattern="[0-9]{6}" minlength="6" maxlength="6"
                                                         name="permanentpincode" id="permanentpincode" value=""
                                                         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                        placeholder="Pin Code" required>
+                                                        placeholder="Pin Code" >
                                                 </div>
                                                 <div class="col-5 col-12-small" style="text-align:center;">
                                                     <h3>Telephone No. (With STD Code)</h3>
@@ -384,12 +384,12 @@
                                     <div class="col-1 col-3-small" style="font-size:small;">
                                         <input type="number"  minlength="3" maxlength="3" name="mobilecode" id="mobilecode"
 
-                                            style="padding:0;text-align: center;" value="" placeholder="+91" required
+                                            style="padding:0;text-align: center;" value="" placeholder="+91" 
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                     </div>
                                     <div class="col-3 col-9-small" style="font-size:small;">
                                         <input type="number" pattern="[0-9]{10}" minlength="10" maxlength="10"
-                                            name="mobile" id="mobile" value="" placeholder="Mobile No." required
+                                            name="mobile" id="mobile" value="" placeholder="Mobile No." 
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                     </div>
                                     <div class="col-2 col-12-small" style="text-align:center;">
@@ -409,7 +409,7 @@
                                     </div>
                                     <div class="col-4 col-8-small" style="align-self: center;font-size: small;">
                                         <input class="form-check-input" type="radio" name="gender" id="inlineRadio1"
-                                            value="Male" required>
+                                            value="Male" >
                                         <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                             for="inlineRadio1"> Male</label>
                                         <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
@@ -426,7 +426,7 @@
                                     </div>
                                     <div class="col-4 col-12-small">
                                         <select name="maritalstatus" id="maritalstatus" placeholder="Marital Status"
-                                            title="Category" required>
+                                            title="Category" >
                                             <option value="" selected disabled>Status</option>
                                             <option value="Married"> Married </option>
                                             <option value="Unmarried"> Unmarried </option>
@@ -439,7 +439,7 @@
                                     </div>
                                     <div class="col-4 col-12-small" style="font-size:small;">
                                         <input type="text" name="nationality" id="nationality" value=""
-                                            placeholder="Nationality" required>
+                                            placeholder="Nationality" >
                                     </div>
 
                                     <div class="col-2 col-12-small" style="text-align:center;">
@@ -447,7 +447,7 @@
                                     </div>
                                     <div class="col-4 col-12-small">
                                         <select name="domicile_state" id="domicile_state" placeholder="Marital Status"
-                                            title="Category" required>
+                                            title="Category" >
                                             <option value="" selected disabled>Select State</option>
                                             <option value="Andhra Pradesh">Andhra Pradesh</option>
                                             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands
@@ -495,7 +495,7 @@
                                     </div>
                                     <div class="col-4 col-7-xsmall">
                                         <select name="category" id="category" placeholder="Category" title="Category"
-                                            required>
+                                            >
                                             <option value="" selected disabled>Select Category</option>
                                             <option value="General"> General </option>
                                             <option value="SC"> SC </option>
@@ -518,7 +518,7 @@
                                     </div>
                                     <div class="col-1 col-2-small" style="align-self: center;font-size: small;">
                                         <input class="form-check-input" type="radio" onclick="changeReservation(event)"
-                                            name="reservation" id="Radio1" value="Yes" required>
+                                            name="reservation" id="Radio1" value="Yes" >
                                         <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                             for="Radio1">Yes</label>
                                         <input class="form-check-input" type="radio" onclick="changeReservation2(event)"
@@ -586,7 +586,7 @@
 
                                         <div class="col-5 col-7-small">
                                             <input class="form-check-input" type="radio" name="phd" id="phdongoing"
-                                                value="Ongoing" onclick="ongoingRadio(event)" required>
+                                                value="Ongoing" onclick="ongoingRadio(event)" >
                                             <label class="form-check-label" for="phdongoing"
                                                 style="margin-right: 1rem;">Ongoing &nbsp;</label>
                                             <input class="form-check-input" type="radio" name="phd" id="phdthesissub"
@@ -1450,7 +1450,7 @@
                                                         class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="ongoing_phd" id="ongoing_phd" required>
+                                                <input type="number" name="ongoing_phd" id="ongoing_phd" >
                                             </div>
                                         </div>
                                     </div>
@@ -1463,7 +1463,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="completed_phd" id="completed_phd" required>
+                                                <input type="number" name="completed_phd" id="completed_phd" >
                                             </div>
                                         </div>
                                     </div>
@@ -1483,7 +1483,7 @@
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <textarea name="administrative_details" id="administrative_details"
-                                                    cols="3" rows="3" required></textarea>
+                                                    cols="3" rows="3" ></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -1505,7 +1505,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_completed" id="spo_completed" required
+                                                <input type="number" name="spo_completed" id="spo_completed" 
                                                 onchange= "sponsored_input() , setValSpoOngoing(event)">
                                             </div>
                                         </div>
@@ -1519,7 +1519,7 @@
                                                         class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_ongoing" id="spo_ongoing" required
+                                                <input type="number" name="spo_ongoing" id="spo_ongoing" 
                                                     onchange=" sponsored_input() , setValSpoOngoing(event)">
                                             </div>
                                         </div>
@@ -1538,7 +1538,7 @@
                                             <div class="col-8 col-12-medium">
                                                 <input type="number"
                                                     onchange="sponsored_input(), setValueSpoProject(event)" value="" readonly="true"
-                                                    name="spo_tot_number" id="spo_tot_number" required>
+                                                    name="spo_tot_number" id="spo_tot_number" >
                                             </div>
                                         </div>
                                     </div>
@@ -1577,7 +1577,7 @@
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="number" name="exp_completed" id="exp_completed"
-                                                onchange="experiments_input(event), setValCompProject(event)" required>
+                                                onchange="experiments_input(event), setValCompProject(event)" >
                                             </div>
                                         </div>
 
@@ -1592,7 +1592,7 @@
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="number" name="exp_ongoing" id="exp_ongoing" 
-                                                onchange="experiments_input(event), setValCompProject(event)" required>
+                                                onchange="experiments_input(event), setValCompProject(event)" >
                                             </div>
                                         </div>
                                     </div>
@@ -1610,7 +1610,7 @@
                                             <div class="col-8 col-12-medium">
                                                 <input type="number"
                                                     onchange="experiments_input(event), setValCompProject(event)"
-                                                    value="" name="exp_tot_number" id="exp_tot_number" readonly="true" required>
+                                                    value="" name="exp_tot_number" id="exp_tot_number" readonly="true" >
                                             </div>
                                         </div>
                                     </div>
@@ -1648,7 +1648,7 @@
                                     </div>
                                     <div class="col-8 col-12-medium">
                                         <textarea name="patent_details" id="patent_details" cols="30" rows="3"
-                                            required></textarea>
+                                            ></textarea>
                                     </div>
                                 </div>
 
@@ -1683,7 +1683,7 @@
 
                                             <div class="col-8 col-12-medium">
                                                 <input type="number" name="tot_exp" id="tot_exp"
-                                                    placeholder="Total Experience (eg: 3.5)" required step=".01">
+                                                    placeholder="Total Experience (eg: 3.5)"  step=".01">
                                             </div>
                                         </div>
                                     </div>
@@ -1698,7 +1698,7 @@
                                             </div>
                                             <div class="col-8 col-12-medium">
                                                 <input type="number" name="exp_post_phd" id="exp_post_phd"
-                                                    placeholder="Experience (Post PhD) in Years (eg: 3.5)" required step=".01">
+                                                    placeholder="Experience (Post PhD) in Years (eg: 3.5)"  step=".01">
                                             </div>
                                         </div>
                                     </div>
@@ -1712,7 +1712,7 @@
 
                                     <div class="col-8 col-12-medium">
                                         <input type="number" name="total_phd_students" id="total_phd_students"
-                                            placeholder="Total Ph.D Students Supervised (Degree Awarded)" required>
+                                            placeholder="Total Ph.D Students Supervised (Degree Awarded)" >
                                     </div>
 
                                 </div><br>
@@ -1724,7 +1724,7 @@
 
                                     <div class="col-8 col-12-medium">
                                         <input type="number" name="ongoing_phd_supervision" id="ongoing_phd_supervision"
-                                            placeholder="Total Ongoing Ph.D Supervision" required>
+                                            placeholder="Total Ongoing Ph.D Supervision" >
                                     </div>
 
                                 </div><br>
@@ -1737,7 +1737,7 @@
                                     <div class="col-8 col-12-medium">
                                         <input type="number" name="total_projects" id="total_projects"
                                             placeholder="Total number of sponsored projects (Ongoing + Completed)"
-                                            required value="" readonly>
+                                             value="" readonly>
                                     </div>
 
                                 </div><br>
@@ -1749,7 +1749,7 @@
 
                                     <div class="col-8 col-12-medium">
                                         <input type="text" name="ongoing_projects" id="ongoing_projects"
-                                            placeholder="Number of ongoing sponsored projects" required value=""
+                                            placeholder="Number of ongoing sponsored projects"  value=""
                                             readonly>
                                     </div>
 
@@ -1764,7 +1764,7 @@
 
                                     <div class="col-8 col-12-medium">
                                         <input type="text" name="computational_projects" id="computational_projects"
-                                            placeholder="Total number of experiments/ computational projects" required
+                                            placeholder="Total number of experiments/ computational projects" 
                                             readonly="true" value="">
                                     </div>
 
@@ -1779,7 +1779,7 @@
 
                                     <div class="col-8 col-12-medium">
                                         <input type="number" name="SCI_journal" id="SCI_journal"
-                                            placeholder="Total Number of Publications in SCI / ABDC Journals" required>
+                                            placeholder="Total Number of Publications in SCI / ABDC Journals" >
                                     </div>
 
                                 </div>
@@ -1794,7 +1794,7 @@
                                     <div class="col-8 col-12-medium">
                                         <input type="number" name="SCI_journal_post_phd" id="SCI_journal_post_phd"
                                             placeholder="Total Number of Publications in SCI / ABDC Journals (Post PhD)"
-                                            required>
+                                            >
                                     </div>
 
                                 </div>
@@ -1824,7 +1824,7 @@
                                     <div class="col-8 col-12-medium">
                                         <textarea name="miscTa1" id="miscTa1"
                                             placeholder="Membership/Fellowship of other institutions/professionals societies"
-                                            rows="3" required></textarea>
+                                            rows="3" ></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <h4>2. Other activities/Responsibilities<font class="asterisk">*</font>&nbsp; :
@@ -1833,7 +1833,7 @@
                                     <div class="col-8 col-12-medium">
                                         <textarea name="miscTa2" id="miscTa2"
                                             placeholder="Other activities/Responsibilities" rows="3"
-                                            required></textarea>
+                                            ></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <h4>3. Any other relevant information, if not given above<font class="asterisk">
@@ -1842,7 +1842,7 @@
                                     <div class="col-8 col-12-medium">
                                         <textarea name="miscTa3" id="miscTa3"
                                             placeholder="Any other relevant information, if not given above" rows="3"
-                                            required></textarea>
+                                            ></textarea>
                                     </div>
 
                                     <div class="col-4 col-12-medium">
@@ -1853,14 +1853,14 @@
                                     <div class="col-8 col-12-medium">
                                         <textarea name="miscTa4" id="miscTa4"
                                             placeholder="Has there been any break in your academic career ?" rows="3"
-                                            required></textarea>
+                                            ></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <h4>5. Awards and Recoginition<font class="asterisk">*</font>&nbsp; :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
                                         <textarea name="miscTa5" id="miscTa5" placeholder="Awards and Recoginition"
-                                            rows="3" required></textarea>
+                                            rows="3" ></textarea>
                                     </div>
 
                                     <div class="col-4 col-12-medium">
@@ -1870,7 +1870,7 @@
                                     <div class="col-8 col-12-medium">
                                         <textarea name="miscTa6" id="miscTa6"
                                             placeholder="Have you been punished during your services or convicted by a court of law ?"
-                                            rows="3" required></textarea>
+                                            rows="3" ></textarea>
                                     </div>
 
                                     <div class="col-4 col-12-medium">
@@ -1881,7 +1881,7 @@
                                     <div class="col-8 col-12-medium">
                                         <textarea name="miscTa7" id="miscTa7"
                                             placeholder="Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed ? If yes, give details in a separate sheet"
-                                            rows="3" required></textarea>
+                                            rows="3" ></textarea>
                                     </div>
 
                                     <div class="col-6 col-12-medium">
@@ -1892,17 +1892,17 @@
                                     <div class="col-4 col-12-medium">
                                         <textarea name="miscTa8" id="miscTa8"
                                             placeholder="Name and Addresses of First References" rows="3"
-                                            onchange="references(event)" required></textarea>
+                                            onchange="references(event)" ></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <textarea name="miscTa9" id="miscTa9"
                                             placeholder="Name and Addresses of Second References" rows="3"
-                                            onchange="references(event)" required></textarea>
+                                            onchange="references(event)" ></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
                                         <textarea name="miscTa10" id="miscTa10"
                                             placeholder="Name and Addresses of Third References" rows="3"
-                                            onchange="references(event)" required></textarea>
+                                            onchange="references(event)" ></textarea>
                                     </div>
 
                                     <!-- PAYMENT RECEIPT -->
@@ -1917,7 +1917,7 @@
                                     <div class="col-4 col-6-medium col-7-small"
                                         style="align-self: center;overflow-x:hidden;padding-top:0;">
                                         <input type="file" name="receipt" id="receipt" accept=".pdf" style="font-size: small;"
-                                            required><br>
+                                            ><br>
                                         <label style="margin-top: 0.5em;" for="receipt">
                                             <font class="size-limit">Size Limit: 250KB</font>
                                             <font class="document-format">(File Format: PDF)</font>
@@ -1933,7 +1933,7 @@
                                     <div class="col-12">
                                         <h5>
                                             <input type="checkbox" class="custom-control-input" id="declaration"
-                                                required>
+                                                >
                                             <label class="custom-control-label" for="declaration">I hereby declare that
                                                 the information given by me in the Application is true, complete and
                                                 correct to the best of my knowledge and belief and that nothing has been
@@ -1951,7 +1951,7 @@
                                             </div>
                                             <div class="col-4 col-6-medium col-7-small">
                                                 <input style="text-transform: uppercase;" type="text" name="signPlace"
-                                                    id="place" value="" placeholder="Place" required>
+                                                    id="place" value="" placeholder="Place" >
                                             </div>
                                             <div class="col-2 col-1-small"></div>
                                             <div class="col-1 col-4-medium">
@@ -1971,7 +1971,7 @@
                                             </div>
                                             <div class="col-4 col-6-medium col-7-small">
                                                 <input id="resumeUpload" type="file" style="font-size: small;"
-                                                    name="resumeUpload" placeholder="Resume" accept=".pdf" required>
+                                                    name="resumeUpload" placeholder="Resume" accept=".pdf" >
                                                 <label for="resumeUpload" style="text-align:center">(Upload Resume)<font
                                                         class="image-upload-size"><br>Size Limit: 250KB<br>File Format:
                                                         PDF</font></label>
@@ -1988,7 +1988,7 @@
                                                 <input id="signUpload" type="file"
                                                     style="font-size: small;display:block;margin-left:2.5em;"
                                                     name="signUpload" placeholder="Signature" accept=".png, .jpeg, .jpg"
-                                                    required>
+                                                    >
                                                 <label for="signUpload" style="text-align:center">(Upload
                                                     Signatures)<font class="image-upload-size"><br>Size Limit:
                                                         250KB<br>Format: JPG, JPEG, PNG</font></label>
@@ -2001,6 +2001,7 @@
                     </section>
                     <div class="flexi-center">
                         <button id="submitform" class="button small primary" type="submit">Submit</button>
+                        <button onclick="()=>handleSaveDraft()" class="button small primary">Save As draft</button>
                     </div>
                 </form>
                 {% elif user.is_superuser == 1 %}
@@ -2285,7 +2286,18 @@
 
         }
 
-
+        const handleSaveDraft = () => {
+            console.log("draft is clicked!");
+            // remove req
+            // submit form
+            document.getElementById('main-form').submit();
+            // add req
+        }
+        const handleformsubmit = (e) => {
+            // e.preventDefault();
+            // console.log("HERE", e.target);
+            return confirm('Do you really want to Submit?');
+        }        
 
 
 
