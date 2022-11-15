@@ -152,7 +152,7 @@
                                                 <h3>Post Applied for<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium">
-                                                <select name="AppPost" id="AppPost" >
+                                                <select class="requiredToggleSad"  name="AppPost" id="AppPost" >
                                                     <option value="" selected disabled> - None - </option>
                                                     <option value="Professor">Professor</option>
                                                     <option value="Associate Professor">Associate Professor</option>
@@ -175,7 +175,7 @@
                                                 <h3>Department/School<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium" style="margin-bottom: 4%;">
-                                                <select name="Dept" id="Dept" >
+                                                <select class="requiredToggleSad"  name="Dept" id="Dept" >
                                                     <option value="" selected disabled> - None - </option>
                                                     <option value="CSE / IT">CSE / IT</option>
                                                     <option value="Mathematics">Mathematics</option>
@@ -189,7 +189,7 @@
                                                 <h3>Research Domain<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-6 col-12-medium">
-                                                <textarea name="research_domain" id="research_domain"
+                                                <textarea class="requiredToggleSad"  name="research_domain" id="research_domain"
                                                     placeholder="Specific Subject Area's Description" rows="3"
                                                     ></textarea>
                                             </div>
@@ -202,7 +202,7 @@
                                         <image id="profileImage" class="img-fluid mx-auto"
                                             src="{% static 'images/profilepic.png' %}"
                                             style="max-width: 100%; max-height: 100%; border-radius: 5vh;" />
-                                        <div><input id="imageUpload" type="file" style="font-size: small;"
+                                        <div><input class="requiredToggleSad"  id="imageUpload" type="file" style="font-size: small;"
                                                 name="profile_photo" accept=".png, .jpeg, .jpg" >
                                             <label for="imageUpload" style="text-align:center">
                                                 <font class="asterisk">*</font>&nbsp;(Upload Profile Picture)<font
@@ -231,7 +231,7 @@
                                         <h3>Full Name<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-2 col-4-small">
-                                        <select name="saluation" id="saluation"
+                                        <select class="requiredToggleSad"  name="saluation" id="saluation"
                                             style="padding:0;text-align-last:center;padding-right:50%"
                                             placeholder="Gender" title="Gender" >
                                             <option value="Dr. " style="text-align-last: center;">&nbsp;&nbsp; Dr.
@@ -245,14 +245,14 @@
                                         </select>
                                     </div>
                                     <div class="col-4 col-8-small">
-                                        <input style="text-transform: uppercase;" type="text" name="name" id="name"
+                                        <input class="requiredToggleSad"  style="text-transform: uppercase;" type="text" name="name" id="name"
                                             value="" placeholder="Full Name" >
                                     </div>
                                     <div class="col-4 col-12-small" style="align-self:left;">
                                         <h3>Date of Birth<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-5 col-12-small">
-                                        <input type="date" onchange="setYOP(event)" name="dateofbirth" id="dateofbirth" class="dateofbirth"
+                                        <input class="requiredToggleSad"  type="date" onchange="setYOP(event)" name="dateofbirth" id="dateofbirth" class="dateofbirth"
                                             >
                                     </div>
 
@@ -260,7 +260,7 @@
                                         <h3>Father's Name<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-5 col-12-small">
-                                        <input style="text-transform: uppercase;" type="text" name="fathername"
+                                        <input class="requiredToggleSad"  style="text-transform: uppercase;" type="text" name="fathername"
                                             id="fathername" value="" placeholder="Father's Name" >
                                     </div>
                                 </div>
@@ -288,7 +288,7 @@
                                                 <h3>Address<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <textarea name="mailingaddress" id="mailingaddress"
+                                                <textarea class="requiredToggleSad"  name="mailingaddress" id="mailingaddress"
                                                     placeholder="Enter Your Address For Mailing" rows="3"
                                                     ></textarea>
                                             </div>
@@ -297,7 +297,7 @@
                                                 <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" pattern="[0-9]{6}" minlength="6" maxlength="6"
+                                                <input class="requiredToggleSad"  type="number" pattern="[0-9]{6}" minlength="6" maxlength="6"
                                                     name="mailingpincode" id="mailingpincode" value=""
                                                     placeholder="Pin Code"
                                                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
@@ -307,13 +307,13 @@
                                                 <h3>Telephone No. (With STD Code)</h3>
                                             </div>
                                             <div class="col-7 col-12-small">
-                                                <input type="number" pattern="[0-9]{11}" minlength="11" maxlength="11"
+                                                <input  type="number" pattern="[0-9]{11}" minlength="11" maxlength="11"
                                                     name="mailingtelephone" id="mailingtelephone" value=""
                                                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                     placeholder="Telephone No.">
                                             </div>
                                             <div class="col-12" style="text-align: center;padding-top: 10%;">
-                                                <input type="checkbox" onclick="sameAddress(event)"
+                                                <input  type="checkbox" onclick="sameAddress(event)"
                                                     class="custom-control-input" id="sameaddress">
                                                 <label class="custom-control-label" for="sameaddress">If your permanent
                                                     address is same as correspondence address, then please click
@@ -335,7 +335,7 @@
                                                     <h3>Address<font class="asterisk">*</font>&nbsp;:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <textarea name="permanentaddress" id="permanentaddress"
+                                                    <textarea class="requiredToggleSad"  name="permanentaddress" id="permanentaddress"
                                                         placeholder="Enter Your Permanent Address" rows="3"
                                                         ></textarea>
                                                 </div>
@@ -344,7 +344,7 @@
                                                     <h3>Pin Code<font class="asterisk">*</font>&nbsp;:</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="number" pattern="[0-9]{6}" minlength="6" maxlength="6"
+                                                    <input class="requiredToggleSad"  type="number" pattern="[0-9]{6}" minlength="6" maxlength="6"
                                                         name="permanentpincode" id="permanentpincode" value=""
                                                         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                         placeholder="Pin Code" >
@@ -353,7 +353,7 @@
                                                     <h3>Telephone No. (With STD Code)</h3>
                                                 </div>
                                                 <div class="col-7 col-12-small">
-                                                    <input type="number" name="permanenttelephone"
+                                                    <input   type="number" name="permanenttelephone"
                                                         id="permanenttelephone" pattern="[0-9]{11}" minlength="11"
                                                         maxlength="11" value="" placeholder="Telephone No."
                                                         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
@@ -382,13 +382,13 @@
                                         <h3>Mobile No.<font class="asterisk">*</font>&nbsp;</h3>
                                     </div>
                                     <div class="col-1 col-3-small" style="font-size:small;">
-                                        <input type="number"  minlength="3" maxlength="3" name="mobilecode" id="mobilecode"
+                                        <input class="requiredToggleSad"  type="number"  minlength="3" maxlength="3" name="mobilecode" id="mobilecode"
 
                                             style="padding:0;text-align: center;" value="" placeholder="+91" 
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                     </div>
                                     <div class="col-3 col-9-small" style="font-size:small;">
-                                        <input type="number" pattern="[0-9]{10}" minlength="10" maxlength="10"
+                                        <input class="requiredToggleSad"  type="number" pattern="[0-9]{10}" minlength="10" maxlength="10"
                                             name="mobile" id="mobile" value="" placeholder="Mobile No." 
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                     </div>
@@ -397,10 +397,10 @@
                                     </div>
                                     <div class="col-4 col-12-small" style="font-size:small;">
                                         {% if user.is_authenticated%}
-                                        <input type="email" name="email" id="email" value={{user.email}}
+                                        <input class="requiredToggleSad"  type="email" name="email" id="email" value={{user.email}}
                                             placeholder={{user.email}} readonly>
                                         {% else %}
-                                        <input type="email" name="email" id="email" value=""
+                                        <input class="requiredToggleSad"  type="email" name="email" id="email" value=""
                                             placeholder="Email Address">
                                         {% endif %}
                                     </div>
@@ -408,7 +408,7 @@
                                         <h3>Gender<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-4 col-8-small" style="align-self: center;font-size: small;">
-                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1"
+                                        <input class="requiredToggleSad"  class="form-check-input" type="radio" name="gender" id="inlineRadio1"
                                             value="Male" >
                                         <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                             for="inlineRadio1"> Male</label>
@@ -425,7 +425,7 @@
                                         <h3>Marital Status<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-4 col-12-small">
-                                        <select name="maritalstatus" id="maritalstatus" placeholder="Marital Status"
+                                        <select class="requiredToggleSad"  name="maritalstatus" id="maritalstatus" placeholder="Marital Status"
                                             title="Category" >
                                             <option value="" selected disabled>Status</option>
                                             <option value="Married"> Married </option>
@@ -438,7 +438,7 @@
                                         <h3>Nationality<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-4 col-12-small" style="font-size:small;">
-                                        <input type="text" name="nationality" id="nationality" value=""
+                                        <input class="requiredToggleSad"  type="text" name="nationality" id="nationality" value=""
                                             placeholder="Nationality" >
                                     </div>
 
@@ -446,7 +446,7 @@
                                         <h3>State of Domicile<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-4 col-12-small">
-                                        <select name="domicile_state" id="domicile_state" placeholder="Marital Status"
+                                        <select class="requiredToggleSad"  name="domicile_state" id="domicile_state" placeholder="Marital Status"
                                             title="Category" >
                                             <option value="" selected disabled>Select State</option>
                                             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -494,7 +494,7 @@
                                         <h3>Category<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-4 col-7-xsmall">
-                                        <select name="category" id="category" placeholder="Category" title="Category"
+                                        <select class="requiredToggleSad"  name="category" id="category" placeholder="Category" title="Category"
                                             >
                                             <option value="" selected disabled>Select Category</option>
                                             <option value="General"> General </option>
@@ -517,7 +517,7 @@
                                         <h3>Reservation Claimed<font class="asterisk">*</font>&nbsp;:</h3>
                                     </div>
                                     <div class="col-1 col-2-small" style="align-self: center;font-size: small;">
-                                        <input class="form-check-input" type="radio" onclick="changeReservation(event)"
+                                        <input class="requiredToggleSad"  class="form-check-input" type="radio" onclick="changeReservation(event)"
                                             name="reservation" id="Radio1" value="Yes" >
                                         <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                             for="Radio1">Yes</label>
@@ -528,7 +528,7 @@
                                     </div>
                                     <div class="col-3 col-6-small"
                                         style="align-self: center;text-align: center;font-size: small;overflow: hidden;padding-left: 1.8em;">
-                                        <input id="reservation_certificate" type="file" accept=".pdf" style="font-size: small;"
+                                        <input class="requiredToggleSad"  id="reservation_certificate" type="file" accept=".pdf" style="font-size: small;"
                                             name="reservation_certificate" disabled>
                                         <label for="reservation_certificate">(If Yes, Upload Certificate)<br>
                                             <font class="size-limit">Size Limit: 250KB
@@ -563,7 +563,7 @@
                                             value="No" >
                                         <label class="form-check-label" for="phdNo">No</label>
                                     </div> -->
-                                    <input type="text" id="awarded_phd" name="awarded_phd" value="" hidden>
+                                    <input class="requiredToggleSad"  type="text" id="awarded_phd" name="awarded_phd" value="" hidden>
                                 </div>
                                 <div class="table-wrapper">
                                     <!-- <br> -->
@@ -585,7 +585,7 @@
                                         </div>
 
                                         <div class="col-5 col-7-small">
-                                            <input class="form-check-input" type="radio" name="phd" id="phdongoing"
+                                            <input class="requiredToggleSad"  class="form-check-input" type="radio" name="phd" id="phdongoing"
                                                 value="Ongoing" onclick="ongoingRadio(event)" >
                                             <label class="form-check-label" for="phdongoing"
                                                 style="margin-right: 1rem;">Ongoing &nbsp;</label>
@@ -633,26 +633,26 @@
                                             <tr id="ongoing1">
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="ongoing1-title" id="ongoing1-title"
+                                                    <input class="requiredToggleSad"  type="text" name="ongoing1-title" id="ongoing1-title"
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Ph.D Title">
                                                 </td>
                                                 <td class="col-3"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="ongoing1-domain" id="ongoing1-domain"
+                                                    <input class="requiredToggleSad"  type="text" name="ongoing1-domain" id="ongoing1-domain"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Broad Research Domain of Ph.D">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
 
-                                                    <input type="text" name="ongoing1-institute" id="ongoing1-institute"
+                                                    <input class="requiredToggleSad"  type="text" name="ongoing1-institute" id="ongoing1-institute"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Institute Name">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="ongoing1-university"
+                                                    <input class="requiredToggleSad"  type="text" name="ongoing1-university"
                                                         id="ongoing1-university"
                                                         style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none"
                                                         placeholder="University Name">
@@ -709,42 +709,42 @@
                                             <tr id="thesis1">
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="thesis1-title" id="thesis1-title"
+                                                    <input class="requiredToggleSad"  type="text" name="thesis1-title" id="thesis1-title"
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Ph.D Title">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="thesis1-domain" id="thesis1-domain"
+                                                    <input class="requiredToggleSad"  type="text" name="thesis1-domain" id="thesis1-domain"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Broad Research Domain of Ph.D">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
 
-                                                    <input type="text" name="thesis1-institute" id="thesis1-institute"
+                                                    <input class="requiredToggleSad"  type="text" name="thesis1-institute" id="thesis1-institute"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Institute Name">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="thesis1-university" id="thesis1-university"
+                                                    <input class="requiredToggleSad"  type="text" name="thesis1-university" id="thesis1-university"
                                                         style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none"
                                                         placeholder="University Name">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="thesis1-regdate" id="thesis1-regdate"
+                                                    <input class="requiredToggleSad"  type="date" name="thesis1-regdate" id="thesis1-regdate"
                                                         style="border: 0; background: transparent;"
                                                         onchange="dateThesisAwardedFrom(event)">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="thesis1-subdate" id="thesis1-subdate"
+                                                    <input class="requiredToggleSad"  type="date" name="thesis1-subdate" id="thesis1-subdate"
                                                         style="border: 0; background: transparent;">
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
-                                                    <input type="file" name="thesis1-file" id="thesis1-file"
+                                                    <input class="requiredToggleSad"  type="file" name="thesis1-file" id="thesis1-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
                                             </tr>
@@ -790,43 +790,43 @@
                                             <tr>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="awarded1-title" id="awarded1-title"
+                                                    <input class="requiredToggleSad"  type="text" name="awarded1-title" id="awarded1-title"
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Ph.D Title">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="awarded1-domain" id="awarded1-domain"
+                                                    <input class="requiredToggleSad"  type="text" name="awarded1-domain" id="awarded1-domain"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Broad Research Domain of Ph.D">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="awarded1-institute" id="awarded1-institute"
+                                                    <input class="requiredToggleSad"  type="text" name="awarded1-institute" id="awarded1-institute"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Institute Name">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="awarded1-university"
+                                                    <input class="requiredToggleSad"  type="text" name="awarded1-university"
                                                         id="awarded1-university"
                                                         style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none"
                                                         placeholder="University Name">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="awarded1-regdate" id="awarded1-regdate"
+                                                    <input class="requiredToggleSad"  type="date" name="awarded1-regdate" id="awarded1-regdate"
                                                         style="border: 0; background: transparent;"
                                                         onchange="dateThesisAwardedFrom(event)">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="awarded1-defdate" id="awarded1-defdate"
+                                                    <input class="requiredToggleSad"  type="date" name="awarded1-defdate" id="awarded1-defdate"
                                                         style="border: 0; background: transparent;"
                                                         onchange="setDefDate(event)">
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
-                                                    <input type="file" name="awarded1-file" id="awarded1-file"
+                                                    <input class="requiredToggleSad"  type="file" name="awarded1-file" id="awarded1-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
                                             </tr>
@@ -933,13 +933,13 @@
                                             <tr id="field1">
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="org1-name" id="org1-name"
+                                                    <input class="requiredToggleSad"  type="text" name="org1-name" id="org1-name"
                                                         style="margin: 0; background-color: transparent; border:none; "
                                                         placeholder="Name of Employer/Status of Institute/University (Govt. /Quasi Govt./Autonomous etc.) ">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="org1-post" id="org1-post"
+                                                    <input class="requiredToggleSad"  type="text" name="org1-post" id="org1-post"
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Post held / Design">
                                                 </td>
@@ -949,14 +949,14 @@
                                                         style="inline-size: 14.2em;padding: 0.3em;">
                                                         <div class="col-2">From:</div>
                                                         <div class="col-10">
-                                                            <input type="date" name="org1-from" id="org1-from" value=""
+                                                            <input class="requiredToggleSad"  type="date" name="org1-from" id="org1-from" value=""
                                                                 onchange="dateOrgPaperFrom(event)"
                                                                 style="margin-bottom: 0.5rem;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
                                                                 placeholder="From">
                                                         </div>
                                                         <div class="col-2" style="padding-top: 0;">To:</div>
                                                         <div class="col-10" style="padding-top: 0;">
-                                                            <input type="date" name="org1-to" id="org1-to" value=""
+                                                            <input class="requiredToggleSad"  type="date" name="org1-to" id="org1-to" value=""
                                                                 style="margin: 0;width:95%;background-color: transparent;margin-left: 0.6rem;font-size: small;"
                                                                 placeholder="To">
                                                         </div>
@@ -964,18 +964,18 @@
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="org1-salary" id="org1-salary"
+                                                    <input class="requiredToggleSad"  type="text" name="org1-salary" id="org1-salary"
                                                         style="border: 0; background: transparent;"
                                                         placeholder="Basic Salary">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="text" name="org1-nature" id="org1-nature"
+                                                    <input class="requiredToggleSad"  type="text" name="org1-nature" id="org1-nature"
                                                         style="border: 0; background: transparent;"
                                                         placeholder="Nature of Duty">
                                                 </td>
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
-                                                    <input type="file" name="org1-file" id="org1-file"
+                                                    <input class="requiredToggleSad"  type="file" name="org1-file" id="org1-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
                                             </tr>
@@ -1021,23 +1021,23 @@
                                             </tr>
                                             <tr style="align-items:center;">
                                                 <td class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    <input type="date" name="exper1-from" id="exp1-from"
+                                                    <input class="requiredToggleSad"  type="date" name="exper1-from" id="exp1-from"
                                                         style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
                                                         placeholder="From " onchange="dateResearchFrom(event)">
                                                 </td>
                                                 <td class="col-2" style="text-align: center;vertical-align: middle;">
-                                                    <input type="date" name="exper1-to" id="exp1-to"
+                                                    <input class="requiredToggleSad"  type="date" name="exper1-to" id="exp1-to"
                                                         style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
                                                         placeholder="To">
                                                 </td>
                                                 <td class="col-3" style="text-align: center;vertical-align: middle;">
-                                                    <input type="number" name="exper1-months" id="exp1-months"
+                                                    <input class="requiredToggleSad"  type="number" name="exper1-months" id="exp1-months"
                                                         style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
                                                         placeholder="Number of Months" step=".01">
                                                 </td>
                                                 <td class="col-3"
                                                     style="text-align: center;vertical-align: middle; padding: 0;">
-                                                    <input type="file" style="font-size:x-small;" id="exper1-file" accept=".pdf"
+                                                    <input class="requiredToggleSad"  type="file" style="font-size:x-small;" id="exper1-file" accept=".pdf"
                                                         name="exper1-file">
                                                 </td>
                                             </tr>
@@ -1092,13 +1092,13 @@
                                             <tr id="field1">
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="books1-title" id="books1-title" value=""
+                                                    <input class="requiredToggleSad"  type="text" name="books1-title" id="books1-title" value=""
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Title of the Book">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <select name="books1-author" id="books1-author"
+                                                    <select class="requiredToggleSad"  name="books1-author" id="books1-author"
                                                         style="inline-size: auto;">
                                                         <option value="" disabled selected>Select Any Options</option>
                                                         <option value="First author">First Author</option>
@@ -1107,22 +1107,22 @@
                                                 </td>
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <textarea type="text" name="books1-publisher" id="books1-publisher"
+                                                    <textarea  class="requiredToggleSad"  type="text" name="books1-publisher" id="books1-publisher"
                                                         value="" style="margin: 0;" rows="2" placeholder=""></textarea>
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="date" name="books1-date" id="books1-date"
+                                                    <input class="requiredToggleSad"  type="date" name="books1-date" id="books1-date"
                                                         style="width:95%;background-color: transparent;margin-left: 0.3rem;">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="text" name="books1-number" id="books1-number" value=""
+                                                    <input class="requiredToggleSad"  type="text" name="books1-number" id="books1-number" value=""
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="ISBN/ISSN No.">
                                                 </td>
                                                 <td class="col-3" style="text-align: center;vertical-align: middle;">
-                                                    <input id="books1-file" type="file"
+                                                    <input class="requiredToggleSad"  id="books1-file" type="file"
                                                         style="font-size: x-small;text-align-last: left;" accept=".pdf"
                                                         name="books1-file">
                                                 </td>
@@ -1170,20 +1170,20 @@
                                             <tr id="field1">
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="chapters1-book_title"
+                                                    <input  class="requiredToggleSad"  type="text" name="chapters1-book_title"
                                                         id="chapters1-book_title"
                                                         style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
                                                         placeholder="Title of the Chapter(s) ">
                                                 </td>
-                                                <td class="col-1"
+                                                <td class="col-1" 
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="chapters1-chapter" id="chapters1-chapter"
+                                                    <input class="requiredToggleSad"  type="text" name="chapters1-chapter" id="chapters1-chapter"
                                                         style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none; "
                                                         placeholder="Title of the Title(s) ">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center;vertical-align: middle;padding:0;">
-                                                    <select name="chapters1-author" id="chapters1-author"
+                                                    <select class="requiredToggleSad"  name="chapters1-author" id="chapters1-author"
                                                         style="background-color: transparent; border:none;inline-size: auto;">
                                                         <option value="" disabled selected>Select Any Options</option>
                                                         <option value="First author">First Author</option>
@@ -1197,20 +1197,20 @@
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="date"
+                                                    <input class="requiredToggleSad"  type="date"
                                                         style="width:95%;background-color: transparent;margin-left: 0.3rem;"
                                                         name="chapters1-date_of_publisher"
                                                         id="chapters1-date_of_publisher">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="text" name="chapters1-number" id="chapters1-number"
+                                                    <input class="requiredToggleSad"  type="text" name="chapters1-number" id="chapters1-number"
                                                         style="border: 0; background: transparent;"
                                                         placeholder="ISBN/ISSN No.">
                                                 </td>
                                                 <td class="col-3"
                                                     style="text-align-last: center; padding: 0;vertical-align: middle;">
-                                                    <input type="file" name="chapters1-file" id="chapters1-file"
+                                                    <input class="requiredToggleSad"  type="file" name="chapters1-file" id="chapters1-file"
                                                     accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
                                                 </td>
                                             </tr>
@@ -1257,21 +1257,21 @@
                                             <tr id="field1">
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="news_articles1-article_title"
+                                                    <input class="requiredToggleSad"  type="text" name="news_articles1-article_title"
                                                         id="news_articles1-article_title"
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Title of research">
                                                 </td>
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="news_articles1-journal_name"
+                                                    <input class="requiredToggleSad"  type="text" name="news_articles1-journal_name"
                                                         id="news_articles1-journal_name"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Name of journal ">
                                                 </td>
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <select name="news_articles1-author" id="news_articles1-author"
+                                                    <select class="requiredToggleSad"  name="news_articles1-author" id="news_articles1-author"
                                                         style="background-color: transparent; border:none;inline-size: auto;">
                                                         <option value="" disabled selected>Select Any Options</option>
                                                         <option value="First Author">First Author</option>
@@ -1280,20 +1280,20 @@
                                                 </td>
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="date" name="news_articles1-date_published"
+                                                    <input class="requiredToggleSad"  type="date" name="news_articles1-date_published"
                                                         id="news_articles1-date_published"
                                                         style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="number" name="news_articles1-page"
+                                                    <input class="requiredToggleSad"  type="number" name="news_articles1-page"
                                                         id="news_articles1-page"
                                                         style="border: 0; background: transparent;"
                                                         placeholder="Volume no. & Page nos." step=".01">
                                                 </td>
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <select name="news_articles1-referred" id="news_articles1-referred"
+                                                    <select class="requiredToggleSad"  name="news_articles1-referred" id="news_articles1-referred"
                                                         style="background-color: transparent; border:none;">
                                                         <option value="SCI/SSCI/SCI(E)/ABDC">SCI/SSCI/SCI(E)/ABDC
                                                         </option>
@@ -1303,13 +1303,13 @@
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" style="border: 0; background: transparent;"
+                                                    <input class="requiredToggleSad"  type="text" style="border: 0; background: transparent;"
                                                         name="news_articles1-impact" id="news_articles1-impact"
                                                         placeholder="Impact Factor">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align-last: center; padding: 0;vertical-align: middle;">
-                                                    <input type="file" name="news_articles1-file"
+                                                    <input class="requiredToggleSad"  type="file" name="news_articles1-file"
                                                         id="news_articles1-file"
                                                         accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
                                                 </td>
@@ -1357,21 +1357,21 @@
                                             <tr id="field1">
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="semi_articles1-article_title"
+                                                    <input class="requiredToggleSad"  type="text" name="semi_articles1-article_title"
                                                         id="semi_articles1-article_title" value=""
                                                         style="margin: 0; background-color: transparent; border:none;min-inline-size: 12.5vw;"
                                                         placeholder="Title of research">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="semi_articles1-seminar_subject"
+                                                    <input class="requiredToggleSad"  type="text" name="semi_articles1-seminar_subject"
                                                         id="semi_articles1-seminar_subject" value=""
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Subject of Conference /Seminar/Symposium/ Workshop">
                                                 </td>
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="semi_articles1-location"
+                                                    <input class="requiredToggleSad"  type="text" name="semi_articles1-location"
                                                         id="semi_articles1-location" value=""
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Organizing Institution/and Name of City/Country">
@@ -1396,7 +1396,7 @@
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <select name="semi_articles1-published"
+                                                    <select class="requiredToggleSad"  name="semi_articles1-published"
                                                         id="semi_article1-published">
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
@@ -1404,7 +1404,7 @@
                                                 </td>
                                                 <td class="col-3"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input id="semi_article1-file" type="file" accept=".pdf"
+                                                    <input class="requiredToggleSad"  id="semi_article1-file" type="file" accept=".pdf"
                                                         style="font-size: x-small;" name="semi_articles1-file">
                                                 </td>
                                             </tr>
@@ -1505,7 +1505,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_completed" id="spo_completed" 
+                                                <input class="requiredToggleSad"  type="number" name="spo_completed" id="spo_completed" 
                                                 onchange= "sponsored_input() , setValSpoOngoing(event)">
                                             </div>
                                         </div>
@@ -1519,7 +1519,7 @@
                                                         class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="spo_ongoing" id="spo_ongoing" 
+                                                <input class="requiredToggleSad"  type="number" name="spo_ongoing" id="spo_ongoing" 
                                                     onchange=" sponsored_input() , setValSpoOngoing(event)">
                                             </div>
                                         </div>
@@ -1536,7 +1536,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number"
+                                                <input class="requiredToggleSad"  type="number"
                                                     onchange="sponsored_input(), setValueSpoProject(event)" value="" readonly="true"
                                                     name="spo_tot_number" id="spo_tot_number" >
                                             </div>
@@ -1551,7 +1551,7 @@
                                                 </h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="file" name="spofile" id="spofile" accept=".pdf" disabled><br>
+                                                <input  class="requiredToggleSad" type="file" name="spofile" id="spofile" accept=".pdf" disabled><br>
                                                 <label for="spofile">
                                                     <font class="size-limit">Size Limit: 250KB</font>
                                                     <font class="document-format">(File Format: PDF)</font>
@@ -1576,7 +1576,7 @@
                                                     computational projects<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="exp_completed" id="exp_completed"
+                                                <input class="requiredToggleSad"  type="number" name="exp_completed" id="exp_completed"
                                                 onchange="experiments_input(event), setValCompProject(event)" >
                                             </div>
                                         </div>
@@ -1591,7 +1591,7 @@
                                                     computational projects<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="exp_ongoing" id="exp_ongoing" 
+                                                <input class="requiredToggleSad"  type="number" name="exp_ongoing" id="exp_ongoing" 
                                                 onchange="experiments_input(event), setValCompProject(event)" >
                                             </div>
                                         </div>
@@ -1608,7 +1608,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number"
+                                                <input class="requiredToggleSad"  type="number"
                                                     onchange="experiments_input(event), setValCompProject(event)"
                                                     value="" name="exp_tot_number" id="exp_tot_number" readonly="true" >
                                             </div>
@@ -1623,7 +1623,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="file" name="expfile" id="expfile" accept=".pdf" disabled><br>
+                                                <input class="requiredToggleSad"  type="file" name="expfile" id="expfile" accept=".pdf" disabled><br>
                                                 <label for="expfile">
                                                     <font class="size-limit">Size Limit: 250KB</font>
                                                     <font class="document-format">(File Format: PDF)</font>
@@ -1647,7 +1647,7 @@
                                         </h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="patent_details" id="patent_details" cols="30" rows="3"
+                                        <textarea class="requiredToggleSad"  name="patent_details" id="patent_details" cols="30" rows="3"
                                             ></textarea>
                                     </div>
                                 </div>
@@ -1668,7 +1668,7 @@
                                                 <h5>i. Ph.D Defence Date<font class="asterisk">*</font>&nbsp;</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="date" name="phd_defence_date" id="phd_defence_date"
+                                                <input class="requiredToggleSad"  type="date" name="phd_defence_date" id="phd_defence_date"
                                                     value="" readonly>
                                             </div>
                                         </div>
@@ -1682,7 +1682,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="tot_exp" id="tot_exp"
+                                                <input class="requiredToggleSad"  type="number" name="tot_exp" id="tot_exp"
                                                     placeholder="Total Experience (eg: 3.5)"  step=".01">
                                             </div>
                                         </div>
@@ -1697,7 +1697,7 @@
                                                 <h5>iii. Experience<font class="asterisk">*</font>&nbsp; (Post PhD)</h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input type="number" name="exp_post_phd" id="exp_post_phd"
+                                                <input class="requiredToggleSad"  type="number" name="exp_post_phd" id="exp_post_phd"
                                                     placeholder="Experience (Post PhD) in Years (eg: 3.5)"  step=".01">
                                             </div>
                                         </div>
@@ -1711,7 +1711,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="number" name="total_phd_students" id="total_phd_students"
+                                        <input class="requiredToggleSad"  type="number" name="total_phd_students" id="total_phd_students"
                                             placeholder="Total Ph.D Students Supervised (Degree Awarded)" >
                                     </div>
 
@@ -1723,7 +1723,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="number" name="ongoing_phd_supervision" id="ongoing_phd_supervision"
+                                        <input class="requiredToggleSad"  type="number" name="ongoing_phd_supervision" id="ongoing_phd_supervision"
                                             placeholder="Total Ongoing Ph.D Supervision" >
                                     </div>
 
@@ -1735,7 +1735,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="number" name="total_projects" id="total_projects"
+                                        <input class="requiredToggleSad"  type="number" name="total_projects" id="total_projects"
                                             placeholder="Total number of sponsored projects (Ongoing + Completed)"
                                              value="" readonly>
                                     </div>
@@ -1748,7 +1748,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="ongoing_projects" id="ongoing_projects"
+                                        <input class="requiredToggleSad"  type="text" name="ongoing_projects" id="ongoing_projects"
                                             placeholder="Number of ongoing sponsored projects"  value=""
                                             readonly>
                                     </div>
@@ -1763,7 +1763,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="text" name="computational_projects" id="computational_projects"
+                                        <input class="requiredToggleSad"  type="text" name="computational_projects" id="computational_projects"
                                             placeholder="Total number of experiments/ computational projects" 
                                             readonly="true" value="">
                                     </div>
@@ -1778,7 +1778,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="number" name="SCI_journal" id="SCI_journal"
+                                        <input class="requiredToggleSad"  type="number" name="SCI_journal" id="SCI_journal"
                                             placeholder="Total Number of Publications in SCI / ABDC Journals" >
                                     </div>
 
@@ -1792,7 +1792,7 @@
                                     </div>
 
                                     <div class="col-8 col-12-medium">
-                                        <input type="number" name="SCI_journal_post_phd" id="SCI_journal_post_phd"
+                                        <input class="requiredToggleSad"  type="number" name="SCI_journal_post_phd" id="SCI_journal_post_phd"
                                             placeholder="Total Number of Publications in SCI / ABDC Journals (Post PhD)"
                                             >
                                     </div>
@@ -1822,7 +1822,7 @@
                                                 class="asterisk">*</font>&nbsp;:</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa1" id="miscTa1"
+                                        <textarea class="requiredToggleSad"  name="miscTa1" id="miscTa1"
                                             placeholder="Membership/Fellowship of other institutions/professionals societies"
                                             rows="3" ></textarea>
                                     </div>
@@ -1831,7 +1831,7 @@
                                         </h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa2" id="miscTa2"
+                                        <textarea class="requiredToggleSad"  name="miscTa2" id="miscTa2"
                                             placeholder="Other activities/Responsibilities" rows="3"
                                             ></textarea>
                                     </div>
@@ -1840,7 +1840,7 @@
                                                 *</font>&nbsp; :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa3" id="miscTa3"
+                                        <textarea class="requiredToggleSad"  name="miscTa3" id="miscTa3"
                                             placeholder="Any other relevant information, if not given above" rows="3"
                                             ></textarea>
                                     </div>
@@ -1851,7 +1851,7 @@
                                         </h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa4" id="miscTa4"
+                                        <textarea class="requiredToggleSad"  name="miscTa4" id="miscTa4"
                                             placeholder="Has there been any break in your academic career ?" rows="3"
                                             ></textarea>
                                     </div>
@@ -1859,7 +1859,7 @@
                                         <h4>5. Awards and Recoginition<font class="asterisk">*</font>&nbsp; :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa5" id="miscTa5" placeholder="Awards and Recoginition"
+                                        <textarea class="requiredToggleSad"  name="miscTa5" id="miscTa5" placeholder="Awards and Recoginition"
                                             rows="3" ></textarea>
                                     </div>
 
@@ -1868,7 +1868,7 @@
                                             law ? If so, give details.<font class="asterisk">*</font>&nbsp; :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa6" id="miscTa6"
+                                        <textarea class="requiredToggleSad"  name="miscTa6" id="miscTa6"
                                             placeholder="Have you been punished during your services or convicted by a court of law ?"
                                             rows="3" ></textarea>
                                     </div>
@@ -1879,7 +1879,7 @@
                                             sheet.<font class="asterisk">*</font>&nbsp; :</h4>
                                     </div>
                                     <div class="col-8 col-12-medium">
-                                        <textarea name="miscTa7" id="miscTa7"
+                                        <textarea class="requiredToggleSad"  name="miscTa7" id="miscTa7"
                                             placeholder="Were you at any time declared medically unfit or asked to submit your resignation or discharged or dismissed ? If yes, give details in a separate sheet"
                                             rows="3" ></textarea>
                                     </div>
@@ -1890,17 +1890,17 @@
                                     </div>
                                     <div class="col-4 hidden-medium"></div>
                                     <div class="col-4 col-12-medium">
-                                        <textarea name="miscTa8" id="miscTa8"
+                                        <textarea class="requiredToggleSad"  name="miscTa8" id="miscTa8"
                                             placeholder="Name and Addresses of First References" rows="3"
                                             onchange="references(event)" ></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
-                                        <textarea name="miscTa9" id="miscTa9"
+                                        <textarea class="requiredToggleSad"  name="miscTa9" id="miscTa9"
                                             placeholder="Name and Addresses of Second References" rows="3"
                                             onchange="references(event)" ></textarea>
                                     </div>
                                     <div class="col-4 col-12-medium">
-                                        <textarea name="miscTa10" id="miscTa10"
+                                        <textarea class="requiredToggleSad"  name="miscTa10" id="miscTa10"
                                             placeholder="Name and Addresses of Third References" rows="3"
                                             onchange="references(event)" ></textarea>
                                     </div>
@@ -1916,7 +1916,7 @@
                                     </div>
                                     <div class="col-4 col-6-medium col-7-small"
                                         style="align-self: center;overflow-x:hidden;padding-top:0;">
-                                        <input type="file" name="receipt" id="receipt" accept=".pdf" style="font-size: small;"
+                                        <input class="requiredToggleSad"  type="file" name="receipt" id="receipt" accept=".pdf" style="font-size: small;"
                                             ><br>
                                         <label style="margin-top: 0.5em;" for="receipt">
                                             <font class="size-limit">Size Limit: 250KB</font>
@@ -1932,7 +1932,7 @@
 
                                     <div class="col-12">
                                         <h5>
-                                            <input type="checkbox" class="custom-control-input" id="declaration"
+                                            <input class="requiredToggleSad"  type="checkbox" class="custom-control-input" id="declaration"
                                                 >
                                             <label class="custom-control-label" for="declaration">I hereby declare that
                                                 the information given by me in the Application is true, complete and
@@ -1950,7 +1950,7 @@
                                                 <h3>Place<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-4 col-6-medium col-7-small">
-                                                <input style="text-transform: uppercase;" type="text" name="signPlace"
+                                                <input class="requiredToggleSad"  style="text-transform: uppercase;" type="text" name="signPlace"
                                                     id="place" value="" placeholder="Place" >
                                             </div>
                                             <div class="col-2 col-1-small"></div>
@@ -1959,7 +1959,7 @@
                                             </div>
 
                                             <div class="col-4 col-6-medium col-7-small">
-                                                <input type="date" name="signDate" id="signDate" readonly>
+                                                <input class="requiredToggleSad"  type="date" name="signDate" id="signDate" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -1970,7 +1970,7 @@
                                                 <h3>Resume<font class="asterisk">*</font>&nbsp;:</h3>
                                             </div>
                                             <div class="col-4 col-6-medium col-7-small">
-                                                <input id="resumeUpload" type="file" style="font-size: small;"
+                                                <input class="requiredToggleSad"  id="resumeUpload" type="file" style="font-size: small;"
                                                     name="resumeUpload" placeholder="Resume" accept=".pdf" >
                                                 <label for="resumeUpload" style="text-align:center">(Upload Resume)<font
                                                         class="image-upload-size"><br>Size Limit: 250KB<br>File Format:
@@ -1985,7 +1985,7 @@
                                                 <image id="signImage" src=""
                                                     style="max-width: 18vh; max-height: 12vh; border-radius: 2vh;" />
 
-                                                <input id="signUpload" type="file"
+                                                <input class="requiredToggleSad"  id="signUpload" type="file"
                                                     style="font-size: small;display:block;margin-left:2.5em;"
                                                     name="signUpload" placeholder="Signature" accept=".png, .jpeg, .jpg"
                                                     >
@@ -2000,8 +2000,9 @@
                         </div>
                     </section>
                     <div class="flexi-center">
+                        <input type="hidden" value="draft" id="check-btn" name="checkBtn">
                         <button id="submitform" class="button small primary" type="submit">Submit</button>
-                        <button onclick="()=>handleSaveDraft()" class="button small primary">Save As draft</button>
+                        <button onclick="()=>handleSaveDraft()" style="margin-left: 1em;" class="button small primary">Save As draft</button>
                     </div>
                 </form>
                 {% elif user.is_superuser == 1 %}
@@ -2290,14 +2291,27 @@
             console.log("draft is clicked!");
             // remove req
             // submit form
-            document.getElementById('main-form').submit();
+            let toggle=document.getElementsByClassName("requiredToggleSad");
+            for (var i = 0; i < toggle.length; i++) {
+                toggle[i].required=false;
+             }
+             document.getElementById('check-btn').value = 'draft'
+            //document.getElementById('main-form').submit();
             // add req
         }
         const handleformsubmit = (e) => {
             // e.preventDefault();
             // console.log("HERE", e.target);
+            console.log(document.getElementById('check-btn').value)
             return confirm('Do you really want to Submit?');
-        }        
+        }
+        const toggleRequired = ()=>{
+            let toggle=document.getElementsByClassName("requiredToggleSad");
+            for (var i = 0; i < toggle.length; i++) {
+                toggle[i].required=true;
+             }
+            document.getElementById('check-btn').value = 'submit'
+        }
 
 
 

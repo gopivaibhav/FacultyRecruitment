@@ -512,11 +512,11 @@
                                             <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                                 for="inlineRadio1"> Male</label>
                                             <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
-                                            class="requiredToggleSad" value="Female">
+                                             value="Female">
                                             <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                                 for="inlineRadio2"> Female</label>
                                             <input class="form-check-input" type="radio" name="gender" id="inlineRadio3"
-                                            class="requiredToggleSad"    value="Other">
+                                                value="Other">
                                             <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                                 for="inlineRadio3"> Other</label>
                                             {% endif %}
@@ -526,11 +526,11 @@
                                             <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                                 for="inlineRadio1"> Male</label>
                                             <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
-                                            class="requiredToggleSad"    value="Female" checked>
+                                               value="Female" checked>
                                             <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                                 for="inlineRadio2"> Female</label>
                                             <input class="form-check-input" type="radio" name="gender" id="inlineRadio3"
-                                            class="requiredToggleSad"    value="Other">
+                                                value="Other">
                                             <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                                 for="inlineRadio3"> Other</label>
                                             {% endif %}
@@ -540,25 +540,25 @@
                                             <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                                 for="inlineRadio1"> Male</label>
                                             <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
-                                            class="requiredToggleSad"   value="Female">
+                                            value="Female">
                                             <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                                 for="inlineRadio2"> Female</label>
                                             <input class="form-check-input" type="radio" name="gender" id="inlineRadio3"
-                                            class="requiredToggleSad"   value="Other" checked>
+                                               value="Other" checked>
                                             <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                                 for="inlineRadio3"> Other</label>
                                             {% endif %}
                                         {% else %}
-                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1"
-                                        class="requiredToggleSad"   value="Male" >
+                                        <input class="requiredToggleSad"  class="form-check-input" type="radio" name="gender" id="inlineRadio1"
+                                        value="Male">
                                         <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                             for="inlineRadio1"> Male</label>
                                         <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
-                                        class="requiredToggleSad"    value="Female">
+                                            value="Female">
                                         <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                             for="inlineRadio2"> Female</label>
                                         <input class="form-check-input" type="radio" name="gender" id="inlineRadio3"
-                                        class="requiredToggleSad"   value="Other">
+                                           value="Other">
                                         <label style="align-self: center;margin-bottom: 0;" class="form-check-label"
                                             for="inlineRadio3"> Other</label>
                                         {% endif %}
@@ -846,9 +846,21 @@
                                                     <font class="document-format">(File Format: PDF)</font>
                                                 </th>
                                             </tr>
-
-
-                                            <!-- <tr id="ongoing1">
+                                            {% if PhDOngoing %}
+                                                <tr id="ongoing1">
+                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.PhD_title}}" name="ongoing1-title" id="ongoing1-title" style="margin: 0; background-color: transparent; border:none;"placeholder="Ph.D Title"></td>
+                                                <td class="col-3"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.Research_Domain}}" name="ongoing1-domain" id="ongoing1-domain" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Broad Research Domain of Ph.D"></td>
+                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.Institute_Name}}" name="ongoing1-institute" id="ongoing1-institute" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Institute Name"></td>
+                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.University_Name}}" name="ongoing1-university" id="ongoing1-university" style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none" placeholder="University Name"></td>
+                                                <td class="col-3" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" value="{{PhDOngoing.Registration_Date}}" name="ongoing1-date" id="ongoing1-date" style="border: 0; background: transparent;"></td>
+                                                <td class="col-3" style="padding:0;display:flex;place-content:space-between">
+                                                <td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;"> <span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="ongoing1-file" accept=".pdf" name="ongoing1-file"></span>
+                                                {% if forloop.counter != 1 %}
+                                                <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                {% endif %}
+                                                </td></tr>
+                                            {% else %}
+                                            <tr id="ongoing1">
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input type="text" name="ongoing1-title" id="ongoing1-title"
@@ -885,20 +897,7 @@
                                                             id="ongoing1-file"
                                                             accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
                                                 </td>
-                                            </tr> -->
-                                            {% if PhDOngoing %}
-                                                <tr id="ongoing1">
-                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.PhD_title}}" name="ongoing1-title" id="ongoing1-title" style="margin: 0; background-color: transparent; border:none;"placeholder="Ph.D Title"></td>
-                                                <td class="col-3"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.Research_Domain}}" name="ongoing1-domain" id="ongoing1-domain" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Broad Research Domain of Ph.D"></td>
-                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.Institute_Name}}" name="ongoing1-institute" id="ongoing1-institute" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Institute Name"></td>
-                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.University_Name}}" name="ongoing1-university" id="ongoing1-university" style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none" placeholder="University Name"></td>
-                                                <td class="col-3" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" value="{{PhDOngoing.Registration_Date}}" name="ongoing1-date" id="ongoing1-date" style="border: 0; background: transparent;"></td>
-                                                <td class="col-3" style="padding:0;display:flex;place-content:space-between">
-                                                <td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;"> <span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="ongoing1-file" accept=".pdf" name="ongoing1-file"></span>
-                                                {% if forloop.counter != 1 %}
-                                                <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
-                                                {% endif %}
-                                                </td></tr>
+                                            </tr>
                                             {% endif %}
                                         </tbody>
                                     </table>
@@ -1018,54 +1017,11 @@
                                             </tr>
 
 
-                                            <!-- <tr>
-                                                <td class="col-2"
-                                                    style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="awarded1-title" id="awarded1-title"
-                                                        style="margin: 0; background-color: transparent; border:none;"
-                                                        placeholder="Ph.D Title">
-                                                </td>
-                                                <td class="col-2"
-                                                    style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="awarded1-domain" id="awarded1-domain"
-                                                        style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
-                                                        placeholder="Broad Research Domain of Ph.D">
-                                                </td>
-                                                <td class="col-2"
-                                                    style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="awarded1-institute" id="awarded1-institute"
-                                                        style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
-                                                        placeholder="Institute Name">
-                                                </td>
-                                                <td class="col-2"
-                                                    style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="awarded1-university"
-                                                        id="awarded1-university"
-                                                        style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none"
-                                                        placeholder="University Name">
-                                                </td>
-                                                <td class="col-2"
-                                                    style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="awarded1-regdate" id="awarded1-regdate"
-                                                        style="border: 0; background: transparent;"
-                                                        onchange="dateThesisAwardedFrom(event)">
-                                                </td>
-                                                <td class="col-2"
-                                                    style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="date" name="awarded1-defdate" id="awarded1-defdate"
-                                                        style="border: 0; background: transparent;"
-                                                        onchange="setDefDate(event)">
-                                                </td>
-                                                <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
-                                                    <input type="file" name="awarded1-file" id="awarded1-file"
-                                                    accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
-                                                </td>
-                                            </tr> -->
-                                                {% if PhDAwarded %}
-                                                {% for ele in PhDAwarded %}
+                                            {% if PhDAwarded %}
+                                            {% for ele in PhDAwarded %}
                                                 <tr id="thesis1">
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded{{forloop.counter}}-title" value="{{ele.PhD_title}}" id="awarded{{forloop.counter}}-title" style="margin: 0; background-color: transparent; border:none;" placeholder="Ph.D Title"></td>
-                                                <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded{{forloop.counter}}-domain" value="{{ele.Research_Domain}}" id="awarded{{forloop.counter}}-domain"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Broad Research Domain of Ph.D"></td>
+                                                    <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded{{forloop.counter}}-title" value="{{ele.PhD_title}}" id="awarded{{forloop.counter}}-title" style="margin: 0; background-color: transparent; border:none;" placeholder="Ph.D Title"></td>
+                                                    <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded{{forloop.counter}}-domain" value="{{ele.Research_Domain}}" id="awarded{{forloop.counter}}-domain"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Broad Research Domain of Ph.D"></td>
                                                 <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded{{forloop.counter}}-institute" value="{{ele.Institute_Name}}" id="awarded{{forloop.counter}}-institute"  style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; " placeholder="Institute Name"></td>
                                                 <td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="awarded{{forloop.counter}}-university" value="{{ele.University_Name}}" id="awarded{{forloop.counter}}-university"  style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none" placeholder="University Name"></td>
                                                 <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="awarded{{forloop.counter}}-regdate" value="{{ele.Registration_Date}}" id="awarded{{forloop.counter}}-regdate"  style="border: 0; background: transparent;" onchange="dateThesisAwardedFrom(event)"></td>
@@ -1077,9 +1033,53 @@
                                                 {% endif %}
                                                 </td></tr>
                                                 {% endfor %}
+                                                {% else %}
+                                                <tr>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0;vertical-align: middle;">
+                                                        <input type="text" name="awarded1-title" id="awarded1-title"
+                                                            style="margin: 0; background-color: transparent; border:none;"
+                                                            placeholder="Ph.D Title">
+                                                    </td>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0;vertical-align: middle;">
+                                                        <input type="text" name="awarded1-domain" id="awarded1-domain"
+                                                            style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
+                                                            placeholder="Broad Research Domain of Ph.D">
+                                                    </td>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0;vertical-align: middle;">
+                                                        <input type="text" name="awarded1-institute" id="awarded1-institute"
+                                                            style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
+                                                            placeholder="Institute Name">
+                                                    </td>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0;vertical-align: middle;">
+                                                        <input type="text" name="awarded1-university"
+                                                            id="awarded1-university"
+                                                            style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none"
+                                                            placeholder="University Name">
+                                                    </td>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+                                                        <input type="date" name="awarded1-regdate" id="awarded1-regdate"
+                                                            style="border: 0; background: transparent;"
+                                                            onchange="dateThesisAwardedFrom(event)">
+                                                    </td>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+                                                        <input type="date" name="awarded1-defdate" id="awarded1-defdate"
+                                                            style="border: 0; background: transparent;"
+                                                            onchange="setDefDate(event)">
+                                                    </td>
+                                                    <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
+                                                        <input type="file" name="awarded1-file" id="awarded1-file"
+                                                        accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                    </td>
+                                                </tr>
                                                 {% endif %}
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
                                     <div class="col-12" style="text-align:center">
                                         <button id="b1" class="but add-more-phd3" type="button" style="padding: 0;">Add
                                             More</button>
@@ -3073,6 +3073,7 @@
                         </div>
                     </section>
                     <div class="flexi-center">
+                        <input type="hidden" value="draft" id="check-btn" name="checkBtn">
                         <button id="submitform" class="button small primary" type="submit" onclick="toggleRequired()">Submit</button>
                         <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save As draft</button>
                     </div>
@@ -3369,12 +3370,14 @@
             for (var i = 0; i < toggle.length; i++) {
                 toggle[i].required=false;
              }
+             document.getElementById('check-btn').value = 'draft'
             //document.getElementById('main-form').submit();
             // add req
         }
         const handleformsubmit = (e) => {
             // e.preventDefault();
             // console.log("HERE", e.target);
+            console.log(document.getElementById('check-btn').value)
             return confirm('Do you really want to Submit?');
         }
         const toggleRequired = ()=>{
@@ -3382,6 +3385,7 @@
             for (var i = 0; i < toggle.length; i++) {
                 toggle[i].required=true;
              }
+            document.getElementById('check-btn').value = 'submit'
         }
 
     </script>
