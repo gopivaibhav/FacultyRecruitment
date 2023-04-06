@@ -2504,5 +2504,5 @@ def handleDraft(request):
                 # if(research_exp_check == 0):
                 # else:
                 #     ResearchExp.objects.filter(applicant_id = application_number).update(**research_exp_details)
-        return HttpResponseRedirect('/accounts/profile/')
+        return HttpResponseRedirect('/viewApplication/' + application_number)
     return render(request, 'recruitment/form.html', {})

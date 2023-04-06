@@ -88,7 +88,13 @@
         <tr>
             <td style="background-color: #e7e7e7;" colspan="4">Application no</td>
             <td colspan="4">{{applicant_data.application_number}}</td>
-            <td colspan="8" rowspan="3" style="text-align: center;"><img src="{{applicant_data.profile_photo.path}}"></td>
+            <td colspan="8" rowspan="3" style="text-align: center;">
+                {% if applicant_data.profile_photo %}
+                    <img src="{{applicant_data.profile_photo.path}}">
+                {% else %}
+                    <img src="data:image/jpeg;base64,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">
+                {% endif %}
+            </td>
         </tr>
         <tr class="alternate_grey_cells">
             <td colspan="4" style="background-color: #e7e7e7;">Full Name</td>
@@ -157,7 +163,7 @@
     <br />
 
     <!-- // SECTION B TABLE -->
-    <table id="customers">
+    <!-- <table id="customers">
         <tr>
             <td colspan="24" style="text-align: center; font-size: 18px">
                 Section B (Academic Details)
@@ -241,9 +247,9 @@
             <td colspan="5">Name of Board / College</td>
             <td colspan="4">Grade/ Marks</td>
             <td colspan="5">Subjects</td>
-            <td colspan="5">Year of Passing</td>
-            <!-- <td colspan="4">Supporting Document</td> -->
-        </tr>
+            <td colspan="5">Year of Passing</td> -->
+            <!-- <td colspan="4">Supporting Document</td> Commented before-->
+        <!-- </tr>
         {% for item in AcademicDetails %}
         <tr>
             <td colspan="5">
@@ -260,21 +266,21 @@
             </td>
             <td colspan="5">
                 {{item.year_of_passing}}
-            </td>
+            </td> -->
             <!-- <td colspan="4">
                 <a href={{item.supporting_documents.url}} target="_blank">
                     <font class="document_link">Link</font>
                 </a>
-            </td> -->
-        </tr>
+            </td> Commented before-->
+        <!-- </tr>
         {% endfor %}
     </table>
     <br />
-    <br />
+    <br /> -->
 
     <!-- //SECTION C TABLE -->
 
-    <table id="customers">
+    <!-- <table id="customers">
         <tr>
             <td colspan="24" style="text-align: center; font-size: 18px">
                 Section C (Professional Details)
@@ -294,9 +300,9 @@
             <td colspan="4">Post held/ Designation</td>
             <td colspan="6">Period Of Employment (From and To)</td>
             <td colspan="4">Basic Salary</td>
-            <td colspan="4">Nature of Duty</td>
-            <!-- <td colspan="4">Supporting Documents</td> -->
-        </tr>
+            <td colspan="4">Nature of Duty</td> -->
+            <!-- <td colspan="4">Supporting Documents</td> Commented before -->
+        <!-- </tr>
         {% for item in ProfessionalDetails %}
         <tr>
             <td colspan="6">{{item.name}}</td>
@@ -304,7 +310,7 @@
             <td colspan="3">{{item.from_year}}</td>
             <td colspan="3">{{item.to_year}}</td>
             <td colspan="4">{{item.salary}}</td>
-            <td colspan="4">{{item.nature}}</td>
+            <td colspan="4">{{item.nature}}</td> -->
             <!-- {% if item.name == "N/A" %}
             <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
             {% else %}
@@ -313,8 +319,8 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %} -->
-        </tr>
+            {% endif %} Commented before-->
+        <!-- </tr>
         {% endfor %}
         <tr>
             <td colspan="24" style="text-align: center; font-size: 13px;">Research Experience</td>
@@ -323,14 +329,14 @@
         <tr class="grey_cells">
             <td colspan="8">From</td>
             <td colspan="8">To</td>
-            <td colspan="8">Numbers of Months</td>
-            <!-- <td colspan="6">Supporting Documents</td> -->
-        </tr>
+            <td colspan="8">Numbers of Months</td> -->
+            <!-- <td colspan="6">Supporting Documents</td>  Commented before-->
+        <!-- </tr>
         {% for item in ResearchExperienceDetails %}
         <tr>
             <td colspan="8">{{item.From}}</td>
             <td colspan="8">{{item.to}}</td>
-            <td colspan="8">{{item.number_of_months}}</td>
+            <td colspan="8">{{item.number_of_months}}</td> -->
             <!-- {% if item.From == "N/A" %}
             <td colspan="6">{{item.supporting_documents}}</td>
             {% else %}
@@ -339,16 +345,16 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %} -->
-        </tr>
+            {% endif %}  Commented before-->
+        <!-- </tr>
         {% endfor %}
     </table>
     <br />
-    <br />
+    <br /> -->
 
     <!-- SECTION D TABLE -->
 
-    <table id="customers">
+    <!-- <table id="customers">
         <tr>
             <td colspan="24" style="text-align: center; font-size: 18px">
                 Section D (Research and Academic Contributions Research Publications)
@@ -365,9 +371,9 @@
             <td colspan="5">Whether First Author or Co-author</td>
             <td colspan="5">Name of Publisher (with city/ country)</td>
             <td colspan="5">Month & year of publication</td>
-            <td colspan="4">ISBN/ISSN No.</td>
-            <!-- <td colspan="4">Supporting Documents</td> -->
-        </tr>
+            <td colspan="4">ISBN/ISSN No.</td> -->
+            <!-- <td colspan="4">Supporting Documents</td>  Commented before-->
+        <!-- </tr>
 
         {% for item in BooksDetails %}
         <tr>
@@ -375,7 +381,7 @@
             <td colspan="5">{{item.author}}</td>
             <td colspan="5">{{item.publisher}}</td>
             <td colspan="5" style="min-inline-size: 5em;">{{item.date_publish}}</td>
-            <td colspan="4">{{item.isbn}}</td>
+            <td colspan="4">{{item.isbn}}</td> -->
             <!-- {% if item.title == "N/A" %}
             <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
             {% else %}
@@ -384,9 +390,9 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %} -->
+            {% endif %}  Commented before-->
 
-        </tr>
+        <!-- </tr>
         {% endfor %}
 
         <tr>
@@ -412,15 +418,15 @@
         <tr class="grey_cells">
             <td colspan="8">Name of Publisher (with city/ country)</td>
             <td colspan="8">Month & year of publication</td>
-            <td colspan="8">ISBN/ ISSN No.</td>
-            <!-- <td colspan="8">Supporting Documents</td> -->
-        </tr>
+            <td colspan="8">ISBN/ ISSN No.</td> -->
+            <!-- <td colspan="8">Supporting Documents</td>  Commented before-->
+        <!-- </tr>
 
         {% for item in ChaptersDetails %}
         <tr>
             <td colspan="8">{{item.publisher}}</td>
             <td colspan="8" style="min-inline-size: 5em;">{{item.date_of_publisher}}</td>
-            <td colspan="8">{{item.isbn_issn}}</td>
+            <td colspan="8">{{item.isbn_issn}}</td> -->
             <!-- {% if item.book_title == "N/A" %}
             <td colspan="8" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
             {% else %}
@@ -429,9 +435,9 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %} -->
+            {% endif %}  Commented before-->
 
-        </tr>
+        <!-- </tr>
         {% endfor %}
         <tr>
             <td colspan="24" style="text-align: center; font-size: 13px;">
@@ -458,15 +464,15 @@
         <tr class="grey_cells">
             <td colspan="8">Volume no. & Page nos.</td>
             <td colspan="8">Whether Referred/Non-referred</td>
-            <td colspan="8">Impact Factor</td>
-            <!-- <td colspan="6">Supporting Documents</td> -->
-        </tr>
+            <td colspan="8">Impact Factor</td> -->
+            <!-- <td colspan="6">Supporting Documents</td> Commented before -->
+        <!-- </tr>
 
         {% for item in NewspapersArticlesDetails %}
         <tr>
             <td colspan="8">{{item.vol_no}}</td>
             <td colspan="8">{{item.referred}}</td>
-            <td colspan="8">{{item.naas}}</td>
+            <td colspan="8">{{item.naas}}</td> -->
             <!-- {% if item.article_title == "N/A" %}
             <td colspan="6" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
             {% else %}
@@ -475,8 +481,8 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %} -->
-        </tr>
+            {% endif %}  Commented before-->
+        <!-- </tr>
         {% endfor %}
 
         <tr>
@@ -492,9 +498,9 @@
             <td colspan="5">Subject of Conference /Seminar/Symposium/ Workshop</td>
             <td colspan="5">Organizing Institution & Name of City/Country</td>
             <td colspan="5">Duration (From and To)</td>
-            <td colspan="4">Whether the proceedings published</td>
-            <!-- <td colspan="4">Supporting Documents</td> -->
-        </tr>
+            <td colspan="4">Whether the proceedings published</td> -->
+            <!-- <td colspan="4">Supporting Documents</td>  Commented before-->
+        <!-- </tr>
 
         {% for item in SeminarArticles %}
         <tr>
@@ -502,7 +508,7 @@
             <td colspan="5">{{item.seminar_subject}}</td>
             <td colspan="5">{{item.location}}</td>
             <td colspan="5">{{item.From}}</td>
-            <td colspan="4">{{item.published}}</td>
+            <td colspan="4">{{item.published}}</td> -->
             <!-- {% if item.article_title == "N/A" %}
             <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
             {% else %}
@@ -511,12 +517,16 @@
                     <font class="document_link">Link</font>
                 </a>
             </td>
-            {% endif %} -->
-        </tr>
+            {% endif %}  Commented before-->
+        <!-- </tr>
         {% endfor %}
-    </table>
+    </table> -->
+
+
+
+    <!-- Deleted Comments from here -->
     <!--Section E-->
-    <div class="header" style="margin-top: 50px;">
+    <!-- <div class="header" style="margin-top: 50px;">
         Section E (Thesis and Experiment Details)
     </div>
     <div class="header-sub">
@@ -554,8 +564,6 @@
         <tr>
             <td style="background-color: #e7e7e7;">Number of completed sponsored projects</td>
             <td>{{SponsoredProjects.spo_completed}}</td>
-            <!-- <td>File containing the list of sponsored projects</td> -->
-            <!-- <td>{{SponsoredProjects.spo_file}}</td> -->
         </tr>
     </table>
     <div class="header-sub">
@@ -571,8 +579,6 @@
         <tr>
             <td  style="background-color: #e7e7e7;">Number of completed experiments/ computational projects</td>
             <td>{{Experiments.exp_completed}}</td>
-            <!-- <td>File containing the list of experiments/ computational projects</td>
-            <td>{{Experiments.exp_file}}</td> -->
         </tr>
     </table>
     <div class="header-sub">
@@ -634,9 +640,9 @@
             <td  style="background-color: #e7e7e7;">Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
             <td>{{Summary.SCI_journal_post_phd}}</td>
         </tr>
-    </table>
+    </table> -->
     <!--Section F-->
-    <div class="header">
+    <!-- <div class="header">
         Section F
     </div>
     <table id="customers">
@@ -677,9 +683,9 @@
             <td  style="background-color: #e7e7e7;">Name and Address of Third Reference</td>
             <td>{{otherinformation_data.reference3}}</td>
         </tr>
-    </table>
+    </table> -->
     <!--Declaration-->
-    <div class="header-sub" style="margin-top: 50px;">
+    <!-- <div class="header-sub" style="margin-top: 50px;">
         Declaration
     </div>
     <table id="customers">
@@ -693,7 +699,7 @@
             <td  style="background-color: #e7e7e7;">Date</td>
             <td>{{signed_data.date}}</td>
         </tr>
-    </table>
+    </table> -->
 </body>
 
 </html>

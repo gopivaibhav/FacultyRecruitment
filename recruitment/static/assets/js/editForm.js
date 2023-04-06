@@ -503,10 +503,11 @@ $(document).ready(function () {
 /////////////  table 3  Section D (Books)  ///////////////
 
 $(document).ready(function () {
-    var newAcademicsNo = 2;
     $('.add-more3').on('click touchstart', function (e) {
         e.preventDefault();
-
+        // $("#book").last()
+        var newAcademicsNo = 3;
+        console.log($("#book").last(), 'last book')
         var newIn3 = '<tr id="field1">' +
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text"  name="books' + newAcademicsNo + '-title" id="books' + newAcademicsNo + '-title" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Title of the Book" ></td>' +
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><select  name="books' + newAcademicsNo + '-author" id="books' + newAcademicsNo + '-author" style="inline-size: auto;"><option value="" disabled selected>Select Any Options</option><option value="First author">First Author</option><option value="Co-author">Co-author</option></select></td>' +

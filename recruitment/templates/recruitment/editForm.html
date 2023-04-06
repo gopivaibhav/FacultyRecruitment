@@ -131,7 +131,7 @@
                                 <header class="major special">
                                     <h2>Application Form </h2>
                                     <h3>Form ID: {{ application_number }}</h3>
-                                    <input type="text" name="formId" value="{{application_number}}">
+                                    <input type="hidden" name="formId" value="{{application_number}}">
                                 </header>
                                 <div class="row gtr-uniform applicationTable">
 
@@ -244,6 +244,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save this Section</button>
                     </section>
 
                     <!-- Section A: General    (Personal Details)	-->
@@ -310,6 +311,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save this Section</button>
                     </section>
 
                     <!-- Address -->
@@ -449,6 +451,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save this Section</button>
                     </section>
 
 
@@ -730,6 +733,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save this Section</button>
                     </section>
 
                     <!--	Academic Details	-->
@@ -1134,6 +1138,7 @@
                                                             <option value="Diploma">Diploma</option>
                                                             <option value="Bachelors">Bachelors</option>
                                                             <option value="Masters">Masters</option>
+                                                            <option value="Others">Others</option>
                                                         </select></td>
                                                         <td class="col-1" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course{{forloop.counter}}-name" id="course{{forloop.counter}}-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University" value="{{ item.name }}" ></td>
                                                         <td class="col-2" style="text-align: center; padding: 0;">
@@ -1161,6 +1166,7 @@
                                                         <option value="Diploma">Diploma</option>
                                                         <option value="Bachelors">Bachelors</option>
                                                         <option value="Masters">Masters</option>
+                                                        <option value="Others">Others</option>
                                                     </select></td>
                                                     <td class="col-1" style="text-align: center; padding: 0;"><input onchange="reqField(event)" type="text" name="course{{i}}-name" id="course{{i}}-name" style="margin: 0; background-color: transparent; border:none;" placeholder="Name of Board/College/University" value="" ></td>
                                                     <td class="col-2" style="text-align: center; padding: 0;">
@@ -1186,6 +1192,7 @@
                                 <br>
                             </div>
                         </div>
+                        <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save this Section</button>
                     </section>
 
                     <!--  Section-C  Professional Details  -->
@@ -1432,6 +1439,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save this Section</button>
                     </section>
                     <!-- Research Details -->
                     <section id="research" class="main" style="border-bottom: 1px solid black; padding-bottom: 1.5em;">
@@ -1473,7 +1481,7 @@
                                             <!-- Input Starts Here -->
                                             {% if BooksDetails %}
                                             {% for item in BooksDetails %}
-                                            <tr id="field1">
+                                            <tr id="field1 book">
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input type="text" name="books{{forloop.counter}}-title" id="books{{forloop.counter}}-title" value="{{ item.title }}"
@@ -1513,7 +1521,7 @@
                                             </tr>
                                             {% endfor %}
                                             {% else %}
-                                            <tr id="field1">
+                                            <tr id="field1 book">
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input type="text" name="books1-title" id="books1-title" value=""
@@ -2020,7 +2028,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save this Section</button>
                     </section>
 
 
@@ -2694,6 +2702,7 @@
                             </div>
 
                         </div>
+                        <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save this Section</button>
                     </section>
                     <!--	Other Important detail	-->
                     <section id="other" class="main">
@@ -2995,7 +3004,7 @@
                                             <font class="document-format">(File Format: PDF)</font>
                                         </label>
                                     </div>
-
+                                    <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save this Section</button>
                                     <hr width="100%">
                                     <div id="upload" class="col-12">
                                         <h4><strong>Declaration to Be Signed by the Candidate<font class="asterisk">*
@@ -3075,7 +3084,7 @@
                     <div class="flexi-center">
                         <input type="hidden" value="draft" id="check-btn" name="checkBtn">
                         <button id="submitform" class="button small primary" type="submit" onclick="toggleRequired()">Submit</button>
-                        <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save As draft</button>
+                        <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save this Section</button>
                     </div>
                 </form>
                 {% elif user.is_superuser == 1 %}
