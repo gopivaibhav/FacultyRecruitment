@@ -338,7 +338,7 @@ $(document).ready(function () {
             '<span style="overflow:hidden;align-self:center" ><input onchange="reqField(event)"  style="font-size:x-small;" type="file" id="course' + newAcademicsNo + '-file" accept=".pdf"  name="course' + newAcademicsNo + '-file"></span>' +
             '</td></tr>';
         $('.academic-tbody').append(newIn);
-
+        newAcademicsNo+=1;
         $("form input").keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -398,7 +398,7 @@ $(document).ready(function () {
             '<span style="display:inline"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
         $('.academic-tbody').append(newIn);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -447,7 +447,7 @@ $(document).ready(function () {
             '</td></tr>';
 
         $('.academic-tbody2').append(newIn2);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -488,7 +488,7 @@ $(document).ready(function () {
             '</td></tr>';
 
         $('.academic-tbody3').append(newIn2);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -526,7 +526,7 @@ $(document).ready(function () {
             '</td></tr>';
 
         $('.academic-tbody4').append(newIn3);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -561,7 +561,7 @@ $(document).ready(function () {
             '</td></tr>';
 
         $('.academic-tbody5').append(newIn4);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -599,7 +599,7 @@ $(document).ready(function () {
             '<span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
         $('.academic-tbody6').append(newIn6);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -640,7 +640,7 @@ $(document).ready(function () {
             '</td></tr>';
 
         $('.academic-tbody7').append(newIn7);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();

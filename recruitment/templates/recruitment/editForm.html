@@ -899,7 +899,7 @@
                                                     <div class="tooltip"><input type="file" name="ongoing1-file"
                                                             id="ongoing1-file"
                                                             accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
-                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                 </td>
                                             </tr>
                                             {% endif %}
@@ -980,7 +980,7 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="thesis1-file" id="thesis1-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
-                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
 
                                                 </td>
                                             </tr>
@@ -1034,9 +1034,9 @@
                                                 <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="awarded{{forloop.counter}}-defdate" value="{{ele.Defense_Date}}" id="awarded{{forloop.counter}}-defdate" style="border: 0; background: transparent;"></td>
                                     
                                                 <td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;"> <span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="awarded{{forloop.counter}}-file" accept=".pdf"  name="awarded{{forloop.counter}}-file"></span>
-                                                <!-- {% if forloop.counter != 1 %} -->
+                                                {% if forloop.counter != 1 %}
                                                 <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
-                                                <!-- {% endif %} -->
+                                                {% endif %}
                                                 </td></tr>
                                                 {% endfor %}
                                                 {% else %}
@@ -1081,8 +1081,7 @@
                                                     <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                         <input type="file" name="awarded1-file" id="awarded1-file"
                                                         accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
-                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
-
+                                                        <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                     </td>
                                                 </tr>
                                                 {% endif %}
@@ -1153,7 +1152,7 @@
                                                         <select onchange="reqField(event)" style="inline-size: auto; " name="yearOfPassing{{forloop.counter}}" id="yearOfPassing{{forloop.counter}}" ><option value="{{ item.year_of_passing }}" selected>{{ item.year_of_passing }}</option></select></td>
                                                         <td class="col-2" style="display:flex;place-content:space-between">
                                                         <span style="overflow:hidden;align-self:center" ><input onchange="reqField(event)"  style="font-size:x-small;" type="file" id="course{{forloop.counter}}-file" accept=".pdf"  name="course{{forloop.counter}}-file">{{ item.supporting_documents.name }}</span>
-                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                        <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                         </td>
                                                     </tr>
                                                 {% endfor %}
@@ -1181,7 +1180,7 @@
                                                     <select onchange="reqField(event)" style="inline-size: auto; " name="yearOfPassing{{i}}" id="yearOfPassing{{i}}" ><option value="None" selected disabled>None</option></select></td>
                                                     <td class="col-2" style="display:flex;place-content:space-between">
                                                     <span style="overflow:hidden;align-self:center" ><input onchange="reqField(event)"  style="font-size:x-small;" type="file" id="course{{i}}-file" accept=".pdf"  name="course{{i}}-file"></span>
-                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                     </td>
                                                 </tr>
                                             {% endfor %}
@@ -1292,7 +1291,7 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="org{{forloop.counter}}-file" id="org{{forloop.counter}}-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
-                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                 </td>
                                             </tr>
                                             {% endfor %}
@@ -1344,7 +1343,7 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="org1-file" id="org1-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
-                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                 </td>
                                             </tr>
                                             {% endif %}
@@ -1410,7 +1409,7 @@
                                                     style="text-align: center;vertical-align: middle; padding: 0;">
                                                     <input type="file" style="font-size:x-small;" id="exper{{forloop.counter}}-file" accept=".pdf"
                                                         name="exper{{forloop.counter}}-file">
-                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                 </td>
                                             </tr>
                                             {% endfor %}
@@ -1435,7 +1434,7 @@
                                                     style="text-align: center;vertical-align: middle; padding: 0;">
                                                     <input type="file" style="font-size:x-small;" id="exper1-file" accept=".pdf"
                                                         name="exper1-file">
-                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
 
                                                 </td>
                                             </tr>
@@ -1529,11 +1528,11 @@
                                                     <input id="books{{forloop.counter}}-file" type="file"
                                                         style="font-size: x-small;text-align-last: left;" accept=".pdf"
                                                         name="books{{forloop.counter}}-file">
-                                                    <span style="display:inline;align-self:center">
+                                                    <!-- <span style="display:inline;align-self:center">
                                                         <button type="button"  onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">
                                                             X
                                                         </button>
-                                                    </span>
+                                                    </span> -->
                                                 </td>
                                             </tr>
                                             {% endfor %}
@@ -1574,7 +1573,7 @@
                                                     <input id="books1-file" type="file"
                                                         style="font-size: x-small;text-align-last: left;" accept=".pdf"
                                                         name="books1-file">
-                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                 </td>
                                             </tr>
                                             {% endif %}
@@ -1818,7 +1817,7 @@
                                                     <input type="file" name="news_articles1-file"
                                                         id="news_articles1-file"
                                                         accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
-                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                        <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                     </td>
                                             </tr>
                                             {% endfor %}
