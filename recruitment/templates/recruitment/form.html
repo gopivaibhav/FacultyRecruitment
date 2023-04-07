@@ -27,7 +27,7 @@
 </head>
 
 <body class="is-preload">
-
+    {% include 'partials/loading-modal.html' %}
     <!-- Wrapper -->
     <div id="wrapper">
         <!-- hamburger- for mobile view -->
@@ -253,7 +253,7 @@
                                     </div>
                                     <div class="col-5 col-12-small">
                                         <input class="requiredToggleSad"  type="date" onchange="setYOP(event)" name="dateofbirth" id="dateofbirth" class="dateofbirth"
-                                            >
+                                            required >
                                     </div>
 
                                     <div class="col-4 col-12-small" style="align-self:left;">
@@ -382,9 +382,9 @@
                                         <h3>Mobile No.<font class="asterisk">*</font>&nbsp;</h3>
                                     </div>
                                     <div class="col-1 col-3-small" style="font-size:small;">
-                                        <input class="requiredToggleSad"  type="number"  minlength="3" maxlength="3" name="mobilecode" id="mobilecode"
+                                        <input class="requiredToggleSad"  type="text"  minlength="2" maxlength="3" name="mobilecode" id="mobilecode"
 
-                                            style="padding:0;text-align: center;" value="" placeholder="+91" 
+                                            style="padding:0;text-align: center;" value="+91" placeholder="+91" 
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                     </div>
                                     <div class="col-3 col-9-small" style="font-size:small;">
@@ -539,6 +539,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="flexi-center">
+                            <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save Section</button>
+                        </div>
                     </section>
 
                     <!--	Academic Details	-->
@@ -666,6 +669,7 @@
                                                     <div class="tooltip"><input type="file" name="ongoing1-file"
                                                             id="ongoing1-file"
                                                             accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                            <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
 
@@ -746,8 +750,10 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input class="requiredToggleSad"  type="file" name="thesis1-file" id="thesis1-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
+
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
@@ -828,6 +834,7 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input class="requiredToggleSad"  type="file" name="awarded1-file" id="awarded1-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
 
@@ -884,6 +891,9 @@
                                 </div>
                                 <br>
                             </div>
+                        </div>
+                        <div class="flexi-center">
+                            <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save Section</button>
                         </div>
                     </section>
 
@@ -977,6 +987,7 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input class="requiredToggleSad"  type="file" name="org1-file" id="org1-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1039,6 +1050,7 @@
                                                     style="text-align: center;vertical-align: middle; padding: 0;">
                                                     <input class="requiredToggleSad"  type="file" style="font-size:x-small;" id="exper1-file" accept=".pdf"
                                                         name="exper1-file">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1049,6 +1061,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="flexi-center">
+                            <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save Section</button>
                         </div>
                     </section>
                     <!-- Research Details -->
@@ -1125,6 +1140,7 @@
                                                     <input class="requiredToggleSad"  id="books1-file" type="file"
                                                         style="font-size: x-small;text-align-last: left;" accept=".pdf"
                                                         name="books1-file">
+                                                     <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1212,6 +1228,7 @@
                                                     style="text-align-last: center; padding: 0;vertical-align: middle;">
                                                     <input class="requiredToggleSad"  type="file" name="chapters1-file" id="chapters1-file"
                                                     accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1312,6 +1329,7 @@
                                                     <input class="requiredToggleSad"  type="file" name="news_articles1-file"
                                                         id="news_articles1-file"
                                                         accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
+                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1406,6 +1424,7 @@
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input class="requiredToggleSad"  id="semi_article1-file" type="file" accept=".pdf"
                                                         style="font-size: x-small;" name="semi_articles1-file">
+                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1419,7 +1438,9 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="flexi-center">
+                            <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save Section</button>
+                        </div>
                     </section>
 
 
@@ -1803,6 +1824,9 @@
                             </div>
 
                         </div>
+                        <div class="flexi-center">
+                            <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save Section</button>
+                        </div>
                     </section>
                     <!--	Other Important detail	-->
                     <section id="other" class="main">
@@ -2002,7 +2026,7 @@
                     <div class="flexi-center">
                         <input type="hidden" value="draft" id="check-btn" name="checkBtn">
                         <button id="submitform" class="button small primary" type="submit">Submit</button>
-                        <button onclick="()=>handleSaveDraft()" style="margin-left: 1em;" class="button small primary">Save As draft</button>
+                        <button onclick="()=>handleSaveDraft()" style="margin-left: 1em;" class="button small primary" >Save As draft</button>
                     </div>
                 </form>
                 {% elif user.is_superuser == 1 %}
@@ -2296,6 +2320,7 @@
                 toggle[i].required=false;
              }
              document.getElementById('check-btn').value = 'draft'
+
             //document.getElementById('main-form').submit();
             // add req
         }
@@ -2303,7 +2328,21 @@
             // e.preventDefault();
             // console.log("HERE", e.target);
             console.log(document.getElementById('check-btn').value)
-            return confirm('Do you really want to Submit?');
+            let conf = confirm((document.getElementById('check-btn').value=='draft')?
+            'Do you really want to Save Draft?':
+            'Do you really want to Submit?') ;
+
+            if(conf){
+               // console.log(document.getElementsByTagName('button'))
+                document.querySelectorAll('button').forEach((item)=>{
+                    item.disabled=true;
+                    // console.log(item);
+                 });
+                showLoadingModal();
+            }
+           // console.log(document.getElementsByTagName('button'))
+
+            return conf;
         }
         const toggleRequired = ()=>{
             let toggle=document.getElementsByClassName("requiredToggleSad");

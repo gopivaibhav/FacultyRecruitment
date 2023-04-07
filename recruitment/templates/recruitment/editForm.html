@@ -27,7 +27,7 @@
 </head>
 
 <body class="is-preload">
-
+    {% include 'partials/loading-modal.html' %}
     <!-- Wrapper -->
     <div id="wrapper">
         <!-- hamburger- for mobile view -->
@@ -466,12 +466,12 @@
                                     </div>
                                     <div class="col-1 col-3-small" style="font-size:small;">
                                         {% if mobile_code %}
-                                        <input type="number"  minlength="3" maxlength="3" name="mobilecode" id="mobilecode"
+                                        <input type="text"  minlength="2" maxlength="3" name="mobilecode" id="mobilecode"
                                         class="requiredToggleSad" style="padding:0;text-align: center;" value="{{ mobile_code }}" placeholder="+91" 
                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                             {% else %}
-                                            <input type="number"  minlength="3" maxlength="3" name="mobilecode" id="mobilecode"
-                                            class="requiredToggleSad"   style="padding:0;text-align: center;" value="" placeholder="+91" 
+                                            <input type="text"  minlength="3" maxlength="3" name="mobilecode" id="mobilecode"
+                                            class="requiredToggleSad"   style="padding:0;text-align: center;" value="+91" placeholder="+91" 
                                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                         {% endif %}
                                     </div>
@@ -730,8 +730,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="flexi-center">
+                            <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save Section</button>
+                        </div>
                     </section>
-
+                    
                     <!--	Academic Details	-->
                     <section id="academic" class="main" style="border-bottom: 1px solid black; padding-bottom: 1.5em;">
                         <div class="spotlight">
@@ -896,6 +899,7 @@
                                                     <div class="tooltip"><input type="file" name="ongoing1-file"
                                                             id="ongoing1-file"
                                                             accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                             {% endif %}
@@ -976,6 +980,8 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="thesis1-file" id="thesis1-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1028,9 +1034,9 @@
                                                 <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="awarded{{forloop.counter}}-defdate" value="{{ele.Defense_Date}}" id="awarded{{forloop.counter}}-defdate" style="border: 0; background: transparent;"></td>
                                     
                                                 <td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;"> <span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="awarded{{forloop.counter}}-file" accept=".pdf"  name="awarded{{forloop.counter}}-file"></span>
-                                                {% if forloop.counter != 1 %}
+                                                <!-- {% if forloop.counter != 1 %} -->
                                                 <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
-                                                {% endif %}
+                                                <!-- {% endif %} -->
                                                 </td></tr>
                                                 {% endfor %}
                                                 {% else %}
@@ -1075,6 +1081,8 @@
                                                     <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                         <input type="file" name="awarded1-file" id="awarded1-file"
                                                         accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+
                                                     </td>
                                                 </tr>
                                                 {% endif %}
@@ -1145,6 +1153,7 @@
                                                         <select onchange="reqField(event)" style="inline-size: auto; " name="yearOfPassing{{forloop.counter}}" id="yearOfPassing{{forloop.counter}}" ><option value="{{ item.year_of_passing }}" selected>{{ item.year_of_passing }}</option></select></td>
                                                         <td class="col-2" style="display:flex;place-content:space-between">
                                                         <span style="overflow:hidden;align-self:center" ><input onchange="reqField(event)"  style="font-size:x-small;" type="file" id="course{{forloop.counter}}-file" accept=".pdf"  name="course{{forloop.counter}}-file">{{ item.supporting_documents.name }}</span>
+                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                         </td>
                                                     </tr>
                                                 {% endfor %}
@@ -1172,6 +1181,7 @@
                                                     <select onchange="reqField(event)" style="inline-size: auto; " name="yearOfPassing{{i}}" id="yearOfPassing{{i}}" ><option value="None" selected disabled>None</option></select></td>
                                                     <td class="col-2" style="display:flex;place-content:space-between">
                                                     <span style="overflow:hidden;align-self:center" ><input onchange="reqField(event)"  style="font-size:x-small;" type="file" id="course{{i}}-file" accept=".pdf"  name="course{{i}}-file"></span>
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                     </td>
                                                 </tr>
                                             {% endfor %}
@@ -1185,6 +1195,9 @@
                                 </div>
                                 <br>
                             </div>
+                        </div>
+                        <div class="flexi-center">
+                            <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save Section</button>
                         </div>
                     </section>
 
@@ -1208,9 +1221,8 @@
                                     <table class="alt" style="margin-bottom: 0;">
                                         <tbody class="all-tbody academic-tbody2 " style="text-align-last:center;">
                                             <!-- Table Headings -->
-                                            <tr style="align-items:center">
-                                            </tr>
-                                            <tr></tr>
+                                        
+                                            
                                             <tr style="align-items:center">
                                                 <th class="col-1" style="text-align: center;vertical-align: middle;">
                                                     Name of Employer/ Status of Institute/ University (Govt. /Quasi
@@ -1280,6 +1292,7 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="org{{forloop.counter}}-file" id="org{{forloop.counter}}-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                             {% endfor %}
@@ -1331,6 +1344,7 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="org1-file" id="org1-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                             {% endif %}
@@ -1396,6 +1410,7 @@
                                                     style="text-align: center;vertical-align: middle; padding: 0;">
                                                     <input type="file" style="font-size:x-small;" id="exper{{forloop.counter}}-file" accept=".pdf"
                                                         name="exper{{forloop.counter}}-file">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                             {% endfor %}
@@ -1420,6 +1435,8 @@
                                                     style="text-align: center;vertical-align: middle; padding: 0;">
                                                     <input type="file" style="font-size:x-small;" id="exper1-file" accept=".pdf"
                                                         name="exper1-file">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+
                                                 </td>
                                             </tr>
                                             {% endif %}
@@ -1431,6 +1448,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="flexi-center">
+                            <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save Section</button>
                         </div>
                     </section>
                     <!-- Research Details -->
@@ -1509,6 +1529,11 @@
                                                     <input id="books{{forloop.counter}}-file" type="file"
                                                         style="font-size: x-small;text-align-last: left;" accept=".pdf"
                                                         name="books{{forloop.counter}}-file">
+                                                    <span style="display:inline;align-self:center">
+                                                        <button type="button"  onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">
+                                                            X
+                                                        </button>
+                                                    </span>
                                                 </td>
                                             </tr>
                                             {% endfor %}
@@ -1549,6 +1574,7 @@
                                                     <input id="books1-file" type="file"
                                                         style="font-size: x-small;text-align-last: left;" accept=".pdf"
                                                         name="books1-file">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                             {% endif %}
@@ -1639,6 +1665,7 @@
                                                     style="text-align-last: center; padding: 0;vertical-align: middle;">
                                                     <input type="file" name="chapters{{forloop.counter}}-file" id="chapters{{forloop.counter}}-file"
                                                     accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                             {% endfor %}
@@ -1688,6 +1715,7 @@
                                                     style="text-align-last: center; padding: 0;vertical-align: middle;">
                                                     <input type="file" name="chapters1-file" id="chapters1-file"
                                                     accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
+                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                             {% endif %}
@@ -1790,7 +1818,8 @@
                                                     <input type="file" name="news_articles1-file"
                                                         id="news_articles1-file"
                                                         accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
-                                                </td>
+                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    </td>
                                             </tr>
                                             {% endfor %}
                                             {% else %}
@@ -1852,7 +1881,8 @@
                                                     <input type="file" name="news_articles1-file"
                                                         id="news_articles1-file"
                                                         accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
-                                                </td>
+                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    </td>
                                             </tr>
                                             {% endif %}
                                         </tbody>
@@ -1950,7 +1980,8 @@
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input id="semi_article1-file" type="file" accept=".pdf"
                                                         style="font-size: x-small;" name="semi_articles{{forloop.counter}}-file">
-                                                </td>
+                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    </td>
                                             </tr>
                                             {% endfor %}
                                             {% else %}
@@ -2006,6 +2037,7 @@
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input id="semi_article1-file" type="file" accept=".pdf"
                                                         style="font-size: x-small;" name="semi_articles1-file">
+                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
                                                 </td>
                                             </tr>
                                             {% endif %}
@@ -2020,7 +2052,9 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="flexi-center">
+                            <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save Section</button>
+                        </div>
                     </section>
 
 
@@ -2693,6 +2727,9 @@
 
                             </div>
 
+                        </div>
+                        <div class="flexi-center">
+                            <button onclick="handleSaveDraft()" class="button small primary" style="margin-left: 1em;">Save Section</button>
                         </div>
                     </section>
                     <!--	Other Important detail	-->
@@ -3376,9 +3413,24 @@
         }
         const handleformsubmit = (e) => {
             // e.preventDefault();
-            // console.log("HERE", e.target);
+            console.log("HERE", e.target);
             console.log(document.getElementById('check-btn').value)
-            return confirm('Do you really want to Submit?');
+            let conf = confirm((document.getElementById('check-btn').value=='draft')?
+            'Do you really want to Save Draft?':
+            'Do you really want to Submit?') ;
+
+            if(conf){
+               // console.log(document.getElementsByTagName('button'))
+                document.querySelectorAll('button').forEach((item)=>{
+                    item.disabled=true;
+                    // console.log(item);
+                 });
+                showLoadingModal();
+            }
+           // console.log(document.getElementsByTagName('button'))
+
+            return conf;
+           // return confirm('Do you really want to Submit?');
         }
         const toggleRequired = ()=>{
             let toggle=document.getElementsByClassName("requiredToggleSad");

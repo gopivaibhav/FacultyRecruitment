@@ -1,0 +1,55 @@
+
+<script>
+    function showLoadingModal(){
+        loadingModal = document.getElementById('loadingModal')
+        loadingModal.style.display = 'block';
+    }
+
+    //For forms: add the class "show-loading-after-submit" to any form you want to show the loader
+   // var formsToDelay = document.getElementsByClassName('show-loading');
+   // for (var i = 0; i < formsToDelay.length; i++) {
+   //     formsToDelay[i].addEventListener('submit', showLoadingModal);
+   // }
+
+
+
+    // Not used
+   // function showLoader(){
+      //  bodyEl = document.getElementsByTagName('body')
+   //     bodyEl.append("<div><div id='loadingModal' class='modal' style='visibility:visible; opacity: 1; display: none;'><div class='modal__inner p3 center' style='height:600px;'><h3>Please wait...</h3><p>Your request is processing. This might take a few moments.</p></div></div></div>");
+   // }
+</script>
+
+<div>
+    <div id="loadingModal" class="modal" style="visibility:visible; opacity: 1 ;display: none;z-index: 9999;
+    height:100vh;
+    width:100%;top:0;left:0;position:fixed;
+    background:rgb(180, 180, 180,0.5);
+    ">
+        <div class="modal__inner p3 center" style="height:600px;position:fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction:column;
+        
+        ">
+            <h3 style="color:black">Please wait...</h3>
+            <div class="fa-3x">
+                <!-- <i class="fas fa-spinner fa-spin"></i>
+                <i class="fas fa-circle-notch fa-spin"></i>
+                <i class="fas fa-sync fa-spin"></i>
+                <i class="fas fa-cog fa-spin"></i> -->
+                <i class="fas fa-spinner fa-pulse fa-blue"></i>
+                <!-- <i class="fas fa-stroopwafel fa-spin"></i> -->
+              </div>
+             <p style="color:black">
+                Your request is in process. This might take a few moments.
+            </p>
+        
+            <!-- <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"> --> 
+        </div>
+      </div>
+</div>

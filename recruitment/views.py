@@ -41,6 +41,7 @@ def getData(application_number):
                     'address_mail': (General.objects.filter(applicant=application_number)[0].address_mail).strip(),
                     'telephone_mail': (General.objects.filter(applicant=application_number)[0].telephone_mail).strip() or "N/A",
                     'pin_mail': (General.objects.filter(applicant=application_number)[0].pin_mail).strip(),
+                    'mobile_code': (General.objects.filter(applicant=application_number)[0].mobile_code).strip(),                    
                     'mobile_number': (General.objects.filter(applicant=application_number)[0].mobile_number).strip(),
                     'email': (General.objects.filter(applicant=application_number)[0].email).strip(),
                     'gender': (General.objects.filter(applicant=application_number)[0].gender).strip(),
@@ -152,8 +153,8 @@ def generate_pdf(request,application_number, *args, **kwargs):
                     'address_mail': (General.objects.filter(applicant=application_number)[0].address_mail).strip(),
                     'telephone_mail': (General.objects.filter(applicant=application_number)[0].telephone_mail).strip() or "N/A",
                     'pin_mail': (General.objects.filter(applicant=application_number)[0].pin_mail).strip(),
-                    'mobile_code':(General.objects.filter(applicant=application_number)[0].mobile_number).strip()[:2],
-                    'mobile_number': (General.objects.filter(applicant=application_number)[0].mobile_number).strip()[2:],
+                    'mobile_code':(General.objects.filter(applicant=application_number)[0].mobile_code).strip(),
+                    'mobile_number': (General.objects.filter(applicant=application_number)[0].mobile_number).strip(),
                     'email': (General.objects.filter(applicant=application_number)[0].email).strip(),
                     'gender': (General.objects.filter(applicant=application_number)[0].gender).strip(),
                     'marital_status': (General.objects.filter(applicant=application_number)[0].marital_status).strip(),
@@ -296,6 +297,7 @@ def export_csv(request):
                     'Address',
                     'Pin Code',
                     'Telephone No.',
+                    'Country Code'
                     'Mobile No.',
                     'Email ID',
                     'Gender',
@@ -488,6 +490,8 @@ def export_csv(request):
                            General.objects.filter(applicant=i)[
                                0].telephone_perm,
                            General.objects.filter(applicant=i)[0].pin_perm,
+                           General.objects.filter(applicant=i)[
+                               0].mobile_code,
                            General.objects.filter(applicant=i)[
                                0].mobile_number,
                            General.objects.filter(applicant=i)[0].email,
@@ -1096,6 +1100,7 @@ def viewMore(request, application_number):
             'address_mail': General.objects.filter(applicant=application_number)[0].address_mail,
             'telephone_mail': General.objects.filter(applicant=application_number)[0].telephone_mail,
             'pin_mail': General.objects.filter(applicant=application_number)[0].pin_mail,
+            'mobile_code': General.objects.filter(applicant=application_number)[0].mobile_code,
             'mobile_number': General.objects.filter(applicant=application_number)[0].mobile_number,
             'email': General.objects.filter(applicant=application_number)[0].email,
             'gender': General.objects.filter(applicant=application_number)[0].gender,
@@ -1212,8 +1217,8 @@ def submission_form(request):
         general_data['address_mail'] = data['mailingaddress']
         general_data['telephone_mail'] = data['mailingtelephone']
         general_data['pin_mail'] = data['mailingpincode']
-        general_data['mobile_number'] = str(
-            data['mobilecode']) + str(data['mobile'])
+        general_data['mobile_code'] = str(data['mobilecode'])
+        general_data['mobile_number'] = str(data['mobile'])
         general_data['email'] = data['email']
         general_data['gender'] = data['gender']
         general_data['marital_status'] = data['maritalstatus']
@@ -1576,6 +1581,7 @@ def submission_form(request):
         # Books
         num_of_books_records = list(
             filter(lambda s: 'books' in s, list(data.keys())))
+        print(num_of_books_records)
         last_book_record = num_of_books_records[len(num_of_books_records)-1]
         number_books_record = last_book_record[5]
         # books_data = []
@@ -1820,8 +1826,8 @@ def handleDraft(request):
         general_data['address_mail'] = data['mailingaddress']
         general_data['telephone_mail'] = data['mailingtelephone']
         general_data['pin_mail'] = data['mailingpincode']
-        general_data['mobile_number'] = str(
-            data['mobilecode']) + str(data['mobile'])
+        general_data['mobile_code'] = str(data['mobilecode'])
+        general_data['mobile_number'] = str(data['mobile'])
         general_data['email'] = data['email']
         if "gender" in data:
             general_data['gender'] = data['gender']
