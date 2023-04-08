@@ -135,7 +135,7 @@ class EmploymentExp(models.Model):
 
 class General(models.Model):
     full_name = models.CharField(max_length=200)
-    DOB = models.DateField()
+    DOB = models.DateField(blank=True,null=True)
     father_name = models.CharField(max_length=200)
     address_perm = models.CharField(max_length=200)
     telephone_perm = models.CharField(max_length=20)
@@ -143,6 +143,7 @@ class General(models.Model):
     address_mail = models.CharField(max_length=200)
     telephone_mail = models.CharField(max_length=20)
     pin_mail = models.CharField(max_length=6,default=None)
+    mobile_code = models.CharField(max_length=5,default="+91")
     mobile_number = models.CharField(max_length=15)
     email = models.EmailField(max_length=50)
     gender = models.CharField(max_length=20)
