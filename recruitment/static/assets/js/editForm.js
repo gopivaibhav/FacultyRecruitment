@@ -189,7 +189,7 @@ $('form input').keydown(function (e) {
 
 ////////phd table ongoing
 $(document).ready(function () {
-    var newAcademicsNo = 2;
+    var newAcademicsNo =  $('.ongoing-tbody').children().length;
     $('.add-more-phd1').on('click touchstart', function (e) {
         e.preventDefault();
         
@@ -232,7 +232,7 @@ $(document).ready(function () {
 
 /////////phd table thesis
 $(document).ready(function () {
-    var newAcademicsNo = 2;
+    var newAcademicsNo =  $('.thesis-tbody').children().length;;
     $('.add-more-phd2').on('click touchstart', function (e) {
         e.preventDefault();
         var newIn3 = '<tr id="thesis1">' +
@@ -271,7 +271,7 @@ $(document).ready(function () {
 
 ///////phd table awarded
 $(document).ready(function () {
-    var newAcademicsNo = 2;
+    var newAcademicsNo = $('.awarded-tbody').children().length;
     $('.add-more-phd3').on('click touchstart', function (e) {
         e.preventDefault();
         var newIn3 = '<tr id="thesis1">' +
@@ -367,7 +367,7 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-    var newAcademicsNo = 5;
+    var newAcademicsNo = $('.academic-tbody').children().length;
     $('.add-more').on('click touchstart', function (e) {
         e.preventDefault();
         var newIn = '<tr class="appliRow' + newAcademicsNo + '" id="field1"> <td class="col-2" style="text-align: center; padding: 0;">' +
@@ -390,7 +390,7 @@ $(document).ready(function () {
             '<span style="display:inline"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
         $('.academic-tbody').append(newIn);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -418,7 +418,7 @@ $(document).ready(function () {
 /////////////////////// table 2  section C  (Details of Employment Experience) /////////////////
 
 $(document).ready(function () {
-    var newAcademicsNo = 2;
+    var newAcademicsNo = $('.academic-tbody2').children().length;
     $('.add-more2').on('click touchstart', function (e) {
         e.preventDefault();
 
@@ -439,7 +439,7 @@ $(document).ready(function () {
             '</td></tr>';
 
         $('.academic-tbody2').append(newIn2);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -467,7 +467,7 @@ $(document).ready(function () {
 /////////////////////// table 2B  section C  (Research Experience) /////////////////
 
 $(document).ready(function () {
-    var newAcademicsNo = 2;
+    var newAcademicsNo = $('.academic-tbody3').children().length;
     $('.add-more2B').on('click touchstart', function (e) {
         e.preventDefault();
 
@@ -480,7 +480,7 @@ $(document).ready(function () {
             '</td></tr>';
 
         $('.academic-tbody3').append(newIn2);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -503,6 +503,7 @@ $(document).ready(function () {
 /////////////  table 3  Section D (Books)  ///////////////
 
 $(document).ready(function () {
+    var newAcademicsNo = $('.academic-tbody4').children().length;
     $('.add-more3').on('click touchstart', function (e) {
         e.preventDefault();
         // $("#book").last()
@@ -519,7 +520,7 @@ $(document).ready(function () {
             '</td></tr>';
 
         $('.academic-tbody4').append(newIn3);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -540,7 +541,7 @@ $(document).ready(function () {
 //////////////////  table 4  section d (Chapters)   ////////////////////
 
 $(document).ready(function () {
-    var newAcademicsNo = 2;
+    var newAcademicsNo = $('.academic-tbody5').children().length;
     $('.add-more4').on('click touchstart', function (e) {
         e.preventDefault();
         var newIn4 = '<tr id="field1"><td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input  type="text" name="chapters' + newAcademicsNo + '-book_title" id="chapters' + newAcademicsNo + '-book_title" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Title of the Chapter(s) "></td>' +
@@ -554,7 +555,7 @@ $(document).ready(function () {
             '</td></tr>';
 
         $('.academic-tbody5').append(newIn4);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -575,7 +576,7 @@ $(document).ready(function () {
 ////////////////////////     table 5  section d  (Research/Articles/Papers published in Journals)  ////////////
 
 $(document).ready(function () {
-    var newAcademicsNo = 2;
+    var newAcademicsNo = $('.academic-tbody6').children().length;
     $('.add-more5').on('click touchstart', function (e) {
         e.preventDefault();
         var newIn6 = '<tr id="field1"><td class="col-1" style="text-align: center; padding: 0;vertical-align: middle;"><input  type="text" name="news_articles' + newAcademicsNo + '-article_title" id="news_articles' + newAcademicsNo + '-article_title" style="margin: 0; background-color: transparent; border:none; background-color: transparent; border: none;" placeholder="Title of research"></td>' +
@@ -592,7 +593,7 @@ $(document).ready(function () {
             '<span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>' +
             '</td></tr>';
         $('.academic-tbody6').append(newIn6);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
@@ -614,7 +615,7 @@ $(document).ready(function () {
 ///////////////////////////    table 6  section d  (Papers presented)  //////////////////
 
 $(document).ready(function () {
-    var newAcademicsNo = 2;
+    var newAcademicsNo = $('.academic-tbody7').children().length;
     $('.add-more6').on('click touchstart', function (e) {
         e.preventDefault();
         var newIn7 = '<tr id="field1"><td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" name="semi_articles' + newAcademicsNo + '-article_title" id="semi_articles' + newAcademicsNo + '-article_title" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Title of research article/paper(s)"></td>' +
@@ -633,7 +634,7 @@ $(document).ready(function () {
             '</td></tr>';
 
         $('.academic-tbody7').append(newIn7);
-
+        newAcademicsNo+=1;
         $('form input').keydown(function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
