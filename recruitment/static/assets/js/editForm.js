@@ -52,14 +52,14 @@ function experiments_input(e) {
     document.getElementById('computational_projects').value= parseInt(abc) + parseInt(xyz);
 }
 
-// function changeReservation(e) {
-//     document.getElementById("reservation_certificate").disabled = false;
-//     document.getElementById("reservation_certificate").required = true;
-// }
-// function changeReservation2(e) {
-//     document.getElementById("reservation_certificate").disabled = true;
-//     document.getElementById("reservation_certificate").required = false;
-// }
+function changeReservation(e) {
+    document.getElementById("reservation_certificate").disabled = false;
+    document.getElementById("reservation_certificate").required = true;
+}
+function changeReservation2(e) {
+    document.getElementById("reservation_certificate").disabled = true;
+    document.getElementById("reservation_certificate").required = false;
+}
 
 
 /////////  when clicked yes! for whether phd awarded

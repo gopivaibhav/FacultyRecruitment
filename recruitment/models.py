@@ -106,7 +106,7 @@ class EducationalQualifications(models.Model):
     obtained = models.CharField(max_length=10)
     subjects = models.CharField(max_length=200)
     year_of_passing = models.IntegerField()
-    supporting_documents = models.FileField(upload_to=handle_uploaded, null=True, blank=True)
+    supporting_documents = models.FileField(upload_to=handle_uploaded, null=True, blank=True,)
     applicant = models.ForeignKey(Applicant,
                                 on_delete=models.CASCADE,
                                 related_name='Educational_qualifications',
@@ -170,7 +170,7 @@ class General(models.Model):
                                                         ("Yes", "Yes"),
                                                         ("No", "No"),
                                                         ))
-    reservation_certificate = models.ImageField(upload_to=handle_uploaded, null=True, blank=True)
+    reservation_certificate = models.FileField(upload_to=handle_uploaded, null=True, blank=True)
     applicant = models.ForeignKey(Applicant, 
                                 on_delete=models.CASCADE,
                                 related_name='General',

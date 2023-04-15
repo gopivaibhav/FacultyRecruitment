@@ -50,7 +50,7 @@ def getData(application_number):
                     'state': (General.objects.filter(applicant=application_number)[0].state).strip(),
                     'category': (General.objects.filter(applicant=application_number)[0].category).strip(),
                     'reservation': (General.objects.filter(applicant=application_number)[0].reservation).strip(),
-                    # 'certificate': (General.objects.filter(applicant=application_number)[0].reservation_certificate),
+                    'certificate': (General.objects.filter(applicant=application_number)[0].reservation_certificate),
                 },
                 'otherinformation_data': {
                     'membership': OtherInfo.objects.filter(applicant=application_number)[0].membership,
@@ -136,6 +136,7 @@ def generate_pdf(request,application_number, *args, **kwargs):
         elif General.objects.filter(applicant=application_number)[0].email != request.user.email:
             return HttpResponseRedirect('/accounts/profile')
         elif not General.objects.filter(applicant=application_number)[0].is_completed:
+            print(list(EducationalQualifications.objects.filter(applicant=application_number)),sep='\n');
             sendData = {
                     'application_number': (application_number).strip(),
                     'date': (Applicant.objects.filter(application_no=application_number)[0].date),
@@ -175,6 +176,7 @@ def generate_pdf(request,application_number, *args, **kwargs):
                     'administrative_details': AdministrativeDetails.objects.filter(applicant=application_number)[0].administrative_details,
                     'ThesisSubmitted': list(ThesisSubmitted.objects.filter(applicant=application_number)),
                     'PhDAwarded': list(PhDAwarded.objects.filter(applicant=application_number)),
+                    'PhDOngoing': list(PhDOngoing.objects.filter(applicant=application_number)),
                     'SponsoredProjects': {
                         'spo_tot_number': SponsoredProject.objects.filter(applicant=application_number)[0].spo_tot_number,
                         'spo_ongoing': SponsoredProject.objects.filter(applicant=application_number)[0].spo_ongoing,
@@ -227,19 +229,19 @@ def generate_pdf(request,application_number, *args, **kwargs):
                     'PhD_awarded': PhD.objects.filter(applicant=application_number)[0].PhD_awarded,
                     'PhD_details': PhD.objects.filter(applicant=application_number)[0].PhD_details
                 }
-            if(PhDOngoing.objects.filter(applicant=application_number).count() != 0):
-                sendData['PhDOngoing'] = {
-                    'PhD_title': PhDOngoing.objects.filter(applicant=application_number)[0].PhD_title,
-                    'Research_Domain': PhDOngoing.objects.filter(applicant=application_number)[0].Research_Domain,
-                    'Institute_Name': PhDOngoing.objects.filter(applicant=application_number)[0].Institute_Name,
-                    'University_Name': PhDOngoing.objects.filter(applicant=application_number)[0].University_Name,
-                    'Registration_Date': PhDOngoing.objects.filter(applicant=application_number)[0].Registration_Date,
-                                        'PhD_title': PhDOngoing.objects.filter(applicant=application_number)[0].PhD_title,
-                    'Research_Domain': PhDOngoing.objects.filter(applicant=application_number)[0].Research_Domain,
-                    'Institute_Name': PhDOngoing.objects.filter(applicant=application_number)[0].Institute_Name,
-                    'University_Name': PhDOngoing.objects.filter(applicant=application_number)[0].University_Name,
-                    'Registration_Date': PhDOngoing.objects.filter(applicant=application_number)[0].Registration_Date,
-                }
+            # if(PhDOngoing.objects.filter(applicant=application_number).count() != 0):
+            #     sendData['PhDOngoing'] = {
+            #         'PhD_title': PhDOngoing.objects.filter(applicant=application_number)[0].PhD_title,
+            #         'Research_Domain': PhDOngoing.objects.filter(applicant=application_number)[0].Research_Domain,
+            #         'Institute_Name': PhDOngoing.objects.filter(applicant=application_number)[0].Institute_Name,
+            #         'University_Name': PhDOngoing.objects.filter(applicant=application_number)[0].University_Name,
+            #         'Registration_Date': PhDOngoing.objects.filter(applicant=application_number)[0].Registration_Date,
+            #                             'PhD_title': PhDOngoing.objects.filter(applicant=application_number)[0].PhD_title,
+            #         'Research_Domain': PhDOngoing.objects.filter(applicant=application_number)[0].Research_Domain,
+            #         'Institute_Name': PhDOngoing.objects.filter(applicant=application_number)[0].Institute_Name,
+            #         'University_Name': PhDOngoing.objects.filter(applicant=application_number)[0].University_Name,
+            #         'Registration_Date': PhDOngoing.objects.filter(applicant=application_number)[0].Registration_Date,
+            #     }
             if(len(sendData['AcademicDetails']) == 0):
                 sendData['counter'] = [1, 2, 3, 4]
             return render(request, 'recruitment/editForm.html', sendData)
@@ -1190,7 +1192,7 @@ def viewMore(request, application_number):
 def submission_form(request):
     if request.method == 'POST':
         data = request.POST.copy()
-
+        # print("submission_form")
         # Applicant
         applicant_data = {}
         number = len(Applicant.objects.filter(
@@ -1228,7 +1230,8 @@ def submission_form(request):
         general_data['reservation'] = data['reservation']
         general_data['is_completed'] = True
         if(data.get('reservation') == 'Yes'):
-            general_data['reservation_certificate'] = request.FILES['reservation_certificate']
+            if( 'reservation_certificate' in requeset.FILES):
+                general_data['reservation_certificate'] = request.FILES['reservation_certificate'] 
         general_data['applicant'] = Applicant.objects.get(
             application_no=application_number)
         General.objects.create(**general_data)
@@ -1253,9 +1256,12 @@ def submission_form(request):
         signed_data = {}
         signed_data['place'] = data['signPlace']
         signed_data['date'] = datetime.datetime.now().date()
-        signed_data['signature'] = request.FILES['signUpload']
-        signed_data['resume'] = request.FILES['resumeUpload']
-        signed_data['receipt'] = request.FILES['receipt']
+        if('signUpload' in request.FILES):
+            signed_data['signature'] = request.FILES['signUpload']
+        if('resumeUpload' in request.FILES):
+            signed_data['resume'] = request.FILES['resumeUpload']
+        if('receipt' in request.FILES):
+            signed_data['receipt'] = request.FILES['receipt']
         signed_data['applicant'] = Applicant.objects.get(
             application_no=application_number)
         Declaration.objects.create(**signed_data)
@@ -1307,7 +1313,8 @@ def submission_form(request):
         sponsored_projects_data['spo_ongoing'] = data['spo_ongoing']
         sponsored_projects_data['spo_completed'] = data['spo_completed']
         if(data.get('spo_tot_number') != "0"):
-            sponsored_projects_data['spo_file'] = request.FILES['spofile']
+            if('spofile' in request.FILES):
+                sponsored_projects_data['spo_file'] = request.FILES['spofile']
         else:
             sponsored_projects_data['spo_file'] = "N/A"
         sponsored_projects_data['applicant'] = Applicant.objects.get(
@@ -1319,7 +1326,8 @@ def submission_form(request):
         experiments_data['exp_ongoing'] = data['exp_ongoing']
         experiments_data['exp_completed'] = data['exp_completed']
         if(data.get('exp_tot_number') != "0"):
-            experiments_data['exp_file'] = request.FILES['expfile']
+            if('expfile' in request.FILES):
+                experiments_data['exp_file'] = request.FILES['expfile']
         else:
             experiments_data['exp_file'] = "N/A"
         experiments_data['applicant'] = Applicant.objects.get(
@@ -1509,6 +1517,13 @@ def submission_form(request):
         num_of_academic_records_length = len(num_of_academic_records)
         last_academic_record = num_of_academic_records[num_of_academic_records_length-1]
         number_academic_record = last_academic_record[6]
+        file_list = list(EducationalQualifications.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
+        academic_details_check = EducationalQualifications.objects.filter(applicant_id = application_number).count()
+        # print("Reached here")
+        if(academic_details_check != 0):
+            # print("deleteing all records")
+            EducationalQualifications.objects.filter(applicant_id = application_number).delete()
+        
         for i in range(1, int(number_academic_record)+1):
             if (data.get('course'+str(i), False) == "" or data.get('course'+str(i), False) == False):
                 continue
@@ -1528,7 +1543,10 @@ def submission_form(request):
                 academic_details['year_of_passing'] = data.get(
                     'yearOfPassing'+str(i), False)
                 ans = 'course' + str(i) + '-file'
-                academic_details['supporting_documents'] = request.FILES[ans]
+                if(i<=len(file_list)):
+                    academic_details['supporting_documents'] = file_list[i-1]
+                if(ans in request.FILES):
+                    academic_details['supporting_documents'] = request.FILES[ans]
                 academic_details['applicant'] = Applicant.objects.get(
                     application_no=application_number)
                 EducationalQualifications.objects.create(**academic_details)
@@ -1845,7 +1863,8 @@ def handleDraft(request):
         else:
             general_data['is_completed'] = True
         if(data.get('reservation') == 'Yes'):
-            general_data['reservation_certificate'] = request.FILES['reservation_certificate']
+            if( 'reservation_certificate' in request.FILES):
+                general_data['reservation_certificate'] = request.FILES['reservation_certificate']
         general_data['applicant'] = Applicant.objects.get(
             application_no=application_number)
         general_check = General.objects.filter(applicant_id = application_number).count()
@@ -1882,9 +1901,12 @@ def handleDraft(request):
         signed_data = {}
         signed_data['place'] = data['signPlace']
         signed_data['date'] = datetime.datetime.now().date()
-        # signed_data['signature'] = request.FILES['signUpload']
-        # signed_data['resume'] = request.FILES['resumeUpload']
-        # signed_data['receipt'] = request.FILES['receipt']
+        if('signUpload' in request.FILES):
+            signed_data['signature'] = request.FILES['signUpload']
+        if('resumeUpload' in request.FILES):
+            signed_data['resume'] = request.FILES['resumeUpload']
+        if('receipt' in request.FILES):
+            signed_data['receipt'] = request.FILES['receipt']
         signed_data['applicant'] = Applicant.objects.get(
             application_no=application_number)
         signed_check = Declaration.objects.filter(applicant_id = application_number).count()
@@ -1961,10 +1983,12 @@ def handleDraft(request):
         sponsored_projects_data['spo_tot_number'] = data['spo_tot_number']
         sponsored_projects_data['spo_ongoing'] = data['spo_ongoing']
         sponsored_projects_data['spo_completed'] = data['spo_completed']
-        # if(data.get('spo_tot_number') != "0"):
-        #     sponsored_projects_data['spo_file'] = request.FILES['spofile']
-        # else:
-        #     sponsored_projects_data['spo_file'] = "N/A"
+        # print(data)
+        if(data.get('spo_tot_number') != "0"):
+            if('spofile' in request.FILES):
+                sponsored_projects_data['spo_file'] = request.FILES['spofile']
+        else:
+            sponsored_projects_data['spo_file'] = "N/A"
         sponsored_projects_data['applicant'] = Applicant.objects.get(
             application_no=application_number)
 
@@ -1974,16 +1998,18 @@ def handleDraft(request):
             SponsoredProject.objects.create(**sponsored_projects_data)
         else:
             SponsoredProject.objects.filter(applicant_id = application_number).update(**sponsored_projects_data)
+            # print(SponsoredProject.objects.filter(applicant_id = application_number).first())
 
         # # Experiments
         experiments_data = {}
         experiments_data['exp_tot_number'] = data['exp_tot_number']
         experiments_data['exp_ongoing'] = data['exp_ongoing']
         experiments_data['exp_completed'] = data['exp_completed']
-        # if(data.get('exp_tot_number') != "0"):
-        #     experiments_data['exp_file'] = request.FILES['expfile']
-        # else:
-        #     experiments_data['exp_file'] = "N/A"
+        if(data.get('exp_tot_number') != "0"):
+            if('expfile' in request.FILES):
+                experiments_data['exp_file'] = request.FILES['expfile']
+        else:
+            experiments_data['exp_file'] = "N/A"
         experiments_data['applicant'] = Applicant.objects.get(
             application_no=application_number)
         experiments_check = Experiments.objects.filter(applicant_id = application_number).count()
@@ -2010,7 +2036,7 @@ def handleDraft(request):
             ongoing_data['supporting_documents'] = "N/A"
             ongoing_data['applicant'] = Applicant.objects.get(
                 application_no=application_number)
-            PhDOngoing.objects.create(**ongoing_data)
+            # PhDOngoing.objects.create(**ongoing_data)
             submitted_data = {}
             submitted_data['PhD_title'] = "N/A"
             submitted_data['Research_Domain'] = "N/A"
@@ -2021,7 +2047,7 @@ def handleDraft(request):
             submitted_data['supporting_documents'] = "N/A"
             submitted_data['applicant'] = Applicant.objects.get(
                 application_no=application_number)
-            ThesisSubmitted.objects.create(**submitted_data)
+            # ThesisSubmitted.objects.create(**submitted_data)
             awarded_data = {}
             awarded_data['PhD_title'] = "N/A"
             awarded_data['Research_Domain'] = "N/A"
@@ -2032,7 +2058,7 @@ def handleDraft(request):
             awarded_data['supporting_documents'] = "N/A"
             awarded_data['applicant'] = Applicant.objects.get(
                 application_no=application_number)
-            PhDAwarded.objects.create(**awarded_data)
+            # PhDAwarded.objects.create(**awarded_data)
         else:
             if('phd' in data):
                 phd_data['PhD_details'] = data['phd']
@@ -2040,38 +2066,70 @@ def handleDraft(request):
                     application_no=application_number)
                 PhD.objects.create(**phd_data)
                 if(data['phd'] == "Ongoing"):
-                    ongoing_data = {}
-                    ongoing_data['PhD_title'] = data['ongoing1-title']
-                    ongoing_data['Research_Domain'] = data['ongoing1-domain']
-                    ongoing_data['Institute_Name'] = data['ongoing1-institute']
-                    ongoing_data['University_Name'] = data['ongoing1-university']
-                    ongoing_data['Registration_Date'] = data['ongoing1-date']
+                    # ongoing_data = {}
+                    # ongoing_data['PhD_title'] = data['ongoing1-title']
+                    # ongoing_data['Research_Domain'] = data['ongoing1-domain']
+                    # ongoing_data['Institute_Name'] = data['ongoing1-institute']
+                    # ongoing_data['University_Name'] = data['ongoing1-university']
+                    # ongoing_data['Registration_Date'] = data['ongoing1-date']
                     # ongoing_data['supporting_documents'] = request.FILES['ongoing1-file']
-                    ongoing_data['applicant'] = Applicant.objects.get(
-                        application_no=application_number)
-                    PhDOngoing.objects.create(**ongoing_data)
-                    submitted_data = {}
-                    submitted_data['PhD_title'] = "N/A"
-                    submitted_data['Research_Domain'] = "N/A"
-                    submitted_data['Institute_Name'] = "N/A"
-                    submitted_data['University_Name'] = "N/A"
-                    submitted_data['Registration_Date'] = "N/A"
-                    submitted_data['Submission_Date'] = "N/A"
-                    submitted_data['supporting_documents'] = "N/A"
-                    submitted_data['applicant'] = Applicant.objects.get(
-                        application_no=application_number)
-                    ThesisSubmitted.objects.create(**submitted_data)
-                    awarded_data = {}
-                    awarded_data['PhD_title'] = "N/A"
-                    awarded_data['Research_Domain'] = "N/A"
-                    awarded_data['Institute_Name'] = "N/A"
-                    awarded_data['University_Name'] = "N/A"
-                    awarded_data['Registration_Date'] = "N/A"
-                    awarded_data['Defense_Date'] = "N/A"
-                    awarded_data['supporting_documents'] = "N/A"
-                    awarded_data['applicant'] = Applicant.objects.get(
-                        application_no=application_number)
-                    PhDAwarded.objects.create(**awarded_data)
+                    # ongoing_data['applicant'] = Applicant.objects.get(
+                    #     application_no=application_number)
+                    # PhDOngoing.objects.create(**ongoing_data)
+                    # submitted_data = {}
+                    # submitted_data['PhD_title'] = "N/A"
+                    # submitted_data['Research_Domain'] = "N/A"
+                    # submitted_data['Institute_Name'] = "N/A"
+                    # submitted_data['University_Name'] = "N/A"
+                    # submitted_data['Registration_Date'] = "N/A"
+                    # submitted_data['Submission_Date'] = "N/A"
+                    # submitted_data['supporting_documents'] = "N/A"
+                    # submitted_data['applicant'] = Applicant.objects.get(
+                        # application_no=application_number)
+                    # ThesisSubmitted.objects.create(**submitted_data)
+                    # awarded_data = {}
+                    # awarded_data['PhD_title'] = "N/A"
+                    # awarded_data['Research_Domain'] = "N/A"
+                    # awarded_data['Institute_Name'] = "N/A"
+                    # awarded_data['University_Name'] = "N/A"
+                    # awarded_data['Registration_Date'] = "N/A"
+                    # awarded_data['Defense_Date'] = "N/A"
+                    # awarded_data['supporting_documents'] = "N/A"
+                    # awarded_data['applicant'] = Applicant.objects.get(
+                        # application_no=application_number)
+                    # PhDAwarded.objects.create(**awarded_data)
+                    num_of_submitted_records = list(
+                        filter(lambda s: 'ongoing' in s, list(data.keys())))
+                    print(num_of_submitted_records)
+                    num_of_submitted_records_length = len(num_of_submitted_records)
+                    last_awarded_record = num_of_submitted_records[num_of_submitted_records_length-6]
+                    file_list = list(PhDOngoing.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
+                    PhDOngoing.objects.filter(applicant_id = application_number).delete()
+                    number_awarded_record = last_awarded_record[7]
+                    # print(last_awarded_record)
+                    for i in range(1, int(number_awarded_record)+1):
+                        if(data.get('ongoing'+str(i) + '-title', False) == False):
+                            continue
+                        else:
+                            submitted_data = {}
+                            submitted_data['PhD_title'] = data.get(
+                                'ongoing' + str(i) + '-title')
+                            submitted_data['Research_Domain'] = data.get(
+                                'ongoing' + str(i) + '-domain')
+                            submitted_data['Institute_Name'] = data.get(
+                                'ongoing' + str(i) + '-institute')
+                            submitted_data['University_Name'] = data.get(
+                                'ongoing' + str(i) + '-university')
+                            submitted_data['Registration_Date'] = data.get(
+                                'ongoing' + str(i) + '-date')
+                            ans = 'ongoing' + str(i) + '-file'
+                            if(i <= len(file_list)):
+                                submitted_data['supporting_documents']=file_list[i-1]
+                            if( ans in request.FILES ):
+                                submitted_data['supporting_documents'] = request.FILES[ans]
+                            submitted_data['applicant'] = Applicant.objects.get(
+                                application_no=application_number)
+                            PhDOngoing.objects.create(**submitted_data)
                 elif(data['phd'] == "Thesis Submitted"):
                     ongoing_data = {}
                     ongoing_data['PhD_title'] = "N/A"
@@ -2082,11 +2140,13 @@ def handleDraft(request):
                     ongoing_data['supporting_documents'] = "N/A"
                     ongoing_data['applicant'] = Applicant.objects.get(
                         application_no=application_number)
-                    PhDOngoing.objects.create(**ongoing_data)
+                    # PhDOngoing.objects.create(**ongoing_data)
                     num_of_submitted_records = list(
                         filter(lambda s: 'thesis' in s, list(data.keys())))
                     num_of_submitted_records_length = len(num_of_submitted_records)
                     last_awarded_record = num_of_submitted_records[num_of_submitted_records_length-1]
+                    file_list = list(ThesisSubmitted.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
+                    ThesisSubmitted.objects.filter(applicant_id = application_number).delete()
                     number_awarded_record = last_awarded_record[6]
                     for i in range(1, int(number_awarded_record)+1):
                         if(data.get('thesis'+str(i) + '-title', False) == False):
@@ -2106,21 +2166,24 @@ def handleDraft(request):
                             submitted_data['Submission_Date'] = data.get(
                                 'thesis' + str(i) + '-subdate')
                             ans = 'thesis' + str(i) + '-file'
-                            # submitted_data['supporting_documents'] = request.FILES[ans]
+                            if(i <= len(file_list)):
+                                submitted_data['supporting_documents']=file_list[i-1]
+                            if( ans in request.FILES ):
+                                submitted_data['supporting_documents'] = request.FILES[ans]
                             submitted_data['applicant'] = Applicant.objects.get(
                                 application_no=application_number)
                             ThesisSubmitted.objects.create(**submitted_data)
-                    awarded_data = {}
-                    awarded_data['PhD_title'] = "N/A"
-                    awarded_data['Research_Domain'] = "N/A"
-                    awarded_data['Institute_Name'] = "N/A"
-                    awarded_data['University_Name'] = "N/A"
-                    awarded_data['Registration_Date'] = "N/A"
-                    awarded_data['Defense_Date'] = "N/A"
-                    awarded_data['supporting_documents'] = "N/A"
-                    awarded_data['applicant'] = Applicant.objects.get(
-                        application_no=application_number)
-                    PhDAwarded.objects.create(**awarded_data)
+                    # awarded_data = {}
+                    # awarded_data['PhD_title'] = "N/A"
+                    # awarded_data['Research_Domain'] = "N/A"
+                    # awarded_data['Institute_Name'] = "N/A"
+                    # awarded_data['University_Name'] = "N/A"
+                    # awarded_data['Registration_Date'] = "N/A"
+                    # awarded_data['Defense_Date'] = "N/A"
+                    # awarded_data['supporting_documents'] = "N/A"
+                    # awarded_data['applicant'] = Applicant.objects.get(
+                    #     application_no=application_number)
+                    # PhDAwarded.objects.create(**awarded_data)
                 elif(data['phd'] == "Awarded"):
                     ongoing_data = {}
                     ongoing_data['PhD_title'] = "N/A"
@@ -2131,7 +2194,7 @@ def handleDraft(request):
                     ongoing_data['supporting_documents'] = "N/A"
                     ongoing_data['applicant'] = Applicant.objects.get(
                         application_no=application_number)
-                    PhDOngoing.objects.create(**ongoing_data)
+                    # PhDOngoing.objects.create(**ongoing_data)
                     submitted_data = {}
                     submitted_data['PhD_title'] = "N/A"
                     submitted_data['Research_Domain'] = "N/A"
@@ -2148,6 +2211,8 @@ def handleDraft(request):
                     num_of_awarded_records_length = len(num_of_awarded_records)
                     last_awarded_record = num_of_awarded_records[num_of_awarded_records_length-1]
                     number_awarded_record = last_awarded_record[7]
+                    file_list = list(PhDAwarded.objects.filter(applicant_id=application_number).values_list('supporting_documents',flat=True))
+                    PhDAwarded.objects.filter(applicant_id = application_number).delete()
                     for i in range(1, int(number_awarded_record)+1):
                         if(data.get('awarded'+str(i) + '-title', False) == False):
                             continue
@@ -2166,7 +2231,10 @@ def handleDraft(request):
                             awarded_data['Defense_Date'] = data.get(
                                 'awarded'+str(i)+'-defdate', False)
                             ans = 'awarded'+str(i)+'-file'
-                            # awarded_data['supporting_documents'] = request.FILES[ans]
+                            if( i <= len(file_list)):
+                                awarded_data['supporting_documents'] = file_list[i-1]
+                            if( ans in request.FILES):
+                                awarded_data['supporting_documents'] = request.FILES[ans]
                             awarded_data['applicant'] = Applicant.objects.get(
                                 application_no=application_number)
                             PhDAwarded.objects.create(**awarded_data)
@@ -2174,18 +2242,25 @@ def handleDraft(request):
         # # Academic Details
         num_of_academic_records = list(
             filter(lambda s: 'course' in s, list(data.keys())))
+        
         num_of_academic_records_length = len(num_of_academic_records)
         last_academic_record = num_of_academic_records[num_of_academic_records_length-1]
         number_academic_record = last_academic_record[6]
+        # print(list(last_academic_record))
+        # print(request.FILES.items())
         # print(num_of_academic_records, last_academic_record, data.get('course'+str(5), False), "Checking print")
         academic_details_check = EducationalQualifications.objects.filter(applicant_id = application_number).count()
+        file_list = list(EducationalQualifications.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
+        # print("Reached here")
         if(academic_details_check != 0):
             # print("deleteing all records")
             EducationalQualifications.objects.filter(applicant_id = application_number).delete()
         # print("Going to create tables for academic details")
         for i in range(1, int(number_academic_record)+1):
+            
             if (data.get('course'+str(i), False) == "" or data.get('course'+str(i), False) == False):
                 continue
+                
             else:
                 academic_details = {}
                 academic_details['degree'] = data.get('course'+str(i), False)
@@ -2202,12 +2277,20 @@ def handleDraft(request):
                 academic_details['year_of_passing'] = data.get(
                     'yearOfPassing'+str(i), False)
                 ans = 'course' + str(i) + '-file'
-                # academic_details['supporting_documents'] = request.FILES[ans]
+                # if(!request.FILES[ans])
+                if(i<=len(file_list)):
+                    academic_details['supporting_documents'] = file_list[i-1]
+                if( ans in request.FILES):
+                    academic_details['supporting_documents'] = request.FILES[ans]
+                
                 academic_details['applicant'] = Applicant.objects.get(
                     application_no=application_number)
                 academic_details['applicant_id'] = application_number
                 # print("~~~~~~", academic_details, "~~~~~~")
+                # if(academic_details_check  == 0):
                 EducationalQualifications.objects.create(**academic_details)
+                # else:
+                    # academic_details_check = EducationalQualifications.objects.filter(applicant_id = application_number).update(**academic_details)            
             # if re.search(r'[12]\d{3}',data.get('yearOfPassing-'+str(i),False)) is None:
             #     return render(request, 'recruitment/form.html',{'message':'Enter the year in Academic details in yyyy format.'})
             # if 0 <= float(data.get('course-'+str(i)+'-marks',False)) <= 100:
@@ -2222,6 +2305,7 @@ def handleDraft(request):
             num_of_professional_records)-1]
         number_professional_record = last_professional_record[3]
         employmentExp_check = EmploymentExp.objects.filter(applicant_id = application_number).count()
+        file_list = list(EmploymentExp.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
         if(employmentExp_check !=0):
             EmploymentExp.objects.filter(applicant_id = application_number).delete()
         for i in range(1, int(number_professional_record)+1):
@@ -2256,7 +2340,10 @@ def handleDraft(request):
                 professional_details['nature'] = data.get(
                     'org' + str(i) + '-nature', False)
                 ans = 'org' + str(i) + '-file'
-                # professional_details['supporting_documents'] = request.FILES[ans]
+                if(i <= len(file_list)):
+                    professional_details['supporting_documents'] = file_list[i-1]
+                if(ans in request.FILES):
+                    professional_details['supporting_documents'] = request.FILES[ans]
                 employmentExp_check = EmploymentExp.objects.filter(applicant_id = application_number).count()
                 professional_details['applicant_id'] = application_number
                 EmploymentExp.objects.create(**professional_details)
@@ -2474,6 +2561,7 @@ def handleDraft(request):
             num_of_research_exp) - 1]
         number_research_exp_record = last_research_exp_record[5]
         research_exp_check = ResearchExp.objects.filter(applicant_id = application_number).count()
+        file_list=list(ResearchExp.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
         if(research_exp_check != 0):
             # print("deleteing all records")
             ResearchExp.objects.filter(applicant_id = application_number).delete()
@@ -2501,7 +2589,10 @@ def handleDraft(request):
                 research_exp_details['number_of_months'] = data.get(
                     'exper' + str(i) + '-months', False)
                 ans = 'exper' + str(i) + '-file'
-                # research_exp_details['supporting_documents'] = request.FILES[ans]
+                if(i <= len(file_list)):
+                    research_exp_details['supporting_documents'] = file_list[i-1]
+                if(ans in request.FIELS):
+                    research_exp_details['supporting_documents'] = request.FILES[ans]
                 research_exp_details['applicant'] = Applicant.objects.get(
                     application_no=application_number)
                 research_exp_check = ResearchExp.objects.filter(applicant_id = application_number).count()

@@ -719,7 +719,7 @@
                                     <div class="col-3 col-6-small"
                                         style="align-self: center;text-align: center;font-size: small;overflow: hidden;padding-left: 1.8em;">
                                         <input id="reservation_certificate" type="file" accept=".pdf" style="font-size: small;"
-                                        class="requiredToggleSad"    name="reservation_certificate" disabled>
+                                        class="requiredToggleSad" name="reservation_certificate" disabled>
                                         {% if reservation %}
                                             {% if reservation == 'Yes' %}
                                                 <label for="reservation_certificate">Uploaded your Certificate<br>{{ certificate.name }}<br>
@@ -859,18 +859,22 @@
                                                 </th>
                                             </tr>
                                             {% if PhDOngoing %}
+                                                {% for item in PhDOngoing %}
+                                                <script>console.log("Here    {{PhDOngoing}}");</script> 
+                                               
                                                 <tr id="ongoing1">
-                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.PhD_title}}" name="ongoing1-title" id="ongoing1-title" style="margin: 0; background-color: transparent; border:none;"placeholder="Ph.D Title"></td>
-                                                <td class="col-3"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.Research_Domain}}" name="ongoing1-domain" id="ongoing1-domain" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Broad Research Domain of Ph.D"></td>
-                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.Institute_Name}}" name="ongoing1-institute" id="ongoing1-institute" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Institute Name"></td>
-                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{PhDOngoing.University_Name}}" name="ongoing1-university" id="ongoing1-university" style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none" placeholder="University Name"></td>
-                                                <td class="col-3" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" value="{{PhDOngoing.Registration_Date}}" name="ongoing1-date" id="ongoing1-date" style="border: 0; background: transparent;"></td>
+                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{item.PhD_title}}" name="ongoing{{forloop.counter}}-title" id="ongoing{{forloop.counter}}-title" style="margin: 0; background-color: transparent; border:none;"placeholder="Ph.D Title"></td>
+                                                <td class="col-3"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{item.Research_Domain}}" name="ongoing{{forloop.counter}}-domain" id="ongoing{{forloop.counter}}-domain" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Broad Research Domain of Ph.D"></td>
+                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{item.Institute_Name}}" name="ongoing{{forloop.counter}}-institute" id="ongoing{{forloop.counter}}-institute" style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "placeholder="Institute Name"></td>
+                                                <td class="col-2"style="text-align: center; padding: 0;vertical-align: middle;"><input type="text" value="{{item.University_Name}}" name="ongoing{{forloop.counter}}-university" id="ongoing{{forloop.counter}}-university" style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none" placeholder="University Name"></td>
+                                                <td class="col-3" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" value="{{item.Registration_Date}}" name="ongoing{{forloop.counter}}-date" id="ongoing{{forloop.counter}}-date" style="border: 0; background: transparent;"></td>
                                                 <td class="col-3" style="padding:0;display:flex;place-content:space-between">
-                                                <td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;"> <span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="ongoing1-file" accept=".pdf" name="ongoing1-file"></span>
+                                                <td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;"> <span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="ongoing{{forloop.counter}}-file" accept=".pdf" name="ongoing{{forloop.counter}}-file">{{item.supporting_documents.name}}</span>
                                                 {% if forloop.counter != 1 %}
-                                                <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                 {% endif %}
                                                 </td></tr>
+                                                {%endfor%}
                                             {% else %}
                                             <tr id="ongoing1">
                                                 <td class="col-2"
@@ -948,6 +952,54 @@
                                                     <font class="document-format">(File Format: PDF)</font>
                                                 </th>
                                             </tr>
+                                            {% if ThesisSubmitted %}
+                                                {% for item in ThesisSubmitted%}
+                                                <tr id="thesis{{forloop.counter}}">
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0;vertical-align: middle;">
+                                                        <input type="text" name="thesis{{forloop.counter}}-title" id="thesis{{forloop.counter}}-title"
+                                                            style="margin: 0; background-color: transparent; border:none;"
+                                                            placeholder="Ph.D Title" value="{{ item.PhD_title}}">
+                                                    </td>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0;vertical-align: middle;">
+                                                        <input type="text" name="thesis{{forloop.counter}}-domain" id="thesis{{forloop.counter}}-domain"
+                                                            style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
+                                                            placeholder="Broad Research Domain of Ph.D" value="{{ item.Research_Domain }}">
+                                                    </td>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0;vertical-align: middle;">
+    
+                                                        <input type="text" name="thesis{{forloop.counter}}-institute" id="thesis{{forloop.counter}}-institute"
+                                                            style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
+                                                            placeholder="Institute Name" value="{{ item.Institute_Name }}">
+                                                    </td>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0;vertical-align: middle;">
+                                                        <input type="text" name="thesis{{forloop.counter}}-university" id="thesis{{forloop.counter}}-university"
+                                                            style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;border:none"
+                                                            placeholder="University Name" value="{{ item.University_Name }}">
+                                                    </td>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+                                                        <input type="date" name="thesis{{forloop.counter}}-regdate" id="thesis{{forloop.counter}}-regdate"
+                                                            style="border: 0; background: transparent;"
+                                                            onchange="dateThesisAwardedFrom(event)" value="{{ item.Registration_Date }}">
+                                                    </td>
+                                                    <td class="col-2"
+                                                        style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
+                                                        <input type="date" name="thesis{{forloop.counter}}-subdate" id="thesis{{forloop.counter}}-subdate"
+                                                            style="border: 0; background: transparent;" value="{{ item.Submission_Date }}">
+                                                    </td>
+                                                    <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
+                                                        <input type="file" name="thesis{{forloop.counter}}-file" id="thesis{{forloop.counter}}-file"
+                                                        accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">{{ item.supporting_documents.name}}
+                                                        <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
+    
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                            {% else %}
 
                                             <tr id="thesis1">
                                                 <td class="col-2"
@@ -993,6 +1045,7 @@
 
                                                 </td>
                                             </tr>
+                                            {% endif%}
                                         </tbody>
                                     </table>
                                     <div class="col-12" style="text-align:center">
@@ -1042,10 +1095,10 @@
                                                 <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="awarded{{forloop.counter}}-regdate" value="{{ele.Registration_Date}}" id="awarded{{forloop.counter}}-regdate"  style="border: 0; background: transparent;" onchange="dateThesisAwardedFrom(event)"></td>
                                                 <td class="col-2" style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;"><input type="date" name="awarded{{forloop.counter}}-defdate" value="{{ele.Defense_Date}}" id="awarded{{forloop.counter}}-defdate" style="border: 0; background: transparent;"></td>
                                     
-                                                <td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;"> <span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="awarded{{forloop.counter}}-file" accept=".pdf"  name="awarded{{forloop.counter}}-file"></span>
-                                                {% if forloop.counter != 1 %}
+                                                <td class="col-3" style="display:flex;place-content:space-between;padding:0.6em;"> <span style="overflow:hidden;align-self:center"><input style="font-size:x-small;" type="file" id="awarded{{forloop.counter}}-file" accept=".pdf"  name="awarded{{forloop.counter}}-file">{{ele.supporting_documents.name}}</span>
+                                                <!-- {% if forloop.counter != 1 %}
                                                 <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
-                                                {% endif %}
+                                                {% endif %} -->
                                                 </td></tr>
                                                 {% endfor %}
                                                 {% else %}
@@ -1161,8 +1214,10 @@
                                                         <td class="col-1" style="text-align: center; padding: 0; font-size: xx-small;">
                                                         <select onchange="reqField(event)" style="inline-size: auto; " name="yearOfPassing{{forloop.counter}}" id="yearOfPassing{{forloop.counter}}" ><option value="{{ item.year_of_passing }}" selected>{{ item.year_of_passing }}</option></select></td>
                                                         <td class="col-2" style="display:flex;place-content:space-between">
-                                                        <span style="overflow:hidden;align-self:center" ><input onchange="reqField(event)"  style="font-size:x-small;" type="file" id="course{{forloop.counter}}-file" accept=".pdf"  name="course{{forloop.counter}}-file">{{ item.supporting_documents.name }}</span>
-                                                        <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
+                                                        <span style="overflow:hidden;align-self:center" >
+                                                            <input onchange="reqField(event)"  style="font-size:x-small;" type="file" id="course{{forloop.counter}}-file" accept=".pdf"  name="course{{forloop.counter}}-file">{{ item.supporting_documents.name }}</span>
+                                                            <!-- <input style="font-size:x-small;" type="file" id="course{{forloop.counter}}-file" accept=".pdf"  name="course{{forloop.counter}}-file">{{ item.supporting_documents.name }}</span> -->
+                                                            <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                         </td>
                                                     </tr>
                                                 {% endfor %}
@@ -1302,6 +1357,7 @@
                                                 <td class="col-3" style="text-align-last: auto;vertical-align: middle;">
                                                     <input type="file" name="org{{forloop.counter}}-file" id="org{{forloop.counter}}-file"
                                                     accept=".pdf" style="border: 0; background: transparent; font-size: x-small;">
+                                                    {{item.supporting_documents.name}}
                                                     <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                 </td>
                                             </tr>
@@ -2209,7 +2265,7 @@
                                                 </h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input class="requiredToggleSad" type="file" name="spofile" id="spofile" accept=".pdf" disabled><br>
+                                                <input class="requiredToggleSad" type="file" name="spofile" id="spofile" accept=".pdf" ><br>{{SponsoredProjects.spo_file}}<br>
                                                 <label for="spofile">
                                                     <font class="size-limit">Size Limit: 250KB</font>
                                                     <font class="document-format">(File Format: PDF)</font>
@@ -2348,7 +2404,7 @@
                                             </div>
 
                                             <div class="col-8 col-12-medium">
-                                                <input class="requiredToggleSad" type="file" name="expfile" id="expfile" accept=".pdf" disabled><br>
+                                                <input class="requiredToggleSad" type="file" name="expfile" id="expfile" accept=".pdf" ><br>{{Experiments.exp_file}}<br>
                                                 <label for="expfile">
                                                     <font class="size-limit">Size Limit: 250KB</font>
                                                     <font class="document-format">(File Format: PDF)</font>
@@ -2947,7 +3003,7 @@
                                     <div class="col-4 col-6-medium col-7-small"
                                         style="align-self: center;overflow-x:hidden;padding-top:0;">
                                         <input class="requiredToggleSad"  class="requiredToggleSad" type="file" name="receipt" id="receipt" accept=".pdf" style="font-size: small;"
-                                            ><br>
+                                            ><br>{{signed_data.receipt}}<br>
                                         <label style="margin-top: 0.5em;" for="receipt">
                                             <font class="size-limit">Size Limit: 250KB</font>
                                             <font class="document-format">(File Format: PDF)</font>
@@ -3001,7 +3057,7 @@
                                             </div>
                                             <div class="col-4 col-6-medium col-7-small">
                                                 <input class="requiredToggleSad" id="resumeUpload" type="file" style="font-size: small;"
-                                                    name="resumeUpload" placeholder="Resume" accept=".pdf" >
+                                                    name="resumeUpload" placeholder="Resume" accept=".pdf" ><br>{{signed_data.resume}}
                                                 <label for="resumeUpload" style="text-align:center">(Upload Resume)<font
                                                         class="image-upload-size"><br>Size Limit: 250KB<br>File Format:
                                                         PDF</font></label>
@@ -3018,7 +3074,7 @@
                                                 <input class="requiredToggleSad" id="signUpload" type="file"
                                                     style="font-size: small;display:block;margin-left:2.5em;"
                                                     name="signUpload" placeholder="Signature" accept=".png, .jpeg, .jpg"
-                                                    >
+                                                    ><br>{{signed_data.signature}}
                                                 <label for="signUpload" style="text-align:center">(Upload
                                                     Signatures)<font class="image-upload-size"><br>Size Limit:
                                                         250KB<br>Format: JPG, JPEG, PNG</font></label>
