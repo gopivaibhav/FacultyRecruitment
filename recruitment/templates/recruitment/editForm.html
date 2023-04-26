@@ -113,10 +113,10 @@
 
                 <!--	Congratulatory Message	-->
                 <!--	Start of form	-->
-                <form  method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data"
+                <form method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data"
                     onsubmit="handleformsubmit(event)">
                     {% csrf_token %}
-
+                    
                     <!--	Initial Data	-->
                     <section id="basic" class="main alt">
                         <div class="spotlight">
@@ -382,7 +382,7 @@
                                                 {% endif %}
                                             </div>
                                             <div class="col-12" style="text-align: center;padding-top: 10%;">
-                                                <input type="checkbox" onclick="sameAddress(event)"
+                                                <input  type="checkbox" onclick="sameAddress(event)"
                                                     class="custom-control-input" id="sameaddress">
                                                 <label class="custom-control-label" for="sameaddress">If your permanent
                                                     address is same as correspondence address, then please click
@@ -2999,7 +2999,8 @@
                                         <h5><a style="font-size: 1em;color:rebeccapurple"
                                                 href="https://www.onlinesbi.com/sbicollect/icollecthome.htm?corpID=956936"
                                                 target="_blank"> (Pay from Here) </a></h5>
-                                    </div>
+                                        
+                                     </div>
                                     <div class="col-4 col-6-medium col-7-small"
                                         style="align-self: center;overflow-x:hidden;padding-top:0;">
                                         <input class="requiredToggleSad"  class="requiredToggleSad" type="file" name="receipt" id="receipt" accept=".pdf" style="font-size: small;"
@@ -3008,6 +3009,13 @@
                                             <font class="size-limit">Size Limit: 250KB</font>
                                             <font class="document-format">(File Format: PDF)</font>
                                         </label>
+                                        <label style="margin-top: 0.5em;" for="payment_id">
+                                            <h4 style="margin-bottom: 0;">Transaction ID<font class="asterisk">*
+                                            </font>
+                                        </label>
+                                        <input class="requiredToggleSad"  class="requiredToggleSad" type="text" name="payment_id" id="payment_id" style="font-size: small;"
+                                        placeholder="Transaction ID" value="{{signed_data.payment_id}}"
+                                        >
                                     </div>
 
                                     <hr width="100%">
@@ -3089,6 +3097,7 @@
                                         <h5><a style="font-size: 1em;color:rebeccapurple"
                                                 href="https://www.onlinesbi.com/sbicollect/icollecthome.htm?corpID=956936"
                                                 target="_blank"> (Pay from Here) </a></h5>
+                                
                                     </div>
                                     <div class="col-4 col-6-medium col-7-small"
                                         style="align-self: center;overflow-x:hidden;padding-top:0;">
@@ -3097,6 +3106,10 @@
                                         <label style="margin-top: 0.5em;" for="receipt">
                                             <font class="size-limit">Size Limit: 250KB</font>
                                             <font class="document-format">(File Format: PDF)</font>
+                                        </label>
+                                        <label style="margin-top: 0.5em;" for="payment_id">
+                                            <h4 style="margin-bottom: 0;">Transaction ID<font class="asterisk">*
+                                            </font>
                                         </label>
                                     </div>
                                     <div class="flexi-center">
