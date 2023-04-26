@@ -221,6 +221,7 @@ def generate_pdf(request,application_number, *args, **kwargs):
                         'date': Declaration.objects.filter(applicant=application_number)[0].date,
                         'signature': Declaration.objects.filter(applicant=application_number)[0].signature,
                         'resume': Declaration.objects.filter(applicant=application_number)[0].resume,
+                        'payment_id' : Declaration.objects.filter(applicant=application_number)[0].payment_id,
                         'receipt': Declaration.objects.filter(applicant=application_number)[0].receipt,
                     }
                 }
@@ -1909,6 +1910,7 @@ def handleDraft(request):
             signed_data['receipt'] = request.FILES['receipt']
         signed_data['applicant'] = Applicant.objects.get(
             application_no=application_number)
+        signed_data['payment_id']= data['payment_id']
         signed_check = Declaration.objects.filter(applicant_id = application_number).count()
         if(signed_check == 0):
             signed_data['applicant_id'] = application_number

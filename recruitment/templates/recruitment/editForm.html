@@ -116,7 +116,7 @@
                 <form  method="POST" action="{% url 'submission_form' %}" enctype="multipart/form-data"
                     onsubmit="handleformsubmit(event)">
                     {% csrf_token %}
-
+                    
                     <!--	Initial Data	-->
                     <section id="basic" class="main alt">
                         <div class="spotlight">
@@ -2999,7 +2999,10 @@
                                         <h5><a style="font-size: 1em;color:rebeccapurple"
                                                 href="https://www.onlinesbi.com/sbicollect/icollecthome.htm?corpID=956936"
                                                 target="_blank"> (Pay from Here) </a></h5>
-                                    </div>
+                                        <input class="requiredToggleSad"  class="requiredToggleSad" type="text" name="payment_id" id="payment_id" style="font-size: small;"
+                                        placeholder="Payment ID" value="{{signed_data.payment_id}}"
+                                        >
+                                     </div>
                                     <div class="col-4 col-6-medium col-7-small"
                                         style="align-self: center;overflow-x:hidden;padding-top:0;">
                                         <input class="requiredToggleSad"  class="requiredToggleSad" type="file" name="receipt" id="receipt" accept=".pdf" style="font-size: small;"
@@ -3089,6 +3092,9 @@
                                         <h5><a style="font-size: 1em;color:rebeccapurple"
                                                 href="https://www.onlinesbi.com/sbicollect/icollecthome.htm?corpID=956936"
                                                 target="_blank"> (Pay from Here) </a></h5>
+                                        <input class="requiredToggleSad"  class="requiredToggleSad" type="text" name="payment_id" id="payment_id" style="font-size: small;"
+                                            placeholder="Payment ID" 
+                                        >
                                     </div>
                                     <div class="col-4 col-6-medium col-7-small"
                                         style="align-self: center;overflow-x:hidden;padding-top:0;">
