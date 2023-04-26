@@ -1564,6 +1564,12 @@ def submission_form(request):
         last_professional_record = num_of_professional_records[len(
             num_of_professional_records)-1]
         number_professional_record = last_professional_record[3]
+        
+        file_list = list(EmploymentExp.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
+        professional_details_check = EmploymentExp.objects.filter(applicant_id = application_number).count()
+        if(professional_details_check != 0):
+            EmploymentExp.objects.filter(applicant_id = application_number).delete()
+
         for i in range(1, int(number_professional_record)+1):
             if (data.get('org' + str(i) + '-name') == ""):
                 professional_details = {}
@@ -1592,7 +1598,10 @@ def submission_form(request):
                 professional_details['nature'] = data.get(
                     'org' + str(i) + '-nature', False)
                 ans = 'org' + str(i) + '-file'
-                professional_details['supporting_documents'] = request.FILES[ans]
+                if(i<=len(file_list)):
+                    professional_details['supporting_documents'] = file_list[i-1]
+                if(ans in request.FILES):
+                    professional_details['supporting_documents'] = request.FILES[ans]
                 professional_details['applicant'] = Applicant.objects.get(
                     application_no=application_number)
                 EmploymentExp.objects.create(**professional_details)
@@ -1600,7 +1609,7 @@ def submission_form(request):
         # Books
         num_of_books_records = list(
             filter(lambda s: 'books' in s, list(data.keys())))
-        print(num_of_books_records)
+        # print(num_of_books_records)
         last_book_record = num_of_books_records[len(num_of_books_records)-1]
         number_books_record = last_book_record[5]
         # books_data = []
@@ -1759,6 +1768,12 @@ def submission_form(request):
         last_research_exp_record = num_of_research_exp[len(
             num_of_research_exp) - 1]
         number_research_exp_record = last_research_exp_record[5]
+        
+        file_list = list(ResearchExp.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
+        research_exp_check = ResearchExp.objects.filter(applicant_id = application_number).count()
+        if(research_exp_check != 0):
+            ResearchExp.objects.filter(applicant_id = application_number).delete()
+
         for i in range(1, int(number_research_exp_record)+1):
             if(data.get('exper' + str(i) + '-from') == ""):
                 research_exp_details = {}
@@ -1778,7 +1793,10 @@ def submission_form(request):
                 research_exp_details['number_of_months'] = data.get(
                     'exper' + str(i) + '-months', False)
                 ans = 'exper' + str(i) + '-file'
-                research_exp_details['supporting_documents'] = request.FILES[ans]
+                if(i<=len(file_list)):
+                    research_exp_details['supporting_documents'] = file_list[i-1]
+                if(ans in request.FILES):
+                    research_exp_details['supporting_documents'] = request.FILES[ans]
                 research_exp_details['applicant'] = Applicant.objects.get(
                     application_no=application_number)
                 ResearchExp.objects.create(**research_exp_details)
@@ -2356,11 +2374,14 @@ def handleDraft(request):
         # # Books
         num_of_books_records = list(
             filter(lambda s: 'books' in s, list(data.keys())))
+        # print(num_of_books_records)
         last_book_record = num_of_books_records[len(num_of_books_records)-1]
         number_books_record = last_book_record[5]
         # books_data = []
         # print("Boooks Data:", num_of_books_records, "\n\n")
         books_check = Books.objects.filter(applicant_id = application_number).count()
+        file_list = list(Books.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
+
         if(books_check != 0):
             Books.objects.filter(applicant_id = application_number).delete()
         for i in range(1, int(number_books_record)+1):
@@ -2392,6 +2413,10 @@ def handleDraft(request):
                 books_details['isbn'] = data.get(
                     'books' + str(i) + '-number', False)
                 ans = 'books' + str(i) + '-file'
+                if(i <= len(file_list)):
+                    books_details['supporting_documents'] = file_list[i-1]
+                if(ans in request.FILES):
+                    books_details['supporting_documents'] = request.FILES[ans]
                 # books_details['supporting_documents'] = request.FILES[ans]
                 books_check = Books.objects.filter(applicant_id = application_number).count()
                 books_details['applicant_id'] = application_number
@@ -2406,6 +2431,8 @@ def handleDraft(request):
         last_chapter_record = num_of_chapters_records[len(
             num_of_chapters_records)-1]
         number_chapter_record = last_chapter_record[8]
+        file_list = list(Chapters.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
+
         # print("Chapters Data:", num_of_chapters_records, "\n\n")
         chapter_check = Chapters.objects.filter(applicant_id = application_number).count()
         if(chapter_check != 0):
@@ -2441,6 +2468,12 @@ def handleDraft(request):
                     'chapters' + str(i) + '-date_of_publisher', False)
                 chapter_details['isbn_issn'] = data.get(
                     'chapters' + str(i) + '-number', False)
+                ans = 'chapters' + str(i)+'-file'
+                if(i <= len(file_list)):
+                    chapter_details['supporting_documents'] = file_list[i-1]
+                if(ans in request.FILES):
+                    chapter_details['supporting_documents'] = request.FILES[ans]
+                
                 # chapter_details['supporting_documents'] = request.FILES['chapters' +
                 #                                                         str(i)+'-file']
                 chapter_details['applicant'] = Applicant.objects.get(
@@ -2459,6 +2492,7 @@ def handleDraft(request):
             num_of_news_articles_records)-1]
         number_news_articles_record = last_news_articles_record[13]
         news_articles_check = NewspaperArticle.objects.filter(applicant_id = application_number).count()
+        file_list = list(NewspaperArticle.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
         if(news_articles_check != 0):
             NewspaperArticle.objects.filter(applicant_id = application_number).delete()
         for i in range(1, int(number_news_articles_record)+1):
@@ -2495,6 +2529,12 @@ def handleDraft(request):
                     'news_articles' + str(i) + '-referred', False)
                 news_articles_details['naas'] = data.get(
                     'news_articles' + str(i) + '-impact', False)
+                ans = 'news_articles'+str(i)+'-file'
+                if(i <= len(file_list)):
+                    news_articles_details['supporting_documents'] = file_list[i-1]
+                if(ans in request.FILES):
+                    news_articles_details['supporting_documents'] = request.FILES[ans]
+                
                 # news_articles_details['supporting_documents'] = request.FILES['news_articles'+str(
                 #     i)+'-file']
                 news_articles_details['applicant'] = Applicant.objects.get(
@@ -2512,6 +2552,8 @@ def handleDraft(request):
         last_semi_articles_record = num_of_seminar_articles[len(
             num_of_seminar_articles)-1]
         number_semi_articles_record = last_semi_articles_record[13]
+        file_list = list(SeminarArticles.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
+
         seminar_articles_check = SeminarArticles.objects.filter(applicant_id = application_number).count()
         if(seminar_articles_check != 0):
             SeminarArticles.objects.filter(applicant_id = application_number).delete()
@@ -2547,6 +2589,12 @@ def handleDraft(request):
                 seminar_articles_details['published'] = data.get(
                     'semi_articles' + str(i) + '-published', False)
                 seminar_articles_details['supporting_documents'] = "N/A"
+                ans = 'semi_articles'+str(i)+'-file'
+                if(i <= len(file_list)):
+                    seminar_articles_details['supporting_documents'] = file_list[i-1]
+                if(ans in request.FILES):
+                    seminar_articles_details['supporting_documents'] = request.FILES[ans]
+                
                 seminar_articles_details['applicant'] = Applicant.objects.get(
                     application_no=application_number)
                 seminar_articles_check = SeminarArticles.objects.filter(applicant_id = application_number).count()
@@ -2562,6 +2610,8 @@ def handleDraft(request):
         last_research_exp_record = num_of_research_exp[len(
             num_of_research_exp) - 1]
         number_research_exp_record = last_research_exp_record[5]
+        
+        
         research_exp_check = ResearchExp.objects.filter(applicant_id = application_number).count()
         file_list=list(ResearchExp.objects.filter(applicant_id = application_number).values_list('supporting_documents',flat=True))
         if(research_exp_check != 0):
@@ -2593,7 +2643,7 @@ def handleDraft(request):
                 ans = 'exper' + str(i) + '-file'
                 if(i <= len(file_list)):
                     research_exp_details['supporting_documents'] = file_list[i-1]
-                if(ans in request.FIELS):
+                if(ans in request.FILES):
                     research_exp_details['supporting_documents'] = request.FILES[ans]
                 research_exp_details['applicant'] = Applicant.objects.get(
                     application_no=application_number)

@@ -507,7 +507,7 @@ $(document).ready(function () {
     $('.add-more3').on('click touchstart', function (e) {
         e.preventDefault();
         // $("#book").last()
-        var newAcademicsNo = 3;
+        // var newAcademicsNo = 3;
         console.log($("#book").last(), 'last book')
         var newIn3 = '<tr id="field1">' +
             '<td class="col-2" style="text-align: center; padding: 0;vertical-align: middle;"><input type="text"  name="books' + newAcademicsNo + '-title" id="books' + newAcademicsNo + '-title" value="" style="margin: 0; background-color: transparent; border:none;" placeholder="Title of the Book" ></td>' +
