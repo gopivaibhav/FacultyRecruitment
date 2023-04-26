@@ -1475,7 +1475,7 @@
                                                 <td class="col-3"
                                                     style="text-align: center;vertical-align: middle; padding: 0;">
                                                     <input type="file" style="font-size:x-small;" id="exper{{forloop.counter}}-file" accept=".pdf"
-                                                        name="exper{{forloop.counter}}-file">
+                                                        name="exper{{forloop.counter}}-file">{{ item.supporting_documents.name }}
                                                     <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                 </td>
                                             </tr>
@@ -1594,7 +1594,7 @@
                                                 <td class="col-3" style="text-align: center;vertical-align: middle;">
                                                     <input id="books{{forloop.counter}}-file" type="file"
                                                         style="font-size: x-small;text-align-last: left;" accept=".pdf"
-                                                        name="books{{forloop.counter}}-file">
+                                                        name="books{{forloop.counter}}-file">{{ item.supporting_documents.name }}
                                                     <!-- <span style="display:inline;align-self:center">
                                                         <button type="button"  onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">
                                                             X
@@ -1730,8 +1730,8 @@
                                                 <td class="col-3"
                                                     style="text-align-last: center; padding: 0;vertical-align: middle;">
                                                     <input type="file" name="chapters{{forloop.counter}}-file" id="chapters{{forloop.counter}}-file"
-                                                    accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
-                                                    <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                    accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">{{ item.supporting_documents.name }}
+                                                    <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                 </td>
                                             </tr>
                                             {% endfor %}
@@ -1830,21 +1830,21 @@
                                             <tr id="field1">
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="news_articles1-article_title"
-                                                        id="news_articles1-article_title" value="{{item.article_title}}"
+                                                    <input type="text" name="news_articles{{forloop.counter}}-article_title"
+                                                        id="news_articles{{forloop.counter}}-article_title" value="{{item.article_title}}"
                                                         style="margin: 0; background-color: transparent; border:none;"
                                                         placeholder="Title of research">
                                                 </td>
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="text" name="news_articles1-journal_name"
-                                                        id="news_articles1-journal_name" value="{{item.journal_name}}"
+                                                    <input type="text" name="news_articles{{forloop.counter}}-journal_name"
+                                                        id="news_articles{{forloop.counter}}-journal_name" value="{{item.journal_name}}"
                                                         style="margin: 0; background-color: transparent; border: none;min-inline-size: 12vw; "
                                                         placeholder="Name of journal ">
                                                 </td>
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <select name="news_articles1-author" id="news_articles1-author"
+                                                    <select name="news_articles{{forloop.counter}}-author" id="news_articles{{forloop.counter}}-author"
                                                         style="background-color: transparent; border:none;inline-size: auto;">
                                                         <option value="{{item.author}}" disabled selected>{{item.author}}</option>
                                                         <option value="First Author">First Author</option>
@@ -1853,22 +1853,22 @@
                                                 </td>
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <input type="date" name="news_articles1-date_published"
-                                                        id="news_articles1-date_published" value="{{item.date_published}}"
+                                                    <input type="date" name="news_articles{{forloop.counter}}-date_published"
+                                                        id="news_articles{{forloop.counter}}-date_published" value="{{item.date_published}}"
                                                         style="inline-size: 9em;padding: 0;text-align: center;background-color: transparent;">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
-                                                    <input type="number" name="news_articles1-page"
-                                                        id="news_articles1-page" value="{{item.vol_no}}"
+                                                    <input type="number" name="news_articles{{forloop.counter}}-page"
+                                                        id="news_articles{{forloop.counter}}-page" value="{{item.vol_no}}"
                                                         style="border: 0; background: transparent;"
                                                         placeholder="Volume no. & Page nos." step=".01">
                                                 </td>
                                                 <td class="col-1"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
-                                                    <select name="news_articles1-referred" id="news_articles1-referred"
+                                                    <select name="news_articles{{forloop.counter}}-referred" id="news_articles{{forloop.counter}}-referred"
                                                         style="background-color: transparent; border:none;">
-                                                        <option value="{{item.referred}}" disabled selected>{{item.referred}}</option>
+                                                        <option value="{{item.referred}}"  selected>{{item.referred}}</option>
                                                         <option value="SCI/SSCI/SCI(E)/ABDC">SCI/SSCI/SCI(E)/ABDC</option>
                                                         <option value="Non (SCI/SSCI/SCI(E)/ABDC)">Non (SCI/SSCI/SCI(E)/ABDC)</option>
                                                     </select>
@@ -1876,14 +1876,14 @@
                                                 <td class="col-2"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input type="text" style="border: 0; background: transparent;"
-                                                        name="news_articles1-impact" id="news_articles1-impact" value="{{item.naas}}"
+                                                        name="news_articles{{forloop.counter}}-impact" id="news_articles{{forloop.counter}}-impact" value="{{item.naas}}"
                                                         placeholder="Impact Factor">
                                                 </td>
                                                 <td class="col-2"
                                                     style="text-align-last: center; padding: 0;vertical-align: middle;">
-                                                    <input type="file" name="news_articles1-file"
-                                                        id="news_articles1-file"
-                                                        accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">
+                                                    <input type="file" name="news_articles{{forloop.counter}}-file"
+                                                        id="news_articles{{forloop.counter}}-file"
+                                                        accept=".pdf" style="border: 0; background: transparent;font-size: x-small; ">{{ item.supporting_documents.name }}
                                                         <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                     </td>
                                             </tr>
@@ -2045,8 +2045,8 @@
                                                 <td class="col-3"
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <input id="semi_article1-file" type="file" accept=".pdf"
-                                                        style="font-size: x-small;" name="semi_articles{{forloop.counter}}-file">
-                                                        <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span>
+                                                        style="font-size: x-small;" name="semi_articles{{forloop.counter}}-file">{{ item.supporting_documents.name }}
+                                                        <!-- <span style="display:inline;align-self:center"><button type="button" onclick="removeRow(event)" class="btn remBtn" style="padding: 0;height: 0 !important;min-width:auto!important;margin:0!important;width: 2rem !important;font-size: 0.8em;color: #c514148a !important;">X</button></span> -->
                                                     </td>
                                             </tr>
                                             {% endfor %}
