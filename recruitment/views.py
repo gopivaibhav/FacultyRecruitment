@@ -64,67 +64,67 @@ def getData(application_number):
                     'reference2': OtherInfo.objects.filter(applicant=application_number)[0].reference2,
                     'reference3': OtherInfo.objects.filter(applicant=application_number)[0].reference3,
                 },
-                # 'signed_data': {
-                #     'place': Declaration.objects.filter(applicant=application_number)[0].place,
-                #     'date': Declaration.objects.filter(applicant=application_number)[0].date,
-                #     'signature': Declaration.objects.filter(applicant=application_number)[0].signature,
-                #     'resume': Declaration.objects.filter(applicant=application_number)[0].resume,
-                #     'receipt': Declaration.objects.filter(applicant=application_number)[0].receipt,
-                # },
-                # 'thesis_data': {
-                #     'ongoing_phd': Thesis.objects.filter(applicant=application_number)[0].ongoing_phd,
-                #     'completed_phd': Thesis.objects.filter(applicant=application_number)[0].completed_phd
-                # },
-                # 'administrative_details_data': {
-                #     'administrative_details': AdministrativeDetails.objects.filter(applicant=application_number)[0].administrative_details
-                # },
-                # 'Summary': {
-                #     'defence_date': Summary.objects.filter(applicant=application_number)[0].defence_date,
-                #     'total_exp': Summary.objects.filter(applicant=application_number)[0].total_exp,
-                #     'exp_post_phd': Summary.objects.filter(applicant=application_number)[0].exp_post_phd,
-                #     'total_phd_students': Summary.objects.filter(applicant=application_number)[0].total_phd_students,
-                #     'ongoing_phd_supervision': Summary.objects.filter(applicant=application_number)[0].ongoing_phd_supervision,
-                #     'total_projects': Summary.objects.filter(applicant=application_number)[0].total_projects,
-                #     'ongoing_projects': Summary.objects.filter(applicant=application_number)[0].ongoing_projects,
-                #     'computational_projects': Summary.objects.filter(applicant=application_number)[0].computational_projects,
-                #     'SCI_journal': Summary.objects.filter(applicant=application_number)[0].SCI_journal,
-                #     'SCI_journal_post_phd': Summary.objects.filter(applicant=application_number)[0].SCI_journal_post_phd
-                # },
-                # 'Patent': {
-                #     'patent_details': Patent.objects.filter(applicant=application_number)[0].patent_details,
-                # },
-                # 'SponsoredProjects': {
-                #     'spo_tot_number': SponsoredProject.objects.filter(applicant=application_number)[0].spo_tot_number,
-                #     'spo_ongoing': SponsoredProject.objects.filter(applicant=application_number)[0].spo_ongoing,
-                #     'spo_completed': SponsoredProject.objects.filter(applicant=application_number)[0].spo_completed,
-                #     'spo_file': SponsoredProject.objects.filter(applicant=application_number)[0].spo_file,
-                # },
-                # 'Experiments': {
-                #     'exp_tot_number': Experiments.objects.filter(applicant=application_number)[0].exp_tot_number,
-                #     'exp_ongoing': Experiments.objects.filter(applicant=application_number)[0].exp_ongoing,
-                #     'exp_completed': Experiments.objects.filter(applicant=application_number)[0].exp_completed,
-                #     'exp_file': Experiments.objects.filter(applicant=application_number)[0].exp_file
-                # },
-                # 'PhD': {
-                #     'PhD_awarded': PhD.objects.filter(applicant=application_number)[0].PhD_awarded,
-                #     'PhD_details': PhD.objects.filter(applicant=application_number)[0].PhD_details
-                # },
-                # 'PhDOngoing': {
-                #     'PhD_title': PhDOngoing.objects.filter(applicant=application_number)[0].PhD_title,
-                #     'Research_Domain': PhDOngoing.objects.filter(applicant=application_number)[0].Research_Domain,
-                #     'Institute_Name': PhDOngoing.objects.filter(applicant=application_number)[0].Institute_Name,
-                #     'University_Name': PhDOngoing.objects.filter(applicant=application_number)[0].University_Name,
-                #     'Registration_Date': PhDOngoing.objects.filter(applicant=application_number)[0].Registration_Date,
-                # },
-                # 'ThesisSubmitted': list(ThesisSubmitted.objects.filter(applicant=application_number)),
-                # 'PhDAwarded': list(PhDAwarded.objects.filter(applicant=application_number)),
-                # 'AcademicDetails': list(EducationalQualifications.objects.filter(applicant=application_number)),
-                # 'ProfessionalDetails': list(EmploymentExp.objects.filter(applicant=application_number)),
-                # 'BooksDetails': list(Books.objects.filter(applicant=application_number)),
-                # 'ChaptersDetails': list(Chapters.objects.filter(applicant=application_number)),
-                # 'NewspapersArticlesDetails': list(NewspaperArticle.objects.filter(applicant=application_number)),
-                # 'SeminarArticles': list(SeminarArticles.objects.filter(applicant=application_number)),
-                # 'ResearchExperienceDetails': list(ResearchExp.objects.filter(applicant=application_number))
+                'signed_data': {
+                    'place': Declaration.objects.filter(applicant=application_number)[0].place,
+                    'date': Declaration.objects.filter(applicant=application_number)[0].date,
+                    'signature': Declaration.objects.filter(applicant=application_number)[0].signature,
+                    'resume': Declaration.objects.filter(applicant=application_number)[0].resume,
+                    'receipt': Declaration.objects.filter(applicant=application_number)[0].receipt,
+                },
+                'thesis_data': {
+                    'ongoing_phd': Thesis.objects.filter(applicant=application_number)[0].ongoing_phd,
+                    'completed_phd': Thesis.objects.filter(applicant=application_number)[0].completed_phd
+                },
+                'administrative_details_data': {
+                    'administrative_details': AdministrativeDetails.objects.filter(applicant=application_number)[0].administrative_details
+                },
+                'Summary': {
+                    'defence_date': Summary.objects.filter(applicant=application_number)[0].defence_date,
+                    'total_exp': Summary.objects.filter(applicant=application_number)[0].total_exp,
+                    'exp_post_phd': Summary.objects.filter(applicant=application_number)[0].exp_post_phd,
+                    'total_phd_students': Summary.objects.filter(applicant=application_number)[0].total_phd_students,
+                    'ongoing_phd_supervision': Summary.objects.filter(applicant=application_number)[0].ongoing_phd_supervision,
+                    'total_projects': Summary.objects.filter(applicant=application_number)[0].total_projects,
+                    'ongoing_projects': Summary.objects.filter(applicant=application_number)[0].ongoing_projects,
+                    'computational_projects': Summary.objects.filter(applicant=application_number)[0].computational_projects,
+                    'SCI_journal': Summary.objects.filter(applicant=application_number)[0].SCI_journal,
+                    'SCI_journal_post_phd': Summary.objects.filter(applicant=application_number)[0].SCI_journal_post_phd
+                },
+                'Patent': {
+                    'patent_details': Patent.objects.filter(applicant=application_number)[0].patent_details,
+                },
+                'SponsoredProjects': {
+                    'spo_tot_number': SponsoredProject.objects.filter(applicant=application_number)[0].spo_tot_number,
+                    'spo_ongoing': SponsoredProject.objects.filter(applicant=application_number)[0].spo_ongoing,
+                    'spo_completed': SponsoredProject.objects.filter(applicant=application_number)[0].spo_completed,
+                    'spo_file': SponsoredProject.objects.filter(applicant=application_number)[0].spo_file,
+                },
+                'Experiments': {
+                    'exp_tot_number': Experiments.objects.filter(applicant=application_number)[0].exp_tot_number,
+                    'exp_ongoing': Experiments.objects.filter(applicant=application_number)[0].exp_ongoing,
+                    'exp_completed': Experiments.objects.filter(applicant=application_number)[0].exp_completed,
+                    'exp_file': Experiments.objects.filter(applicant=application_number)[0].exp_file
+                },
+                'PhD': {
+                    'PhD_awarded': PhD.objects.filter(applicant=application_number)[0].PhD_awarded,
+                    'PhD_details': PhD.objects.filter(applicant=application_number)[0].PhD_details
+                },
+                'PhDOngoing': {
+                    'PhD_title': PhDOngoing.objects.filter(applicant=application_number)[0].PhD_title,
+                    'Research_Domain': PhDOngoing.objects.filter(applicant=application_number)[0].Research_Domain,
+                    'Institute_Name': PhDOngoing.objects.filter(applicant=application_number)[0].Institute_Name,
+                    'University_Name': PhDOngoing.objects.filter(applicant=application_number)[0].University_Name,
+                    'Registration_Date': PhDOngoing.objects.filter(applicant=application_number)[0].Registration_Date,
+                },
+                'ThesisSubmitted': list(ThesisSubmitted.objects.filter(applicant=application_number)),
+                'PhDAwarded': list(PhDAwarded.objects.filter(applicant=application_number)),
+                'AcademicDetails': list(EducationalQualifications.objects.filter(applicant=application_number)),
+                'ProfessionalDetails': list(EmploymentExp.objects.filter(applicant=application_number)),
+                'BooksDetails': list(Books.objects.filter(applicant=application_number)),
+                'ChaptersDetails': list(Chapters.objects.filter(applicant=application_number)),
+                'NewspapersArticlesDetails': list(NewspaperArticle.objects.filter(applicant=application_number)),
+                'SeminarArticles': list(SeminarArticles.objects.filter(applicant=application_number)),
+                'ResearchExperienceDetails': list(ResearchExp.objects.filter(applicant=application_number))
             }
 
 def generate_pdf(request,application_number, *args, **kwargs):
@@ -136,7 +136,7 @@ def generate_pdf(request,application_number, *args, **kwargs):
         elif General.objects.filter(applicant=application_number)[0].email != request.user.email:
             return HttpResponseRedirect('/accounts/profile')
         elif not General.objects.filter(applicant=application_number)[0].is_completed:
-            print(list(EducationalQualifications.objects.filter(applicant=application_number)),sep='\n');
+            # print(list(EducationalQualifications.objects.filter(applicant=application_number)),sep='\n');
             sendData = {
                     'application_number': (application_number).strip(),
                     'date': (Applicant.objects.filter(application_no=application_number)[0].date),
@@ -248,6 +248,7 @@ def generate_pdf(request,application_number, *args, **kwargs):
             return render(request, 'recruitment/editForm.html', sendData)
         else:
             pdf = render_to_pdf('recruitment/pdfTest.html', getData(application_number))
+            print(getData('2023-02-27001')['applicant_data']['profile_photo'])
             return HttpResponse(pdf, content_type='application/pdf')
     except:
         if request.user.is_anonymous:
@@ -1231,7 +1232,7 @@ def submission_form(request):
         general_data['reservation'] = data['reservation']
         general_data['is_completed'] = True
         if(data.get('reservation') == 'Yes'):
-            if( 'reservation_certificate' in requeset.FILES):
+            if( 'reservation_certificate' in request.FILES):
                 general_data['reservation_certificate'] = request.FILES['reservation_certificate'] 
         general_data['applicant'] = Applicant.objects.get(
             application_no=application_number)

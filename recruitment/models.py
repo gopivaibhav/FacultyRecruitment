@@ -4,10 +4,12 @@ from django.utils import timezone
 
 def handle_uploaded_file(instance,filename):
     directory = f'{instance.application_no}/{filename}'
+    print(directory, 'from model check1')
     return directory
 
 def handle_uploaded(instance,filename):
     directory = f'{instance.applicant_id}/{filename}'
+    print(directory, 'from model check')
     return directory
 class Applicant(models.Model):
     ''' Model for applicants personal data '''

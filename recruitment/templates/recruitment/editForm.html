@@ -581,7 +581,7 @@
                                             {% if marital_status %}
                                             <option value="{{ marital_status }}" selected>{{ marital_status }}</option>
                                             {% else %}
-                                            <option value="" selected disabled>Status</option>
+                                            <option value="" selected>Status</option>
                                             {% endif %}
                                             <option value="Married"> Married </option>
                                             <option value="Unmarried"> Unmarried </option>
@@ -611,7 +611,7 @@
                                             {% if state %}
                                             <option value="{{ state }}" selected>{{ state }}</option>
                                             {% else %}
-                                            <option value="" selected disabled>Select State</option>
+                                            <option value="" selected>Select State</option>
                                             {% endif %}
                                             <option value="Andhra Pradesh">Andhra Pradesh</option>
                                             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands
@@ -663,7 +663,7 @@
                                             {% if category %}
                                             <option value="{{ category }}" selected>{{ category }}</option>
                                             {% else %}
-                                            <option value="" selected disabled>Select Category</option>
+                                            <option value="" selected>Select Category</option>
                                             {% endif %}
                                             <option value="General"> General </option>
                                             <option value="SC"> SC </option>
@@ -1570,7 +1570,7 @@
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <select name="books{{forloop.counter}}-author" id="books{{forloop.counter}}-author" 
                                                         style="inline-size: auto;">
-                                                        <option value="{{item.author}}" disabled selected>{{item.author}}</option>
+                                                        <option value="{{item.author}}" selected>{{item.author}}</option>
                                                         <option value="First author">First Author</option>
                                                         <option value="Co-author">Co-author</option>
                                                     </select>
@@ -1704,7 +1704,7 @@
                                                     style="text-align: center;vertical-align: middle;padding:0;">
                                                     <select name="chapters{{forloop.counter}}-author" id="chapters{{forloop.counter}}-author"
                                                         style="background-color: transparent; border:none;inline-size: auto;">
-                                                        <option value="{{item.author}}" disabled selected>{{item.author}}</option>
+                                                        <option value="{{item.author}}" selected>{{item.author}}</option>
                                                         <option value="First author">First Author</option>
                                                         <option value="Co-author">Co-author</option>
                                                     </select>
@@ -1846,7 +1846,7 @@
                                                     style="text-align: center; padding: 0;vertical-align: middle;">
                                                     <select name="news_articles{{forloop.counter}}-author" id="news_articles{{forloop.counter}}-author"
                                                         style="background-color: transparent; border:none;inline-size: auto;">
-                                                        <option value="{{item.author}}" disabled selected>{{item.author}}</option>
+                                                        <option value="{{item.author}}" selected>{{item.author}}</option>
                                                         <option value="First Author">First Author</option>
                                                         <option value="Co-author">Co-author</option>
                                                     </select>
@@ -2037,7 +2037,7 @@
                                                     style="text-align: center; padding: 0; font-size: xx-small;vertical-align: middle;">
                                                     <select name="semi_articles{{forloop.counter}}-published"
                                                         id="semi_article1-published">
-                                                        <option value="{{item.published}}" disabled selected>{{item.published}}</option>
+                                                        <option value="{{item.published}}" selected>{{item.published}}</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
                                                     </select>
@@ -2265,7 +2265,7 @@
                                                 </h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input class="requiredToggleSad" type="file" name="spofile" id="spofile" accept=".pdf" ><br>{{SponsoredProjects.spo_file}}<br>
+                                                <input type="file" name="spofile" id="spofile" accept=".pdf" ><br>{{SponsoredProjects.spo_file}}<br>
                                                 <label for="spofile">
                                                     <font class="size-limit">Size Limit: 250KB</font>
                                                     <font class="document-format">(File Format: PDF)</font>
@@ -2330,7 +2330,7 @@
                                                 </h5>
                                             </div>
                                             <div class="col-8 col-12-medium">
-                                                <input class="requiredToggleSad" type="file" name="spofile" id="spofile" accept=".pdf" disabled><br>
+                                                <input type="file" name="spofile" id="spofile" accept=".pdf" disabled><br>
                                                 <label for="spofile">
                                                     <font class="size-limit">Size Limit: 250KB</font>
                                                     <font class="document-format">(File Format: PDF)</font>

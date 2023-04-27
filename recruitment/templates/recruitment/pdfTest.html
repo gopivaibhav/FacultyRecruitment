@@ -163,7 +163,7 @@
     <br />
 
     <!-- // SECTION B TABLE -->
-    <!-- <table id="customers">
+    <table id="customers">
         <tr>
             <td colspan="24" style="text-align: center; font-size: 18px">
                 Section B (Academic Details)
@@ -247,9 +247,9 @@
             <td colspan="5">Name of Board / College</td>
             <td colspan="4">Grade/ Marks</td>
             <td colspan="5">Subjects</td>
-            <td colspan="5">Year of Passing</td> -->
+            <td colspan="5">Year of Passing</td>
             <!-- <td colspan="4">Supporting Document</td> Commented before-->
-        <!-- </tr>
+        </tr>
         {% for item in AcademicDetails %}
         <tr>
             <td colspan="5">
@@ -266,21 +266,21 @@
             </td>
             <td colspan="5">
                 {{item.year_of_passing}}
-            </td> -->
+            </td>
             <!-- <td colspan="4">
                 <a href={{item.supporting_documents.url}} target="_blank">
                     <font class="document_link">Link</font>
                 </a>
             </td> Commented before-->
-        <!-- </tr>
+        </tr>
         {% endfor %}
     </table>
     <br />
-    <br /> -->
+    <br />
 
     <!-- //SECTION C TABLE -->
 
-    <!-- <table id="customers">
+    <table id="customers">
         <tr>
             <td colspan="24" style="text-align: center; font-size: 18px">
                 Section C (Professional Details)
@@ -300,9 +300,9 @@
             <td colspan="4">Post held/ Designation</td>
             <td colspan="6">Period Of Employment (From and To)</td>
             <td colspan="4">Basic Salary</td>
-            <td colspan="4">Nature of Duty</td> -->
+            <td colspan="4">Nature of Duty</td>
             <!-- <td colspan="4">Supporting Documents</td> Commented before -->
-        <!-- </tr>
+        </tr>
         {% for item in ProfessionalDetails %}
         <tr>
             <td colspan="6">{{item.name}}</td>
@@ -310,17 +310,9 @@
             <td colspan="3">{{item.from_year}}</td>
             <td colspan="3">{{item.to_year}}</td>
             <td colspan="4">{{item.salary}}</td>
-            <td colspan="4">{{item.nature}}</td> -->
-            <!-- {% if item.name == "N/A" %}
-            <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
-            {% else %}
-            <td colspan="4" style="overflow-wrap: anywhere;">
-                <a href={{item.supporting_documents.url}} target="_blank">
-                    <font class="document_link">Link</font>
-                </a>
-            </td>
-            {% endif %} Commented before-->
-        <!-- </tr>
+            <td colspan="4">{{item.nature}}</td>
+            
+        </tr>
         {% endfor %}
         <tr>
             <td colspan="24" style="text-align: center; font-size: 13px;">Research Experience</td>
@@ -329,32 +321,24 @@
         <tr class="grey_cells">
             <td colspan="8">From</td>
             <td colspan="8">To</td>
-            <td colspan="8">Numbers of Months</td> -->
+            <td colspan="8">Numbers of Months</td>
             <!-- <td colspan="6">Supporting Documents</td>  Commented before-->
-        <!-- </tr>
+        </tr>
         {% for item in ResearchExperienceDetails %}
         <tr>
             <td colspan="8">{{item.From}}</td>
             <td colspan="8">{{item.to}}</td>
-            <td colspan="8">{{item.number_of_months}}</td> -->
-            <!-- {% if item.From == "N/A" %}
-            <td colspan="6">{{item.supporting_documents}}</td>
-            {% else %}
-            <td colspan="6">
-                <a href={{item.supporting_documents.url}} target="_blank">
-                    <font class="document_link">Link</font>
-                </a>
-            </td>
-            {% endif %}  Commented before-->
-        <!-- </tr>
+            <td colspan="8">{{item.number_of_months}}</td>
+            
+        </tr>
         {% endfor %}
     </table>
     <br />
-    <br /> -->
+    <br />
 
     <!-- SECTION D TABLE -->
 
-    <!-- <table id="customers">
+    <table id="customers">
         <tr>
             <td colspan="24" style="text-align: center; font-size: 18px">
                 Section D (Research and Academic Contributions Research Publications)
@@ -371,9 +355,9 @@
             <td colspan="5">Whether First Author or Co-author</td>
             <td colspan="5">Name of Publisher (with city/ country)</td>
             <td colspan="5">Month & year of publication</td>
-            <td colspan="4">ISBN/ISSN No.</td> -->
+            <td colspan="4">ISBN/ISSN No.</td>
             <!-- <td colspan="4">Supporting Documents</td>  Commented before-->
-        <!-- </tr>
+        </tr>
 
         {% for item in BooksDetails %}
         <tr>
@@ -381,18 +365,10 @@
             <td colspan="5">{{item.author}}</td>
             <td colspan="5">{{item.publisher}}</td>
             <td colspan="5" style="min-inline-size: 5em;">{{item.date_publish}}</td>
-            <td colspan="4">{{item.isbn}}</td> -->
-            <!-- {% if item.title == "N/A" %}
-            <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
-            {% else %}
-            <td colspan="4" style="overflow-wrap: anywhere;">
-                <a href={{item.supporting_documents.url}} target="_blank">
-                    <font class="document_link">Link</font>
-                </a>
-            </td>
-            {% endif %}  Commented before-->
+            <td colspan="4">{{item.isbn}}</td>
+            
 
-        <!-- </tr>
+        </tr>
         {% endfor %}
 
         <tr>
@@ -418,26 +394,18 @@
         <tr class="grey_cells">
             <td colspan="8">Name of Publisher (with city/ country)</td>
             <td colspan="8">Month & year of publication</td>
-            <td colspan="8">ISBN/ ISSN No.</td> -->
+            <td colspan="8">ISBN/ ISSN No.</td>
             <!-- <td colspan="8">Supporting Documents</td>  Commented before-->
-        <!-- </tr>
+        </tr>
 
         {% for item in ChaptersDetails %}
         <tr>
             <td colspan="8">{{item.publisher}}</td>
             <td colspan="8" style="min-inline-size: 5em;">{{item.date_of_publisher}}</td>
-            <td colspan="8">{{item.isbn_issn}}</td> -->
-            <!-- {% if item.book_title == "N/A" %}
-            <td colspan="8" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
-            {% else %}
-            <td colspan="8" style="overflow-wrap: anywhere;">
-                <a href={{item.supporting_documents.url}} target="_blank">
-                    <font class="document_link">Link</font>
-                </a>
-            </td>
-            {% endif %}  Commented before-->
+            <td colspan="8">{{item.isbn_issn}}</td>
+            
 
-        <!-- </tr>
+        </tr>
         {% endfor %}
         <tr>
             <td colspan="24" style="text-align: center; font-size: 13px;">
@@ -464,25 +432,16 @@
         <tr class="grey_cells">
             <td colspan="8">Volume no. & Page nos.</td>
             <td colspan="8">Whether Referred/Non-referred</td>
-            <td colspan="8">Impact Factor</td> -->
+            <td colspan="8">Impact Factor</td>
             <!-- <td colspan="6">Supporting Documents</td> Commented before -->
-        <!-- </tr>
+        </tr>
 
         {% for item in NewspapersArticlesDetails %}
         <tr>
             <td colspan="8">{{item.vol_no}}</td>
             <td colspan="8">{{item.referred}}</td>
-            <td colspan="8">{{item.naas}}</td> -->
-            <!-- {% if item.article_title == "N/A" %}
-            <td colspan="6" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
-            {% else %}
-            <td colspan="6" style="overflow-wrap: anywhere;">
-                <a href={{item.supporting_documents.url}} target="_blank">
-                    <font class="document_link">Link</font>
-                </a>
-            </td>
-            {% endif %}  Commented before-->
-        <!-- </tr>
+            <td colspan="8">{{item.naas}}</td>
+        </tr>
         {% endfor %}
 
         <tr>
@@ -498,9 +457,9 @@
             <td colspan="5">Subject of Conference /Seminar/Symposium/ Workshop</td>
             <td colspan="5">Organizing Institution & Name of City/Country</td>
             <td colspan="5">Duration (From and To)</td>
-            <td colspan="4">Whether the proceedings published</td> -->
+            <td colspan="4">Whether the proceedings published</td>
             <!-- <td colspan="4">Supporting Documents</td>  Commented before-->
-        <!-- </tr>
+        </tr>
 
         {% for item in SeminarArticles %}
         <tr>
@@ -508,25 +467,16 @@
             <td colspan="5">{{item.seminar_subject}}</td>
             <td colspan="5">{{item.location}}</td>
             <td colspan="5">{{item.From}}</td>
-            <td colspan="4">{{item.published}}</td> -->
-            <!-- {% if item.article_title == "N/A" %}
-            <td colspan="4" style="overflow-wrap: anywhere;">{{item.supporting_documents}}</td>
-            {% else %}
-            <td colspan="4" style="overflow-wrap: anywhere;">
-                <a href={{item.supporting_documents.url}} target="_blank">
-                    <font class="document_link">Link</font>
-                </a>
-            </td>
-            {% endif %}  Commented before-->
-        <!-- </tr>
+            <td colspan="4">{{item.published}}</td>
+        </tr>
         {% endfor %}
-    </table> -->
+    </table>
 
 
 
     <!-- Deleted Comments from here -->
     <!--Section E-->
-    <!-- <div class="header" style="margin-top: 50px;">
+    <div class="header" style="margin-top: 50px;">
         Section E (Thesis and Experiment Details)
     </div>
     <div class="header-sub">
@@ -640,9 +590,9 @@
             <td  style="background-color: #e7e7e7;">Total Number of Publications in SCI / ABDC Journals (Post PhD)</td>
             <td>{{Summary.SCI_journal_post_phd}}</td>
         </tr>
-    </table> -->
+    </table>
     <!--Section F-->
-    <!-- <div class="header">
+    <div class="header">
         Section F
     </div>
     <table id="customers">
@@ -683,9 +633,9 @@
             <td  style="background-color: #e7e7e7;">Name and Address of Third Reference</td>
             <td>{{otherinformation_data.reference3}}</td>
         </tr>
-    </table> -->
+    </table>
     <!--Declaration-->
-    <!-- <div class="header-sub" style="margin-top: 50px;">
+    <div class="header-sub" style="margin-top: 50px;">
         Declaration
     </div>
     <table id="customers">
@@ -699,7 +649,7 @@
             <td  style="background-color: #e7e7e7;">Date</td>
             <td>{{signed_data.date}}</td>
         </tr>
-    </table> -->
+    </table>
 </body>
 
 </html>
