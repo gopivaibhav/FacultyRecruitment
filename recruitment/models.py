@@ -20,7 +20,7 @@ class Applicant(models.Model):
     department = models.CharField(max_length=20)
     Research_Domain=models.TextField(default=None)
     profile_picture = models.FileField(upload_to=handle_uploaded_file, null=True, blank=True)
-    
+    status = models.TextField(default='Pending')
     def __str__(self):
         return str(self.application_no)
 

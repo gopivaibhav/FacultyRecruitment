@@ -1078,6 +1078,8 @@ def admin(request):
             application_no=i.applicant)[0].department
         presAppli['applied_date'] = Applicant.objects.filter(
             application_no=i.applicant)[0].date
+        presAppli['status']=Applicant.objects.filter(
+            application_no=i.applicant)[0].status
         appli_data.append(presAppli)
     admin_data['allData'] = appli_data
     return render(request, 'recruitment/admin.html', {'data': admin_data})
@@ -1092,7 +1094,8 @@ def viewMore(request, application_number):
             'post': Applicant.objects.filter(application_no=application_number)[0].post,
             'department': Applicant.objects.filter(application_no=application_number)[0].department,
             'reserach_domain': Applicant.objects.filter(application_no=application_number)[0].Research_Domain,
-            'profile_photo': Applicant.objects.filter(application_no=application_number)[0].profile_picture
+            'profile_photo': Applicant.objects.filter(application_no=application_number)[0].profile_picture,
+            'status': Applicant.objects.filter(application_no=application_number)[0].status
         },
         'general_data': {
             'full_name': General.objects.filter(applicant=application_number)[0].full_name,
